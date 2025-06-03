@@ -1,4 +1,4 @@
 sphinx
-myst-parser
 sphinx-book-theme
+myst-parser
 nbsphinx
