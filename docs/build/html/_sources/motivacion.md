@@ -8,6 +8,6 @@ En esta sesión abordaremos tres elementos clave para iniciar el curso:
 
 Para este último punto, utilizaremos el siguiente notebook interactivo:
 
-[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/patymunoz/modelos-graficos-probabilisticos/blob/main/notebooks/00motivacion.ipynb)
+[![Abrir en Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/patymunoz/modelos-graficos-probabilisticos/blob/main/notebooks/00-motivacion.ipynb)
 
 También puedes descargarlo y ejecutarlo localmente si prefieres trabajar en tu entorno.
