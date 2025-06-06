@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.abspath('../..'))
 
 project = 'modelos-graficos-probabilisticos'
 copyright = '2025, Paty Munoz'
-author = 'Paty Munoz'
+author = 'MCD. Paty Munoz'
 release = '0.1.0'
 
 # -- General configuration ---------------------------------------------------
@@ -50,8 +50,8 @@ html_theme_options = {
     "home_page_in_toc": True,
 }
 
-html_title = "Modelos Gráficos Probabilísticos"
-html_logo = "_static/grafos.png"
+html_title = "Modelos gráficos probabilísticos"
+html_logo = "_static/nodo.png"
 html_static_path = ['_static']
 
 # Para reconocer .md como fuente válida

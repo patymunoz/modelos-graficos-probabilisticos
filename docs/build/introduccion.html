@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introducción &#8212; Modelos Gráficos Probabilísticos</title>
+    <title>Introducción &#8212; Modelos gráficos probabilísticos</title>
   
   
   
@@ -45,7 +45,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'introduccion';</script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="next" title="Motivación" href="motivacion.html" />
+    <link rel="next" title="Clase" href="acuerdos-de-clase.html" />
     <link rel="prev" title="Modelos Gráficos Probabilísticos" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -138,8 +138,8 @@
       
     
     
-    <img src="_static/grafos.png" class="logo__image only-light" alt="Modelos Gráficos Probabilísticos - Home"/>
-    <script>document.write(`<img src="_static/grafos.png" class="logo__image only-dark" alt="Modelos Gráficos Probabilísticos - Home"/>`);</script>
+    <img src="_static/nodo.png" class="logo__image only-light" alt="Modelos gráficos probabilísticos - Home"/>
+    <script>document.write(`<img src="_static/nodo.png" class="logo__image only-dark" alt="Modelos gráficos probabilísticos - Home"/>`);</script>
   
   
 </a></div>
@@ -167,6 +167,7 @@
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Contenidos del curso</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acuerdos-de-clase.html">Clase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="motivacion.html">Motivación</a></li>
 <li class="toctree-l1"><a class="reference internal" href="herramientas.html">Herramientas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="modulo1/index.html">Módulo 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -177,6 +178,7 @@
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion5.html">Sesión 5</a></li>
 </ul>
 </details></li>
+<li class="toctree-l1"><a class="reference internal" href="recursos-bibliograficos.html">Recursos biliográficos</a></li>
 </ul>
 
     </div>
@@ -366,7 +368,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -382,6 +386,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-particulares">Objetivos particulares</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerrequisitos">Prerrequisitos</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -393,6 +407,33 @@ document.write(`
                   
   <section id="introduccion">
 <h1>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
+<p>La mayoría de las tareas requieren de una persona o un sistema automático que razone (que llegue a conclusiones con base en la información disponible).</p>
+<p>El enfoque de <strong>modelos gráficos probabilísticos</strong> constituye un esquema general para dar solución a esta problemática.</p>
+<p>Consiste en un enfoque basado en <em>modelos</em>, de manera que puedan construirse modelos interpretables y luego manipularlos por medio de algoritmos de <em>razonamiento (inferencia)</em>. Dado que la incertidumbre es un aspecto inevitable de la mayoría de las aplicaciones en la vida real, los modelos que se consideran son <strong>probabilísticos.</strong></p>
+<p>Los <strong>modelos gráficos probabilísticos</strong> son la base de varios métodos del estado del arte en varias aplicaciones tales como diagnóstico médico, visión artificial, reconocimiento de voz, procesamiento de lenguaje natural y muchos otros más. Además, son una herramienta básica para la formulación de varios problemas de aprendizaje automático.</p>
+<section id="objetivo-general">
+<h2>Objetivo general<a class="headerlink" href="#objetivo-general" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Comprender los modelos gráficos probabilísticos y sus aplicaciones en el análisis de datos, la inferencia estadística y la toma de decisiones en entornos de incertidumbre mediante la construcción, análisis y aplicación de modelos como redes bayesianas y redes de Markov para modelar sistemas complejos y resolver problemas prácticos en diversas áreas.</p></li>
+</ul>
+</section>
+<section id="objetivos-particulares">
+<h2>Objetivos particulares<a class="headerlink" href="#objetivos-particulares" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Modelar problemáticas/situaciones reales mediante grafos probabilísticos.</p></li>
+<li><p>Responder preguntas de interés práctico acerca de las problemáticas/situaciones modeladas usando algoritmos de inferencia.</p></li>
+<li><p>Estimar los parámetros y/o estructura de los modelos usando técnicas de optimización.</p></li>
+</ul>
+</section>
+<section id="prerrequisitos">
+<h2>Prerrequisitos<a class="headerlink" href="#prerrequisitos" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Probabilidad y Estadística – 🎲</p></li>
+<li><p>Programación en Python – 🐍</p></li>
+<li><p>Optimización Convexa – 📈</p></li>
+<li><p>Análisis Estadístico Multivariado 📊</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -416,11 +457,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="motivacion.html"
+       href="acuerdos-de-clase.html"
        title="siguiente página">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Motivación</p>
+        <p class="prev-next-title">Clase</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -431,6 +472,23 @@ document.write(`
             
             
               
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-particulares">Objetivos particulares</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerrequisitos">Prerrequisitos</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
             
           </div>
           <footer class="bd-footer-content">
@@ -440,7 +498,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-Por Paty Munoz
+Por MCD. Paty Munoz
 </p>
 
   </div>
