@@ -24,11 +24,13 @@ release = '0.1.0'
 extensions = [
     'myst_parser',
     'nbsphinx',
-    "sphinx_book_theme"
+    "sphinx_book_theme",
+    'sphinx.ext.mathjax'
 ]
 
 myst_enable_extensions = [
-    "colon_fence"
+    "colon_fence",
+    "amsmath", "dollarmath"
 ]
 
 templates_path = ['_templates']

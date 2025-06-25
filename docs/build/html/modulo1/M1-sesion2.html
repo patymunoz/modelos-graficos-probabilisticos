@@ -42,6 +42,8 @@
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../_static/translations.js?v=f85f4cfb"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/M1-sesion2';</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
@@ -169,7 +171,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../herramientas.html">🛠️ Herramientas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../motivacion.html">Motivación</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Módulo 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion1.html">Sesión 1</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Sesión 2</a></li>
@@ -368,7 +369,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -384,6 +387,56 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repaso-de-probabilidad">1. Repaso de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">1.1. Introducción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-la-teoria-de-probabilidad">1.2. Fundamentos de la teoría de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-muestral-omega">1.2.1. Espacio muestral <span class="math notranslate nohighlight">\((\Omega)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-potencia-mathcal-p-omega">1.2.2. Conjunto potencia <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-s-o-espacio-de-eventos">1.2.3. σ-álgebra <span class="math notranslate nohighlight">\((S)\)</span> o espacio de eventos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-probabilidad">1.2.4. Función de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-relacionan-los-conceptos-que-hemos-visto">¿Cómo se relacionan los conceptos que hemos visto?</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-probabilidad">1.2.5. Distribución de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-discretas">1.2.5.1 Distribuciones discretas</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-continuas">1.2.5.1 Distribuciones continuas</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretaciones-de-la-probabilidad">1.2.6. Interpretaciones de la probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoque-frecuentista-medir-por-repeticion">Enfoque frecuentista: medir por repetición</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoque-bayesiano-probabilidades-como-creencias">Enfoque bayesiano: probabilidades como creencias</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-conjunta-condicional-y-marginal">1.2.7. Probabilidad conjunta, condicional y marginal</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#que-nos-permite-considerar-eventos-compuestos">¿Qué nos permite considerar eventos compuestos?</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-conjunta">1. Probabilidad conjunta</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicional">2. Probabilidad condicional</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-marginal">3. Probabilidad marginal</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reglas-derivadas-de-la-probabilidad">1.2.8. Reglas derivadas de la probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-marginalizacion">📌 Regla de marginalización</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-la-cadena">📌 Regla de la cadena</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-la-probabilidad-total">📌 Regla de la probabilidad total</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia">1.2.9. Independencia</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#simetria">Simetría</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativa-para-variables">Alternativa para variables</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-condicional">1.2.10. Independencia condicional</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -393,8 +446,669 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="sesion-2">
+  <section class="tex2jax_ignore mathjax_ignore" id="sesion-2">
 <h1>Sesión 2<a class="headerlink" href="#sesion-2" title="Link to this heading">#</a></h1>
+<section id="repaso-de-probabilidad">
+<h2>1. Repaso de probabilidad<a class="headerlink" href="#repaso-de-probabilidad" title="Link to this heading">#</a></h2>
+<section id="introduccion">
+<h3>1.1. Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h3>
+<p>Antes de sumergirnos en el mundo de los <em>modelos gráficos probabilísticos</em>, comprendamos primero algunos de los fundamentos de la teoría de probabilidad, ya que constituye la base formal para este enfoque.</p>
+<p>Una forma de visualizar su importancia es observando cómo diferentes perspectivas epistemológicas y metodológicas dan lugar a distintos tipos de modelado. En la <strong>Figura 1</strong>, se muestra una distinción entre dos enfoques principales:</p>
+<ul class="simple">
+<li><p>El <strong>enfoque determinista</strong>, que se basa en el modelado no probabilísta y utiliza métodos donde no interviene el azar.</p></li>
+<li><p>El <strong>enfoque estocástico</strong>, que recurre al modelado probabilísta y se sustenta formalmente en la teoría de probabilidad.</p></li>
+</ul>
+<p>Ambos caminos convergen en aplicaciones prácticas como los <strong>modelos de aprendizaje automático (ML) y aprendizaje profundo (DL)</strong>. Estos modelos pueden surgir tanto desde una perspectiva determinista como estocástica, aunque es en el enfoque probabilístico donde encontramos herramientas más directas para representar la <em>incertidumbre</em> y tomas decisiones informadas.</p>
+<p><img alt="" src="../_images/sesion2-esquema.png" /></p>
+<p><strong>Figura 1.</strong> Elaboración propia.</p>
+</section>
+<section id="fundamentos-de-la-teoria-de-probabilidad">
+<h3>1.2. Fundamentos de la teoría de probabilidad<a class="headerlink" href="#fundamentos-de-la-teoria-de-probabilidad" title="Link to this heading">#</a></h3>
+<p>La teoría de probabilidad nos permite modelar incertidumbre mediante una estructura matemática compuesta por tres elementos: <em>un espacio muestral, un sistema de eventos medibles y una función de probabilidad</em>. Formalmente, esta estructura se expresa como la <strong>triple</strong>:</p>
+<div class="math notranslate nohighlight">
+\[(\Omega, S, \mathbb{P})\]</div>
+<hr class="docutils" />
+<p>A continuación, desglosamos cada uno de estos componentes:</p>
+<section id="espacio-muestral-omega">
+<h4>1.2.1. Espacio muestral <span class="math notranslate nohighlight">\((\Omega)\)</span><a class="headerlink" href="#espacio-muestral-omega" title="Link to this heading">#</a></h4>
+<p>El <strong>espacio muestral</strong> es el conjunto que contiene <strong>todos los posibles resultados</strong> de un experimento aleatorio. Se denota por:</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega
+\]</div>
+<ul class="simple">
+<li><p>Representa <strong>todo lo que puede pasar</strong>.</p></li>
+<li><p>Es el punto de partida para definir eventos.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Si lanzamos un dado de 6 caras, el espacio muestral es:</p>
+<p><span class="math notranslate nohighlight">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span></p>
+</div>
+<p>Puedes consultar más <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_space">aquí</a></p>
+</section>
+<section id="conjunto-potencia-mathcal-p-omega">
+<h4>1.2.2. Conjunto potencia <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span><a class="headerlink" href="#conjunto-potencia-mathcal-p-omega" title="Link to this heading">#</a></h4>
+<p>Es el conjunto de <strong>todos los subconjuntos <em>posibles</em></strong> de <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
+<ul class="simple">
+<li><p>Incluye desde el conjunto vacío <span class="math notranslate nohighlight">\(\varnothing\)</span> hasta el conjunto total <span class="math notranslate nohighlight">\(\Omega\)</span>.</p></li>
+<li><p>Representa <strong>todas las combinaciones posibles de eventos.</strong></p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Si <span class="math notranslate nohighlight">\(\Omega={1,2,3}\)</span>, entonces:</p>
+<p><span class="math notranslate nohighlight">\(P(\Omega) = \{\varnothing, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}\)</span></p>
+</div>
+<p>A continuación, podemos ver el <strong>conjunto potencia</strong> en la <strong>Figura 2</strong>, representado mediante un diagrama de Hasse.</p>
+<p><img alt="" src="../_images/hasse.png" /></p>
+<p><strong>Figura 2.</strong> Diagrama de Hasse del conjunto potencia de <span class="math notranslate nohighlight">\({1,2,3}\)</span>. Elaboración propia con base en: <a class="reference external" href="https://en.wikipedia.org/wiki/Power_set"><em>Power set</em></a>.</p>
+<p>Puedes consultar más <a class="reference external" href="https://en.wikipedia.org/wiki/Power_set">aquí</a>.</p>
+</section>
+<section id="algebra-s-o-espacio-de-eventos">
+<h4>1.2.3. σ-álgebra <span class="math notranslate nohighlight">\((S)\)</span> o espacio de eventos<a class="headerlink" href="#algebra-s-o-espacio-de-eventos" title="Link to this heading">#</a></h4>
+<p>Es una colección especial de subconjuntos de <span class="math notranslate nohighlight">\(\Omega\)</span> (es decir, una subcolección de <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span>) que cumple con tres propiedades clave:</p>
+<div class="tip admonition">
+<p class="admonition-title">Propiedades del sistema de eventos <span class="math notranslate nohighlight">\(S\)</span></p>
+<ol class="arabic simple">
+<li><p><strong>Contiene el evento vacío y el evento total</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\varnothing \in S\)</span>: representa el evento que nunca ocurre.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega \in S\)</span>: representa el evento que siempre ocurre.</p></li>
+</ul>
+</li>
+<li><p><strong>Cerrado bajo unión</strong>
+Si <span class="math notranslate nohighlight">\(\alpha, \beta \in S\)</span>, entonces <span class="math notranslate nohighlight">\(\alpha \cup \beta \in S\)</span>.
+Esto permite formar eventos como “ocurre <span class="math notranslate nohighlight">\(\alpha\)</span> o <span class="math notranslate nohighlight">\(\beta\)</span>”.</p></li>
+<li><p><strong>Cerrado bajo complemento</strong>
+Si <span class="math notranslate nohighlight">\(\alpha \in S\)</span>, entonces <span class="math notranslate nohighlight">\(\Omega - \alpha \in S\)</span> (también denotado <span class="math notranslate nohighlight">\(\alpha^c\)</span>).
+Esto garantiza que también podamos trabajar con el evento “no ocurre <span class="math notranslate nohighlight">\(\alpha\)</span>”.</p></li>
+</ol>
+</div>
+<div class="admonition-ejemplo admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Si <span class="math notranslate nohighlight">\(\Omega={1,2,3}\)</span>, una posible σ-álgebra es:</p>
+<div class="math notranslate nohighlight">
+\[S = \{\varnothing, \{1,2,3\}, \{1\}, \{2,3\}\}\]</div>
+<p>Aquí, <span class="math notranslate nohighlight">\(\{2,3\}\)</span> es el complemento de <span class="math notranslate nohighlight">\(\{1\}\)</span>, y viceversa.</p>
+</div>
+<p>Puedes consultar más <a class="reference external" href="https://en.wikipedia.org/wiki/%CE%A3-algebra#Definition_and_properties">aquí</a>.</p>
+</section>
+<section id="funcion-de-probabilidad">
+<h4>1.2.4. Función de probabilidad<a class="headerlink" href="#funcion-de-probabilidad" title="Link to this heading">#</a></h4>
+<p>Hasta ahora hemos definido el espacio muestral <span class="math notranslate nohighlight">\((\Omega)\)</span>, que contiene todos los posibles resultados de un experimento, y una σ-álgebra <span class="math notranslate nohighlight">\((S)\)</span>, que representa los subconjuntos medibles de <span class="math notranslate nohighlight">\((\Omega)\)</span>, es decir, los <strong>eventos</strong> a los que podemos asignar una probabilidad coherente.</p>
+<p>Una <strong>función de probabilidad</strong> es una regla matemática que asigna a cada evento medible un número entre <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(1\)</span>, representando <strong>cuán probable</strong> es que ese evento ocurra. Formalmente:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P} : S \rightarrow [0, 1]\]</div>
+<p>o</p>
+<div class="math notranslate nohighlight">
+\[0 \leq \mathbb{P}(\text{evento}) \leq 1\]</div>
+<p>Para que esta asignación tenga sentido y sea consistente con la intuición, la función <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> debe cumplir tres condiciones fundamentales, conocidas como los <strong>axiomas de Kolmogórov</strong>:</p>
+<div class="tip admonition">
+<p class="admonition-title">Definición formal</p>
+<p>Una función <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> es una <strong>probabilidad</strong> sobre el espacio <span class="math notranslate nohighlight">\((\Omega, S)\)</span> si cumple:</p>
+<ol class="arabic simple">
+<li><p><strong>No negatividad:</strong> <span class="math notranslate nohighlight">\(\mathbb{P}(A) \geq 0\)</span> para todo <span class="math notranslate nohighlight">\(A \in S\)</span></p></li>
+<li><p><strong>Normalización:</strong> <span class="math notranslate nohighlight">\(\mathbb{P}(\Omega) = 1\)</span></p></li>
+<li><p><strong>Aditividad numerable:</strong> si tienes una <strong>colección infinita de eventos</strong> <span class="math notranslate nohighlight">\((A_1, A_2, A_3, \ldots)\)</span> que son <strong>mutuamente excluyentes</strong> (es decir, no se superponen, o sea, <span class="math notranslate nohighlight">\((A_i \cap A_j = \emptyset)\)</span> si <span class="math notranslate nohighlight">\(( i \ne j )\)</span>), entonces la probabilidad de que ocurra alguno de esos eventos (la unión de todos ellos) es igual a la <strong>suma de las probabilidades individuales</strong>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}\left( \bigcup_{i=1}^{\infty} A_i \right) = \sum_{i=1}^{\infty} \mathbb{P}(A_i)
+\]</div>
+<p>Esto garantiza que la probabilidad se comporta de manera coherente incluso cuando se trata de <strong>infinitas situaciones posibles</strong>, no solo finitas. Es una característica esencial para que una función se considere una <strong>medida de probabilidad</strong> en <em>teoría de la medida</em>.</p>
+</div>
+<blockquote>
+<div><p>📌 <em>Nota:</em> Estos tres principios consolidan la probabilidad como una rama formal de la matemática, basada en la <em>teoría de conjuntos</em> y la <em>teoría de la medida</em>.</p>
+</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Evento en teoría de probabilidad</p>
+<p>En teoría de probabilidad, un <strong>evento</strong> es cualquier subconjunto del espacio muestral <span class="math notranslate nohighlight">\(\Omega\)</span> que <strong>pertenece a la σ-álgebra</strong> <span class="math notranslate nohighlight">\((S)\)</span>.
+Solo a estos eventos se les puede asignar una probabilidad formalmente válida.
+Por eso también se les llama <strong>eventos medibles</strong>.</p>
+</div>
+<section id="como-se-relacionan-los-conceptos-que-hemos-visto">
+<h5>¿Cómo se relacionan los conceptos que hemos visto?<a class="headerlink" href="#como-se-relacionan-los-conceptos-que-hemos-visto" title="Link to this heading">#</a></h5>
+<p>Para construir un modelo probabilístico sólido, necesitamos entender cómo se relacionan tres objetos fundamentales: el <strong>espacio muestral</strong>, el <strong>conjunto potencia</strong> y la <strong>σ-álgebra</strong>.</p>
+<ul class="simple">
+<li><p>El <strong>espacio muestral</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> es el punto de partida: contiene todos los posibles resultados de un experimento.</p></li>
+<li><p>A partir de él, podemos formar el <strong>conjunto potencia</strong> <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span>, que incluye <strong>todos los subconjuntos posibles</strong> de <span class="math notranslate nohighlight">\(\Omega\)</span>. En principio, cada uno de estos subconjuntos podría considerarse un evento.</p></li>
+<li><p>Sin embargo, no todos los subconjuntos de <span class="math notranslate nohighlight">\(\Omega\)</span> pueden ser tratados como <strong>eventos válidos</strong> desde el punto de vista de la probabilidad. Para que un subconjunto sea un <strong>evento medible</strong>, debe pertenecer a una <strong>σ-álgebra</strong> <span class="math notranslate nohighlight">\(S \subseteq \mathcal{P}(\Omega)\)</span>, la cual cumple ciertas propiedades de consistencia lógica (como estar cerrada bajo unión, complemento, etc.).</p></li>
+</ul>
+<p>Podemos resumir estas diferencias clave en la siguiente tabla:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepto</p></th>
+<th class="head"><p>Qué representa</p></th>
+<th class="head"><p>Contenido</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Espacio muestral <span class="math notranslate nohighlight">\((\Omega)\)</span></p></td>
+<td><p>Resultados posibles de un experimento</p></td>
+<td><p>Un conjunto base (como <span class="math notranslate nohighlight">\(\{1,2,3\})\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Conjunto potencia <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span></p></td>
+<td><p>Todos los subconjuntos posibles de <span class="math notranslate nohighlight">\((\Omega)\)</span></p></td>
+<td><p>Todos los eventos posibles, medibles o no</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sigma\)</span>-álgebra <span class="math notranslate nohighlight">\((S)\)</span></p></td>
+<td><p>Subconjuntos <strong>medibles</strong> de <span class="math notranslate nohighlight">\((\Omega)\)</span></p></td>
+<td><p>Subconjuntos que cumplen ciertas propiedades</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>La siguiente <strong>Figura 2</strong> ilustra visualmente cómo se relacionan estos tres niveles de generalidad:</p>
+<p><img alt="" src="../_images/all.jpg" /></p>
+<p><strong>Figura 2.</strong> Relación entre espacio muestral, conjunto potencia y <span class="math notranslate nohighlight">\(\sigma\)</span>-álgebra. Elaboración propia.</p>
+</section>
+</section>
+<section id="distribucion-de-probabilidad">
+<h4>1.2.5. Distribución de probabilidad<a class="headerlink" href="#distribucion-de-probabilidad" title="Link to this heading">#</a></h4>
+<p>Una vez definida la función de probabilidad <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>, podemos describir <strong>cómo se reparte esa probabilidad</strong> entre los posibles resultados de un experimento. A esto lo llamamos <strong>distribución de probabilidad</strong>.</p>
+<p>Dependiendo del tipo de espacio muestral, la distribución puede tomar dos formas principales:</p>
+<hr class="docutils" />
+<section id="distribuciones-discretas">
+<h5>1.2.5.1 Distribuciones discretas<a class="headerlink" href="#distribuciones-discretas" title="Link to this heading">#</a></h5>
+<p><img alt="" src="../_images/discrete-distr.png" /></p>
+<p>Este tipo de distribución se utiliza cuando el <em>espacio muestral</em> <span class="math notranslate nohighlight">\(\Omega\)</span> es <strong>finito o numerable</strong> (como lanzar un dado o una moneda).</p>
+<p>Asignan una probabilidad explícita a cada valor individual de la variable aleatoria:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(X = x_i) = p_i \quad \text{con } \sum_i p_i = 1
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Supongamos que lanzamos un dado justo.
+Entonces <span class="math notranslate nohighlight">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span> y usamos <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span> como <span class="math notranslate nohighlight">\(\sigma\)</span>-álgebra.</p>
+<p>Definimos la probabilidad como:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(\{i\}) = \frac{1}{6} \quad \text{para } i = 1,\dots,6
+\]</div>
+<p>Así, por ejemplo:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(\{2,4,6\}) = \frac{3}{6} = 0.5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(\{1\}) = \frac{1}{6}\)</span></p></li>
+</ul>
+</div>
+</section>
+<hr class="docutils" />
+<section id="distribuciones-continuas">
+<h5>1.2.5.1 Distribuciones continuas<a class="headerlink" href="#distribuciones-continuas" title="Link to this heading">#</a></h5>
+<p><img alt="" src="../_images/cont-distr.png" /></p>
+<p>Se definen sobre espacios infinitos (por ejemplo, <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>).
+No asignan probabilidad a valores individuales, sino a intervalos, mediante una función de densidad <span class="math notranslate nohighlight">\(f(x)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(a \leq X \leq b) = \int_a^b f(x)\, dx
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>La distribución normal (o gaussiana) tiene densidad:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}
+\]</div>
+<p>Y cumple:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f(x) \geq 0\)</span> para todo <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} f(x) \, dx = 1\)</span></p></li>
+</ul>
+<p>💡 <em>Nota:</em> <span class="math notranslate nohighlight">\(f(x)\)</span> no representa una probabilidad directa, sino una <strong>densidad</strong>:
+la probabilidad de que <span class="math notranslate nohighlight">\(X\)</span> tome un valor exacto (como <span class="math notranslate nohighlight">\(X = 0\)</span>) es <strong>0</strong>. Solo intervalos tienen probabilidad positiva.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Las <em>distribuciones de probabilidad</em> resumen toda la información necesaria para calcular eventos como:
+<span class="math notranslate nohighlight">\(\mathbb{P}(X \in A)\)</span>, para cualquier conjunto medible <span class="math notranslate nohighlight">\(A \in S\)</span>.</p>
+<ul class="simple">
+<li><p>En el caso <strong>continuo</strong>, esto se hace mediante <strong>integrales</strong> sobre funciones de densidad.</p></li>
+<li><p>En el caso <strong>discreto</strong>, mediante <strong>sumas</strong> de probabilidades individuales.</p></li>
+</ul>
+</div>
+<blockquote>
+<div><p>📌 <em>Nota:</em> Puedes explorar gráficamente las diferentes distribuciones en <a class="reference external" href="https://seeing-theory.brown.edu/probability-distributions/index.html#section1">este recurso.</a></p>
+</div></blockquote>
+</section>
+</section>
+<section id="interpretaciones-de-la-probabilidad">
+<h4>1.2.6. Interpretaciones de la probabilidad<a class="headerlink" href="#interpretaciones-de-la-probabilidad" title="Link to this heading">#</a></h4>
+<p>Ya sabemos qué es una <em>función de probabilidad</em> y cómo puede <em>distribuirse</em> sobre un espacio muestral. Es importante notar que, en este punto, la <em>probabilidad</em> es un objeto estrictamente matemático, cuya definición está separada del proceso mediante el cual se asignan probabilidades a los eventos.</p>
+<p>Pero surge una pregunta fundamental:</p>
+<blockquote>
+<div><p><strong>¿Cómo se asignan o calculan esos valores de probabilidad en la práctica?</strong></p>
+</div></blockquote>
+<p>La respuesta depende de la <strong>interpretación</strong> que adoptemos sobre qué representa una probabilidad en un contexto real.</p>
+<p>A continuación, exploramos dos de las interpretaciones más influyentes y ampliamente utilizadas: la <strong>frecuentista</strong> y la <strong>bayesiana</strong>.</p>
+<section id="enfoque-frecuentista-medir-por-repeticion">
+<h5>Enfoque frecuentista: medir por repetición<a class="headerlink" href="#enfoque-frecuentista-medir-por-repeticion" title="Link to this heading">#</a></h5>
+<blockquote>
+<div><p>Si repetimos un experimento muchas veces, el cociente entre el número de veces que ocurre un evento y el total de repeticiones se usa como una estimación de su probabilidad. Este valor es lo que se conoce como la <em>frecuencia relativa</em>.</p>
+</div></blockquote>
+<p>Este valor se llama <em>frecuencia relativa</em> del evento:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(A) \approx \frac{\#A}{n}\]</div>
+<p>A medida que el número de experimentos crece, esta frecuencia relativa tiende (bajo ciertas condiciones) a estabilizarse en un valor fijo. Este valor es interpretado como la <strong>probabilidad</strong> del evento desde el punto de vista <em>frecuentista</em>.</p>
+<div class="attention admonition">
+<p class="admonition-title">Frecuencia relativa</p>
+<p>La <strong>frecuencia relativa</strong> es el cociente entre el número de veces que ocurre un evento y el número total de repeticiones del experimento. En el enfoque <strong>frecuentista</strong>, esta proporción se interpreta como la probabilidad del evento, especialmente cuando el número de repeticiones es grande.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p><img alt="" src="../_images/sesion2-freq.png" /></p>
+<p>Si lanzamos una moneda 1000 veces y cae cara en 502 de ellas, entonces:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(\text{cara}) \approx \frac{502}{1000} = 0.502
+\]</div>
+<p>Al aumentar el número de repeticiones, esta estimación se estabiliza. Podemos observar este fenómeno en la <strong>Figura 3.</strong></p>
+</div>
+<p><img alt="Convergencia de la frecuencia relativa" src="../_images/frecuencia_relativa_frecuentista.png" /></p>
+<p><strong>Figura 3</strong>. En el enfoque frecuentista, la probabilidad se interpreta como el valor al que tiende la <em>frecuencia relativa</em> de un evento (por ejemplo, «cara» en una moneda) conforme se incrementa el número de repeticiones del experimento.</p>
+<div class="caution admonition">
+<p class="admonition-title">¿Es sólo una fórmula?</p>
+<p>Aunque el enfoque frecuentista utiliza la <em>frecuencia relativa</em> para estimar la probabilidad, <strong>no se reduce solamente a una fórmula</strong>.</p>
+<p>Este enfoque implica una forma específica de entender qué es una probabilidad:</p>
+<ol class="arabic simple">
+<li><p>La probabilidad de un evento se <strong>define</strong> como el <strong>límite</strong> de su <em>frecuencia relativa</em> al repetir el experimento muchas veces.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} \frac{\#A}{n} = \mathbb{P}(A)\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Se asume que las probabilidades son <strong>propiedades objetivas del mundo</strong>, no creencias subjetivas.</p></li>
+<li><p>No se habla de probabilidades en eventos únicos o no repetibles, como “la probabilidad de que llueva mañana”.</p></li>
+</ol>
+<p>Por tanto, el frecuentismo es una postura <strong>matemática y filosófica</strong>, no solo un método de cálculo.</p>
+</div>
+<blockquote>
+<div><p><strong>¿Qué significa «variable aleatoria» en estadística frecuentista?</strong></p>
+</div></blockquote>
+<p>Hasta ahora, posiblemente has visto que una <em>variable aleatoria</em> es algo que usamos para modelar resultados inciertos, como lanzar un dado, medir una altura, o contar cuántas veces sale cara una moneda.</p>
+<p>Y eso es, precisamente, lo que significa en el enfoque <strong>frecuentista</strong>.</p>
+<blockquote>
+<div><p>Una <em>variable aleatoria</em> representa el <strong>resultado numérico</strong> de un experimento aleatorio que se puede repetir muchas veces.</p>
+</div></blockquote>
+<p>Por ejemplo, si lanzas una moneda y defines <span class="math notranslate nohighlight">\((X = 1)\)</span> si sale cara y <span class="math notranslate nohighlight">\((X = 0)\)</span> si sale cruz, entonces <span class="math notranslate nohighlight">\((X)\)</span> es una <em>variable aleatoria</em>.</p>
+<p>Aquí, lo aleatorio es el <strong>resultado</strong> del experimento, <strong>no</strong> el parámetro que describe su comportamiento (como la probabilidad de que salga cara).</p>
+<p>Desde esta perspectiva, <em>los parámetros son constantes fijas, pero desconocidas</em> y no se modelan con variables aleatorias.</p>
+<div class="note admonition">
+<p class="admonition-title">Fundamento teórico</p>
+<p>El hecho de que la frecuencia relativa se estabilice a medida que aumenta el número de repeticiones está respaldado por un resultado matemático conocido como la <a class="reference external" href="https://es.wikipedia.org/wiki/Ley_de_los_grandes_n%C3%BAmeros"><strong>ley de los grandes números</strong></a>.</p>
+</div>
+</section>
+<section id="enfoque-bayesiano-probabilidades-como-creencias">
+<h5>Enfoque bayesiano: probabilidades como creencias<a class="headerlink" href="#enfoque-bayesiano-probabilidades-como-creencias" title="Link to this heading">#</a></h5>
+<p><em>¿Qué significa decir que algo tiene cierta probabilidad de ocurrir desde la perspectiva bayesiana?</em></p>
+<p>El enfoque bayesiano propone una forma muy intuitiva de verlo:</p>
+<blockquote>
+<div><p>La probabilidad es una medida de qué tanto creemos que algo es cierto, basándonos en lo que sabemos hasta ahora.</p>
+</div></blockquote>
+<p>Así, para los bayesianos, la probabilidad no es una propiedad fija del mundo como “la gravedad”, sino más bien una forma de representar nuestra incertidumbre. Y lo más importante:</p>
+<blockquote>
+<div><p>💡 Esa creencia puede cambiar si recibimos nueva información.</p>
+</div></blockquote>
+<div class="admonition-ejemplo admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Supón que alguien te dice:</p>
+<blockquote>
+<div><p><em>«Hay probabilidad de lluvia mañana».</em></p>
+</div></blockquote>
+<p>Esa probabilidad puede ser diferente dependiento de si:</p>
+<ul class="simple">
+<li><p>viste un pronóstico confiable,</p></li>
+<li><p>el cielo está completamente despejado,</p></li>
+<li><p>o escuchaste truenos a lo lejos.</p></li>
+</ul>
+<p>Cada nueva pista <em>cambia tu creencia</em>. Y esto es justamente lo que el enfoque bayesiano busca formalizar: <strong>cómo actualizamos</strong> nuestras creencias cuando obtenemos nueva evidencia.</p>
+</div>
+<blockquote>
+<div><p>¿Cómo se hace esto?</p>
+</div></blockquote>
+<p>La herramienta central para actualizar nuestras creencias es la <strong>probabilidad condicional</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \mid B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}
+\]</div>
+<p>Esta fórmula expresa la probabilidad de que ocurra un evento <span class="math notranslate nohighlight">\((A)\)</span>, dado que se ha observado otro evento <span class="math notranslate nohighlight">\((B)\)</span>. La <strong>probabilidad condicional</strong> es el primer paso hacia un modelo bayesiano completo, ya que introduce la noción de <strong>información que modifica creencias</strong>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Probabilidad condicional</p>
+<p>La probabilidad condicional nos dice cuál es la probabilidad de que ocurra un evento <span class="math notranslate nohighlight">\((A)\)</span>, dado que ya sabemos que ha ocurrido otro evento <span class="math notranslate nohighlight">\((B)\)</span>.</p>
+<p><img alt="" src="../_images/sesion2-probcondi.png" /></p>
+<p>Por ejemplo, la probabilidad de lluvia puede cambiar si sabemos que el cielo está despejado. Esta forma de actualizar creencias es esencial en el enfoque <strong>bayesiano</strong>.</p>
+</div>
+<p>Aquí es donde entra en escena el famoso <strong>Teorema de Bayes</strong>.</p>
+<div class="important admonition">
+<p class="admonition-title">Teorema de Bayes: actualización de creencias</p>
+<p>El Teorema de Bayes permite <strong>actualizar una creencia previa</strong> cuando se incorpora nueva información. Se compone de tres elementos:</p>
+<ul class="simple">
+<li><p><strong>Prior</strong>: lo que creíamos antes de observar datos <span class="math notranslate nohighlight">\((P(A))\)</span></p></li>
+<li><p><strong>Likelihood</strong> (verosimilitud): qué tan probable es observar los datos si la hipótesis fuera cierta <span class="math notranslate nohighlight">\((P(B \mid A))\)</span></p></li>
+<li><p><strong>Posterior</strong>: lo que creemos <strong>después</strong> de observar los datos <span class="math notranslate nohighlight">\((P(A \mid B))\)</span></p></li>
+</ul>
+<p><img alt="" src="../_images/sesion2-probcondi2.png" /></p>
+<p>Este resultado es matemáticamente demostrable, y es la base de toda la estadística bayesiana.</p>
+</div>
+<blockquote>
+<div><p><strong>¿Qué significa «variable aleatoria» en estadística bayesiana??</strong></p>
+</div></blockquote>
+<p>Hasta ahora, posiblemente has visto que una variable aleatoria es algo que usamos para modelar resultados inciertos, como lanzar un dado, medir una altura, o contar cuántas veces sale cara una moneda.</p>
+<p>Pero en el mundo bayesiano, las cosas se vuelven más interesantes:</p>
+<blockquote>
+<div><p>También usamos variables aleatorias para representar lo que no sabemos sobre un parámetro.</p>
+</div></blockquote>
+<p>Por ejemplo, imagina que estás tratando de averiguar cuál es la probabilidad <span class="math notranslate nohighlight">\(\theta\)</span> de que una máquina falle en un día cualquiera.
+No tienes un número exacto, pero…</p>
+<blockquote>
+<div><p><em>Creo que la máquina es bastante confiable, así que probablemente <span class="math notranslate nohighlight">\(\theta\)</span> sea algo así como 0.1… pero no estoy segura»</em></p>
+</div></blockquote>
+<p>Aquí no estás hablando de un resultado aleatorio, como el lanzamiento de un dado. Estás hablando de tu <strong>incertidumbre sobre un valor desconocido.</strong></p>
+<p>Y eso, en bayes, se modela con una <em>variable aleatoria.</em></p>
+<blockquote>
+<div><p><strong>¿Y cómo describimos esa incertidumbre?</strong></p>
+</div></blockquote>
+<p>Usamos lo que se llama una <strong>distribución de probabilidad</strong>, que nos dice qué tan probable o creíble creemos que es cada posible valor de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Por ejemplo:</p>
+<ul class="simple">
+<li><p>Si pensamos que valores pequeños de <span class="math notranslate nohighlight">\(\theta\)</span> (como 0.05 o 0.1) son más probables, la distribución será más alta en esa zona.</p></li>
+<li><p>Si valores como 0.8 o 0.9 nos parecen muy poco probables, la distribución será muy baja allí.</p></li>
+</ul>
+<p>Esto se representa con una función como:</p>
+<div class="math notranslate nohighlight">
+\[
+p_X(x)
+\]</div>
+<p>significa que:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((X)\)</span>: es la variable aleatoria que representa la probabilidad de un evento (como que salga cara).</p></li>
+<li><p><span class="math notranslate nohighlight">\((x)\)</span>: es un valor posible de esa probabilidad (por ejemplo, 0.7).</p></li>
+<li><p><span class="math notranslate nohighlight">\((p_X(x))\)</span>: es cuán creíble o probable consideramos ese valor, dada la información disponible.</p></li>
+</ul>
+<p><img alt="" src="../_images/sesion2-bayes_prob_de_probabilidad.png" /></p>
+<p><strong>Figura 4.</strong> Notación de la función de densidad de probabilidad: <span class="math notranslate nohighlight">\(p_X(x)\)</span> represeta cuán probable o creíble creemos que es cada posible valor del parámetro X.</p>
+<p>En lugar de afirmar “la probabilidad es 0.7”, el bayesiano dice: “0.7 es plausible, pero también lo son otros valores cercanos y esta es la distribución que los describe”.</p>
+<p><img alt="" src="../_images/bayes_prior_posterior.png" /></p>
+<p><strong>Figura 5.</strong> En el enfoque bayesiano, una creencia inicial (distribución prior, línea azul) se combina con la evidencia aportada por los datos (verosimilitud, línea roja) para producir una creencia actualizada (posterior, línea verde). Esto se realiza aplicando el Teorema de Bayes.</p>
+<div class="tip admonition">
+<p class="admonition-title">Resumen</p>
+<p>En estadística bayesiana:</p>
+<ul class="simple">
+<li><p>Los parámetros desconocidos se tratan como variables aleatorias.</p></li>
+<li><p>Modelamos nuestras creencias sobre esos valores con distribuciones de probabilidad.</p></li>
+<li><p>Cuando obtenemos nuevos datos, actualizamos esas creencias usando el Teorema de Bayes.</p></li>
+</ul>
+</div>
+<iframe width="650" height="315"
+    src="https://www.youtube.com/embed/XIbL0foEckA"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe>
+<hr class="docutils" />
+<p><img alt="" src="../_images/interpretations-joke.png" /></p>
+<hr class="docutils" />
+<p>Una vez que entendemos qué representa una probabilidad y cómo se puede interpretar, el siguiente paso natural es analizar <strong>cómo se combinan o se relacionan distintos eventos entre sí</strong>.</p>
+<p>Esto nos lleva a estudiar conceptos fundamentales como la <strong>probabilidad condicional, conjunta y marginal</strong>.</p>
+</section>
+</section>
+<section id="probabilidad-conjunta-condicional-y-marginal">
+<h4>1.2.7. Probabilidad conjunta, condicional y marginal<a class="headerlink" href="#probabilidad-conjunta-condicional-y-marginal" title="Link to this heading">#</a></h4>
+<p>Hasta ahora hemos aprendido a:</p>
+<ul class="simple">
+<li><p>Definir un <strong>espacio muestral</strong> <span class="math notranslate nohighlight">\((\Omega)\)</span>, que contiene todos los posibles resultados de un experimento.</p></li>
+<li><p>Considerar subconjuntos de <span class="math notranslate nohighlight">\((\Omega)\)</span> como <strong>eventos</strong>, organizados en una estructura llamada <span class="math notranslate nohighlight">\((\sigma)\)</span>-álgebra.</p></li>
+<li><p>Asignar valores de <strong>probabilidad</strong> a esos eventos mediante funciones que cumplen ciertos principios (como los axiomas de Kolmogórov).</p></li>
+<li><p>Interpretar esos valores bajo los enfoques <strong>frecuentista</strong> y <strong>bayesiano</strong>.</p></li>
+</ul>
+<p>Este marco nos permite describir eventos <strong>individuales</strong>, pero también <strong>eventos compuestos</strong>: por ejemplo, cuando dos condiciones ocurren a la vez, o una depende de otra.</p>
+<hr class="docutils" />
+<section id="que-nos-permite-considerar-eventos-compuestos">
+<h5>¿Qué nos permite considerar eventos compuestos?<a class="headerlink" href="#que-nos-permite-considerar-eventos-compuestos" title="Link to this heading">#</a></h5>
+<p>La clave está en la <span class="math notranslate nohighlight">\((\sigma)\)</span>-álgebra:</p>
+<blockquote>
+<div><p>Al definir el espacio de eventos como una <span class="math notranslate nohighlight">\((\sigma)\)</span>-álgebra, garantizamos que podemos operar con ellos de forma lógica y estructurada:</p>
+<ul class="simple">
+<li><p>unir eventos <span class="math notranslate nohighlight">\((A \cup B)\)</span></p></li>
+<li><p>tomar complementos <span class="math notranslate nohighlight">\((A^c)\)</span></p></li>
+<li><p>y también <strong>intersecciones</strong> como <span class="math notranslate nohighlight">\((A \cap B)\)</span>, que representan <strong>eventos conjuntos</strong>.</p></li>
+</ul>
+</div></blockquote>
+<p>Esto no solo nos permite construir descripciones más ricas de situaciones, sino que nos habilita a hacer <strong>operaciones de probabilidad</strong> sobre múltiples eventos.</p>
+<p>A continuación, exploraremos tres operaciones fundamentales:</p>
+</section>
+<hr class="docutils" />
+<section id="probabilidad-conjunta">
+<h5>1. Probabilidad conjunta<a class="headerlink" href="#probabilidad-conjunta" title="Link to this heading">#</a></h5>
+<p>La <strong>probabilidad conjunta</strong> mide la probabilidad de que <strong>dos eventos ocurran al mismo tiempo</strong>.</p>
+<p>Se denota como:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \cap B)
+\]</div>
+<p>o, si el contexto lo permite, simplemente <span class="math notranslate nohighlight">\(\mathbb{P}(A, B)\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Si <span class="math notranslate nohighlight">\((A = \{\text{llover}\})\)</span> y <span class="math notranslate nohighlight">\((B = \{\text{llevar paraguas}\})\)</span>,
+entonces <span class="math notranslate nohighlight">\((\mathbb{P}(A \cap B))\)</span> representa la probabilidad de que <strong>llueva y lleves paraguas</strong> el mismo día.</p>
+</div>
+</section>
+<section id="probabilidad-condicional">
+<h5>2. Probabilidad condicional<a class="headerlink" href="#probabilidad-condicional" title="Link to this heading">#</a></h5>
+<p>La <strong>probabilidad condicional</strong> responde a la pregunta:</p>
+<blockquote>
+<div><p>¿Cuál es la probabilidad de que ocurra (A) si ya sabemos que ocurrió (B)?</p>
+</div></blockquote>
+<p>Se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \mid B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} \quad \text{si } \mathbb{P}(B) &gt; 0
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Si <span class="math notranslate nohighlight">\((\mathbb{P}(\text{llover y llevar paraguas}) = 0.3 )\)</span>
+y <span class="math notranslate nohighlight">\((\mathbb{P}(\text{llevar paraguas}) = 0.5)\)</span>,
+entonces:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(\text{llover} \mid \text{llevar paraguas}) = \frac{0.3}{0.5} = 0.6
+\]</div>
+</div>
+</section>
+<section id="probabilidad-marginal">
+<h5>3. Probabilidad marginal<a class="headerlink" href="#probabilidad-marginal" title="Link to this heading">#</a></h5>
+<p>La <strong>probabilidad marginal</strong> es la probabilidad de un evento <strong>sin condicionar</strong> en ningún otro.</p>
+<p>Cuando trabajamos con variables múltiples, podemos obtener la marginal de una variable “resumiendo” la información sobre las otras.</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A) = \sum_{b} \mathbb{P}(A, B=b)
+\]</div>
+<p>En el caso continuo:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A) = \int \mathbb{P}(A, B)\, dB
+\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>La marginal es útil cuando queremos concentrarnos en un solo evento o variable, ignorando otras que también están en juego.</p>
+</div>
+</section>
+</section>
+<section id="reglas-derivadas-de-la-probabilidad">
+<h4>1.2.8. Reglas derivadas de la probabilidad<a class="headerlink" href="#reglas-derivadas-de-la-probabilidad" title="Link to this heading">#</a></h4>
+<p>Una vez que hemos definido formalmente la <strong>probabilidad condicional</strong>, podemos deducir tres reglas fundamentales que se utilizan constantemente en modelado probabilístico.</p>
+<p>Estas reglas no son nuevos axiomas, sino <strong>consecuencias directas</strong> de combinar:</p>
+<ul class="simple">
+<li><p>Los <strong>axiomas de Kolmogórov</strong>, especialmente:</p>
+<ul>
+<li><p>La aditividad: <span class="math notranslate nohighlight">\(P(A \cup B) = P(A) + P(B)\)</span> si <span class="math notranslate nohighlight">\(A \cap B = \varnothing\)</span></p></li>
+</ul>
+</li>
+<li><p>La <strong>definición de probabilidad condicional</strong></p></li>
+</ul>
+<p>Veamos cada una:</p>
+<section id="regla-de-marginalizacion">
+<h5>📌 Regla de marginalización<a class="headerlink" href="#regla-de-marginalizacion" title="Link to this heading">#</a></h5>
+<p>Se basa en la <strong>aditividad</strong>: si <span class="math notranslate nohighlight">\(B\)</span> puede tomar varios valores disjuntos, entonces:</p>
+<div class="math notranslate nohighlight">
+\[
+P(A) = \sum_B P(A, B)
+\]</div>
+<p>Esta regla permite <strong>reducir</strong> una probabilidad conjunta a una <strong>marginal</strong>.</p>
+</section>
+<hr class="docutils" />
+<section id="regla-de-la-cadena">
+<h5>📌 Regla de la cadena<a class="headerlink" href="#regla-de-la-cadena" title="Link to this heading">#</a></h5>
+<p>Viene directamente de <em>reordenar</em> la definición de probabilidad condicional:</p>
+<div class="math notranslate nohighlight">
+\[
+P(A \mid B) = \frac{P(A, B)}{P(B)} \quad \Rightarrow \quad P(A, B) = P(A \mid B) \cdot P(B)
+\]</div>
+<p>Esta relación es fundamental en estructuras secuenciales como los modelos gráficos.</p>
+<p>También puede escribirse simétricamente:</p>
+<div class="math notranslate nohighlight">
+\[
+P(B, A) = P(B \mid A) \cdot P(A)
+\]</div>
+</section>
+<hr class="docutils" />
+<section id="regla-de-la-probabilidad-total">
+<h5>📌 Regla de la probabilidad total<a class="headerlink" href="#regla-de-la-probabilidad-total" title="Link to this heading">#</a></h5>
+<p>Surge al aplicar <strong>marginalización</strong> sobre la <strong>regla de la cadena</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(A) = \sum_B P(A, B) = \sum_B P(A \mid B) \cdot P(B)
+\]</div>
+<p>Es decir, descomponemos la probabilidad de <span class="math notranslate nohighlight">\(A\)</span> en función de sus componentes condicionales respecto a <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Nota técnica</p>
+<p>En el contexto de probabilidad, usamos la notación <span class="math notranslate nohighlight">\(P(A, B)\)</span> como abreviatura de <span class="math notranslate nohighlight">\(P(A \cap B)\)</span> (la probabilidad de que ocurran ambos eventos).</p>
+</div>
+<blockquote>
+<div><p>Además de ser útil para calcular probabilidades marginales,<br />
+la <strong>regla de la probabilidad total</strong> también puede interpretarse como una <strong>constante de normalización</strong>:</p>
+<p>garantiza que la distribución condicional resultante ( P(A \mid B) ) sea <strong>válida</strong>,<br />
+es decir, que <strong>sume 1</strong> al considerar todos los posibles valores de (A).</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\sum_A P(A \mid B) = 1\]</div>
+<p><img alt="" src="../_images/reglas_probabilidad_diagrama.png" /></p>
+<p><strong>Figura 5.</strong> La definición de probabilidad condicional permite derivar tres reglas fundamentales: la <strong>regla de la cadena</strong>, la <strong>regla de marginalización</strong> y la <strong>regla de la probabilidad total</strong>. Estas relaciones son la base del razonamiento probabilístico en contextos donde intervienen múltiples eventos.</p>
+</section>
+</section>
+<section id="independencia">
+<h4>1.2.9. Independencia<a class="headerlink" href="#independencia" title="Link to this heading">#</a></h4>
+<p>Uno de los conceptos más importantes en teoría de probabilidad es el de <strong>independencia entre eventos o variables</strong>. Intuitivamente, dos eventos son independientes si el conocimiento de uno <strong>no cambia</strong> la probabilidad del otro.</p>
+<blockquote>
+<div><p>La independencia <strong>no se asume</strong> ni se deduce por intuición: <strong>se verifica formalmente</strong>.</p>
+</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Definición formal</p>
+<p>Dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son independientes si:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \mid B) = \mathbb{P}(A)
+\quad \text{o equivalentemente} \quad
+\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B)
+\]</div>
+<p>Esta última igualdad es más comúnmente usada, ya que no requiere el cálculo de probabilidades condicionales (evita divisiones por cero cuando <span class="math notranslate nohighlight">\(\mathbb{P}(B) = 0\)</span>).</p>
+</div>
+<section id="simetria">
+<h5>Simetría<a class="headerlink" href="#simetria" title="Link to this heading">#</a></h5>
+<p>Una propiedad importante de la independencia es que <strong>es simétrica</strong>:</p>
+<p>Si <span class="math notranslate nohighlight">\(A\)</span> es independiente de <span class="math notranslate nohighlight">\(B\)</span>, entonces <span class="math notranslate nohighlight">\(B\)</span> es independiente de <span class="math notranslate nohighlight">\(A\)</span>.</p>
+</section>
+<section id="alternativa-para-variables">
+<h5>Alternativa para variables<a class="headerlink" href="#alternativa-para-variables" title="Link to this heading">#</a></h5>
+<p>Dos variables aleatorias <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> son independientes si:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(X = x, Y = y) = \mathbb{P}(X = x) \cdot \mathbb{P}(Y = y)
+\quad \text{para todo } x, y
+\]</div>
+<blockquote>
+<div><p>📌 <em>Nota:</em> basta con que una sola combinación no cumpla la igualdad para que las variables no sean independientes.</p>
+</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Supón que lanzamos dos monedas. Sea <span class="math notranslate nohighlight">\(\alpha\)</span>: <em>“la primera moneda resulta en cara”</em>, y <span class="math notranslate nohighlight">\(\beta\)</span>: <em>“la segunda moneda resulta en cara”</em>. Estos eventos son independientes: saber que uno ocurrió no afecta la probabilidad del otro.</p>
+<p>También en procesos más abstractos, la independencia puede surgir de la estructura del experimento. Por ejemplo:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: <em>«el resultado del dado es par»</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span>: <em>«el resultado es 1 o 2»</em></p></li>
+</ul>
+<p>Si el dado es justo, es fácil verificar que:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(\alpha \cap \beta) = \mathbb{P}(\alpha) \cdot \mathbb{P}(\beta) = \frac{1}{2} \cdot \frac{1}{3} = \frac{1}{6}
+\]</div>
+<p>Por lo tanto, <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span> son eventos independientes.</p>
+</div>
+</section>
+</section>
+<section id="independencia-condicional">
+<h4>1.2.10. Independencia condicional<a class="headerlink" href="#independencia-condicional" title="Link to this heading">#</a></h4>
+<p>La <strong>independencia</strong> es una propiedad útil, pero poco común en problemas reales:<br />
+en la práctica, es raro que dos variables o eventos sean verdaderamente independientes.</p>
+<p>Sin embargo, lo que sí ocurre con frecuencia es que <strong>dos variables sean independientes <em>condicionalmente</em></strong> a una tercera.<br />
+Es decir:</p>
+<blockquote>
+<div><p><strong>Dado que sabemos algo</strong>, esa información “explica” o “desvincula” a las otras dos variables.</p>
+</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Definición formal</p>
+<p>Decimos que <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son <strong>condicionalmente independientes dado <span class="math notranslate nohighlight">\(X\)</span></strong>, si se cumple:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A, B \mid X) = \mathbb{P}(A \mid X) \cdot \mathbb{P}(B \mid X)
+\]</div>
+<p>Lo cual también implica que:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \mid B, X) = \mathbb{P}(A \mid X)
+\quad \text{y} \quad
+\mathbb{P}(B \mid A, X) = \mathbb{P}(B \mid X)
+\]</div>
+</div>
+<blockquote>
+<div><p>📌 <em>Nota:</em> La información de <span class="math notranslate nohighlight">\(X\)</span> “bloquea” la dependencia entre <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>.<br />
+Es decir, <strong>una vez que sabemos <span class="math notranslate nohighlight">\(X\)</span></strong>, las otras dos variables &gt; <strong>no se influyen entre sí</strong>.</p>
+</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Supón que queremos estimar la probabilidad de que una estudiante sea admitida a un posgrado en el ITAM o en el CINVESTAV.</p>
+<ul class="simple">
+<li><p>Sea <span class="math notranslate nohighlight">\(I\)</span>: <em>«fue admitida al posgrado del ITAM»</em></p></li>
+<li><p>Sea <span class="math notranslate nohighlight">\(C\)</span>: <em>«fue admitida al posgrado del CINVESTAV»</em></p></li>
+</ul>
+<p>Normalmente, <span class="math notranslate nohighlight">\(I\)</span> y <span class="math notranslate nohighlight">\(C\)</span> <strong>no son independientes</strong>: saber que fue admitida al ITAM probablemente aumenta nuestra creencia de que también será admitida al CINVESTAV, porque sugiere que es una estudiante sobresaliente.</p>
+<p>Ahora supongamos que sabemos que su promedio de licenciatura (<span class="math notranslate nohighlight">\(G\)</span>) es de 9.5, y que ambas instituciones <strong>basan su admisión únicamente en el promedio</strong>.</p>
+<p>Entonces, <strong>dado <span class="math notranslate nohighlight">\(G = 9.5\)</span></strong>, los eventos <span class="math notranslate nohighlight">\(I\)</span> y <span class="math notranslate nohighlight">\(C\)</span> sí son independientes:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(C \mid I, G) = \mathbb{P}(C \mid G)
+\]</div>
+<p>En este caso, decimos que <strong><span class="math notranslate nohighlight">\(C\)</span> es condicionalmente independiente de <span class="math notranslate nohighlight">\(I\)</span> dado <span class="math notranslate nohighlight">\(G\)</span></strong>.</p>
+</div>
+<div class="admonition-tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Diremos que <span class="math notranslate nohighlight">\(A \perp B \mid C\)</span> si se cumple:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \cap B \mid C) = \mathbb{P}(A \mid C) \cdot \mathbb{P}(B \mid C)
+\]</div>
+</div>
+<div class="admonition-notacion-comun admonition">
+<p class="admonition-title">Notación común</p>
+<p><span class="math notranslate nohighlight">\(A \perp B \mid C\)</span>:
+A es independiente de B dado C.</p>
+<p>También se puede escribir:
+<span class="math notranslate nohighlight">\(\mathbb{P}(A \mid B, C) = \mathbb{P}(A \mid C)\)</span></p>
+</div>
+</section>
+</section>
+</section>
 </section>
 
 
@@ -432,6 +1146,63 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repaso-de-probabilidad">1. Repaso de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">1.1. Introducción</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-la-teoria-de-probabilidad">1.2. Fundamentos de la teoría de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-muestral-omega">1.2.1. Espacio muestral <span class="math notranslate nohighlight">\((\Omega)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-potencia-mathcal-p-omega">1.2.2. Conjunto potencia <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-s-o-espacio-de-eventos">1.2.3. σ-álgebra <span class="math notranslate nohighlight">\((S)\)</span> o espacio de eventos</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-probabilidad">1.2.4. Función de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-relacionan-los-conceptos-que-hemos-visto">¿Cómo se relacionan los conceptos que hemos visto?</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-probabilidad">1.2.5. Distribución de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-discretas">1.2.5.1 Distribuciones discretas</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-continuas">1.2.5.1 Distribuciones continuas</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretaciones-de-la-probabilidad">1.2.6. Interpretaciones de la probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoque-frecuentista-medir-por-repeticion">Enfoque frecuentista: medir por repetición</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoque-bayesiano-probabilidades-como-creencias">Enfoque bayesiano: probabilidades como creencias</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-conjunta-condicional-y-marginal">1.2.7. Probabilidad conjunta, condicional y marginal</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#que-nos-permite-considerar-eventos-compuestos">¿Qué nos permite considerar eventos compuestos?</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-conjunta">1. Probabilidad conjunta</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicional">2. Probabilidad condicional</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-marginal">3. Probabilidad marginal</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#reglas-derivadas-de-la-probabilidad">1.2.8. Reglas derivadas de la probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-marginalizacion">📌 Regla de marginalización</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-la-cadena">📌 Regla de la cadena</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-la-probabilidad-total">📌 Regla de la probabilidad total</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia">1.2.9. Independencia</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#simetria">Simetría</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativa-para-variables">Alternativa para variables</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-condicional">1.2.10. Independencia condicional</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

@@ -17,7 +17,6 @@ Aprende a representar y razonar con incertidumbre utilizando **modelos gráficos
 introduccion
 acuerdos-de-clase
 herramientas
-motivacion
 
 modulo1/index
 modulo2/index
