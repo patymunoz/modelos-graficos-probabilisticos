@@ -5,6 +5,7 @@ nbsphinx
 pandoc
 jupyter
 plotly
+myst-nb
 
 numpy
 matplotlib
