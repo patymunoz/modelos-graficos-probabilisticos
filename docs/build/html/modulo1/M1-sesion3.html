@@ -30,6 +30,8 @@
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -41,7 +43,12 @@
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="../_static/translations.js?v=f85f4cfb"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/M1-sesion3';</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
@@ -169,13 +176,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../herramientas.html">🛠️ Herramientas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../motivacion.html">Motivación</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Módulo 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion1.html">Sesión 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Sesión 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion4.html">Sesión 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion5.html">Sesión 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion3ip.html">Sesión 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
@@ -250,7 +257,7 @@
       
       
       
-      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/modulo1/M1-sesion3.md" target="_blank"
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/modulo1/M1-sesion3.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -368,7 +375,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -384,6 +393,67 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repaso-de-probabilidad">1. Repaso de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias-discretas">1.1. Variables aleatorias discretas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usamos-variables-aleatorias">1.1.1. ¿por qué usamos variables aleatorias?</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-masa-de-probabilidad-pmf">1.1.2. Función de masa de probabilidad (PMF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#que-hace-la-pmf">¿qué hace la PMF?</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-distribucion-acumulada-cdf">1.1.3 Función de distribución acumulada (CDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#que-hace-la-cdf">¿qué hace la CDF?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-de-probabilidad-discretas">1.2. Distribuciones de probabilidad discretas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-bernoulli">1.2.1. Distribución de Bernoulli</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-binomial">1.2.2. Distribución Binomial</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-geometrica">1.2.3 Distribución Geométrica</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-y-varianza-discretas">1.3 Esperanza y varianza (discretas)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza">1.3.1 Esperanza</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">1.3.2 Varianza</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli">1.3.3 Cálculo de esperanza y varianza de variable aleatoria Bernoulli</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-de-una-variable-bernoulli">Esperanza de una variable Bernoulli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-esperanza-de-x-2">A) Esperanza de <span class="math notranslate nohighlight">\(X^2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-varianza-de-una-variable-bernoulli">B) Varianza de una variable Bernoulli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias-continuas">1.4. Variables aleatorias continuas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antes-de-empezar-que-es-densidad-y-que-es-integrar">1.4.0. Antes de empezar: ¿qué es densidad? ¿y qué es integrar?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-densidad-de-probabilidad-pdf">1.4.1. Función de densidad de probabilidad (PDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-una-pdf">Propiedades de una PDF</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conexion-conceptual">Conexión conceptual</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.4.2. Función de distribución acumulada (CDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conexión conceptual</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-uso">Ejemplo de uso</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-continuas">1.4.5. Distribuciones continuas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-uniforme">📐 Distribución uniforme</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-exponencial">⏳ Distribución exponencial</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-normal">🔔 Distribución normal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -395,8 +465,507 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sesion-3">
 <h1>Sesión 3<a class="headerlink" href="#sesion-3" title="Link to this heading">#</a></h1>
+<section id="repaso-de-probabilidad">
+<h2>1. Repaso de probabilidad<a class="headerlink" href="#repaso-de-probabilidad" title="Link to this heading">#</a></h2>
+<section id="variables-aleatorias-discretas">
+<h3>1.1. Variables aleatorias discretas<a class="headerlink" href="#variables-aleatorias-discretas" title="Link to this heading">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Definición</p>
+<p>Sea <span class="math notranslate nohighlight">\(\Omega\)</span> un espacio muestral discreto, es decir, un conjunto finito o numerable de posibles resultados de un experimento aleatorio.</p>
+<p>Una variable aleatoria discreta es una función que asigna un número real a cada elemento de <span class="math notranslate nohighlight">\(\Omega\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+X: \Omega \to \mathbb{R}
+\]</div>
+<p>Es decir, toma un resultado del experimento aleatorio y lo traduce a un número real que nos interesa analizar o interpretar.</p>
+</div>
+<section id="por-que-usamos-variables-aleatorias">
+<h4>1.1.1. ¿por qué usamos variables aleatorias?<a class="headerlink" href="#por-que-usamos-variables-aleatorias" title="Link to this heading">#</a></h4>
+<p>Cuando trabajamos con variables aleatorias, no nos enfocamos directamente en los resultados del experimento (como obtener un 3 y un 5 al lanzar dos datos), sino en <em>alguna cantidad derivada</em> de esos resultados: una suma, una ganacia, un conteo, etc.</p>
+<p>Esto nos permite:</p>
+<ul class="simple">
+<li><p>Modelar situaciones de forma numérica.</p></li>
+<li><p>Usar herramientas matemáticas para analizar fenómenos aleatorios.</p></li>
+<li><p>Calcular cantidades como la probabilidad de éxito, el valor esperado o la variabilidad de un resultado.</p></li>
+</ul>
+<section id="ejemplo">
+<h5>Ejemplo<a class="headerlink" href="#ejemplo" title="Link to this heading">#</a></h5>
+<p>Supongamos que lanzamos dos dados. El espacio mestral es:</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega = \{(i,j): i,j=1, 2, \dots, 6\}.
+\]</div>
+<p>Este conjunto tiene 36 posibles pares ordenados, y si los dados son justos, cada uno tiene la misma probabilidad:</p>
+<div class="math notranslate nohighlight">
+\[p(i, j) = \frac{1}{36}\]</div>
+<p>Ahora, supongamos el siguiente juego:</p>
+<ul class="simple">
+<li><p>Ganas $500 si la suma de los datos es 7.</p></li>
+<li><p>Pierdes $100 en cualquier otro caso.</p></li>
+</ul>
+<p>Podemos <strong>definir una variable aleatoria discreta <span class="math notranslate nohighlight">\(X(i, j)\)</span></strong> que represente la ganacia del juego:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X(i,j) = \left\lbrace
+\begin{array}{lc}
+500  &amp;  \text{si } i+j=7 \\
+-100 &amp;  \text{si } i+j\neq7
+\end{array}
+\right .
+\end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Interpretación</p>
+<p>Esta <strong>variable aleatoria</strong> convierte los resultados del experimento (el lanzamiento de los dados) en una cantidad que nos interesa: la ganancia o pérdida en el juego.</p>
+<p>Así, en lugar de analizar directamente los pares <span class="math notranslate nohighlight">\((i, j)\)</span>, analizamos el <em>comportamiento</em> de <span class="math notranslate nohighlight">\(X\)</span>, que ya resume lo que queremos estudiar.</p>
+</div>
+</section>
+</section>
+<section id="funcion-de-masa-de-probabilidad-pmf">
+<h4>1.1.2. Función de masa de probabilidad (PMF)<a class="headerlink" href="#funcion-de-masa-de-probabilidad-pmf" title="Link to this heading">#</a></h4>
+<p>Una vez que tenemos una variable aleatoria discreta <span class="math notranslate nohighlight">\(X\)</span>, queremos saber con qué probabilidad toma cada uno de sus posibles valores.</p>
+<p>Para eso usamos la función de masa de probabilidad o PMF <em>(Probability Mass Function)</em>.</p>
+<section id="que-hace-la-pmf">
+<h5>¿qué hace la PMF?<a class="headerlink" href="#que-hace-la-pmf" title="Link to this heading">#</a></h5>
+<p>La PMF asigna una probabilidad a cada valor posible que puede tomar la variable aleatoria.</p>
+<p>En otras palabras:</p>
+<blockquote>
+<div><p>La PMF mapea cada valor real que puede tomar <span class="math notranslate nohighlight">\(X\)</span> al número entre 0 y 1 que representa su <strong>probabilidad</strong>.</p>
+</div></blockquote>
+<p>Formalmente, si <span class="math notranslate nohighlight">\(x\)</span> es un valor posible de la variable aleatoria <span class="math notranslate nohighlight">\(X\)</span>, entonces:</p>
+<div class="math notranslate nohighlight">
+\[
+P(X=x) = \text{probabilidad de que } X \text{ tome el valor } x.
+\]</div>
+<p>Esto define la función de masa de probabilidad:</p>
+<div class="math notranslate nohighlight">
+\[
+f_X(x) = P(X=x)
+\]</div>
+</section>
+</section>
+<section id="funcion-de-distribucion-acumulada-cdf">
+<h4>1.1.3 Función de distribución acumulada (CDF)<a class="headerlink" href="#funcion-de-distribucion-acumulada-cdf" title="Link to this heading">#</a></h4>
+<p>La función de distribución acumulada —conocida como CDF <em>(Cumulative Distribution Function)</em>— es una forma alternativa de describir una variable aleatoria discreta <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<section id="que-hace-la-cdf">
+<h5>¿qué hace la CDF?<a class="headerlink" href="#que-hace-la-cdf" title="Link to this heading">#</a></h5>
+<p>La CDF asigna a cada valor <span class="math notranslate nohighlight">\(x\)</span> la probabilidad de que la variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> tome un valor <strong>menor o igual</strong> a <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Formalmente, la CDF se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+F_X(x) = P(X \leq x) = \sum_{x_i \leq x} P(X = x_i)
+\]</div>
+<div class="note admonition">
+<p class="admonition-title">Propiedades de la CDF</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F(x)\)</span> es <strong>monótona no decreciente</strong>: nunca baja.</p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \leq F(x) \leq 1\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{x \to \infty} F(x) = 1\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{x \to -\infty} F(x) = 0\)</span>.</p></li>
+</ul>
+</div>
+<p>Como tabla, siguiendo el ejemplo de los dados:</p>
+<div class="math notranslate nohighlight">
+\[
+F(a) = p(X \leq x).
+\]</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>p(X=x)</p></td>
+<td><p>0.3</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.3</p></td>
+<td><p>0.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>F(x)</p></td>
+<td><p>0.3</p></td>
+<td><p>0.3</p></td>
+<td><p>0.3</p></td>
+<td><p>0.3</p></td>
+<td><p>0.6</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">OJO</p>
+<p>Es fácil notar que:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((0 \leq p(a) \leq 1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((x)\)</span> puede ser cualquier número. Si <span class="math notranslate nohighlight">\((x)\)</span> es un valor que <span class="math notranslate nohighlight">\((X)\)</span> nunca toma, entonces <span class="math notranslate nohighlight">\((p(x) = 0)\)</span>.</p></li>
+</ul>
+<p>🔸 La <strong>primera afirmación aplica tanto para la PMF como para la CDF</strong>:
+Ambas funciones siempre devuelven valores entre 0 y 1.</p>
+<p>🔸 La <strong>segunda afirmación aplica solo para la PMF</strong>:
+La CDF <span class="math notranslate nohighlight">\((F(x) = \mathbb{P}(X \leq x))\)</span> puede ser mayor que 0 incluso si <span class="math notranslate nohighlight">\((X)\)</span> nunca toma el valor exacto <span class="math notranslate nohighlight">\((x)\)</span>, porque <strong>acumula</strong> las probabilidades de los valores menores o iguales a <span class="math notranslate nohighlight">\((x)\)</span>.</p>
+</div>
+<p>Recapitulando, tenemos:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Concepto</strong></p></th>
+<th class="head"><p><strong>Palabra clave</strong></p></th>
+<th class="head"><p><strong>¿Qué representa?</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Espacio muestral</p></td>
+<td><p>“Todo lo posible y medible”</p></td>
+<td><p>Todas las salidas del experimento</p></td>
+</tr>
+<tr class="row-odd"><td><p>Función de probabilidad</p></td>
+<td><p>“Peso”</p></td>
+<td><p>Cuán probable es cada resultado</p></td>
+</tr>
+<tr class="row-even"><td><p>Variable aleatoria</p></td>
+<td><p>“Traducción”</p></td>
+<td><p>Asocia un número a cada resultado del experimento</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distribución</p></td>
+<td><p>“Comportamiento”</p></td>
+<td><p>Cómo se reparten los valores que genera <span class="math notranslate nohighlight">\((X)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section id="distribuciones-de-probabilidad-discretas">
+<h3>1.2. Distribuciones de probabilidad discretas<a class="headerlink" href="#distribuciones-de-probabilidad-discretas" title="Link to this heading">#</a></h3>
+<section id="distribucion-de-bernoulli">
+<h4>1.2.1. Distribución de Bernoulli<a class="headerlink" href="#distribucion-de-bernoulli" title="Link to this heading">#</a></h4>
+<p><strong>Qué modela:</strong></p>
+<p>Un solo experimento con dos posibles resultados: éxito (1) o fracaso (0).</p>
+<p><strong>Ejemplo:</strong></p>
+<p>Tirar una moneda una vez:</p>
+<ul class="simple">
+<li><p>Cara = 1 (éxito)</p></li>
+<li><p>Cruz = 0 (fracaso)</p></li>
+</ul>
+<p><strong>Parámetros:</strong>
+<span class="math notranslate nohighlight">\(\theta \in [0, 1]\)</span> es la probabilidad de éxito.</p>
+<p>Se denota como:</p>
+<div class="math notranslate nohighlight">
+\[
+X \sim \text{Bernoulli}(\theta)
+\]</div>
+</section>
+<section id="distribucion-binomial">
+<h4>1.2.2. Distribución Binomial<a class="headerlink" href="#distribucion-binomial" title="Link to this heading">#</a></h4>
+<p><strong>Qué modela:</strong>
+El número total de éxitos en <span class="math notranslate nohighlight">\(n\)</span> experimentos independientes de Bernoulli.</p>
+<p><strong>Ejemplo:</strong>
+Tirar una moneda <span class="math notranslate nohighlight">\(n\)</span> veces y contar cuántas veces sale cara.</p>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span>: número de ensayos</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span>: probabilidad de éxito en cada ensayo</p></li>
+</ul>
+<p>Se denota como:</p>
+<div class="math notranslate nohighlight">
+\[
+X \sim \text{Binomial}(n, \theta)
+\]</div>
+</section>
+<section id="distribucion-geometrica">
+<h4>1.2.3 Distribución Geométrica<a class="headerlink" href="#distribucion-geometrica" title="Link to this heading">#</a></h4>
+<p><strong>Qué modela:</strong>
+El número de ensayos hasta obtener el primer éxito (incluyendo ese éxito).</p>
+<p><strong>Ejemplo:</strong>
+Tirar una moneda hasta que salga cara por primera vez.
+Si sale cara en el tercer intento, <span class="math notranslate nohighlight">\(X=3\)</span>.</p>
+<p><strong>Parámetros:</strong>
+<span class="math notranslate nohighlight">\(\theta\)</span>: probabilidad de éxito en cada intento.</p>
+<p>Se denota como:</p>
+<div class="math notranslate nohighlight">
+\[
+X \sim \text{Geometric}(\theta)
+\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Ahora que hemos visto ejemplos importantes de distribuciones discretas como la <em>Bernoulli, Binomial y Geométrica</em>, podemos estudiar una de las propiedades fundamentales de una variable aleatoria: su valor esperado, también conocido como <strong>esperanza matemática</strong>.</p>
+<p>La esperanza nos da una idea del «promedio» que esperaríamos obtener si repitiéramos el experimento muchas veces. Es una medida central que resume el comportamiento de la distribución.</p>
+</div>
+</section>
+</section>
+<section id="esperanza-y-varianza-discretas">
+<h3>1.3 Esperanza y varianza (discretas)<a class="headerlink" href="#esperanza-y-varianza-discretas" title="Link to this heading">#</a></h3>
+<section id="esperanza">
+<h4>1.3.1 Esperanza<a class="headerlink" href="#esperanza" title="Link to this heading">#</a></h4>
+<p>Antes de definirla formalmente, es importante notar que el valor esperado no solo se aplica a la variable aleatoria en sí, sino también a <strong>cualquier función de la variable</strong>. Es decir, podemos calcular el valor esperado de <span class="math notranslate nohighlight">\(f(X)\)</span>, donde <span class="math notranslate nohighlight">\((f)\)</span> es una función que transforma los valores de la variable aleatoria.</p>
+<p>Esto permite, por ejemplo, obtener cantidades como:</p>
+<ul class="simple">
+<li><p>la varianza: <span class="math notranslate nohighlight">\(\mathbb{E}[X^2]\)</span></p></li>
+<li><p>la utilidad esperada: <span class="math notranslate nohighlight">\(\mathbb{E}[\log X]\)</span></p></li>
+<li><p>el valor esperado de pérdidas u otras métricas de interés</p></li>
+</ul>
+<p>Este enfoque más general se expresa como:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}[f(X)] = \sum_x p(x) \cdot f(x)
+\]</div>
+<p>Y si tomamos <span class="math notranslate nohighlight">\(f(x) = x\)</span>, recuperamos la forma más común del valor esperado:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}[X] = \sum_x p(x) \cdot x
+\]</div>
+</section>
+<section id="varianza">
+<h4>1.3.2 Varianza<a class="headerlink" href="#varianza" title="Link to this heading">#</a></h4>
+<p>El valor esperado es una <em>medida de tendencia central</em>, en el sentido de que nos da un valor promedio, o “centro de gravedad” probabilístico, hacia el cual tienden los datos al repetirse el experimento muchas veces.</p>
+<p>Sin embargo, <strong>no nos dice qué tan dispersos están los valores alrededor de ese promedio</strong>. Para eso, necesitamos una medida de variabilidad: la <strong>varianza</strong>.</p>
+<p>La varianza de una función <span class="math notranslate nohighlight">\(f(X)\)</span>, denotada como <span class="math notranslate nohighlight">\(\mathrm{var}_p[f]\)</span>, se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{var}_p[f] = \mathbb{E}_p\left[(f(x) - \mathbb{E}_p[f])^2\right]
+\]</div>
+<p>Esta expresión se interpreta como el <strong>promedio ponderado de los cuadrados de las desviaciones</strong> entre los valores de <span class="math notranslate nohighlight">\(f(x)\)</span> y su esperanza. En otras palabras: mide <strong>cuánto varían los valores alrededor de su media</strong>.</p>
+<p>Una forma algebraicamente más sencilla y muy útil para calcular la varianza es:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{var}_p[f] = \mathbb{E}_p[f(x)^2] - \left(\mathbb{E}_p[f]\right)^2
+\]</div>
+<p>Esta fórmula permite calcular la varianza a partir de <strong>dos esperanzas</strong>:</p>
+<ul class="simple">
+<li><p>La esperanza del cuadrado de <span class="math notranslate nohighlight">\(f(x)\)</span></p></li>
+<li><p>El cuadrado de la esperanza de <span class="math notranslate nohighlight">\(f(x)\)</span></p></li>
+</ul>
+</section>
+<section id="calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli">
+<h4>1.3.3 Cálculo de esperanza y varianza de variable aleatoria Bernoulli<a class="headerlink" href="#calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli" title="Link to this heading">#</a></h4>
+<p>Sea <span class="math notranslate nohighlight">\(X\)</span> una variable aleatoria que toma valores en el conjunto <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>. Se denota como:</p>
+<p><img alt="Distribución Bernoulli" src="../_images/bernulli-1.png" /></p>
+<ul class="simple">
+<li><p>En <strong>verde</strong>, se resalta la probabilidad <span class="math notranslate nohighlight">\(P(X = 1) = \theta\)</span>.</p></li>
+<li><p>En <strong>azul</strong>, se muestra que <span class="math notranslate nohighlight">\(P(X = 0) = 1 - \theta\)</span>.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="esperanza-de-una-variable-bernoulli">
+<h2>Esperanza de una variable Bernoulli<a class="headerlink" href="#esperanza-de-una-variable-bernoulli" title="Link to this heading">#</a></h2>
+<p>La esperanza matemática o valor esperado de <span class="math notranslate nohighlight">\(X\)</span> se define como:</p>
+<p><img alt="Esperanza de X" src="../_images/bernulli-2.png" /></p>
+<ul class="simple">
+<li><p>Los términos en <strong>azul</strong> y <strong>verde</strong> ayudan a identificar qué probabilidad corresponde a cada valor posible de <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p>El resultado final, <span class="math notranslate nohighlight">\(\mathbb{E}[X] = \theta\)</span>, está <strong>enmarcado en morado</strong> para destacarlo.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="a-esperanza-de-x-2">
+<h2>A) Esperanza de <span class="math notranslate nohighlight">\(X^2\)</span><a class="headerlink" href="#a-esperanza-de-x-2" title="Link to this heading">#</a></h2>
+<p>Dado que los únicos valores posibles de <span class="math notranslate nohighlight">\(X\)</span> son 0 y 1, se cumple que <span class="math notranslate nohighlight">\(X^2 = X\)</span>. Por lo tanto:</p>
+<p><img alt="Esperanza de X al cuadrado" src="../_images/bernulli-3.png" /></p>
+<ul class="simple">
+<li><p>Esta igualdad se debe a que <span class="math notranslate nohighlight">\(0^2 = 0\)</span> y <span class="math notranslate nohighlight">\(1^2 = 1\)</span>, así que no hay cambio al elevar al cuadrado.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="b-varianza-de-una-variable-bernoulli">
+<h2>B) Varianza de una variable Bernoulli<a class="headerlink" href="#b-varianza-de-una-variable-bernoulli" title="Link to this heading">#</a></h2>
+<p>La varianza se calcula con la fórmula:</p>
+<p><img alt="Varianza de X" src="../_images/bernulli-4.png" /></p>
+<ul class="simple">
+<li><p>Se utiliza el resultado anterior <span class="math notranslate nohighlight">\(\mathbb{E}[X] = \theta\)</span>.</p></li>
+<li><p>El desarrollo muestra cómo se simplifica la fórmula hasta obtener <span class="math notranslate nohighlight">\(\theta(1 - \theta)\)</span>, que aparece resaltado al final.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="conclusion">
+<h2>Conclusión<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>Una variable aleatoria Bernoulli con parámetro <span class="math notranslate nohighlight">\(\theta\)</span> tiene:</p>
+<ul class="simple">
+<li><p><strong>Esperanza:</strong> <span class="math notranslate nohighlight">\(\mathbb{E}[X] = \theta\)</span></p></li>
+<li><p><strong>Varianza:</strong> <span class="math notranslate nohighlight">\(\text{Var}(X) = \theta(1 - \theta)\)</span></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="variables-aleatorias-continuas">
+<h2>1.4. Variables aleatorias continuas<a class="headerlink" href="#variables-aleatorias-continuas" title="Link to this heading">#</a></h2>
+<p>Las variables aleatorias continuas son aquellas que pueden tomar <strong>infinitos valores dentro de un intervalo real</strong>, como por ejemplo, el tiempo, la temperatura, o la altura de una persona. A diferencia de las variables discretas (que solo pueden asumir valores separados como 0, 1, 2…), las variables continuas pueden asumir <strong>cualquier número real dentro de un rango</strong>.</p>
+<section id="antes-de-empezar-que-es-densidad-y-que-es-integrar">
+<h3>1.4.0. Antes de empezar: ¿qué es densidad? ¿y qué es integrar?<a class="headerlink" href="#antes-de-empezar-que-es-densidad-y-que-es-integrar" title="Link to this heading">#</a></h3>
+<div class="note admonition">
+<p class="admonition-title">Densidad e integración</p>
+<p><em>Densidad</em> e <em>integración</em> son conceptos que surgen cuando tratamos de entender lo continuo. Ambos responden a una necesidad: <strong>describir y cuantificar lo que no se puede contar.</strong></p>
+<ul class="simple">
+<li><p>Densidad: es una función que representa la concentración relatica de algo en un entorno continuo. No mide «cuánto hay», sino <em>qué tan distribuido está</em> eso que queremos medir, por unidad de espacio, tiempo o dominio.</p></li>
+<li><p>Integración: es el proceso mediante el cual se convierte una distribución infinitesimal en una cantidad total. Si la densidad es el contenido local, integrar es el acto de extraer de ella un contenido global.</p></li>
+</ul>
+<p>La integral es necesaria porque en lo continuo ninguna parte individual puede ser medida por sí sola. Solo al acumular contribuciones infinitesimales podemos obtener algo cuantificable.</p>
+<p>Densidad e integración son conceptos <strong>interdependientes</strong>. La densidad <em>no tiene significado cuantitativo por sí sola</em>; solo mediante la integración puede usarse para calcular algo. A su vez, integrar <em>no tiene sentido si no hay una función que describa lo que se está acumulando</em>.</p>
+</div>
+</section>
+<section id="funcion-de-densidad-de-probabilidad-pdf">
+<h3>1.4.1. Función de densidad de probabilidad (PDF)<a class="headerlink" href="#funcion-de-densidad-de-probabilidad-pdf" title="Link to this heading">#</a></h3>
+<p>En las variables aleatorias continuas usamos una <strong>función de densidad de probabilidad</strong>, también llamada <strong>PDF</strong> (por sus siglas en inglés: <em>Probability Density Function</em>). Esta función, que denotamos como <span class="math notranslate nohighlight">\(f(x)\)</span>, <strong>no representa una probabilidad</strong>, sino una <strong>densidad de probabilidad</strong>.</p>
+<p>Esto es parecido al concepto de densidad en física: <strong>no mide cuánta cantidad hay</strong>, sino <strong>cuánta cantidad hay por unidad</strong>.</p>
+<p>Entonces, para obtener la probabilidad de que una variable continua <span class="math notranslate nohighlight">\(X\)</span> esté dentro de un intervalo <span class="math notranslate nohighlight">\([a, b]\)</span>, integramos la densidad en ese intervalo:</p>
+<div class="math notranslate nohighlight">
+\[
+P(a \leq X \leq b) = \int_a^b f(x)\, dx
+\]</div>
+<p>Aquí, la integral cumple el rol que antes cumplía la suma en las distribuciones discretas.</p>
+<section id="propiedades-de-una-pdf">
+<h4>Propiedades de una PDF<a class="headerlink" href="#propiedades-de-una-pdf" title="Link to this heading">#</a></h4>
+<p>Para que una función <span class="math notranslate nohighlight">\(f(x)\)</span> sea una densidad de probabilidad válida, debe cumplir dos condiciones:</p>
+<ol class="arabic">
+<li><p><strong>No negatividad</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+   f(x) \geq 0 \quad \text{para todo } x
+   \]</div>
+</li>
+<li><p><strong>Normalización</strong>:
+$<span class="math notranslate nohighlight">\(
+\int_{-\infty}^{\infty} f(x)\, dx = 1
+\)</span>$
+Esto garantiza que la probabilidad total (en todo el espacio) sea 1.</p></li>
+</ol>
+</section>
+<hr class="docutils" />
+<section id="conexion-conceptual">
+<h4>Conexión conceptual<a class="headerlink" href="#conexion-conceptual" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f(x)\)</span>: representa <strong>cómo se distribuye la probabilidad</strong> (pero no cuánto hay).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_a^b f(x)\, dx\)</span>: representa <strong>cuánta probabilidad hay</strong> en ese intervalo.</p></li>
+<li><p>Sin integración, la densidad <strong>no tiene contenido numérico</strong>.</p></li>
+<li><p>Sin densidad, la integración <strong>no tiene objeto que acumular</strong>.</p></li>
+</ul>
+</section>
+</section>
+<section id="id1">
+<h3>1.4.2. Función de distribución acumulada (CDF)<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>La <strong>función de distribución acumulada</strong> (abreviada como <strong>CDF</strong>, del inglés <em>Cumulative Distribution Function</em>) es una herramienta que nos permite conocer <strong>la probabilidad acumulada hasta un punto dado</strong>.</p>
+<p>Dada una variable aleatoria continua <span class="math notranslate nohighlight">\(X\)</span> con función de densidad de probabilidad <span class="math notranslate nohighlight">\(f(x)\)</span>, la CDF se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+F(x) = P(X \leq x) = \int_{-\infty}^x f(t)\, dt
+\]</div>
+<p>Esta integral representa <strong>la cantidad total de probabilidad acumulada desde <span class="math notranslate nohighlight">\(-\infty\)</span> hasta el punto <span class="math notranslate nohighlight">\(x\)</span></strong>.</p>
+<p>Mientras que la PDF <span class="math notranslate nohighlight">\(f(x)\)</span> nos dice <strong>dónde se concentra</strong> la probabilidad, la CDF <span class="math notranslate nohighlight">\(F(x)\)</span> nos dice <strong>cuánta probabilidad se ha acumulado hasta cierto valor</strong>.</p>
+<p>Por ejemplo:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F(1)\)</span> es la probabilidad de que <span class="math notranslate nohighlight">\(X\)</span> tome un valor menor o igual a 1.</p></li>
+<li><p><span class="math notranslate nohighlight">\(F(3) - F(1)\)</span> es la probabilidad de que <span class="math notranslate nohighlight">\(X\)</span> esté entre 1 y 3.</p></li>
+</ul>
+<section id="id2">
+<h4>Conexión conceptual<a class="headerlink" href="#id2" title="Link to this heading">#</a></h4>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepto</p></th>
+<th class="head"><p>PDF (<span class="math notranslate nohighlight">\(f(x)\)</span>)</p></th>
+<th class="head"><p>CDF (<span class="math notranslate nohighlight">\(F(x)\)</span>)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>¿Qué representa?</p></td>
+<td><p>Densidad local de probabilidad</p></td>
+<td><p>Probabilidad acumulada hasta <span class="math notranslate nohighlight">\(x\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>¿Cómo se obtiene?</p></td>
+<td><p>Derivando la CDF</p></td>
+<td><p>Integrando la PDF</p></td>
+</tr>
+<tr class="row-even"><td><p>¿Para qué sirve?</p></td>
+<td><p>Ver dónde está concentrada la probabilidad</p></td>
+<td><p>Calcular intervalos de probabilidad</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="ejemplo-de-uso">
+<h3>Ejemplo de uso<a class="headerlink" href="#ejemplo-de-uso" title="Link to this heading">#</a></h3>
+<p>Para calcular la probabilidad de que <span class="math notranslate nohighlight">\(X\)</span> esté entre <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(a \leq X \leq b) = F(b) - F(a)
+\]</div>
+<p>Esto es equivalente a integrar la densidad:</p>
+<div class="math notranslate nohighlight">
+\[
+\int_a^b f(x)\, dx = F(b) - F(a)
+\]</div>
+<hr class="docutils" />
+<p>La CDF nos permite responder preguntas probabilísticas de forma directa y es especialmente útil cuando la integral de la PDF no tiene forma cerrada, pero la CDF sí.</p>
+</section>
+<section id="distribuciones-continuas">
+<h3>1.4.5. Distribuciones continuas<a class="headerlink" href="#distribuciones-continuas" title="Link to this heading">#</a></h3>
+<section id="distribucion-uniforme">
+<h4>📐 Distribución uniforme<a class="headerlink" href="#distribucion-uniforme" title="Link to this heading">#</a></h4>
+<p>Modela situaciones donde todos los valores en un intervalo <span class="math notranslate nohighlight">\([a, b]\)</span> son <strong>igualmente probables</strong>.</p>
+<p>Parámetros: <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span><br />
+Soporte: <span class="math notranslate nohighlight">\(x \in [a, b]\)</span><br />
+Densidad:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(x) = \begin{cases}
+\frac{1}{b - a}, &amp; a \leq x \leq b \\
+0, &amp; \text{en otro caso}
+\end{cases}
+\end{split}\]</div>
+</section>
+<section id="distribucion-exponencial">
+<h4>⏳ Distribución exponencial<a class="headerlink" href="#distribucion-exponencial" title="Link to this heading">#</a></h4>
+<p>Modela <strong>tiempos de espera entre eventos</strong> que ocurren continuamente y de forma independiente.</p>
+<p>Parámetro: <span class="math notranslate nohighlight">\(\lambda\)</span> (tasa)<br />
+Soporte: <span class="math notranslate nohighlight">\(x \in [0, \infty)\)</span><br />
+Densidad:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \lambda e^{-\lambda x}
+\]</div>
+</section>
+<section id="distribucion-normal">
+<h4>🔔 Distribución normal<a class="headerlink" href="#distribucion-normal" title="Link to this heading">#</a></h4>
+<p>Modela fenómenos naturales con <strong>concentración alrededor de un valor central</strong>.</p>
+<p>Parámetros: <span class="math notranslate nohighlight">\(\mu\)</span> (media), <span class="math notranslate nohighlight">\(\sigma\)</span> (desviación estándar)<br />
+Soporte: <span class="math notranslate nohighlight">\(x \in (-\infty, \infty)\)</span><br />
+Densidad:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left( -\frac{(x - \mu)^2}{2\sigma^2} \right)
+\]</div>
+<p>Es la famosa <strong>curva de campana</strong>.</p>
+</section>
+</section>
+</section>
 </section>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "patymunoz/modelos-graficos-probabilisticos",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modulo1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -432,6 +1001,74 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repaso-de-probabilidad">1. Repaso de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias-discretas">1.1. Variables aleatorias discretas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usamos-variables-aleatorias">1.1.1. ¿por qué usamos variables aleatorias?</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo">Ejemplo</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-masa-de-probabilidad-pmf">1.1.2. Función de masa de probabilidad (PMF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#que-hace-la-pmf">¿qué hace la PMF?</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-distribucion-acumulada-cdf">1.1.3 Función de distribución acumulada (CDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#que-hace-la-cdf">¿qué hace la CDF?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-de-probabilidad-discretas">1.2. Distribuciones de probabilidad discretas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-bernoulli">1.2.1. Distribución de Bernoulli</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-binomial">1.2.2. Distribución Binomial</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-geometrica">1.2.3 Distribución Geométrica</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-y-varianza-discretas">1.3 Esperanza y varianza (discretas)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza">1.3.1 Esperanza</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">1.3.2 Varianza</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli">1.3.3 Cálculo de esperanza y varianza de variable aleatoria Bernoulli</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza-de-una-variable-bernoulli">Esperanza de una variable Bernoulli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-esperanza-de-x-2">A) Esperanza de <span class="math notranslate nohighlight">\(X^2\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-varianza-de-una-variable-bernoulli">B) Varianza de una variable Bernoulli</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusión</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias-continuas">1.4. Variables aleatorias continuas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#antes-de-empezar-que-es-densidad-y-que-es-integrar">1.4.0. Antes de empezar: ¿qué es densidad? ¿y qué es integrar?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-densidad-de-probabilidad-pdf">1.4.1. Función de densidad de probabilidad (PDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#propiedades-de-una-pdf">Propiedades de una PDF</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#conexion-conceptual">Conexión conceptual</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.4.2. Función de distribución acumulada (CDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Conexión conceptual</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-de-uso">Ejemplo de uso</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-continuas">1.4.5. Distribuciones continuas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-uniforme">📐 Distribución uniforme</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-exponencial">⏳ Distribución exponencial</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-normal">🔔 Distribución normal</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

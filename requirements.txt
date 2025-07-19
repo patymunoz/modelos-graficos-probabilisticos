@@ -2,6 +2,10 @@ sphinx
 sphinx-book-theme
 myst-parser
 nbsphinx
-plotly
 pandoc
 jupyter
+plotly
+
+numpy
+matplotlib
+scipy

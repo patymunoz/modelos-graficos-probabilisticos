@@ -1,3 +1,7 @@
 notebooks/cache/
 notebooks/author-00motivation.ipynb
 notebooks/author-01sesion.ipynb
+notebooks/author-02sesion.ipynb
+
+**/jupyter_execute/
+soporte/

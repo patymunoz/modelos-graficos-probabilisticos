@@ -22,10 +22,12 @@ release = '0.1.0'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'myst_parser',
-    'nbsphinx',
+    'myst_nb',
+    #'myst_parser',
+    #'nbsphinx',
     "sphinx_book_theme",
-    'sphinx.ext.mathjax'
+    'sphinx.ext.mathjax',
+    'sphinx_thebe'
 ]
 
 myst_enable_extensions = [
@@ -45,6 +47,15 @@ html_theme = "sphinx_book_theme"
 html_static_path = ['_static']
 
 html_theme_options = {
+    "collapse_navigation": False,
+    'nosidebar': True,
+    "launch_buttons": {
+        "binderhub_url": "https://mybinder.org",
+        "notebook_interface": "classic",
+        "thebe": True
+    },
+    "path_to_docs": "docs",
+    "repository_branch": "main",
     "repository_url": "https://github.com/patymunoz/modelos-graficos-probabilisticos",
     "use_repository_button": True,
     "use_issues_button": True,
@@ -57,9 +68,17 @@ html_logo = "_static/nodo.png"
 html_static_path = ['_static']
 
 # Para reconocer .md como fuente válida
-source_suffix = {
-    '.md': 'markdown',
-    '.rst': 'restructuredtext',
+#source_suffix = ['.rst', '.md', '.ipynb']
+
+nbsphinx_execute = "force"
+nbsphinx_timeout = 120
+nbsphinx_allow_errors = True
+
+thebe_config = {
+    "binderOptions": {
+        "binderUrl": "https://mybinder.org",
+        "repo": "patymunoz/modelos-graficos-probabilisticos",
+        "branch": "main",
+    },
+    "always_load": True,
 }
-
-

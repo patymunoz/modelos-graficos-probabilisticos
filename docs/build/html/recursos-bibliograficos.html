@@ -30,6 +30,8 @@
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -41,11 +43,14 @@
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script src="_static/translations.js?v=f85f4cfb"></script>
-    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'recursos-bibliograficos';</script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
-    <link rel="prev" title="Sesión 5" href="modulo1/M1-sesion5.html" />
+    <link rel="prev" title="Sesión 3" href="modulo1/M1-sesion3ip.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -168,13 +173,13 @@
 <li class="toctree-l1"><a class="reference internal" href="introduccion.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acuerdos-de-clase.html">Sobre la clase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="herramientas.html">🛠️ Herramientas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="motivacion.html">Motivación</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="modulo1/index.html">Módulo 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion1.html">Sesión 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion2.html">Sesión 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion3.html">Sesión 3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion4.html">Sesión 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion5.html">Sesión 5</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion3ip.html">Sesión 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Recursos biliográficos</a></li>
@@ -249,7 +254,7 @@
       
       
       
-      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/recursos-bibliograficos.md" target="_blank"
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/recursos-bibliograficos.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -403,6 +408,25 @@ document.write(`
 <p>[7] I. Fornacon-Wood et al., «Understanding the Differences Between Bayesian and Frequentist Statistics,» <em>Int. J. Radiat. Oncol. Biol. Phys.</em>, vol. 112, no. 5, pp. 1076–1082, 2022. [Online]. Available: https://www.redjournal.org/article/S0360-3016(21)03256-9/fulltext</p>
 </section>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "patymunoz/modelos-graficos-probabilisticos",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -415,12 +439,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="modulo1/M1-sesion5.html"
+       href="modulo1/M1-sesion3ip.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Sesión 5</p>
+        <p class="prev-next-title">Sesión 3</p>
       </div>
     </a>
 </div>
