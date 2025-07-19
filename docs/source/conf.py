@@ -84,5 +84,5 @@ thebe_config = {
 }
 
 html_js_files = [
-    "https://unpkg.com/thebe@latest/lib/index.js"
+    "https://unpkg.com/thebe@latest/lib/index.min.js"
 ]
