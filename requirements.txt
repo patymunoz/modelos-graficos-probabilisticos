@@ -1,12 +1,8 @@
 sphinx
 sphinx-book-theme
-myst-parser
-nbsphinx
-pandoc
-jupyter
-plotly
 myst-nb
-
+sphinx-thebe
+jupyter
 numpy
 matplotlib
 scipy
