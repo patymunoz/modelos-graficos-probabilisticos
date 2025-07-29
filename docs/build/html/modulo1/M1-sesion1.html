@@ -47,6 +47,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/M1-sesion1';</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
@@ -177,10 +179,10 @@
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Módulo 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Sesión 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="M1-sesion3.html">Sesión 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT1.html">Sesión 3 A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT2.html">Sesión 3 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion4.html">Sesión 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion5.html">Sesión 5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="M1-sesion3ip.html">Sesión 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
@@ -230,6 +232,55 @@
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/main?urlpath=tree/docs/modulo1/M1-sesion1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -255,7 +306,7 @@
       
       
       
-      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/modulo1/M1-sesion1.md" target="_blank"
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/modulo1/M1-sesion1.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -302,7 +353,7 @@
       
       
       
-      <li><a href="../_sources/modulo1/M1-sesion1.md" target="_blank"
+      <li><a href="../_sources/modulo1/M1-sesion1.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -312,7 +363,7 @@
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -396,7 +447,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivacion">Motivación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivacion">Motivación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-de-motivacion">Ejercicio de motivación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-everywhere">Machine Learning, everywhere</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#que-observamos">¿qué observamos?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usar-una-distribucion-conjunta-para-clasificar">¿Por qué usar una distribución conjunta para clasificar?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">📌 Conclusión</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -412,15 +472,299 @@ document.write(`
 <h1>Sesión 1<a class="headerlink" href="#sesion-1" title="Link to this heading">#</a></h1>
 <section id="motivacion">
 <h2>Motivación<a class="headerlink" href="#motivacion" title="Link to this heading">#</a></h2>
-<p>En esta sesión abordaremos tres elementos clave para iniciar el curso:</p>
+<p>El curso de Modelos Gráficos Probabilísticos ofrece una formación rigurosa en herramientas fundamentales para la representación y el análisis de sistemas complejos bajo incertidumbre. A través de una combinación de teoría de probabilidad, estadística y estructuras gráficas, permite modelar dependencias entre variables.</p>
+<p>Este curso está orientado a quienes deseen profundizar en técnicas clave del aprendizaje automático y su aplicación en campos como la inteligencia artificial, la bioinformática, la visión computacional y el procesamiento de lenguaje natural.</p>
+<section id="ejercicio-de-motivacion">
+<h3>Ejercicio de motivación<a class="headerlink" href="#ejercicio-de-motivacion" title="Link to this heading">#</a></h3>
+<button title="Run code" class="thebelab-button thebe-launch-button" onclick="initThebe()">Run code</button><div class="cell tag_Thebe docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Disponible en: <a class="reference external" href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_iris.html#sklearn.datasets.load_iris">Sklearn</a></p>
+<section id="machine-learning-everywhere">
+<h4>Machine Learning, everywhere<a class="headerlink" href="#machine-learning-everywhere" title="Link to this heading">#</a></h4>
+<p><img alt="" src="../_images/eee1.jpeg" /></p>
+<p>Sabemos que una de las ramas más relevantes de la inteligencia artificial es el <em>Machine Learning</em>. Esta disciplina, a través de diversos modelos y algoritmos, tiene como objetivo principal generar predicciones a partir de <em>datos</em>.</p>
+<p>En este contexto, analizaremos el clásico conjunto de datos <code class="docutils literal notranslate"><span class="pre">iris</span></code>. A partir de sus características —como la <em>longitud</em> y la <em>altura</em> de los sépalos— construiremos un modelo de clasificación que nos permita <em>predecir</em> a qué especie pertenece cada flor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Property</strong></p></th>
+<th class="head"><p><strong>Value</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Classes</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>Samples per class</p></td>
+<td><p>50</p></td>
+</tr>
+<tr class="row-even"><td><p>Samples total</p></td>
+<td><p>150</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dimensionality</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p>Features</p></td>
+<td><p>real, positive</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Generamos un DataFrame</p>
+<p>Vamos a renombrar los títulos de las columnas:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tipo de flor</p></th>
+<th class="head"><p>Número</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Setosa</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Versicolor</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>Virginica</p></td>
+<td><p>2</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="que-observamos">
+<h4>¿qué observamos?<a class="headerlink" href="#que-observamos" title="Link to this heading">#</a></h4>
+<details>
+  <summary> 🧿 </summary>
 <ul class="simple">
-<li><p><a class="reference internal" href="#../source/introduccion.md"><span class="xref myst">Presentación y estructura general del curso</span></a></p></li>
-<li><p><a class="reference internal" href="#../source/herramientas.md"><span class="xref myst">Herramientas de trabajo y dinámica de participación</span></a></p></li>
-<li><p>Motivación e introducción conceptual al curso</p></li>
+<li><p>Clase 0 (color morado oscuro) está bien separada: se agrupa con sépalos más cortos y más anchos.</p></li>
+<li><p>Clase 1 y Clase 2 (verde y amarillo) están más superpuestas, especialmente en la región de sépalos largos y estrechos.</p></li>
+<li><p>Esto sugiere que, al menos con las variables <code class="docutils literal notranslate"><span class="pre">sepal</span> <span class="pre">length</span></code> y <code class="docutils literal notranslate"><span class="pre">sepal</span> <span class="pre">width</span></code>, la clase 0 se puede clasificar con mayor precisión que las otras dos.</p></li>
 </ul>
-<p>Para este último punto, utilizaremos el siguiente notebook interactivo:</p>
-<p><a class="reference external" href="https://colab.research.google.com/github/patymunoz/modelos-graficos-probabilisticos/blob/main/notebooks/00-motivation.ipynb"><img alt="Abrir en Colab" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
-<p>También puedes descargarlo y ejecutarlo localmente si prefieres trabajar en tu entorno.</p>
+</details><p><strong>Pregunta:</strong></p>
+<p><em>¿Cuáles modelos de clasificación podríamos usar para resolver este problema?</em></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="por-que-usar-una-distribucion-conjunta-para-clasificar">
+<h4>¿Por qué usar una distribución conjunta para clasificar?<a class="headerlink" href="#por-que-usar-una-distribucion-conjunta-para-clasificar" title="Link to this heading">#</a></h4>
+<p>Anteriormente vimos que un modelo de clasificación (como árboles de decisión) presenta un <em>score</em> del 60%.</p>
+<p>Podemos adoptar un <strong>enfoque probabilístico</strong> para modelar la situación a partir de los datos disponibles.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Primero, veámos en la tabla siguiente que las columnas (<code class="docutils literal notranslate"><span class="pre">L</span></code>, <code class="docutils literal notranslate"><span class="pre">W</span></code> <code class="docutils literal notranslate"><span class="pre">T</span></code>) representan todas las posibles combinaciones de valores de cada variable.</p>
+<p>La tabla muestra la <strong>distribución conjunta</strong> de tres variables (<code class="docutils literal notranslate"><span class="pre">L</span></code>, <code class="docutils literal notranslate"><span class="pre">W</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code>).</p>
+<p>Al estimar la distribución conjunta de las variables <span class="math notranslate nohighlight">\((L)\)</span> (longitud del tallo), <span class="math notranslate nohighlight">\((W)\)</span> (ancho del tallo) y <span class="math notranslate nohighlight">\((T)\)</span> (tipo de flor), obtenemos un modelo probabilístico completo:</p>
+<div class="math notranslate nohighlight">
+\[P(L, W, T)\]</div>
+<p>Este enfoque tiene varias ventajas:</p>
+<ul class="simple">
+<li><p>Captura todas las relaciones entre las variables.</p></li>
+<li><p>Nos permite derivar distribuciones condicionales útiles para clasificación.</p></li>
+</ul>
+<p>Tenemos <span class="math notranslate nohighlight">\(4 * 3 * 3 = 36\)</span> posibles combinaciones:</p>
+<p><strong>NOTA:</strong> no todas las combinaciones posibles de (<code class="docutils literal notranslate"><span class="pre">L</span></code>, <code class="docutils literal notranslate"><span class="pre">W</span></code> <code class="docutils literal notranslate"><span class="pre">T</span></code>) aparecen en los datos. <code class="docutils literal notranslate"><span class="pre">groupby().size()</span></code> solo muestra las combinaciones que realmente están presentes en el DataFrame.</p>
+<p>Las combinaciones que no ocurren ni una sola vez, no aparecen en la salida porque su conteo es <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>L</p></th>
+<th class="head"><p>W</p></th>
+<th class="head"><p>T</p></th>
+<th class="head"><p>Frecuencia</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>0</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>3</p></td>
+<td><p>0</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>17</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>5</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>3</p></td>
+<td><p>0</p></td>
+<td><p>22</p></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>6</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>1</p></td>
+<td><p>10</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>11</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>9</p></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>18</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>2</p></td>
+<td><p>2</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>3</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>3</p></td>
+<td><p>2</p></td>
+<td><p>8</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Por ejemplo, a partir de la distribución conjunta podemos obtener la probabilidad de que una flor pertenezca a cierta clase <span class="math notranslate nohighlight">\((T)\)</span>, dado que observamos un par de medidas <span class="math notranslate nohighlight">\(((L, W))\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(T \mid L, W) = \frac{P(L, W, T)}{P(L, W)}
+\]</div>
+<p>Con esta información, podemos construir un clasificador probabilístico de la siguiente manera:</p>
+<ol class="arabic simple">
+<li><p>La distribución condicional nos proporciona una probabilidad para cada posible valor <span class="math notranslate nohighlight">\((t)\)</span> que puede tomar la variable <span class="math notranslate nohighlight">\((T)\)</span> (por ejemplo, <span class="math notranslate nohighlight">\((t = 0, 1, 2 )\)</span>). Como nuestro objetivo es predecir la clase más probable, elegimos el valor de <span class="math notranslate nohighlight">\((t)\)</span> que maximiza esta probabilidad:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\hat{t} = \arg\max_{t} P(T = t \mid L = \ell, W = w)
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Este procedimiento se conoce como el <strong>clasificador MAP (Maximum A Posteriori)</strong>. Es importante destacar que no necesitamos calcular explícitamente la distribución condicional, ya que:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+P(T = t \mid L = \ell, W = w) = \frac{P(T = t, L = \ell, W = w)}{P(L = \ell, W = w)}
+\]</div>
+<ol class="arabic simple" start="3">
+<li><p>Dado que el denominador <span class="math notranslate nohighlight">\((P(L = \ell, W = w))\)</span> no depende de <span class="math notranslate nohighlight">\((t)\)</span>, podemos omitirlo durante la maximización. Esto nos permite simplificar el clasificador a:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\hat{t} = \arg\max_{t} P(T = t, L = \ell, W = w)
+\]</div>
+<p>Este enfoque nos permite realizar clasificación directamente a partir de la distribución conjunta estimada, sin necesidad de modelos adicionales.</p>
+<div class="math notranslate nohighlight">
+\[
+\hat{t} = \arg\max_{t} \, \hat{P}(T = t, L = 5, W = 3)
+\]</div>
+</section>
+</section>
+<section id="conclusion">
+<h3>📌 Conclusión<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
+<p><strong>¿Lo que hice corresponde a un modelo generativo?</strong></p>
+<p>Sí, el procedimiento que implementaste es completamente coherente con el enfoque de un <strong>modelo generativo</strong>.</p>
+<p><strong>Pasos que seguiste (en términos probabilísticos)</strong></p>
+<ol class="arabic">
+<li><p><strong>Estimación de la distribución conjunta</strong></p>
+<p>Calculaste la probabilidad conjunta <span class="math notranslate nohighlight">\((P(L = \ell, W = w, T = t))\)</span> a partir de los datos, contando la frecuencia de cada combinación y normalizando sobre el total.<br />
+→ Esto es exactamente lo que haría un modelo generativo: aprender la <strong>distribución conjunta</strong> <span class="math notranslate nohighlight">\((P(X, Y))\)</span>.</p>
+</li>
+<li><p><strong>Normalización</strong></p>
+<p>Dividiste los conteos conjuntos por el total de observaciones, obteniendo así una estimación empírica de las probabilidades.<br />
+→ Esto convierte los conteos en una <strong>distribución de probabilidad válida</strong>.</p>
+</li>
+<li><p><strong>Cálculo de la probabilidad condicional</strong></p>
+<p>Usaste la regla de Bayes para obtener la distribución condicional:</p>
+<div class="math notranslate nohighlight">
+\[
+   P(T = t \mid L = \ell, W = w) = \frac{P(L = \ell, W = w, T = t)}{P(L = \ell, W = w)}
+   \]</div>
+<p>→ Esto es una inferencia clásica dentro del enfoque generativo.</p>
+</li>
+<li><p><strong>Predicción con argumento máximo (MAP)</strong></p>
+<p>Elegiste la clase con mayor probabilidad condicional:</p>
+<div class="math notranslate nohighlight">
+\[
+   \hat{t} = \arg\max_t P(T = t \mid L = \ell, W = w)
+   \]</div>
+<p>→ Esto implementa el <strong>clasificador MAP (Maximum A Posteriori)</strong>.</p>
+</li>
+<li><p><strong>Clasificación final</strong></p>
+<p>Aplicaste este procedimiento a cada punto del conjunto de datos, generando predicciones basadas únicamente en la distribución conjunta estimada.</p>
+</li>
+</ol>
+<p><strong>OJO</strong></p>
+<p>Que ambos modelos obtengan el mismo <em>score</em> no significa que sean equivalentes, sino que <strong>dado el conjunto de datos y la tarea, ambos llegaron al límite razonable de desempeño</strong>.</p>
+<p>Ambos tienen ventajas:</p>
+<ul class="simple">
+<li><p>El modelo probabilístico aporta una visión basada en evidencia y probabilidades.</p></li>
+<li><p>El árbol de decisión proporciona reglas claras y visualmente interpretables.</p></li>
+</ul>
+<p><a class="reference external" href="https://github.com/esjimenezro/mgp2025/tree/main/m1-intro-modelado-probabilistico/c1-motivacion"><em>Créditos del ejercicio</em></a></p>
+</section>
 </section>
 </section>
 
@@ -488,7 +832,16 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivacion">Motivación</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#motivacion">Motivación</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-de-motivacion">Ejercicio de motivación</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#machine-learning-everywhere">Machine Learning, everywhere</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#que-observamos">¿qué observamos?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usar-una-distribucion-conjunta-para-clasificar">¿Por qué usar una distribución conjunta para clasificar?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">📌 Conclusión</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

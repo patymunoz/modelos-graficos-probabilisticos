@@ -7,9 +7,10 @@ En este módulo introduciremos los contenidos del curso y ...
 
 M1-sesion1
 M1-sesion2
-M1-sesion3
+M1-sesion3-PT1
+M1-sesion3-PT2
 M1-sesion4
 M1-sesion5
 
-M1-sesion3ip
+
 ```

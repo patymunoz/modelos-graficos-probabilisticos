@@ -83,7 +83,7 @@ thebe_config = {
     "always_load": True,
 }
 
-html_js_files = [
-    "https://unpkg.com/thebe@latest/lib/index.min.js",
-    "init_thebe.js"
-]
+#html_js_files = [
+#    "https://unpkg.com/thebe@latest/lib/index.min.js",
+#    "init_thebe.js"
+#]

@@ -1,0 +1,1187 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sesión 3 A &#8212; Modelos gráficos probabilísticos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/M1-sesion3-PT1';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Sesión 3 B" href="M1-sesion3-PT2.html" />
+    <link rel="prev" title="Sesión 2" href="M1-sesion2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/nodo.png" class="logo__image only-light" alt="Modelos gráficos probabilísticos - Home"/>
+    <script>document.write(`<img src="../_static/nodo.png" class="logo__image only-dark" alt="Modelos gráficos probabilísticos - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Modelos gráficos probabilísticos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Módulos y recursos</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">🛠️ Herramientas</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Módulo 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion1.html">Sesión 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sesión 3 A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT2.html">Sesión 3 B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion4.html">Sesión 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion5.html">Sesión 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/main?urlpath=tree/docs/modulo1/M1-sesion3-PT1.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/modulo1/M1-sesion3-PT1.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/issues/new?title=Issue%20on%20page%20%2Fmodulo1/M1-sesion3-PT1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/modulo1/M1-sesion3-PT1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sesión 3 A</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repaso-de-probabilidad-parte-2a">1. Repaso de probabilidad (parte 2A)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias">1.1. Variables aleatorias</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias-discretas">Variables aleatorias discretas</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usamos-variables-aleatorias">¿por qué usamos variables aleatorias?</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-masa-de-probabilidad-pmf">1.1.1. Función de <em>masa</em> de probabilidad (PMF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#que-hace-la-pmf">¿qué hace la PMF?</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-distribucion-acumulada-cdf">1.1.2. Función de distribución acumulada (CDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#que-hace-la-cdf">¿qué hace la CDF?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-de-probabilidad-discretas">1.2. Distribuciones de probabilidad discretas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-bernoulli">1.2.1. Distribución de Bernoulli</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-binomial">1.2.2. Distribución Binomial</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-geometrica">1.2.3 Distribución Geométrica</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-y-varianza-discretas">1.3. Valor esperado y varianza (discretas)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza">1.3.1. Esperanza</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">1.3.2. Varianza</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli">1.3.3. Cálculo de esperanza y varianza de variable aleatoria Bernoulli</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#a-esperanza-de-x-2">A) Esperanza de <span class="math notranslate nohighlight">\(X^2\)</span></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#b-varianza-de-una-variable-bernoulli">B) Varianza de una variable Bernoulli</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-numerico">Ejemplo numérico</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-en-lo-anterior-estamos-usando-datos-para-generar-el-calculo">💡 Pregunta: en lo anterior, <em>¿estamos usando datos para generar el cálculo?</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sesion-3-a">
+<h1>Sesión 3 A<a class="headerlink" href="#sesion-3-a" title="Link to this heading">#</a></h1>
+<section id="repaso-de-probabilidad-parte-2a">
+<h2>1. Repaso de probabilidad (parte 2A)<a class="headerlink" href="#repaso-de-probabilidad-parte-2a" title="Link to this heading">#</a></h2>
+<section id="variables-aleatorias">
+<h3>1.1. Variables aleatorias<a class="headerlink" href="#variables-aleatorias" title="Link to this heading">#</a></h3>
+<p>Las variables aleatorias son funciones que asignan un valor numérico a cada resultado de un experimento aleatorio. Se clasifican en dos tipos:</p>
+<ul class="simple">
+<li><p>➡️ <strong>Variables aleatorias discretas</strong></p></li>
+<li><p><strong>Variables aleatorias continuas</strong></p></li>
+</ul>
+<section id="variables-aleatorias-discretas">
+<h4>Variables aleatorias discretas<a class="headerlink" href="#variables-aleatorias-discretas" title="Link to this heading">#</a></h4>
+<div class="note admonition">
+<p class="admonition-title">Definición</p>
+<p>Sea <span class="math notranslate nohighlight">\(\Omega\)</span> un espacio muestral discreto, es decir, un conjunto finito o numerable de posibles resultados de un experimento aleatorio.</p>
+<p>Una variable aleatoria discreta es una función que asigna un número real a cada elemento de <span class="math notranslate nohighlight">\(\Omega\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+X: \Omega \to \mathbb{R}
+\]</div>
+<p>Es decir, toma un resultado del experimento aleatorio y lo traduce a un número real que nos interesa analizar o interpretar.</p>
+</div>
+<section id="por-que-usamos-variables-aleatorias">
+<h5>¿por qué usamos variables aleatorias?<a class="headerlink" href="#por-que-usamos-variables-aleatorias" title="Link to this heading">#</a></h5>
+<p>Cuando trabajamos con variables aleatorias, no nos enfocamos directamente en los resultados del experimento (como obtener un 3 y un 5 al lanzar dos datos), sino en <em>alguna cantidad derivada</em> de esos resultados: una suma, una ganacia, un conteo, etc.</p>
+<p>Esto nos permite:</p>
+<ul class="simple">
+<li><p>Modelar situaciones de forma numérica.</p></li>
+<li><p>Usar herramientas matemáticas para analizar fenómenos aleatorios.</p></li>
+<li><p>Calcular cantidades como la probabilidad de éxito, el valor esperado o la variabilidad de un resultado.</p></li>
+</ul>
+<p><strong>Ejemplo</strong></p>
+<p>Supongamos que lanzamos dos dados. El espacio mestral es:</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega = \{(i,j): i,j=1, 2, \dots, 6\}.
+\]</div>
+<p>Este conjunto tiene 36 posibles pares ordenados, y si los dados son justos, cada uno tiene la misma probabilidad:</p>
+<div class="math notranslate nohighlight">
+\[p(i, j) = \frac{1}{36}\]</div>
+<p>Ahora, supongamos el siguiente juego:</p>
+<ul class="simple">
+<li><p>Ganas $500 si la suma de los datos es 7.</p></li>
+<li><p>Pierdes $100 en cualquier otro caso.</p></li>
+</ul>
+<p>Podemos <strong>definir una variable aleatoria discreta <span class="math notranslate nohighlight">\(X(i, j)\)</span></strong> que represente la ganacia del juego:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+X(i,j) = \left\lbrace
+\begin{array}{lc}
+500  &amp;  \text{si } i+j=7 \\
+-100 &amp;  \text{si } i+j\neq7
+\end{array}
+\right .
+\end{split}\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Interpretación</p>
+<p>Esta <strong>variable aleatoria</strong> convierte los resultados del experimento (el lanzamiento de los dados) en una cantidad que nos interesa: la ganancia o pérdida en el juego.</p>
+<p>Así, en lugar de analizar directamente los pares <span class="math notranslate nohighlight">\((i, j)\)</span>, analizamos el <em>comportamiento</em> de <span class="math notranslate nohighlight">\(X\)</span>, que ya resume lo que queremos estudiar.</p>
+</div>
+</section>
+</section>
+<section id="funcion-de-masa-de-probabilidad-pmf">
+<h4>1.1.1. Función de <em>masa</em> de probabilidad (PMF)<a class="headerlink" href="#funcion-de-masa-de-probabilidad-pmf" title="Link to this heading">#</a></h4>
+<p>Una vez que tenemos una variable aleatoria discreta <span class="math notranslate nohighlight">\(X\)</span>, queremos saber con qué probabilidad toma cada uno de sus posibles valores.</p>
+<p>Para eso usamos la función de masa de probabilidad o PMF <em>(Probability Mass Function)</em>.</p>
+<section id="que-hace-la-pmf">
+<h5>¿qué hace la PMF?<a class="headerlink" href="#que-hace-la-pmf" title="Link to this heading">#</a></h5>
+<p>La PMF asigna una probabilidad a cada valor posible que puede tomar la variable aleatoria.</p>
+<p>En otras palabras:</p>
+<blockquote>
+<div><p>La PMF mapea cada valor real que puede tomar <span class="math notranslate nohighlight">\(X\)</span> al número entre 0 y 1 que representa su <strong>probabilidad</strong>.</p>
+</div></blockquote>
+<p><img alt="" src="../_images/PMF.png" /></p>
+<p>Consideramos el tiro de un solo dado. El dado está cargado, de modo que solo salen los valores <span class="math notranslate nohighlight">\(1\)</span>, <span class="math notranslate nohighlight">\(5\)</span> y <span class="math notranslate nohighlight">\(6\)</span>, y de modo que la función de probabilidad sea:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(X) = \left\{\begin{array}{cc }0.3 &amp; X=1 \\ 0.3 &amp; X=5 \\ 0.4 &amp; X=6\end{array}\right.
+\end{split}\]</div>
+<button title="Run code" class="thebelab-button thebe-launch-button" onclick="initThebe()">Run code</button><div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from scipy import stats</span>
+<span class="c1">#from matplotlib import pyplot as plt</span>
+<span class="c1">#import numpy as np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># definir listas de valores de X y probabilidades</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># se define una variable aleatoria discreta</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: PMF</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="funcion-de-distribucion-acumulada-cdf">
+<h4>1.1.2. Función de distribución acumulada (CDF)<a class="headerlink" href="#funcion-de-distribucion-acumulada-cdf" title="Link to this heading">#</a></h4>
+<p>La función de distribución acumulada —conocida como CDF <em>(Cumulative Distribution Function)</em>— es una forma alternativa de describir una variable aleatoria discreta <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<section id="que-hace-la-cdf">
+<h5>¿qué hace la CDF?<a class="headerlink" href="#que-hace-la-cdf" title="Link to this heading">#</a></h5>
+<p>La CDF asigna a cada valor <span class="math notranslate nohighlight">\(x\)</span> la probabilidad de que la variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> tome un valor <strong>menor o igual</strong> a <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p><img alt="" src="../_images/CMF.png" /></p>
+<div class="note admonition">
+<p class="admonition-title">Propiedades de la CDF</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(F(x)\)</span> es <strong>monótona no decreciente</strong>: nunca baja.</p></li>
+<li><p><span class="math notranslate nohighlight">\(0 \leq F(x) \leq 1\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{x \to \infty} F(x) = 1\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\lim_{x \to -\infty} F(x) = 0\)</span>.</p></li>
+</ul>
+</div>
+<p>Como tabla, siguiendo el ejemplo de los dados:</p>
+<div class="math notranslate nohighlight">
+\[
+F(X) = p(X \leq x).
+\]</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>x</p></th>
+<th class="head"><p>1</p></th>
+<th class="head"><p>2</p></th>
+<th class="head"><p>3</p></th>
+<th class="head"><p>4</p></th>
+<th class="head"><p>5</p></th>
+<th class="head"><p>6</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>p(X=x)</p></td>
+<td><p>0.3</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0</p></td>
+<td><p>0.3</p></td>
+<td><p>0.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>F(x)</p></td>
+<td><p>0.3</p></td>
+<td><p>0.3</p></td>
+<td><p>0.3</p></td>
+<td><p>0.3</p></td>
+<td><p>0.6</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: CDF</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="warning admonition">
+<p class="admonition-title">OJO</p>
+<p>Es fácil notar que:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((0 \leq p(a) \leq 1)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((x)\)</span> puede ser cualquier número. Si <span class="math notranslate nohighlight">\((x)\)</span> es un valor que <span class="math notranslate nohighlight">\((X)\)</span> nunca toma, entonces <span class="math notranslate nohighlight">\((p(x) = 0)\)</span>.</p></li>
+</ul>
+<p>🔸 La <strong>primera afirmación aplica tanto para la PMF como para la CDF</strong>:
+Ambas funciones siempre devuelven valores entre 0 y 1.</p>
+<p>🔸 La <strong>segunda afirmación aplica solo para la PMF</strong>:
+La CDF <span class="math notranslate nohighlight">\((F(x) = \mathbb{P}(X \leq x))\)</span> puede ser mayor que 0 incluso si <span class="math notranslate nohighlight">\((X)\)</span> nunca toma el valor exacto <span class="math notranslate nohighlight">\((x)\)</span>, porque <strong>acumula</strong> las probabilidades de los valores menores o iguales a <span class="math notranslate nohighlight">\((x)\)</span>.</p>
+</div>
+<p>Recapitulando, tenemos:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Concepto</strong></p></th>
+<th class="head"><p><strong>Palabra clave</strong></p></th>
+<th class="head"><p><strong>¿Qué representa?</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Espacio muestral</p></td>
+<td><p>“Todo lo posible y medible”</p></td>
+<td><p>Todas las salidas del experimento</p></td>
+</tr>
+<tr class="row-odd"><td><p>Función de probabilidad</p></td>
+<td><p>“Peso”</p></td>
+<td><p>Cuán probable es cada resultado</p></td>
+</tr>
+<tr class="row-even"><td><p>Variable aleatoria</p></td>
+<td><p>“Traducción”</p></td>
+<td><p>Asocia un número a cada resultado del experimento</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distribución</p></td>
+<td><p>“Comportamiento”</p></td>
+<td><p>Cómo se reparten los valores que genera <span class="math notranslate nohighlight">\((X)\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section id="distribuciones-de-probabilidad-discretas">
+<h3>1.2. Distribuciones de probabilidad discretas<a class="headerlink" href="#distribuciones-de-probabilidad-discretas" title="Link to this heading">#</a></h3>
+<section id="distribucion-de-bernoulli">
+<h4>1.2.1. Distribución de Bernoulli<a class="headerlink" href="#distribucion-de-bernoulli" title="Link to this heading">#</a></h4>
+<p><strong>Qué modela:</strong></p>
+<p>Un solo experimento con dos posibles resultados: éxito (1) o fracaso (0).</p>
+<p><strong>Ejemplo:</strong></p>
+<p>Tirar una moneda una vez:</p>
+<ul class="simple">
+<li><p>Cara = 1 (éxito)</p></li>
+<li><p>Cruz = 0 (fracaso)</p></li>
+</ul>
+<p><strong>Parámetros:</strong>
+<span class="math notranslate nohighlight">\(\theta \in [0, 1]\)</span> es la probabilidad de éxito.</p>
+<p>Se denota como:</p>
+<div class="math notranslate nohighlight">
+\[
+X \sim \text{Bernoulli}(\theta)
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variable aleatoria de Bernoulli</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: PMF</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: CDF</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="distribucion-binomial">
+<h4>1.2.2. Distribución Binomial<a class="headerlink" href="#distribucion-binomial" title="Link to this heading">#</a></h4>
+<p><strong>Qué modela:</strong>
+El número total de éxitos en <span class="math notranslate nohighlight">\(n\)</span> experimentos independientes de Bernoulli.</p>
+<p><strong>Ejemplo:</strong>
+Tirar una moneda <span class="math notranslate nohighlight">\(n\)</span> veces y contar cuántas veces sale cara.</p>
+<p><strong>Parámetros:</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(n\)</span>: número de ensayos</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span>: probabilidad de éxito en cada ensayo</p></li>
+</ul>
+<p>Se denota como:</p>
+<div class="math notranslate nohighlight">
+\[
+X \sim \text{Binomial}(n, \theta)
+\]</div>
+<p>La pmf de una distribución binomial es:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+p(a) = \left(\begin{array}{c}n \\ a \end{array}\right) \theta^a (1 - \theta)^{n-a}
+\end{split}\]</div>
+<p>Si hacemos <span class="math notranslate nohighlight">\(n=1\)</span>, <span class="math notranslate nohighlight">\(\text{Binomial}(1, \theta) = \text{Bernoulli}(\theta)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variable aleatoria binomial</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: PMF</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: CDF</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="distribucion-geometrica">
+<h4>1.2.3 Distribución Geométrica<a class="headerlink" href="#distribucion-geometrica" title="Link to this heading">#</a></h4>
+<p><strong>Qué modela:</strong>
+El número de ensayos hasta obtener el primer éxito (incluyendo ese éxito).</p>
+<p><strong>Ejemplo:</strong>
+Tirar una moneda hasta que salga cara por primera vez.
+Si sale cara en el tercer intento, <span class="math notranslate nohighlight">\(X=3\)</span>.</p>
+<p><strong>Parámetros:</strong>
+<span class="math notranslate nohighlight">\(\theta\)</span>: probabilidad de éxito en cada intento.</p>
+<p>Se denota como:</p>
+<div class="math notranslate nohighlight">
+\[
+X \sim \text{Geometric}(\theta)
+\]</div>
+<p>La VA <span class="math notranslate nohighlight">\(X\)</span> sigue una distribución geométrica con parámetro <span class="math notranslate nohighlight">\(\theta\)</span> si,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(X\)</span> toma los valores <span class="math notranslate nohighlight">\(1, 2, 3, \dots\)</span></p></li>
+<li><p>Su pmf está dada por <span class="math notranslate nohighlight">\(p(a) = \theta (1 - \theta)^{a - 1}\)</span>.</p></li>
+</ul>
+<p>La denotamos como <span class="math notranslate nohighlight">\(Geom(\theta)\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variables aleatorias Geométricas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: PMF</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: CDF</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="valor-esperado-y-varianza-discretas">
+<h3>1.3. Valor esperado y varianza (discretas)<a class="headerlink" href="#valor-esperado-y-varianza-discretas" title="Link to this heading">#</a></h3>
+<section id="esperanza">
+<h4>1.3.1. Esperanza<a class="headerlink" href="#esperanza" title="Link to this heading">#</a></h4>
+<p>Antes de definirla formalmente, es importante notar que el valor esperado no solo se aplica a la variable aleatoria en sí, sino también a <strong>cualquier función de la variable</strong>. Es decir, podemos calcular el valor esperado de <span class="math notranslate nohighlight">\(f(X)\)</span>, donde <span class="math notranslate nohighlight">\((f)\)</span> es una función que transforma los valores de la variable aleatoria.</p>
+<p>Esto permite, por ejemplo, obtener cantidades como:</p>
+<ul class="simple">
+<li><p>la varianza: <span class="math notranslate nohighlight">\(\mathbb{E}[X^2]\)</span></p></li>
+<li><p>la utilidad esperada: <span class="math notranslate nohighlight">\(\mathbb{E}[\log X]\)</span></p></li>
+<li><p>el valor esperado de pérdidas u otras métricas de interés</p></li>
+</ul>
+<p>Este enfoque más general se expresa como:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}[f(X)] = \sum_x p(x) \cdot f(x)
+\]</div>
+<p>Y si tomamos <span class="math notranslate nohighlight">\(f(x) = x\)</span>, recuperamos la forma más común del valor esperado:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{E}[X] = \sum_x p(x) \cdot x
+\]</div>
+</section>
+<section id="varianza">
+<h4>1.3.2. Varianza<a class="headerlink" href="#varianza" title="Link to this heading">#</a></h4>
+<p>El valor esperado es una <em>medida de tendencia central</em>, en el sentido de que nos da un valor promedio, o “centro de gravedad” probabilístico, hacia el cual tienden los datos al repetirse el experimento muchas veces.</p>
+<p>Sin embargo, <strong>no nos dice qué tan dispersos están los valores alrededor de ese promedio</strong>. Para eso, necesitamos una medida de variabilidad: la <strong>varianza</strong>.</p>
+<p>La varianza de una función <span class="math notranslate nohighlight">\(f(X)\)</span>, denotada como <span class="math notranslate nohighlight">\(\mathrm{var}_p[f]\)</span>, se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{var}_p[f] = \mathbb{E}_p\left[(f(x) - \mathbb{E}_p[f])^2\right]
+\]</div>
+<p>Esta expresión se interpreta como el <strong>promedio ponderado de los cuadrados de las desviaciones</strong> entre los valores de <span class="math notranslate nohighlight">\(f(x)\)</span> y su esperanza. En otras palabras: mide <strong>cuánto varían los valores alrededor de su media</strong>.</p>
+<p>Una forma algebraicamente más sencilla y muy útil para calcular la varianza es:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathrm{var}_p[f] = \mathbb{E}_p[f(x)^2] - \left(\mathbb{E}_p[f]\right)^2
+\]</div>
+<p>Esta fórmula permite calcular la varianza a partir de <strong>dos esperanzas</strong>:</p>
+<ul class="simple">
+<li><p>La esperanza del cuadrado de <span class="math notranslate nohighlight">\(f(x)\)</span></p></li>
+<li><p>El cuadrado de la esperanza de <span class="math notranslate nohighlight">\(f(x)\)</span></p></li>
+</ul>
+</section>
+<section id="calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli">
+<h4>1.3.3. Cálculo de esperanza y varianza de variable aleatoria Bernoulli<a class="headerlink" href="#calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli" title="Link to this heading">#</a></h4>
+<p>Sea <span class="math notranslate nohighlight">\(X\)</span> una variable aleatoria que toma valores en el conjunto <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>. Se denota como:</p>
+<p><img alt="Distribución Bernoulli" src="../_images/bernulli-1.png" /></p>
+<ul class="simple">
+<li><p>En <strong>verde</strong>, se resalta la probabilidad <span class="math notranslate nohighlight">\(P(X = 1) = \theta\)</span>.</p></li>
+<li><p>En <strong>azul</strong>, se muestra que <span class="math notranslate nohighlight">\(P(X = 0) = 1 - \theta\)</span>.</p></li>
+</ul>
+<p>La <em>esperanza matemática</em> o <em>valor esperado</em> de <span class="math notranslate nohighlight">\(X\)</span> se define como:</p>
+<p><img alt="Esperanza de X" src="../_images/bernulli-2.png" /></p>
+<ul class="simple">
+<li><p>Los términos en <strong>azul</strong> y <strong>verde</strong> ayudan a identificar qué probabilidad corresponde a cada valor posible de <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p>El resultado final, <span class="math notranslate nohighlight">\(\mathbb{E}[X] = \theta\)</span>, está <strong>enmarcado en morado</strong> para destacarlo.</p></li>
+</ul>
+<section id="a-esperanza-de-x-2">
+<h5>A) Esperanza de <span class="math notranslate nohighlight">\(X^2\)</span><a class="headerlink" href="#a-esperanza-de-x-2" title="Link to this heading">#</a></h5>
+<p>Dado que los únicos valores posibles de <span class="math notranslate nohighlight">\(X\)</span> son 0 y 1, se cumple que <span class="math notranslate nohighlight">\(X^2 = X\)</span>. Por lo tanto:</p>
+<p><img alt="Esperanza de X al cuadrado" src="../_images/bernulli-3.png" /></p>
+<ul class="simple">
+<li><p>Esta igualdad se debe a que <span class="math notranslate nohighlight">\(0^2 = 0\)</span> y <span class="math notranslate nohighlight">\(1^2 = 1\)</span>, así que no hay cambio al elevar al cuadrado.</p></li>
+</ul>
+</section>
+<section id="b-varianza-de-una-variable-bernoulli">
+<h5>B) Varianza de una variable Bernoulli<a class="headerlink" href="#b-varianza-de-una-variable-bernoulli" title="Link to this heading">#</a></h5>
+<p>La varianza se calcula con la fórmula:</p>
+<p><img alt="Varianza de X" src="../_images/bernulli-4.png" /></p>
+<ul class="simple">
+<li><p>Se utiliza el resultado anterior <span class="math notranslate nohighlight">\(\mathbb{E}[X] = \theta\)</span>.</p></li>
+<li><p>El desarrollo muestra cómo se simplifica la fórmula hasta obtener <span class="math notranslate nohighlight">\(\theta(1 - \theta)\)</span>, que aparece resaltado al final.</p></li>
+</ul>
+</section>
+<section id="ejemplo-numerico">
+<h5>Ejemplo numérico<a class="headerlink" href="#ejemplo-numerico" title="Link to this heading">#</a></h5>
+<p><strong>Ejemplo 1.</strong> Suponemos que tenemos un dado justo con cinco 3’s y un 6. ¿Cuál esperaría que fuera el promedio de 6000 tiros?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#x_vals = [3, 6]</span>
+<span class="c1">#probs = [5/6, 1/6]</span>
+
+<span class="c1"># X1 (crear la variable aleatoria discreta)</span>
+
+<span class="c1"># Calcular la esperanza (valor esperado)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#X1.rvs(size=100)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Muestreamos la variable aleatoria</span>
+
+<span class="c1"># Obtenemos el promedio a medida que vamos obteniendo más muestras</span>
+
+<span class="c1"># Graficamos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Varianza X1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Ejemplo 2.</strong> Se tiran dos dados de seis caras. Si ganas <span class="math notranslate nohighlight">\(1000\)</span> si la suma es 2, y pierdes <span class="math notranslate nohighlight">\(100\)</span> de otro modo, ¿Cuánto esperas ganar en promedio por tiro?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># X2</span>
+
+
+<span class="c1"># Valor esperado teórico</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Muestreamos la variable aleatoria</span>
+
+<span class="c1"># Obtenemos el promedio a medida que vamos obteniendo más muestras</span>
+
+<span class="c1"># Graficamos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Varianza X2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Si queremos una medida que nos de un sentido de dispersión en las «mismas unidades» de la variable aleatoria, podemos acudir a la desviación estándar, que se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+\text{std}_p[f] = \sqrt{\text{var}_p[f]}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># STD de X1 y X2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Actividad de integración</p>
+<p>Genera una función que nos permita calcular la esperanza y la varianza de una variable aleatoria discreta, dada su PMF. Utiliza esta función para calcular la esperanza y varianza de las siguientes distribuciones:</p>
+<ul class="simple">
+<li><p>Distribución Bernoulli con <span class="math notranslate nohighlight">\(\theta = 0.3\)</span>.</p></li>
+<li><p>Distribución Binomial con <span class="math notranslate nohighlight">\(n = 10\)</span> y <span class="math notranslate nohighlight">\(\theta = 0.3\)</span></p></li>
+<li><p>Distribución Geométrica con <span class="math notranslate nohighlight">\(\theta = 0.3\)</span>.</p></li>
+</ul>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Bernoulli</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Binomial</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geométrica</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="pregunta-en-lo-anterior-estamos-usando-datos-para-generar-el-calculo">
+<h5>💡 Pregunta: en lo anterior, <em>¿estamos usando datos para generar el cálculo?</em><a class="headerlink" href="#pregunta-en-lo-anterior-estamos-usando-datos-para-generar-el-calculo" title="Link to this heading">#</a></h5>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "patymunoz/modelos-graficos-probabilisticos",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modulo1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="M1-sesion2.html"
+       title="página anterior">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">anterior</p>
+        <p class="prev-next-title">Sesión 2</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="M1-sesion3-PT2.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Sesión 3 B</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repaso-de-probabilidad-parte-2a">1. Repaso de probabilidad (parte 2A)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias">1.1. Variables aleatorias</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias-discretas">Variables aleatorias discretas</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-usamos-variables-aleatorias">¿por qué usamos variables aleatorias?</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-masa-de-probabilidad-pmf">1.1.1. Función de <em>masa</em> de probabilidad (PMF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#que-hace-la-pmf">¿qué hace la PMF?</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-distribucion-acumulada-cdf">1.1.2. Función de distribución acumulada (CDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#que-hace-la-cdf">¿qué hace la CDF?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-de-probabilidad-discretas">1.2. Distribuciones de probabilidad discretas</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-bernoulli">1.2.1. Distribución de Bernoulli</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-binomial">1.2.2. Distribución Binomial</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-geometrica">1.2.3 Distribución Geométrica</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-y-varianza-discretas">1.3. Valor esperado y varianza (discretas)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza">1.3.1. Esperanza</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">1.3.2. Varianza</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli">1.3.3. Cálculo de esperanza y varianza de variable aleatoria Bernoulli</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#a-esperanza-de-x-2">A) Esperanza de <span class="math notranslate nohighlight">\(X^2\)</span></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#b-varianza-de-una-variable-bernoulli">B) Varianza de una variable Bernoulli</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-numerico">Ejemplo numérico</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-en-lo-anterior-estamos-usando-datos-para-generar-el-calculo">💡 Pregunta: en lo anterior, <em>¿estamos usando datos para generar el cálculo?</em></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por MCD. Paty Munoz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Paty Munoz.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
