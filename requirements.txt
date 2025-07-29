@@ -6,3 +6,5 @@ jupyter
 numpy
 matplotlib
 scipy
+sklearn
+pandas
