@@ -87,6 +87,3 @@ thebe_config = {
 #    "https://unpkg.com/thebe@latest/lib/index.min.js",
 #    "init_thebe.js"
 #]
-
-def setup(app):
-    app.add_config_value("thebe_config", thebe_config, "html")
