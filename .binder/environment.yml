@@ -1,0 +1,20 @@
+name: thebe-env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - jupyter
+  - notebook
+  - ipywidgets
+  - numpy
+  - matplotlib
+  - pandas
+  - scikit-learn
+  - scipy
+  - myst-nb
+  - sphinx
+  - sphinx-book-theme
+  - sphinx-thebe
+  - pip
+  - pip:
+      - jupyterlab
