@@ -1,0 +1,818 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Fundamentos de probabilidad &#8212; Modelos gráficos probabilísticos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/1-fundamentos_probabilidad';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/nodo.png" class="logo__image only-light" alt="Modelos gráficos probabilísticos - Home"/>
+    <script>document.write(`<img src="../_static/nodo.png" class="logo__image only-dark" alt="Modelos gráficos probabilísticos - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Modelos gráficos probabilísticos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Módulos y recursos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">🛠️ Herramientas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Módulo 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion1.html">Sesión 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT1.html">Sesión 3 A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT2.html">Sesión 3 B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion4.html">Sesión 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion5.html">Sesión 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/main?urlpath=tree/docs/modulo1/1-fundamentos_probabilidad.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/modulo1/1-fundamentos_probabilidad.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/issues/new?title=Issue%20on%20page%20%2Fmodulo1/1-fundamentos_probabilidad.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/modulo1/1-fundamentos_probabilidad.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Fundamentos de probabilidad</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">1.1. Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-la-teoria-de-probabilidad">1.2. Fundamentos de la teoría de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-muestral-omega">1.2.1. Espacio muestral <span class="math notranslate nohighlight">\((\Omega)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-potencia-mathcal-p-omega">1.2.2. Conjunto potencia <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-s-o-espacio-de-eventos">1.2.3. σ-álgebra <span class="math notranslate nohighlight">\((S)\)</span> o espacio de eventos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-probabilidad">1.2.4. Función de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-relacionan-los-conceptos-que-hemos-visto">¿Cómo se relacionan los conceptos que hemos visto?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-probabilidad">1.2.5. Distribución de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-discretas">1.2.5.1. Distribuciones discretas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-continuas">1.2.5.2. Distribuciones continuas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fundamentos-de-probabilidad">
+<h1>Fundamentos de probabilidad<a class="headerlink" href="#fundamentos-de-probabilidad" title="Link to this heading">#</a></h1>
+<section id="introduccion">
+<h2>1.1. Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h2>
+<p>Antes de sumergirnos en el mundo de los <em>modelos gráficos probabilísticos</em>, comprendamos primero algunos de los fundamentos de la teoría de probabilidad, ya que constituye la base formal para este enfoque.</p>
+<p>Una forma de visualizar su importancia es observando cómo diferentes perspectivas epistemológicas y metodológicas dan lugar a distintos tipos de modelado. En la <strong>Figura 1</strong>, se muestra una distinción entre dos enfoques principales:</p>
+<ul class="simple">
+<li><p>El <strong>enfoque determinista</strong>, que se basa en el modelado no probabilísta y utiliza métodos donde no interviene el azar.</p></li>
+<li><p>El <strong>enfoque estocástico</strong>, que recurre al modelado probabilísta y se sustenta formalmente en la teoría de probabilidad.</p></li>
+</ul>
+<p>Ambos caminos convergen en aplicaciones prácticas como los <strong>modelos de aprendizaje automático (ML) y aprendizaje profundo (DL)</strong>. Estos modelos pueden surgir tanto desde una perspectiva determinista como estocástica, aunque es en el enfoque probabilístico donde encontramos herramientas más directas para representar la <em>incertidumbre</em> y tomas decisiones informadas.</p>
+<p><img alt="" src="../_images/sesion2-esquema.png" /></p>
+<p><strong>Figura 1.</strong> Elaboración propia.</p>
+</section>
+<section id="fundamentos-de-la-teoria-de-probabilidad">
+<h2>1.2. Fundamentos de la teoría de probabilidad<a class="headerlink" href="#fundamentos-de-la-teoria-de-probabilidad" title="Link to this heading">#</a></h2>
+<p>La teoría de probabilidad nos permite modelar incertidumbre mediante una estructura matemática compuesta por tres elementos: <em>un espacio muestral <span class="math notranslate nohighlight">\(\Omega\)</span>, un sistema de eventos medibles <span class="math notranslate nohighlight">\(S\)</span> y una función de probabilidad <span class="math notranslate nohighlight">\(\mathbb{P}\)</span></em>. Formalmente, esta estructura se expresa como la <strong>triple</strong>:</p>
+<div class="math notranslate nohighlight">
+\[(\Omega, S, \mathbb{P})\]</div>
+<p>A continuación, desglosamos cada uno de estos componentes:</p>
+<section id="espacio-muestral-omega">
+<h3>1.2.1. Espacio muestral <span class="math notranslate nohighlight">\((\Omega)\)</span><a class="headerlink" href="#espacio-muestral-omega" title="Link to this heading">#</a></h3>
+<p>El <strong>espacio muestral</strong> es el conjunto que contiene <strong>todos los posibles resultados</strong> de un experimento aleatorio. Se denota por:</p>
+<div class="math notranslate nohighlight">
+\[
+\Omega
+\]</div>
+<ul class="simple">
+<li><p>Representa <strong>todo lo que puede pasar</strong>.</p></li>
+<li><p>Es el punto de partida para definir eventos.</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Si lanzamos un dado de 6 caras, el espacio muestral es:</p>
+<p><span class="math notranslate nohighlight">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span></p>
+</div>
+<p>Puedes consultar más <a class="reference external" href="https://en.wikipedia.org/wiki/Probability_space">aquí</a></p>
+</section>
+<section id="conjunto-potencia-mathcal-p-omega">
+<h3>1.2.2. Conjunto potencia <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span><a class="headerlink" href="#conjunto-potencia-mathcal-p-omega" title="Link to this heading">#</a></h3>
+<p>Es el conjunto de <strong>todos los subconjuntos <em>posibles</em></strong> de <span class="math notranslate nohighlight">\(\Omega\)</span>.</p>
+<ul class="simple">
+<li><p>Incluye desde el conjunto vacío <span class="math notranslate nohighlight">\(\varnothing\)</span> hasta el conjunto total <span class="math notranslate nohighlight">\(\Omega\)</span>.</p></li>
+<li><p>Representa <strong>todas las <em>combinaciones</em> posibles de eventos.</strong></p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Si <span class="math notranslate nohighlight">\(\Omega={1,2,3}\)</span>, entonces:</p>
+<p><span class="math notranslate nohighlight">\(P(\Omega) = \{\varnothing, \{1\}, \{2\}, \{3\}, \{1,2\}, \{1,3\}, \{2,3\}, \{1,2,3\}\}\)</span></p>
+</div>
+<p>A continuación, podemos ver el <strong>conjunto potencia</strong> en la <strong>Figura 2</strong>, representado mediante un diagrama de Hasse.</p>
+<p><img alt="" src="../_images/hasse.png" /></p>
+<p><strong>Figura 2.</strong> Diagrama de Hasse del conjunto potencia de <span class="math notranslate nohighlight">\({1,2,3}\)</span>. Elaboración propia con base en: <a class="reference external" href="https://en.wikipedia.org/wiki/Power_set"><em>Power set</em></a>.</p>
+<p>Puedes consultar más <a class="reference external" href="https://en.wikipedia.org/wiki/Power_set">aquí</a>.</p>
+</section>
+<section id="algebra-s-o-espacio-de-eventos">
+<h3>1.2.3. σ-álgebra <span class="math notranslate nohighlight">\((S)\)</span> o espacio de eventos<a class="headerlink" href="#algebra-s-o-espacio-de-eventos" title="Link to this heading">#</a></h3>
+<p>Es una colección especial de subconjuntos de <span class="math notranslate nohighlight">\(\Omega\)</span> (es decir, una subcolección de <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span>) que cumple con tres propiedades clave:</p>
+<div class="tip admonition">
+<p class="admonition-title">Propiedades del sistema de eventos <span class="math notranslate nohighlight">\(S\)</span></p>
+<ol class="arabic simple">
+<li><p><strong>Contiene el evento vacío y el evento total</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\varnothing \in S\)</span>: representa el evento que nunca ocurre.</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Omega \in S\)</span>: representa el evento que siempre ocurre.</p></li>
+</ul>
+</li>
+<li><p><strong>Cerrado bajo unión</strong>
+Si <span class="math notranslate nohighlight">\(\alpha, \beta \in S\)</span>, entonces <span class="math notranslate nohighlight">\(\alpha \cup \beta \in S\)</span>.
+Esto permite formar eventos como “ocurre <span class="math notranslate nohighlight">\(\alpha\)</span> o <span class="math notranslate nohighlight">\(\beta\)</span>”.</p></li>
+<li><p><strong>Cerrado bajo complemento</strong>
+Si <span class="math notranslate nohighlight">\(\alpha \in S\)</span>, entonces <span class="math notranslate nohighlight">\(\Omega - \alpha \in S\)</span> (también denotado <span class="math notranslate nohighlight">\(\alpha^c\)</span>).
+Esto garantiza que también podamos trabajar con el evento “no ocurre <span class="math notranslate nohighlight">\(\alpha\)</span>”.</p></li>
+</ol>
+</div>
+<div class="admonition-ejemplo admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Si <span class="math notranslate nohighlight">\(\Omega={1,2,3}\)</span>, una posible σ-álgebra es:</p>
+<div class="math notranslate nohighlight">
+\[S = \{\varnothing, \{1,2,3\}, \{1\}, \{2,3\}\}\]</div>
+<p>Aquí, <span class="math notranslate nohighlight">\(\{2,3\}\)</span> es el complemento de <span class="math notranslate nohighlight">\(\{1\}\)</span>, y viceversa.</p>
+</div>
+<p>Puedes consultar más <a class="reference external" href="https://en.wikipedia.org/wiki/%CE%A3-algebra#Definition_and_properties">aquí</a>.</p>
+</section>
+<section id="funcion-de-probabilidad">
+<h3>1.2.4. Función de probabilidad<a class="headerlink" href="#funcion-de-probabilidad" title="Link to this heading">#</a></h3>
+<p>Hasta ahora hemos definido el espacio muestral <span class="math notranslate nohighlight">\((\Omega)\)</span>, que contiene todos los posibles resultados de un experimento, y una σ-álgebra <span class="math notranslate nohighlight">\((S)\)</span>, que representa los subconjuntos medibles de <span class="math notranslate nohighlight">\((\Omega)\)</span>, es decir, los <strong>eventos</strong> a los que podemos asignar una probabilidad coherente.</p>
+<p>Una <strong>función de probabilidad</strong> es una regla matemática que asigna a cada evento medible un número entre <span class="math notranslate nohighlight">\(0\)</span> y <span class="math notranslate nohighlight">\(1\)</span>, representando <strong>cuán probable</strong> es que ese evento ocurra. Formalmente:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P} : S \rightarrow [0, 1]\]</div>
+<p>o</p>
+<div class="math notranslate nohighlight">
+\[0 \leq \mathbb{P}(\text{evento}) \leq 1\]</div>
+<p>Para que esta asignación tenga sentido y sea consistente con la intuición, la función <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> debe cumplir tres condiciones fundamentales, conocidas como los <strong>axiomas de Kolmogórov</strong>:</p>
+<div class="tip admonition">
+<p class="admonition-title">Definición formal</p>
+<p>Una función <span class="math notranslate nohighlight">\(\mathbb{P}\)</span> es una <strong>probabilidad</strong> sobre el espacio <span class="math notranslate nohighlight">\((\Omega, S)\)</span> si cumple:</p>
+<ol class="arabic simple">
+<li><p><strong>No negatividad:</strong> <span class="math notranslate nohighlight">\(\mathbb{P}(A) \geq 0\)</span> para todo <span class="math notranslate nohighlight">\(A \in S\)</span></p></li>
+<li><p><strong>Normalización:</strong> <span class="math notranslate nohighlight">\(\mathbb{P}(\Omega) = 1\)</span></p></li>
+<li><p><strong>Aditividad numerable:</strong> si tienes una <strong>colección infinita de eventos</strong> <span class="math notranslate nohighlight">\((A_1, A_2, A_3, \ldots)\)</span> que son <strong>mutuamente excluyentes</strong> (es decir, no se superponen, o sea, <span class="math notranslate nohighlight">\((A_i \cap A_j = \emptyset)\)</span> si <span class="math notranslate nohighlight">\(( i \ne j )\)</span>), entonces la probabilidad de que ocurra alguno de esos eventos (la unión de todos ellos) es igual a la <strong>suma de las probabilidades individuales</strong>.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}\left( \bigcup_{i=1}^{\infty} A_i \right) = \sum_{i=1}^{\infty} \mathbb{P}(A_i)
+\]</div>
+<p>Esto garantiza que la probabilidad se comporta de manera coherente incluso cuando se trata de <strong>infinitas situaciones posibles</strong>, no solo finitas. Es una característica esencial para que una función se considere una <strong>medida de probabilidad</strong> en <em>teoría de la medida</em>.</p>
+</div>
+<blockquote>
+<div><p>📌 <em>Nota:</em> Estos tres principios consolidan la probabilidad como una rama formal de la matemática, basada en la <em>teoría de conjuntos</em> y la <em>teoría de la medida</em>.</p>
+</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Evento en teoría de probabilidad</p>
+<p>En teoría de probabilidad, un <strong>evento</strong> es cualquier subconjunto del espacio muestral <span class="math notranslate nohighlight">\(\Omega\)</span> que <strong>pertenece a la σ-álgebra</strong> <span class="math notranslate nohighlight">\((S)\)</span>.
+Solo a estos eventos se les puede asignar una probabilidad formalmente válida.
+Por eso también se les llama <strong>eventos medibles</strong>.</p>
+</div>
+<section id="como-se-relacionan-los-conceptos-que-hemos-visto">
+<h4>¿Cómo se relacionan los conceptos que hemos visto?<a class="headerlink" href="#como-se-relacionan-los-conceptos-que-hemos-visto" title="Link to this heading">#</a></h4>
+<p>Para construir un modelo probabilístico sólido, necesitamos entender cómo se relacionan tres objetos fundamentales: el <strong>espacio muestral</strong>, el <strong>conjunto potencia</strong> y la <strong>σ-álgebra</strong>.</p>
+<ul class="simple">
+<li><p>El <strong>espacio muestral</strong> <span class="math notranslate nohighlight">\(\Omega\)</span> es el punto de partida: contiene todos los posibles resultados de un experimento.</p></li>
+<li><p>A partir de él, podemos formar el <strong>conjunto potencia</strong> <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span>, que incluye <strong>todos los subconjuntos posibles</strong> de <span class="math notranslate nohighlight">\(\Omega\)</span>. En principio, cada uno de estos subconjuntos podría considerarse un evento.</p></li>
+<li><p>Sin embargo, no todos los subconjuntos de <span class="math notranslate nohighlight">\(\Omega\)</span> pueden ser tratados como <strong>eventos válidos</strong> desde el punto de vista de la probabilidad. Para que un subconjunto sea un <strong>evento medible</strong>, debe pertenecer a una <strong>σ-álgebra</strong> <span class="math notranslate nohighlight">\(S \subseteq \mathcal{P}(\Omega)\)</span>, la cual cumple ciertas propiedades de consistencia lógica (como estar cerrada bajo unión, complemento, etc.).</p></li>
+</ul>
+<p>Podemos resumir estas diferencias clave en la siguiente tabla:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Concepto</p></th>
+<th class="head"><p>Qué representa</p></th>
+<th class="head"><p>Contenido</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Espacio muestral <span class="math notranslate nohighlight">\((\Omega)\)</span></p></td>
+<td><p>Resultados posibles de un experimento</p></td>
+<td><p>Un conjunto base (como <span class="math notranslate nohighlight">\(\{1,2,3\})\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Conjunto potencia <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span></p></td>
+<td><p>Todos los subconjuntos posibles de <span class="math notranslate nohighlight">\((\Omega)\)</span></p></td>
+<td><p>Todos los eventos posibles, medibles o no</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sigma\)</span>-álgebra <span class="math notranslate nohighlight">\((S)\)</span></p></td>
+<td><p>Subconjuntos <strong>medibles</strong> de <span class="math notranslate nohighlight">\((\Omega)\)</span></p></td>
+<td><p>Subconjuntos que cumplen ciertas propiedades</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>La siguiente <strong>Figura 2</strong> ilustra visualmente cómo se relacionan estos tres niveles de generalidad:</p>
+<p><img alt="" src="../_images/all.jpg" /></p>
+<p><strong>Figura 2.</strong> Relación entre espacio muestral, conjunto potencia y <span class="math notranslate nohighlight">\(\sigma\)</span>-álgebra. Elaboración propia.</p>
+</section>
+</section>
+<section id="distribucion-de-probabilidad">
+<h3>1.2.5. Distribución de probabilidad<a class="headerlink" href="#distribucion-de-probabilidad" title="Link to this heading">#</a></h3>
+<p>Una vez definida la función de probabilidad <span class="math notranslate nohighlight">\(\mathbb{P}\)</span>, podemos describir <strong>cómo se reparte esa probabilidad</strong> entre los posibles resultados de un experimento. A esto lo llamamos <strong>distribución de probabilidad</strong>.</p>
+<p>Dependiendo del tipo de espacio muestral, la distribución puede tomar dos formas principales:</p>
+<section id="distribuciones-discretas">
+<h4>1.2.5.1. Distribuciones discretas<a class="headerlink" href="#distribuciones-discretas" title="Link to this heading">#</a></h4>
+<p><img alt="" src="../_images/discrete-distr.png" /></p>
+<p>Este tipo de distribución se utiliza cuando el <em>espacio muestral</em> <span class="math notranslate nohighlight">\(\Omega\)</span> es <strong>finito o numerable</strong> (como lanzar un dado o una moneda).</p>
+<p>Asignan una probabilidad explícita a cada valor individual de la variable aleatoria:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(X = x_i) = p_i \quad \text{con } \sum_i p_i = 1
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Supongamos que lanzamos un dado justo.
+Entonces <span class="math notranslate nohighlight">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span> y usamos <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span> como <span class="math notranslate nohighlight">\(\sigma\)</span>-álgebra.</p>
+<p>Definimos la probabilidad como:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(\{i\}) = \frac{1}{6} \quad \text{para } i = 1,\dots,6
+\]</div>
+<p>Así, por ejemplo:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(\{2,4,6\}) = \frac{3}{6} = 0.5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbb{P}(\{1\}) = \frac{1}{6}\)</span></p></li>
+</ul>
+</div>
+</section>
+<section id="distribuciones-continuas">
+<h4>1.2.5.2. Distribuciones continuas<a class="headerlink" href="#distribuciones-continuas" title="Link to this heading">#</a></h4>
+<p><img alt="" src="../_images/cont-distr.png" /></p>
+<p>Se definen sobre espacios infinitos (por ejemplo, <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>).
+No asignan probabilidad a valores individuales, sino a intervalos, mediante una función de densidad <span class="math notranslate nohighlight">\(f(x)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(a \leq X \leq b) = \int_a^b f(x)\, dx
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>La distribución normal (o gaussiana) tiene densidad:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}
+\]</div>
+<p>Y cumple:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f(x) \geq 0\)</span> para todo <span class="math notranslate nohighlight">\(x\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} f(x) \, dx = 1\)</span></p></li>
+</ul>
+<p>💡 <em>Nota:</em> <span class="math notranslate nohighlight">\(f(x)\)</span> no representa una probabilidad directa, sino una <strong>densidad</strong>:
+la probabilidad de que <span class="math notranslate nohighlight">\(X\)</span> tome un valor exacto (como <span class="math notranslate nohighlight">\(X = 0\)</span>) es <strong>0</strong>. Solo intervalos tienen probabilidad positiva.</p>
+</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>Las <em>distribuciones de probabilidad</em> resumen toda la información necesaria para calcular eventos como:
+<span class="math notranslate nohighlight">\(\mathbb{P}(X \in A)\)</span>, para cualquier conjunto medible <span class="math notranslate nohighlight">\(A \in S\)</span>.</p>
+<ul class="simple">
+<li><p>En el caso <strong>continuo</strong>, esto se hace mediante <strong>integrales</strong> sobre funciones de densidad.</p></li>
+<li><p>En el caso <strong>discreto</strong>, mediante <strong>sumas</strong> de probabilidades individuales.</p></li>
+</ul>
+</div>
+<blockquote>
+<div><p>📌 <em>Nota:</em> Puedes explorar gráficamente las diferentes distribuciones en <a class="reference external" href="https://seeing-theory.brown.edu/probability-distributions/index.html#section1">este recurso.</a></p>
+</div></blockquote>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "patymunoz/modelos-graficos-probabilisticos",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modulo1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduccion">1.1. Introducción</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-la-teoria-de-probabilidad">1.2. Fundamentos de la teoría de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#espacio-muestral-omega">1.2.1. Espacio muestral <span class="math notranslate nohighlight">\((\Omega)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjunto-potencia-mathcal-p-omega">1.2.2. Conjunto potencia <span class="math notranslate nohighlight">\(\mathcal{P}(\Omega)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#algebra-s-o-espacio-de-eventos">1.2.3. σ-álgebra <span class="math notranslate nohighlight">\((S)\)</span> o espacio de eventos</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-probabilidad">1.2.4. Función de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#como-se-relacionan-los-conceptos-que-hemos-visto">¿Cómo se relacionan los conceptos que hemos visto?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#distribucion-de-probabilidad">1.2.5. Distribución de probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-discretas">1.2.5.1. Distribuciones discretas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#distribuciones-continuas">1.2.5.2. Distribuciones continuas</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por MCD. Paty Munoz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Paty Munoz.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

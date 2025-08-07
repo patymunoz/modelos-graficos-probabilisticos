@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Sesión 2 &#8212; Modelos gráficos probabilísticos</title>
+    <title>Independencia &#8212; Modelos gráficos probabilísticos</title>
   
   
   
@@ -47,11 +47,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/M1-sesion2';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/4-independencia';</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Sesión 3 A" href="M1-sesion3-PT1.html" />
-    <link rel="prev" title="Sesión 1" href="M1-sesion1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -114,6 +114,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -170,13 +172,13 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Módulos y recursos</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">Herramientas</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Módulo 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">🛠️ Herramientas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Módulo 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion1.html">Sesión 1</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sesión 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT1.html">Sesión 3 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT2.html">Sesión 3 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion4.html">Sesión 4</a></li>
@@ -238,7 +240,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/main?urlpath=tree/docs/modulo1/M1-sesion2.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/main?urlpath=tree/docs/modulo1/4-independencia.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -304,7 +306,7 @@
       
       
       
-      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/modulo1/M1-sesion2.ipynb" target="_blank"
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/modulo1/4-independencia.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -321,7 +323,7 @@
       
       
       
-      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/issues/new?title=Issue%20on%20page%20%2Fmodulo1/M1-sesion2.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/issues/new?title=Issue%20on%20page%20%2Fmodulo1/4-independencia.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -351,7 +353,7 @@
       
       
       
-      <li><a href="../_sources/modulo1/M1-sesion2.ipynb" target="_blank"
+      <li><a href="../_sources/modulo1/4-independencia.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -435,7 +437,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sesión 2</h1>
+    <h1>Independencia</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -445,22 +447,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-la-teoria-de-probabilidad"><em>Fundamentos de la Teoría de Probabilidad</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#secciones">Secciones:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.1. Independencia</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simetria">Simetría</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativa-para-variables">Alternativa para variables</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretaciones-frecuentista-y-bayesiana"><em>Interpretaciones frecuentista y bayesiana</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Secciones:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-con-probabilidades"><em>Operaciones con probabilidades</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Secciones:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-y-condicionalidad"><em>Independencia y condicionalidad</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Secciones:</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-condicional">1.2. Independencia condicional</a></li>
 </ul>
             </nav>
         </div>
@@ -472,90 +466,117 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sesion-2">
-<h1>Sesión 2<a class="headerlink" href="#sesion-2" title="Link to this heading">#</a></h1>
-<section id="fundamentos-de-la-teoria-de-probabilidad">
-<h2><em>Fundamentos de la Teoría de Probabilidad</em><a class="headerlink" href="#fundamentos-de-la-teoria-de-probabilidad" title="Link to this heading">#</a></h2>
-<p><strong>Notebook</strong>: <a class="reference internal" href="1-fundamentos_probabilidad.html"><span class="std std-doc">Fundamentos de la probabilidad</span></a></p>
-<section id="secciones">
-<h3>Secciones:<a class="headerlink" href="#secciones" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Introducción a la probabilidad</p></li>
-<li><p>Enfoques determinista vs estocástico</p></li>
-<li><p>Estructura de espacio de probabilidad:</p>
-<ul class="simple">
-<li><p>Espacio muestral</p></li>
-<li><p>Conjunto potencia</p></li>
-<li><p>σ-álgebra</p></li>
-<li><p>Función de probabilidad (Kolmogórov)</p></li>
-</ul>
-</li>
-<li><p>Distribuciones de probabilidad:</p>
-<ul class="simple">
-<li><p>Discretas</p></li>
-<li><p>Continuas</p></li>
-</ul>
-</li>
-</ol>
-</section>
-</section>
-<hr class="docutils" />
-<section id="interpretaciones-frecuentista-y-bayesiana">
-<h2><em>Interpretaciones frecuentista y bayesiana</em><a class="headerlink" href="#interpretaciones-frecuentista-y-bayesiana" title="Link to this heading">#</a></h2>
-<p><strong>Notebook</strong>: <a class="reference internal" href="2-interpretaciones_probabilidad.html"><span class="std std-doc">Interpretaciones frecuentista y bayesiana</span></a></p>
+  <section class="tex2jax_ignore mathjax_ignore" id="independencia">
+<h1>Independencia<a class="headerlink" href="#independencia" title="Link to this heading">#</a></h1>
 <section id="id1">
-<h3>Secciones:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>¿Qué representa una probabilidad?</p></li>
-<li><p>Interpretación frecuentista</p>
+<h2>1.1. Independencia<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>Uno de los conceptos más importantes en teoría de probabilidad es el de <strong>independencia entre eventos o variables</strong>. Intuitivamente, dos eventos son independientes si el conocimiento de uno <strong>no cambia</strong> la probabilidad del otro.</p>
+<blockquote>
+<div><p>La independencia <strong>no se asume</strong> ni se deduce por intuición: <strong>se verifica formalmente</strong>.</p>
+</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Definición formal</p>
+<p>Dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son independientes si:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \mid B) = \mathbb{P}(A)
+\quad \text{o equivalentemente} \quad
+\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B)
+\]</div>
+<p>Esta última igualdad es más comúnmente usada, ya que no requiere el cálculo de probabilidades condicionales (evita divisiones por cero cuando <span class="math notranslate nohighlight">\(\mathbb{P}(B) = 0\)</span>).</p>
+</div>
+<section id="simetria">
+<h3>Simetría<a class="headerlink" href="#simetria" title="Link to this heading">#</a></h3>
+<p>Una propiedad importante de la independencia es que <strong>es simétrica</strong>:</p>
+<p>Si <span class="math notranslate nohighlight">\(A\)</span> es independiente de <span class="math notranslate nohighlight">\(B\)</span>, entonces <span class="math notranslate nohighlight">\(B\)</span> es independiente de <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<section id="alternativa-para-variables">
+<h4>Alternativa para variables<a class="headerlink" href="#alternativa-para-variables" title="Link to this heading">#</a></h4>
+<p>Dos variables aleatorias <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> son independientes si:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(X = x, Y = y) = \mathbb{P}(X = x) \cdot \mathbb{P}(Y = y)
+\quad \text{para todo } x, y
+\]</div>
+<blockquote>
+<div><p>📌 <em>Nota:</em> basta con que una sola combinación no cumpla la igualdad para que las variables no sean independientes.</p>
+</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Supón que lanzamos dos monedas. Sea <span class="math notranslate nohighlight">\(\alpha\)</span>: <em>“la primera moneda resulta en cara”</em>, y <span class="math notranslate nohighlight">\(\beta\)</span>: <em>“la segunda moneda resulta en cara”</em>. Estos eventos son independientes: saber que uno ocurrió no afecta la probabilidad del otro.</p>
+<p>También en procesos más abstractos, la independencia puede surgir de la estructura del experimento. Por ejemplo:</p>
 <ul class="simple">
-<li><p>Frecuencia relativa</p></li>
-<li><p>Ley de los grandes números</p></li>
+<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: <em>«el resultado del dado es par»</em></p></li>
+<li><p><span class="math notranslate nohighlight">\(\beta\)</span>: <em>«el resultado es 1 o 2»</em></p></li>
 </ul>
-</li>
-<li><p>Interpretación bayesiana</p>
+<p>Si el dado es justo, es fácil verificar que:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(\alpha \cap \beta) = \mathbb{P}(\alpha) \cdot \mathbb{P}(\beta) = \frac{1}{2} \cdot \frac{1}{3} = \frac{1}{6}
+\]</div>
+<p>Por lo tanto, <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span> son eventos independientes.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="independencia-condicional">
+<h2>1.2. Independencia condicional<a class="headerlink" href="#independencia-condicional" title="Link to this heading">#</a></h2>
+<p>La <strong>independencia</strong> es una propiedad útil, pero poco común en problemas reales:<br />
+en la práctica, es raro que dos variables o eventos sean verdaderamente independientes.</p>
+<p>Sin embargo, lo que sí ocurre con frecuencia es que <strong>dos variables sean independientes <em>condicionalmente</em></strong> a una tercera.<br />
+Es decir:</p>
+<blockquote>
+<div><p><strong>Dado que sabemos algo</strong>, esa información “explica” o “desvincula” a las otras dos variables.</p>
+</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Definición formal</p>
+<p>Decimos que <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son <strong>condicionalmente independientes dado <span class="math notranslate nohighlight">\(X\)</span></strong>, si se cumple:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A, B \mid X) = \mathbb{P}(A \mid X) \cdot \mathbb{P}(B \mid X)
+\]</div>
+<p>Lo cual también implica que:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \mid B, X) = \mathbb{P}(A \mid X)
+\quad \text{y} \quad
+\mathbb{P}(B \mid A, X) = \mathbb{P}(B \mid X)
+\]</div>
+</div>
+<blockquote>
+<div><p>📌 <em>Nota:</em> La información de <span class="math notranslate nohighlight">\(X\)</span> “bloquea” la dependencia entre <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>.<br />
+Es decir, <strong>una vez que sabemos <span class="math notranslate nohighlight">\(X\)</span></strong>, las otras dos variables &gt; <strong>no se influyen entre sí</strong>.</p>
+</div></blockquote>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Supón que queremos estimar la probabilidad de que una estudiante sea admitida a un posgrado en el ITAM o en el CINVESTAV.</p>
 <ul class="simple">
-<li><p>Creencias subjetivas</p></li>
-<li><p>Actualización con el Teorema de Bayes</p></li>
-<li><p>Parámetros como variables aleatorios</p></li>
+<li><p>Sea <span class="math notranslate nohighlight">\(I\)</span>: <em>«fue admitida al posgrado del ITAM»</em></p></li>
+<li><p>Sea <span class="math notranslate nohighlight">\(C\)</span>: <em>«fue admitida al posgrado del CINVESTAV»</em></p></li>
 </ul>
-</li>
-</ol>
-</section>
-</section>
-<hr class="docutils" />
-<section id="operaciones-con-probabilidades">
-<h2><em>Operaciones con probabilidades</em><a class="headerlink" href="#operaciones-con-probabilidades" title="Link to this heading">#</a></h2>
-<p><strong>Notebook</strong>: <a class="reference internal" href="3-operaciones_probabilidad.html"><span class="std std-doc">Operaciones con probabilidades</span></a></p>
-<section id="id2">
-<h3>Secciones:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Probabilidad conjunta</p></li>
-<li><p>Probabilidad condicional</p></li>
-<li><p>Probabilidad marginal</p></li>
-<li><p>Reglas derivadas:</p>
-<ul class="simple">
-<li><p>Regla de marginalización</p></li>
-<li><p>Regla de la cadena</p></li>
-<li><p>Regla de la probabilidad total</p></li>
-</ul>
-</li>
-</ol>
-</section>
-</section>
-<hr class="docutils" />
-<section id="independencia-y-condicionalidad">
-<h2><em>Independencia y condicionalidad</em><a class="headerlink" href="#independencia-y-condicionalidad" title="Link to this heading">#</a></h2>
-<p><strong>Notebook</strong>: <a class="reference internal" href="4-independencia.html"><span class="std std-doc">Independencia y condicionalidad</span></a></p>
-<section id="id3">
-<h3>Secciones:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Independencia entre eventos</p></li>
-<li><p>Independencia entre variables</p></li>
-<li><p>Independencia condicional</p></li>
-<li><p>Notación y ejemplos aplicados</p></li>
-</ol>
-</section>
+<p>Normalmente, <span class="math notranslate nohighlight">\(I\)</span> y <span class="math notranslate nohighlight">\(C\)</span> <strong>no son independientes</strong>: saber que fue admitida al ITAM probablemente aumenta nuestra creencia de que también será admitida al CINVESTAV, porque sugiere que es una estudiante sobresaliente.</p>
+<p>Ahora supongamos que sabemos que su promedio de licenciatura (<span class="math notranslate nohighlight">\(G\)</span>) es de 9.5, y que ambas instituciones <strong>basan su admisión únicamente en el promedio</strong>.</p>
+<p>Entonces, <strong>dado <span class="math notranslate nohighlight">\(G = 9.5\)</span></strong>, los eventos <span class="math notranslate nohighlight">\(I\)</span> y <span class="math notranslate nohighlight">\(C\)</span> sí son independientes:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(C \mid I, G) = \mathbb{P}(C \mid G)
+\]</div>
+<p>En este caso, decimos que <strong><span class="math notranslate nohighlight">\(C\)</span> es condicionalmente independiente de <span class="math notranslate nohighlight">\(I\)</span> dado <span class="math notranslate nohighlight">\(G\)</span></strong>.</p>
+</div>
+<div class="admonition-tip admonition">
+<p class="admonition-title">Tip</p>
+<p>Diremos que <span class="math notranslate nohighlight">\(A \perp B \mid C\)</span> si se cumple:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \cap B \mid C) = \mathbb{P}(A \mid C) \cdot \mathbb{P}(B \mid C)
+\]</div>
+</div>
+<div class="admonition-notacion-comun admonition">
+<p class="admonition-title">Notación común</p>
+<p><span class="math notranslate nohighlight">\(A \perp B \mid C\)</span>:
+A es independiente de B dado C.</p>
+<p>También se puede escribir:
+<span class="math notranslate nohighlight">\(\mathbb{P}(A \mid B, C) = \mathbb{P}(A \mid C)\)</span></p>
+</div>
 </section>
 </section>
 
@@ -589,24 +610,6 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="M1-sesion1.html"
-       title="página anterior">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Sesión 1</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="M1-sesion3-PT1.html"
-       title="siguiente página">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Sesión 3 A</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -623,22 +626,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-la-teoria-de-probabilidad"><em>Fundamentos de la Teoría de Probabilidad</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#secciones">Secciones:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.1. Independencia</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simetria">Simetría</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativa-para-variables">Alternativa para variables</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretaciones-frecuentista-y-bayesiana"><em>Interpretaciones frecuentista y bayesiana</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Secciones:</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-con-probabilidades"><em>Operaciones con probabilidades</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Secciones:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-y-condicionalidad"><em>Independencia y condicionalidad</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Secciones:</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-condicional">1.2. Independencia condicional</a></li>
 </ul>
   </nav></div>
 

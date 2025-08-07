@@ -175,7 +175,7 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">🛠️ Herramientas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">Herramientas</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Módulo 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Sesión 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
@@ -472,16 +472,15 @@ document.write(`
 <h1>Sesión 1<a class="headerlink" href="#sesion-1" title="Link to this heading">#</a></h1>
 <section id="motivacion">
 <h2>Motivación<a class="headerlink" href="#motivacion" title="Link to this heading">#</a></h2>
-<p>El curso de Modelos Gráficos Probabilísticos ofrece una formación rigurosa en herramientas fundamentales para la representación y el análisis de sistemas complejos bajo incertidumbre. A través de una combinación de teoría de probabilidad, estadística y estructuras gráficas, permite modelar dependencias entre variables.</p>
-<p>Este curso está orientado a quienes deseen profundizar en técnicas clave del aprendizaje automático y su aplicación en campos como la inteligencia artificial, la bioinformática, la visión computacional y el procesamiento de lenguaje natural.</p>
+<p>Ya exploramos brevemente algunos conceptos clave que abordaremos a lo largo del curso. Ahora, para introducir y motivar el enfoque de manera más concreta, realizaremos un ejercicio práctico.</p>
 <section id="ejercicio-de-motivacion">
 <h3>Ejercicio de motivación<a class="headerlink" href="#ejercicio-de-motivacion" title="Link to this heading">#</a></h3>
-<button title="Run code" class="thebelab-button thebe-launch-button" onclick="initThebe()">Run code</button><div class="cell tag_Thebe docutils container">
+<div class="cell tag_Thebe docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_iris</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from sklearn.datasets import load_iris</span>
+<span class="c1"># import pandas as pd</span>
+<span class="c1"># import numpy as np</span>
+<span class="c1"># import matplotlib.pyplot as plt</span>
 </pre></div>
 </div>
 </div>
@@ -495,6 +494,16 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datos</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">datos</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;load_iris&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -524,8 +533,78 @@ document.write(`
 </tbody>
 </table>
 </div>
-<p>Generamos un DataFrame</p>
-<p>Vamos a renombrar los títulos de las columnas:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># X </span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generamos un DataFrame con los datos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Renombramos las columnas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df.target.value_counts()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import matplotlib.pyplot as plt</span>
+<span class="c1"># import numpy as np</span>
+
+<span class="c1"># np.random.seed(1)</span>
+
+<span class="c1"># fig, ax = plt.subplots(figsize=(8, 6)) </span>
+
+<span class="c1"># # Dispersión con ruido para evitar superposición</span>
+<span class="c1"># sc = ax.scatter(</span>
+<span class="c1">#     df.length + np.random.normal(loc=0, scale=0.1, size=len(df)),</span>
+<span class="c1">#     df.width + np.random.normal(loc=0, scale=0.1, size=len(df)),</span>
+<span class="c1">#     c=df.target,</span>
+<span class="c1">#     cmap=&#39;cividis&#39;,</span>
+<span class="c1">#     alpha=0.6,</span>
+<span class="c1">#     edgecolors=&#39;w&#39;,</span>
+<span class="c1">#     linewidths=0.5,</span>
+<span class="c1">#     s=60</span>
+<span class="c1"># )</span>
+
+
+<span class="c1"># ax.set_xlabel(&quot;Sepal length (cm)&quot;, fontsize=12)</span>
+<span class="c1"># ax.set_ylabel(&quot;Sepal width (cm)&quot;, fontsize=12)</span>
+<span class="c1"># ax.set_title(&quot;Clasificación por longitud y ancho del sépalo&quot;, fontsize=14, pad=15)</span>
+
+<span class="c1"># ax.grid(True, linestyle=&#39;--&#39;, alpha=0.3)</span>
+
+<span class="c1"># cbar = fig.colorbar(sc, ax=ax)</span>
+<span class="c1"># cbar.set_label(&#39;Clase&#39;, fontsize=11)</span>
+
+<span class="c1"># plt.tight_layout()</span>
+<span class="c1"># plt.show()</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Tipo de flor</p></th>
@@ -560,6 +639,51 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+
+<span class="c1"># X_train, X_test, y_train, y_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Clasificador de árbol de decisión</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_pred</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_pred</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_pred == y_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># promedio anterior</span>
 </pre></div>
 </div>
 </div>
@@ -583,6 +707,13 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Primero, veámos en la tabla siguiente que las columnas (<code class="docutils literal notranslate"><span class="pre">L</span></code>, <code class="docutils literal notranslate"><span class="pre">W</span></code> <code class="docutils literal notranslate"><span class="pre">T</span></code>) representan todas las posibles combinaciones de valores de cada variable.</p>
 <p>La tabla muestra la <strong>distribución conjunta</strong> de tres variables (<code class="docutils literal notranslate"><span class="pre">L</span></code>, <code class="docutils literal notranslate"><span class="pre">W</span></code>, <code class="docutils literal notranslate"><span class="pre">T</span></code>).</p>
 <p>Al estimar la distribución conjunta de las variables <span class="math notranslate nohighlight">\((L)\)</span> (longitud del tallo), <span class="math notranslate nohighlight">\((W)\)</span> (ancho del tallo) y <span class="math notranslate nohighlight">\((T)\)</span> (tipo de flor), obtenemos un modelo probabilístico completo:</p>
@@ -593,6 +724,13 @@ document.write(`
 <li><p>Captura todas las relaciones entre las variables.</p></li>
 <li><p>Nos permite derivar distribuciones condicionales útiles para clasificación.</p></li>
 </ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prob_train.groupby([&#39;L&#39;, &#39;W&#39;, &#39;T&#39;]).size()</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Tenemos <span class="math notranslate nohighlight">\(4 * 3 * 3 = 36\)</span> posibles combinaciones:</p>
 <p><strong>NOTA:</strong> no todas las combinaciones posibles de (<code class="docutils literal notranslate"><span class="pre">L</span></code>, <code class="docutils literal notranslate"><span class="pre">W</span></code> <code class="docutils literal notranslate"><span class="pre">T</span></code>) aparecen en los datos. <code class="docutils literal notranslate"><span class="pre">groupby().size()</span></code> solo muestra las combinaciones que realmente están presentes en el DataFrame.</p>
 <p>Las combinaciones que no ocurren ni una sola vez, no aparecen en la salida porque su conteo es <span class="math notranslate nohighlight">\(0\)</span>.</p>
@@ -688,6 +826,34 @@ document.write(`
 </tbody>
 </table>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># empirical joint distribution</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># np.isclose(empirical_joint_distr.sum(), 1)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># empirical_joint_distr.sum()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># </span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Por ejemplo, a partir de la distribución conjunta podemos obtener la probabilidad de que una flor pertenezca a cierta clase <span class="math notranslate nohighlight">\((T)\)</span>, dado que observamos un par de medidas <span class="math notranslate nohighlight">\(((L, W))\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -716,10 +882,45 @@ P(T = t \mid L = \ell, W = w) = \frac{P(T = t, L = \ell, W = w)}{P(L = \ell, W =
 \hat{t} = \arg\max_{t} P(T = t, L = \ell, W = w)
 \]</div>
 <p>Este enfoque nos permite realizar clasificación directamente a partir de la distribución conjunta estimada, sin necesidad de modelos adicionales.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># empirical_joint_distr[7, 3].idxmax()</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="math notranslate nohighlight">
 \[
 \hat{t} = \arg\max_{t} \, \hat{P}(T = t, L = 5, W = 3)
 \]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pred = []</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_test</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># promedio de aciertos</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="conclusion">

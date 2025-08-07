@@ -1,6 +1,6 @@
-# 🛠️ Herramientas
+# Herramientas
 
-Este curso utiliza herramientas de software modernas para trabajar con modelos gráficos probabilísticos de forma práctica y reproducible.
+Este curso utiliza las siguientes herramientas y tecnologías:
 
 ---
 
@@ -147,7 +147,15 @@ pip install -r requirements.txt
 
 7. Abre el proyecto en VSCode o IDE de preferencia.
 
-#### Opción B: Usar Google Colab
+#### Opción B: Usar Binder
+
+- Abre los notebooks directamente desde el navegador.
+
+- No necesitas instalar ningún software adicional.
+
+- Para que el código de la clase se guarde, necesitas guardar una copia en PDF.
+
+#### Opción C: Usar Google Colab
 
 - Abre los notebooks directamente desde el navegador.
 

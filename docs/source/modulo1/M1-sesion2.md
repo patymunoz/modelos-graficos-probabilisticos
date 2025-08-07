@@ -20,7 +20,7 @@ Ambos caminos convergen en aplicaciones prácticas como los **modelos de aprendi
 
 ### 1.2. Fundamentos de la teoría de probabilidad
 
-La teoría de probabilidad nos permite modelar incertidumbre mediante una estructura matemática compuesta por tres elementos: _un espacio muestral, un sistema de eventos medibles y una función de probabilidad_. Formalmente, esta estructura se expresa como la **triple**:
+La teoría de probabilidad nos permite modelar incertidumbre mediante una estructura matemática compuesta por tres elementos: _un espacio muestral $\Omega$, un sistema de eventos medibles $S$ y una función de probabilidad $\mathbb{P}$_. Formalmente, esta estructura se expresa como la **triple**:
 
 $$(\Omega, S, \mathbb{P})$$
 
@@ -56,7 +56,7 @@ Es el conjunto de **todos los subconjuntos _posibles_** de $\Omega$.
 
 - Incluye desde el conjunto vacío $\varnothing$ hasta el conjunto total $\Omega$.
 
-- Representa **todas las combinaciones posibles de eventos.**
+- Representa **todas las _combinaciones_ posibles de eventos.**
 
 ```{admonition} Ejemplo
 :class: tip

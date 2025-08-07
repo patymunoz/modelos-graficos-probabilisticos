@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Sesión 2 &#8212; Modelos gráficos probabilísticos</title>
+    <title>Operaciones con probabilidades &#8212; Modelos gráficos probabilísticos</title>
   
   
   
@@ -47,11 +47,11 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/M1-sesion2';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/3-operaciones_probabilidad';</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Sesión 3 A" href="M1-sesion3-PT1.html" />
-    <link rel="prev" title="Sesión 1" href="M1-sesion1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
   </head>
@@ -114,6 +114,8 @@
       
       
       
+        
+      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -170,13 +172,13 @@
             </li>
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Módulos y recursos</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">Herramientas</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Módulo 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">🛠️ Herramientas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Módulo 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion1.html">Sesión 1</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Sesión 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT1.html">Sesión 3 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT2.html">Sesión 3 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion4.html">Sesión 4</a></li>
@@ -238,7 +240,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/main?urlpath=tree/docs/modulo1/M1-sesion2.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/main?urlpath=tree/docs/modulo1/3-operaciones_probabilidad.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -304,7 +306,7 @@
       
       
       
-      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/modulo1/M1-sesion2.ipynb" target="_blank"
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/modulo1/3-operaciones_probabilidad.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -321,7 +323,7 @@
       
       
       
-      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/issues/new?title=Issue%20on%20page%20%2Fmodulo1/M1-sesion2.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/issues/new?title=Issue%20on%20page%20%2Fmodulo1/3-operaciones_probabilidad.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Abrir un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -351,7 +353,7 @@
       
       
       
-      <li><a href="../_sources/modulo1/M1-sesion2.ipynb" target="_blank"
+      <li><a href="../_sources/modulo1/3-operaciones_probabilidad.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Descargar archivo fuente"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -435,7 +437,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Sesión 2</h1>
+    <h1>Operaciones con probabilidades</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -445,20 +447,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-la-teoria-de-probabilidad"><em>Fundamentos de la Teoría de Probabilidad</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#secciones">Secciones:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-conjunta-condicional-y-marginal">1.1. Probabilidad conjunta, condicional y marginal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-nos-permite-considerar-eventos-compuestos">¿Qué nos permite considerar eventos compuestos?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-conjunta">1.1.1. Probabilidad conjunta</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicional">1.1.2. Probabilidad condicional</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-marginal">1.1.3. Probabilidad marginal</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretaciones-frecuentista-y-bayesiana"><em>Interpretaciones frecuentista y bayesiana</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Secciones:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-con-probabilidades"><em>Operaciones con probabilidades</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Secciones:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-y-condicionalidad"><em>Independencia y condicionalidad</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Secciones:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reglas-derivadas-de-la-probabilidad">1.2. Reglas derivadas de la probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-marginalizacion">📌 Regla de marginalización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-la-cadena">📌 Regla de la cadena</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-la-probabilidad-total">📌 Regla de la probabilidad total</a></li>
 </ul>
 </li>
 </ul>
@@ -472,89 +471,150 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="sesion-2">
-<h1>Sesión 2<a class="headerlink" href="#sesion-2" title="Link to this heading">#</a></h1>
-<section id="fundamentos-de-la-teoria-de-probabilidad">
-<h2><em>Fundamentos de la Teoría de Probabilidad</em><a class="headerlink" href="#fundamentos-de-la-teoria-de-probabilidad" title="Link to this heading">#</a></h2>
-<p><strong>Notebook</strong>: <a class="reference internal" href="1-fundamentos_probabilidad.html"><span class="std std-doc">Fundamentos de la probabilidad</span></a></p>
-<section id="secciones">
-<h3>Secciones:<a class="headerlink" href="#secciones" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Introducción a la probabilidad</p></li>
-<li><p>Enfoques determinista vs estocástico</p></li>
-<li><p>Estructura de espacio de probabilidad:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="operaciones-con-probabilidades">
+<h1>Operaciones con probabilidades<a class="headerlink" href="#operaciones-con-probabilidades" title="Link to this heading">#</a></h1>
+<p>Una vez que entendemos qué representa una probabilidad y cómo se puede interpretar, el siguiente paso natural es analizar <strong>cómo se combinan o se relacionan distintos eventos entre sí</strong>.</p>
+<p>Esto nos lleva a estudiar conceptos fundamentales como la <strong>probabilidad condicional, conjunta y marginal</strong>.</p>
+<section id="probabilidad-conjunta-condicional-y-marginal">
+<h2>1.1. Probabilidad conjunta, condicional y marginal<a class="headerlink" href="#probabilidad-conjunta-condicional-y-marginal" title="Link to this heading">#</a></h2>
+<p>Hasta ahora hemos aprendido a:</p>
 <ul class="simple">
-<li><p>Espacio muestral</p></li>
-<li><p>Conjunto potencia</p></li>
-<li><p>σ-álgebra</p></li>
-<li><p>Función de probabilidad (Kolmogórov)</p></li>
+<li><p>Definir un <strong>espacio muestral</strong> <span class="math notranslate nohighlight">\((\Omega)\)</span>, que contiene todos los posibles resultados de un experimento.</p></li>
+<li><p>Considerar subconjuntos de <span class="math notranslate nohighlight">\((\Omega)\)</span> como <strong>eventos</strong>, organizados en una estructura llamada <span class="math notranslate nohighlight">\((\sigma)\)</span>-álgebra.</p></li>
+<li><p>Asignar valores de <strong>probabilidad</strong> a esos eventos mediante funciones que cumplen ciertos principios (como los axiomas de Kolmogórov).</p></li>
+<li><p>Interpretar esos valores bajo los enfoques <strong>frecuentista</strong> y <strong>bayesiano</strong>.</p></li>
 </ul>
-</li>
-<li><p>Distribuciones de probabilidad:</p>
+<p>Este marco nos permite describir eventos <strong>individuales</strong>, pero también <strong>eventos compuestos</strong>: por ejemplo, cuando dos condiciones ocurren a la vez, o una depende de otra.</p>
+<section id="que-nos-permite-considerar-eventos-compuestos">
+<h3>¿Qué nos permite considerar eventos compuestos?<a class="headerlink" href="#que-nos-permite-considerar-eventos-compuestos" title="Link to this heading">#</a></h3>
+<p>La clave está en la <span class="math notranslate nohighlight">\((\sigma)\)</span>-álgebra:</p>
+<blockquote>
+<div><p>Al definir el espacio de eventos como una <span class="math notranslate nohighlight">\((\sigma)\)</span>-álgebra, garantizamos que podemos operar con ellos de forma lógica y estructurada:</p>
 <ul class="simple">
-<li><p>Discretas</p></li>
-<li><p>Continuas</p></li>
+<li><p>unir eventos <span class="math notranslate nohighlight">\((A \cup B)\)</span></p></li>
+<li><p>tomar complementos <span class="math notranslate nohighlight">\((A^c)\)</span></p></li>
+<li><p>y también <strong>intersecciones</strong> como <span class="math notranslate nohighlight">\((A \cap B)\)</span>, que representan <strong>eventos conjuntos</strong>.</p></li>
 </ul>
-</li>
-</ol>
+</div></blockquote>
+<p>Esto no solo nos permite construir descripciones más ricas de situaciones, sino que nos habilita a hacer <strong>operaciones de probabilidad</strong> sobre múltiples eventos.</p>
+<p>A continuación, exploraremos tres operaciones fundamentales:</p>
+</section>
+<section id="probabilidad-conjunta">
+<h3>1.1.1. Probabilidad conjunta<a class="headerlink" href="#probabilidad-conjunta" title="Link to this heading">#</a></h3>
+<p>La <strong>probabilidad conjunta</strong> mide la probabilidad de que <strong>dos eventos ocurran al mismo tiempo</strong>.</p>
+<p>Se denota como:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \cap B)
+\]</div>
+<p>o, si el contexto lo permite, simplemente <span class="math notranslate nohighlight">\(\mathbb{P}(A, B)\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Si <span class="math notranslate nohighlight">\((A = \{\text{llover}\})\)</span> y <span class="math notranslate nohighlight">\((B = \{\text{llevar paraguas}\})\)</span>,
+entonces <span class="math notranslate nohighlight">\((\mathbb{P}(A \cap B))\)</span> representa la probabilidad de que <strong>llueva y lleves paraguas</strong> el mismo día.</p>
+</div>
+</section>
+<section id="probabilidad-condicional">
+<h3>1.1.2. Probabilidad condicional<a class="headerlink" href="#probabilidad-condicional" title="Link to this heading">#</a></h3>
+<p>La <strong>probabilidad condicional</strong> responde a la pregunta:</p>
+<blockquote>
+<div><p>¿Cuál es la probabilidad de que ocurra (A) si ya sabemos que ocurrió (B)?</p>
+</div></blockquote>
+<p>Se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \mid B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} \quad \text{si } \mathbb{P}(B) &gt; 0
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Si <span class="math notranslate nohighlight">\((\mathbb{P}(\text{llover y llevar paraguas}) = 0.3 )\)</span>
+y <span class="math notranslate nohighlight">\((\mathbb{P}(\text{llevar paraguas}) = 0.5)\)</span>,
+entonces:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(\text{llover} \mid \text{llevar paraguas}) = \frac{0.3}{0.5} = 0.6
+\]</div>
+</div>
+</section>
+<section id="probabilidad-marginal">
+<h3>1.1.3. Probabilidad marginal<a class="headerlink" href="#probabilidad-marginal" title="Link to this heading">#</a></h3>
+<p>La <strong>probabilidad marginal</strong> es la probabilidad de un evento <strong>sin condicionar</strong> en ningún otro.</p>
+<p>Cuando trabajamos con variables múltiples, podemos obtener la marginal de una variable “resumiendo” la información sobre las otras.</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A) = \sum_{b} \mathbb{P}(A, B=b)
+\]</div>
+<p>En el caso continuo:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A) = \int \mathbb{P}(A, B)\, dB
+\]</div>
+<div class="note admonition">
+<p class="admonition-title">Nota</p>
+<p>La marginal es útil cuando queremos concentrarnos en un solo evento o variable, ignorando otras que también están en juego.</p>
+</div>
 </section>
 </section>
+<section id="reglas-derivadas-de-la-probabilidad">
+<h2>1.2. Reglas derivadas de la probabilidad<a class="headerlink" href="#reglas-derivadas-de-la-probabilidad" title="Link to this heading">#</a></h2>
+<p>Una vez que hemos definido formalmente la <strong>probabilidad condicional</strong>, podemos deducir tres reglas fundamentales que se utilizan constantemente en modelado probabilístico.</p>
+<p>Estas reglas no son nuevos axiomas, sino <strong>consecuencias directas</strong> de combinar:</p>
+<ul class="simple">
+<li><p>Los <strong>axiomas de Kolmogórov</strong>, especialmente:</p>
+<ul>
+<li><p>La aditividad: <span class="math notranslate nohighlight">\(P(A \cup B) = P(A) + P(B)\)</span> si <span class="math notranslate nohighlight">\(A \cap B = \varnothing\)</span></p></li>
+</ul>
+</li>
+<li><p>La <strong>definición de probabilidad condicional</strong></p></li>
+</ul>
+<p>Veamos cada una:</p>
+<section id="regla-de-marginalizacion">
+<h3>📌 Regla de marginalización<a class="headerlink" href="#regla-de-marginalizacion" title="Link to this heading">#</a></h3>
+<p>Se basa en la <strong>aditividad</strong>: si <span class="math notranslate nohighlight">\(B\)</span> puede tomar varios valores disjuntos, entonces:</p>
+<div class="math notranslate nohighlight">
+\[
+P(A) = \sum_B P(A, B)
+\]</div>
+<p>Esta regla permite <strong>reducir</strong> una probabilidad conjunta a una <strong>marginal</strong>.</p>
 <hr class="docutils" />
-<section id="interpretaciones-frecuentista-y-bayesiana">
-<h2><em>Interpretaciones frecuentista y bayesiana</em><a class="headerlink" href="#interpretaciones-frecuentista-y-bayesiana" title="Link to this heading">#</a></h2>
-<p><strong>Notebook</strong>: <a class="reference internal" href="2-interpretaciones_probabilidad.html"><span class="std std-doc">Interpretaciones frecuentista y bayesiana</span></a></p>
-<section id="id1">
-<h3>Secciones:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>¿Qué representa una probabilidad?</p></li>
-<li><p>Interpretación frecuentista</p>
-<ul class="simple">
-<li><p>Frecuencia relativa</p></li>
-<li><p>Ley de los grandes números</p></li>
-</ul>
-</li>
-<li><p>Interpretación bayesiana</p>
-<ul class="simple">
-<li><p>Creencias subjetivas</p></li>
-<li><p>Actualización con el Teorema de Bayes</p></li>
-<li><p>Parámetros como variables aleatorios</p></li>
-</ul>
-</li>
-</ol>
 </section>
-</section>
+<section id="regla-de-la-cadena">
+<h3>📌 Regla de la cadena<a class="headerlink" href="#regla-de-la-cadena" title="Link to this heading">#</a></h3>
+<p>Viene directamente de <em>reordenar</em> la definición de probabilidad condicional:</p>
+<div class="math notranslate nohighlight">
+\[
+P(A \mid B) = \frac{P(A, B)}{P(B)} \quad \Rightarrow \quad P(A, B) = P(A \mid B) \cdot P(B)
+\]</div>
+<p>Esta relación es fundamental en estructuras secuenciales como los modelos gráficos.</p>
+<p>También puede escribirse simétricamente:</p>
+<div class="math notranslate nohighlight">
+\[
+P(B, A) = P(B \mid A) \cdot P(A)
+\]</div>
 <hr class="docutils" />
-<section id="operaciones-con-probabilidades">
-<h2><em>Operaciones con probabilidades</em><a class="headerlink" href="#operaciones-con-probabilidades" title="Link to this heading">#</a></h2>
-<p><strong>Notebook</strong>: <a class="reference internal" href="3-operaciones_probabilidad.html"><span class="std std-doc">Operaciones con probabilidades</span></a></p>
-<section id="id2">
-<h3>Secciones:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Probabilidad conjunta</p></li>
-<li><p>Probabilidad condicional</p></li>
-<li><p>Probabilidad marginal</p></li>
-<li><p>Reglas derivadas:</p>
-<ul class="simple">
-<li><p>Regla de marginalización</p></li>
-<li><p>Regla de la cadena</p></li>
-<li><p>Regla de la probabilidad total</p></li>
-</ul>
-</li>
-</ol>
 </section>
-</section>
-<hr class="docutils" />
-<section id="independencia-y-condicionalidad">
-<h2><em>Independencia y condicionalidad</em><a class="headerlink" href="#independencia-y-condicionalidad" title="Link to this heading">#</a></h2>
-<p><strong>Notebook</strong>: <a class="reference internal" href="4-independencia.html"><span class="std std-doc">Independencia y condicionalidad</span></a></p>
-<section id="id3">
-<h3>Secciones:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
-<ol class="arabic simple">
-<li><p>Independencia entre eventos</p></li>
-<li><p>Independencia entre variables</p></li>
-<li><p>Independencia condicional</p></li>
-<li><p>Notación y ejemplos aplicados</p></li>
-</ol>
+<section id="regla-de-la-probabilidad-total">
+<h3>📌 Regla de la probabilidad total<a class="headerlink" href="#regla-de-la-probabilidad-total" title="Link to this heading">#</a></h3>
+<p>Surge al aplicar <strong>marginalización</strong> sobre la <strong>regla de la cadena</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+P(A) = \sum_B P(A, B) = \sum_B P(A \mid B) \cdot P(B)
+\]</div>
+<p>Es decir, descomponemos la probabilidad de <span class="math notranslate nohighlight">\(A\)</span> en función de sus componentes condicionales respecto a <span class="math notranslate nohighlight">\(B\)</span>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Nota técnica</p>
+<p>En el contexto de probabilidad, usamos la notación <span class="math notranslate nohighlight">\(P(A, B)\)</span> como abreviatura de <span class="math notranslate nohighlight">\(P(A \cap B)\)</span> (la probabilidad de que ocurran ambos eventos).</p>
+</div>
+<blockquote>
+<div><p>Además de ser útil para calcular probabilidades marginales,<br />
+la <strong>regla de la probabilidad total</strong> también puede interpretarse como una <strong>constante de normalización</strong>:</p>
+<p>garantiza que la distribución condicional resultante ( P(A \mid B) ) sea <strong>válida</strong>,<br />
+es decir, que <strong>sume 1</strong> al considerar todos los posibles valores de (A).</p>
+</div></blockquote>
+<div class="math notranslate nohighlight">
+\[\sum_A P(A \mid B) = 1\]</div>
+<p><img alt="" src="../_images/reglas_probabilidad_diagrama.png" /></p>
+<p><strong>Figura 5.</strong> La definición de probabilidad condicional permite derivar tres reglas fundamentales: la <strong>regla de la cadena</strong>, la <strong>regla de marginalización</strong> y la <strong>regla de la probabilidad total</strong>. Estas relaciones son la base del razonamiento probabilístico en contextos donde intervienen múltiples eventos.</p>
 </section>
 </section>
 </section>
@@ -589,24 +649,6 @@ document.write(`
                 <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="M1-sesion1.html"
-       title="página anterior">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Sesión 1</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="M1-sesion3-PT1.html"
-       title="siguiente página">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Sesión 3 A</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -623,20 +665,17 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamentos-de-la-teoria-de-probabilidad"><em>Fundamentos de la Teoría de Probabilidad</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#secciones">Secciones:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-conjunta-condicional-y-marginal">1.1. Probabilidad conjunta, condicional y marginal</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#que-nos-permite-considerar-eventos-compuestos">¿Qué nos permite considerar eventos compuestos?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-conjunta">1.1.1. Probabilidad conjunta</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-condicional">1.1.2. Probabilidad condicional</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#probabilidad-marginal">1.1.3. Probabilidad marginal</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpretaciones-frecuentista-y-bayesiana"><em>Interpretaciones frecuentista y bayesiana</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Secciones:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#operaciones-con-probabilidades"><em>Operaciones con probabilidades</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Secciones:</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-y-condicionalidad"><em>Independencia y condicionalidad</em></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Secciones:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reglas-derivadas-de-la-probabilidad">1.2. Reglas derivadas de la probabilidad</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-marginalizacion">📌 Regla de marginalización</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-la-cadena">📌 Regla de la cadena</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-la-probabilidad-total">📌 Regla de la probabilidad total</a></li>
 </ul>
 </li>
 </ul>

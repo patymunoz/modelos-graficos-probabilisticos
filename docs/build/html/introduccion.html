@@ -47,6 +47,8 @@
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'introduccion';</script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
@@ -173,14 +175,14 @@
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acuerdos-de-clase.html">Sobre la clase</a></li>
-<li class="toctree-l1"><a class="reference internal" href="herramientas.html">🛠️ Herramientas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="herramientas.html">Herramientas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="modulo1/index.html">Módulo 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion1.html">Sesión 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion2.html">Sesión 2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion3.html">Sesión 3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion3-PT1.html">Sesión 3 A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion3-PT2.html">Sesión 3 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion4.html">Sesión 4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion5.html">Sesión 5</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion3ip.html">Sesión 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="recursos-bibliograficos.html">Recursos biliográficos</a></li>
@@ -396,9 +398,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-particulares">Objetivos particulares</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerrequisitos">Prerrequisitos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-son-los-modelos-graficos-probabilisticos">¿Qué son los Modelos gráficos probabilísticos?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-necesitamos-aprender-otro-modelo-ademas-de-los-tradicionales-en-machine-learning">¿Por qué necesitamos aprender <em>otro</em> modelo además de los tradicionales en Machine Learning?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tres-pilares-de-los-mgp">Tres pilares de los MGP:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-representacion">I. Representación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-inferencia">II. Inferencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iii-aprendizaje">III. Aprendizaje</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-particulares">Objetivos particulares</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerrequisitos">Prerrequisitos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
 </ul>
             </nav>
         </div>
@@ -412,18 +425,169 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduccion">
 <h1>Introducción<a class="headerlink" href="#introduccion" title="Link to this heading">#</a></h1>
-<p>La mayoría de las tareas requieren de una persona o un sistema automático que razone (que llegue a conclusiones con base en la información disponible).</p>
-<p>El enfoque de <strong>modelos gráficos probabilísticos</strong> constituye un esquema general para dar solución a esta problemática.</p>
-<p>Consiste en un enfoque basado en <em>modelos</em>, de manera que puedan construirse modelos interpretables y luego manipularlos por medio de algoritmos de <em>razonamiento (inferencia)</em>. Dado que la incertidumbre es un aspecto inevitable de la mayoría de las aplicaciones en la vida real, los modelos que se consideran son <strong>probabilísticos.</strong></p>
-<p>Los <strong>modelos gráficos probabilísticos</strong> son la base de varios métodos del estado del arte en varias aplicaciones tales como diagnóstico médico, visión artificial, reconocimiento de voz, procesamiento de lenguaje natural y muchos otros más. Además, son una herramienta básica para la formulación de varios problemas de aprendizaje automático.</p>
+<section id="que-son-los-modelos-graficos-probabilisticos">
+<h2>¿Qué son los Modelos gráficos probabilísticos?<a class="headerlink" href="#que-son-los-modelos-graficos-probabilisticos" title="Link to this heading">#</a></h2>
+<p>No vamos a comenzar con una definición formal, sino que vamos a descomponer <em>&lt;&lt;Modelos gráficos probabilísticos&gt;&gt;</em> en sus partes constitutivas.</p>
+<p>Para comenzar, la <strong>Figura 1</strong> presenta de forma gráfica una síntesis de los conceptos fundamentales que subyacen al enfoque de los Modelos gráficos probabilísticos (MGP).</p>
+<p><img alt="Conceptos fundamentales de los MGP" src="_images/sesion1-conceptosclave.png" /></p>
+<p><strong>Figura 1.</strong> Componentes clave de los MGP. Este enfoque combina una representación declarativa (modelo), una estructura basada en grafos para modelar sistemas complejos (gráfico), y un marco formal para razonar e inferir bajo incertidumbre (probabilístico).</p>
+<div class="note admonition">
+<p class="admonition-title">¿A qué nos referimos con «Modelos»</p>
+<p>Un «modelo» es una <em>representación declarativa</em> de nuestro entendimiento del mundo.</p>
+<ul class="simple">
+<li><p>Proponemos un modelo que captura <em>cómo entendemos las variables</em> que describen un fenómeno y cómo interactúan entre sí.</p></li>
+<li><p>Que sea <em>declarativo</em> significa que la representación se sostiene por sí misma. Esto quiere decir que podemos dar sentido al modelo <em>independientemente</em> del <em>algoritmo</em> que elijamos aplicar sobre él.</p></li>
+</ul>
+</div>
+<div class="note admonition">
+<p class="admonition-title">¿A qué nos referimos con «Probabilísticos»?</p>
+<p>La palabra «probabilísticos» está presente porque nos ayuda a manejar la <em>incertidumbre</em>.</p>
+<ul class="simple">
+<li><p>La <em>teoría de la probabilidad</em> es un marco formal que nos permite representar la <em>incertidumbre</em> de forma coherente y cuantitativa.</p></li>
+<li><p>Podemos:</p>
+<ul>
+<li><p>Razonar con nueva información –&gt; <em>qué pasa si observamos algo nuevo?</em></p></li>
+<li><p>Tomar decisiones bajo incertidumbre –&gt; <em>qué es lo mejor que podemos hacer?</em></p></li>
+<li><p>Aprender modelos desde los datos –&gt; gracias a la conexión con la estadística, la probabilidad nos permite aplicar técnicas de aprendizaje automático estadístico para aprender los parámetros o la estructura de un modelo.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="note admonition">
+<p class="admonition-title">¿A qué nos referimos con «Gráficos»?</p>
+<p>La palabra «gráficos» está presente porque nos ayuda a manejar la <em>complejidad</em>.</p>
+<ul class="simple">
+<li><p>Un grafo nos ayudará a representar sistemas complejos de forma modular y visual.</p></li>
+<li><p>Un grafo es una estructura matemática compuesta por nodos (o vértices) y aristas (o enlaces) que conectan pares de nodos. En el contexto de los MGP, los nodos representan variables aleatorias y las aristas representan dependencias probabilísticas entre estas variables.</p></li>
+</ul>
+</div>
+<p>Citando a Michael I. Jordan (1998):</p>
+<blockquote>
+<div><p><em>Graphical models are a marriage between probability theory and graph theory. They provide a natural tool for dealing with two problems that occur throughout applied mathematics and engineering – <strong>uncertainty and complexity</strong> – and in particular they are playing an increasingly important role in the design and analysis of machine learning algorithms. Fundamental to the idea of a graphical model is the notion of <strong>modularity</strong> – a complex system is built by combining simpler parts. Probability theory provides the glue whereby the parts are combined, ensuring that the system as a whole is consistent, and providing ways to interface models to data. The graph theoretic side of graphical models provides both an intuitively appealing interface by which humans can model highly-interacting sets of variables as well as a data structure that lends itself naturally to the design of efficient general-purpose algorithms.</em></p>
+</div></blockquote>
+<blockquote>
+<div><p><em>Many of the classical multivariate probabalistic systems studied in fields such as statistics, systems engineering, information theory, pattern recognition and statistical mechanics are special cases of the general graphical model formalism – examples include mixture models, factor analysis, hidden Markov models, Kalman filters and Ising models. The graphical model framework provides a way to view all of these systems as instances of a common underlying formalism. This view has many advantages – in particular, specialized techniques that have been developed in one field can be transferred between research communities and exploited more widely. Moreover, the graphical model formalism provides a natural framework for the design of new systems.»</em></p>
+</div></blockquote>
+<p><a class="reference external" href="https://www.cs.ubc.ca/%7Emurphyk/Bayes/bnintro.html">Citado por Kevin Murphy, 1998.</a> y cita original de Michael I. Jordan, 1998 en <em>Learning in Graphical Models</em>.</p>
+</section>
+<hr class="docutils" />
+<section id="por-que-necesitamos-aprender-otro-modelo-ademas-de-los-tradicionales-en-machine-learning">
+<h2>¿Por qué necesitamos aprender <em>otro</em> modelo además de los tradicionales en Machine Learning?<a class="headerlink" href="#por-que-necesitamos-aprender-otro-modelo-ademas-de-los-tradicionales-en-machine-learning" title="Link to this heading">#</a></h2>
+<p>Es el momento de conectar con el curso 💙 y descubrir el valor profundo de dominar este marco conceptual.</p>
+<p>En ciencia de datos usamos todo tipo de modelos: redes neuronales, árboles de decisión, regresiones, random forests, etc. Entonces, <strong>¿por qué dedicar un curso completo a los modelos gráficos probabilísticos?</strong></p>
+<blockquote>
+<div><p>Porque abordan <em>otro tipo de preguntas</em> y <em>otro tipo de problemas</em> que no son tan fáciles de resolver con los modelos tradicionales.</p>
+</div></blockquote>
+<div class="important admonition">
+<p class="admonition-title">¿qué hace únicos a los MGP?</p>
+<p>Los MGP <strong>separan claramente el modelo del algoritmo</strong>.</p>
+<ul class="simple">
+<li><p><strong>Formular distintas preguntas sobre el mismo modelo</strong>:</p>
+<ul>
+<li><p>Diagnóstico: <span class="math notranslate nohighlight">\(P(\text{Enfermedad} \mid \text{Síntomas})\)</span></p></li>
+<li><p>Predicción: <span class="math notranslate nohighlight">\(P(\text{Síntomas} \mid \text{Enfermedad})\)</span></p></li>
+<li><p>Completado de datos faltantes: <span class="math notranslate nohighlight">\(P(X_i \mid X_{-i})\)</span></p></li>
+<li><p>Detección de anomalías: ¿cuánto se desvía una observación del comportamiento esperado?</p></li>
+</ul>
+</li>
+<li><p><strong>Elegir distintos algoritmos según necesidad</strong>:</p>
+<ul>
+<li><p>Inferencia exacta (si el modelo es pequeño)</p></li>
+<li><p>Inferencia aproximada (si es grande o intractable)</p></li>
+<li><p>Algoritmos más rápidos pero menos precisos, o más costosos pero más exactos.</p></li>
+</ul>
+</li>
+<li><p><strong>Diseñar modelos más interpretables y modulares</strong>.</p></li>
+</ul>
+</div>
+<p>En la mayoría de los modelos de machine learning, el <strong>modelo</strong> y el <strong>algoritmo</strong> vienen <strong>«pegados»</strong>: solo sirven para una tarea específica.</p>
+<p>Pero en MGP, puedes <em>mantener el modelo fijo</em> y <em>cambiar el algoritmo</em> según la pregunta que quieras hacer.</p>
+<blockquote>
+<div><p>Eso es lo que los convierte no solo en una herramienta, sino en un <strong>marco de razonamiento general bajo incertidumbre</strong>.</p>
+</div></blockquote>
+<p><img alt="modelo representacion" src="_images/sesion1-integracion.png" /></p>
+<p><strong>Figura 2.</strong> El modelo como representación declarativa. Un modelo gráfico probabilístico puede construirse a partir de conocimiento experto (elicitación) o aprendido a partir de datos, y luego ser manipulado mediante distintos algoritmos según el tipo de pregunta o tarea. Esta separación entre modelo y algoritmo es una de las ventajas clave del enfoque. Inspirado en material del curso <em>Probabilistic Graphical Models 1: Representation</em>, impartido por Daphne Koller (Stanford University).</p>
+</section>
+<hr class="docutils" />
+<section id="tres-pilares-de-los-mgp">
+<h2>Tres pilares de los MGP:<a class="headerlink" href="#tres-pilares-de-los-mgp" title="Link to this heading">#</a></h2>
+<p>Según <em>Daphne Koller</em> y <em>Nir Friedman</em>, los MGP se basan en tres pilares fundamentales:</p>
+<blockquote>
+<div><p><em>“These three components — <strong>representation, inference, and learning</strong> — are critical components in constructing an intelligent system. We need a <strong>declarative representation</strong> that is a reasonable encoding of our world <strong>model</strong>. We need to be able to use this representation effectively to answer a broad range of <strong>questions</strong> that are of interest. And we need to be able to acquire this distribution, combining <strong>expert knowledge</strong> and <strong>accumulated data</strong>. Probabilistic graphical models are one of a small handful of frameworks that support all three capabilities for a broad range of problems.”</em></p>
+</div></blockquote>
+<section id="i-representacion">
+<h3>I. Representación<a class="headerlink" href="#i-representacion" title="Link to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/nodo.png"><img alt="representacion" src="_images/nodo.png" style="width: 200px;" />
+</a>
+</figure>
+<blockquote>
+<div><p>Usar una estructura gráfica para capturar dependencias entre variables aleatorias.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>El <em>grafo</em> hace explícita la estructura causal o condicional entre variables.</p></li>
+<li><p>Esta representación es declarativa y transparente, es decir:</p>
+<ul>
+<li><p>Se puede inspeccionar.</p></li>
+<li><p>Un humano puede interpretarla.</p></li>
+<li><p>Se separa del algoritmo: podemos usar distintos algoritmos sobre el mismo modelo.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="ii-inferencia">
+<h3>II. Inferencia<a class="headerlink" href="#ii-inferencia" title="Link to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/lupa.png"><img alt="representacion" src="_images/lupa.png" style="width: 200px;" />
+</a>
+</figure>
+<blockquote>
+<div><p>Aplicar <em>algoritmos de inferencia</em> sobre el modelo para responder <em>preguntas</em>.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Por ejemplo:</p>
+<ul>
+<li><p>¿Cuál es la probabilidad de que un paciente tenga gripe dado que tiene fiebre?</p></li>
+<li><p>¿Qué síntomas debo observar para reducir mi incertidumbre?</p></li>
+</ul>
+</li>
+<li><p>Los algoritmos de inferencia usan la estructura gráfica para responder estas consultas eficientemente, sin necesidad de reconstruir toda la distribución conjunta.</p></li>
+<li><p>Pueden ser exactos <em>(variable elimination, belief propagation)</em> o aproximados <em>(sampling, variational)</em>.</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="iii-aprendizaje">
+<h3>III. Aprendizaje<a class="headerlink" href="#iii-aprendizaje" title="Link to this heading">#</a></h3>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/cerebro.png"><img alt="representacion" src="_images/cerebro.png" style="width: 200px;" />
+</a>
+</figure>
+<blockquote>
+<div><p>Construir el modelo automáticamente a partir de datos históricos.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Esto incluye:</p>
+<ul>
+<li><p>Estimar parámetros (probabilidades condicionales).</p></li>
+<li><p>Aprender la estructura del grafo.</p></li>
+</ul>
+</li>
+<li><p>Se apoya en enfoques impulsados por datos (data-driven).</p></li>
+<li><p>Resultado: modelos que reflejan mejor el dominio real que los modelos construidos puramente a mano.</p></li>
+<li><p>Combinan conocimiento experto con información empírica.</p></li>
+</ul>
+<hr class="docutils" />
+<p>Con lo visto hasta ahora, vamos a definir los objetivos del curso.</p>
+</section>
+</section>
 <section id="objetivo-general">
 <h2>Objetivo general<a class="headerlink" href="#objetivo-general" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Comprender los modelos gráficos probabilísticos y sus aplicaciones en el análisis de datos, la inferencia estadística y la toma de decisiones en entornos de incertidumbre mediante la construcción, análisis y aplicación de modelos como redes bayesianas y redes de Markov para modelar sistemas complejos y resolver problemas prácticos en diversas áreas.</p></li>
 </ul>
-</section>
 <section id="objetivos-particulares">
-<h2>Objetivos particulares<a class="headerlink" href="#objetivos-particulares" title="Link to this heading">#</a></h2>
+<h3>Objetivos particulares<a class="headerlink" href="#objetivos-particulares" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Modelar problemáticas/situaciones reales mediante grafos probabilísticos.</p></li>
 <li><p>Responder preguntas de interés práctico acerca de las problemáticas/situaciones modeladas usando algoritmos de inferencia.</p></li>
@@ -431,12 +595,20 @@ document.write(`
 </ul>
 </section>
 <section id="prerrequisitos">
-<h2>Prerrequisitos<a class="headerlink" href="#prerrequisitos" title="Link to this heading">#</a></h2>
+<h3>Prerrequisitos<a class="headerlink" href="#prerrequisitos" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Probabilidad y Estadística – 🎲</p></li>
 <li><p>Programación en Python – 🐍</p></li>
 <li><p>Optimización Convexa – 📈</p></li>
 <li><p>Análisis Estadístico Multivariado 📊</p></li>
+</ul>
+</section>
+</section>
+<section id="referencias">
+<h2>Referencias<a class="headerlink" href="#referencias" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Koller, D., &amp; Friedman, N. (2009). Probabilistic Graphical Models: Principles and Techniques. MIT Press.</p></li>
+<li><p>Jordan, M. I. (1998). Learning in Graphical Models. <em>NATO Science Series D: Behavioural and Social Sciences</em> vol. 89. Springer.</p></li>
 </ul>
 </section>
 </section>
@@ -505,9 +677,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-particulares">Objetivos particulares</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerrequisitos">Prerrequisitos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-son-los-modelos-graficos-probabilisticos">¿Qué son los Modelos gráficos probabilísticos?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-necesitamos-aprender-otro-modelo-ademas-de-los-tradicionales-en-machine-learning">¿Por qué necesitamos aprender <em>otro</em> modelo además de los tradicionales en Machine Learning?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tres-pilares-de-los-mgp">Tres pilares de los MGP:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#i-representacion">I. Representación</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ii-inferencia">II. Inferencia</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#iii-aprendizaje">III. Aprendizaje</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivo-general">Objetivo general</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#objetivos-particulares">Objetivos particulares</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerrequisitos">Prerrequisitos</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referencias">Referencias</a></li>
 </ul>
   </nav></div>
 

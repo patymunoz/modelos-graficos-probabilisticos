@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+
+
+<html lang="es" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Interpretaciones de la probabilidad &#8212; Modelos gráficos probabilísticos</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=47050f13"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/2-interpretaciones_probabilidad';</script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="es"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Saltar al contenido principal</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/nodo.png" class="logo__image only-light" alt="Modelos gráficos probabilísticos - Home"/>
+    <script>document.write(`<img src="../_static/nodo.png" class="logo__image only-dark" alt="Modelos gráficos probabilísticos - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Búsqueda</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Modelos gráficos probabilísticos
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Módulos y recursos</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">🛠️ Herramientas</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Módulo 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion1.html">Sesión 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT1.html">Sesión 3 A</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT2.html">Sesión 3 B</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion4.html">Sesión 4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion5.html">Sesión 5</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/main?urlpath=tree/docs/modulo1/2-interpretaciones_probabilidad.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Repositorio de origen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/modulo1/2-interpretaciones_probabilidad.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/issues/new?title=Issue%20on%20page%20%2Fmodulo1/2-interpretaciones_probabilidad.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Abrir un problema"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Descarga esta pagina">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/modulo1/2-interpretaciones_probabilidad.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Descargar archivo fuente"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Imprimir en PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Modo de pantalla completa"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Interpretaciones de la probabilidad</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contenido </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-representa-una-probabilidad">1.1. ¿qué representa una probabilidad?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoque-frecuentista-medir-por-repeticion">1.2. Enfoque frecuentista: medir por repetición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoque-bayesiano-probabilidades-como-creencias">1.3. Enfoque bayesiano: probabilidades como creencias</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="interpretaciones-de-la-probabilidad">
+<h1>Interpretaciones de la probabilidad<a class="headerlink" href="#interpretaciones-de-la-probabilidad" title="Link to this heading">#</a></h1>
+<section id="que-representa-una-probabilidad">
+<h2>1.1. ¿qué representa una probabilidad?<a class="headerlink" href="#que-representa-una-probabilidad" title="Link to this heading">#</a></h2>
+<p>Ya sabemos qué es una <em>función de probabilidad</em> y cómo puede <em>distribuirse</em> sobre un espacio muestral. Es importante notar que, en este punto, la <em>probabilidad</em> es un objeto estrictamente matemático, cuya definición está separada del proceso mediante el cual se asignan probabilidades a los eventos.</p>
+<p>Pero surge una pregunta fundamental:</p>
+<blockquote>
+<div><p><strong>¿Cómo se asignan o calculan esos valores de probabilidad en la práctica?</strong></p>
+</div></blockquote>
+<p>La respuesta depende de la <strong>interpretación</strong> que adoptemos sobre qué representa una probabilidad en un contexto real.</p>
+<p>A continuación, exploramos dos de las interpretaciones más influyentes y ampliamente utilizadas: la <strong>frecuentista</strong> y la <strong>bayesiana</strong>.</p>
+</section>
+<section id="enfoque-frecuentista-medir-por-repeticion">
+<h2>1.2. Enfoque frecuentista: medir por repetición<a class="headerlink" href="#enfoque-frecuentista-medir-por-repeticion" title="Link to this heading">#</a></h2>
+<blockquote>
+<div><p>Si repetimos un experimento muchas veces, el cociente entre el número de veces que ocurre un evento y el total de repeticiones se usa como una estimación de su probabilidad. Este valor es lo que se conoce como la <em>frecuencia relativa</em>.</p>
+</div></blockquote>
+<p>Este valor se llama <em>frecuencia relativa</em> del evento:</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{P}(A) \approx \frac{\#A}{n}\]</div>
+<p>A medida que el número de experimentos crece, esta frecuencia relativa tiende (bajo ciertas condiciones) a estabilizarse en un valor fijo. Este valor es interpretado como la <strong>probabilidad</strong> del evento desde el punto de vista <em>frecuentista</em>.</p>
+<div class="attention admonition">
+<p class="admonition-title">Frecuencia relativa</p>
+<p>La <strong>frecuencia relativa</strong> es el cociente entre el número de veces que ocurre un evento y el número total de repeticiones del experimento. En el enfoque <strong>frecuentista</strong>, esta proporción se interpreta como la probabilidad del evento, especialmente cuando el número de repeticiones es grande.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Ejemplo</p>
+<p><img alt="" src="../_images/sesion2-freq.png" /></p>
+<p>Si lanzamos una moneda 1000 veces y cae cara en 502 de ellas, entonces:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(\text{cara}) \approx \frac{502}{1000} = 0.502
+\]</div>
+<p>Al aumentar el número de repeticiones, esta estimación se estabiliza. Podemos observar este fenómeno en la <strong>Figura 3.</strong></p>
+</div>
+<p><img alt="Convergencia de la frecuencia relativa" src="../_images/frecuencia_relativa_frecuentista.png" /></p>
+<p><strong>Figura 3</strong>. En el enfoque frecuentista, la probabilidad se interpreta como el valor al que tiende la <em>frecuencia relativa</em> de un evento (por ejemplo, «cara» en una moneda) conforme se incrementa el número de repeticiones del experimento.</p>
+<div class="caution admonition">
+<p class="admonition-title">¿Es sólo una fórmula?</p>
+<p>Aunque el enfoque frecuentista utiliza la <em>frecuencia relativa</em> para estimar la probabilidad, <strong>no se reduce solamente a una fórmula</strong>.</p>
+<p>Este enfoque implica una forma específica de entender qué es una probabilidad:</p>
+<ol class="arabic simple">
+<li><p>La probabilidad de un evento se <strong>define</strong> como el <strong>límite</strong> de su <em>frecuencia relativa</em> al repetir el experimento muchas veces.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} \frac{\#A}{n} = \mathbb{P}(A)\]</div>
+<ol class="arabic simple" start="2">
+<li><p>Se asume que las probabilidades son <strong>propiedades objetivas del mundo</strong>, no creencias subjetivas.</p></li>
+<li><p>No se habla de probabilidades en eventos únicos o no repetibles, como “la probabilidad de que llueva mañana”.</p></li>
+</ol>
+<p>Por tanto, el frecuentismo es una postura <strong>matemática y filosófica</strong>, no solo un método de cálculo.</p>
+</div>
+<blockquote>
+<div><p><strong>¿Qué significa «variable aleatoria» en estadística frecuentista?</strong></p>
+</div></blockquote>
+<p>Hasta ahora, posiblemente has visto que una <em>variable aleatoria</em> es algo que usamos para modelar resultados inciertos, como lanzar un dado, medir una altura, o contar cuántas veces sale cara una moneda.</p>
+<p>Y eso es, precisamente, lo que significa en el enfoque <strong>frecuentista</strong>.</p>
+<blockquote>
+<div><p>Una <em>variable aleatoria</em> representa el <strong>resultado numérico</strong> de un experimento aleatorio que se puede repetir muchas veces.</p>
+</div></blockquote>
+<p>Por ejemplo, si lanzas una moneda y defines <span class="math notranslate nohighlight">\((X = 1)\)</span> si sale cara y <span class="math notranslate nohighlight">\((X = 0)\)</span> si sale cruz, entonces <span class="math notranslate nohighlight">\((X)\)</span> es una <em>variable aleatoria</em>.</p>
+<p>Aquí, lo aleatorio es el <strong>resultado</strong> del experimento, <strong>no</strong> el parámetro que describe su comportamiento (como la probabilidad de que salga cara).</p>
+<p>Desde esta perspectiva, <em>los parámetros son constantes fijas, pero desconocidas</em> y no se modelan con variables aleatorias.</p>
+<div class="note admonition">
+<p class="admonition-title">Fundamento teórico</p>
+<p>El hecho de que la frecuencia relativa se estabilice a medida que aumenta el número de repeticiones está respaldado por un resultado matemático conocido como la <a class="reference external" href="https://es.wikipedia.org/wiki/Ley_de_los_grandes_n%C3%BAmeros"><strong>ley de los grandes números</strong></a>.</p>
+</div>
+</section>
+<section id="enfoque-bayesiano-probabilidades-como-creencias">
+<h2>1.3. Enfoque bayesiano: probabilidades como creencias<a class="headerlink" href="#enfoque-bayesiano-probabilidades-como-creencias" title="Link to this heading">#</a></h2>
+<p><em>¿Qué significa decir que algo tiene cierta probabilidad de ocurrir desde la perspectiva bayesiana?</em></p>
+<p>El enfoque bayesiano propone una forma muy intuitiva de verlo:</p>
+<blockquote>
+<div><p>La probabilidad es una medida de qué tanto creemos que algo es cierto, basándonos en lo que sabemos hasta ahora.</p>
+</div></blockquote>
+<p>Así, para los bayesianos, la probabilidad no es una propiedad fija del mundo como “la gravedad”, sino más bien una forma de representar nuestra incertidumbre. Y lo más importante:</p>
+<blockquote>
+<div><p>💡 Esa creencia puede cambiar si recibimos nueva información.</p>
+</div></blockquote>
+<div class="admonition-ejemplo admonition">
+<p class="admonition-title">Ejemplo</p>
+<p>Supón que alguien te dice:</p>
+<blockquote>
+<div><p><em>«Hay probabilidad de lluvia mañana».</em></p>
+</div></blockquote>
+<p>Esa probabilidad puede ser diferente dependiento de si:</p>
+<ul class="simple">
+<li><p>viste un pronóstico confiable,</p></li>
+<li><p>el cielo está completamente despejado,</p></li>
+<li><p>o escuchaste truenos a lo lejos.</p></li>
+</ul>
+<p>Cada nueva pista <em>cambia tu creencia</em>. Y esto es justamente lo que el enfoque bayesiano busca formalizar: <strong>cómo actualizamos</strong> nuestras creencias cuando obtenemos nueva evidencia.</p>
+</div>
+<blockquote>
+<div><p>¿Cómo se hace esto?</p>
+</div></blockquote>
+<p>La herramienta central para actualizar nuestras creencias es la <strong>probabilidad condicional</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbb{P}(A \mid B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}
+\]</div>
+<p>Esta fórmula expresa la probabilidad de que ocurra un evento <span class="math notranslate nohighlight">\((A)\)</span>, dado que se ha observado otro evento <span class="math notranslate nohighlight">\((B)\)</span>. La <strong>probabilidad condicional</strong> es el primer paso hacia un modelo bayesiano completo, ya que introduce la noción de <strong>información que modifica creencias</strong>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Probabilidad condicional</p>
+<p>La probabilidad condicional nos dice cuál es la probabilidad de que ocurra un evento <span class="math notranslate nohighlight">\((A)\)</span>, dado que ya sabemos que ha ocurrido otro evento <span class="math notranslate nohighlight">\((B)\)</span>.</p>
+<p><img alt="" src="../_images/sesion2-probcondi.png" /></p>
+<p>Por ejemplo, la probabilidad de lluvia puede cambiar si sabemos que el cielo está despejado. Esta forma de actualizar creencias es esencial en el enfoque <strong>bayesiano</strong>.</p>
+</div>
+<p>Aquí es donde entra en escena el famoso <strong>Teorema de Bayes</strong>.</p>
+<div class="important admonition">
+<p class="admonition-title">Teorema de Bayes: actualización de creencias</p>
+<p>El Teorema de Bayes permite <strong>actualizar una creencia previa</strong> cuando se incorpora nueva información. Se compone de tres elementos:</p>
+<ul class="simple">
+<li><p><strong>Prior</strong>: lo que creíamos antes de observar datos <span class="math notranslate nohighlight">\((P(A))\)</span></p></li>
+<li><p><strong>Likelihood</strong> (verosimilitud): qué tan probable es observar los datos si la hipótesis fuera cierta <span class="math notranslate nohighlight">\((P(B \mid A))\)</span></p></li>
+<li><p><strong>Posterior</strong>: lo que creemos <strong>después</strong> de observar los datos <span class="math notranslate nohighlight">\((P(A \mid B))\)</span></p></li>
+</ul>
+<p><img alt="" src="../_images/sesion2-probcondi2.png" /></p>
+<p>Este resultado es matemáticamente demostrable, y es la base de toda la estadística bayesiana.</p>
+</div>
+<blockquote>
+<div><p><strong>¿Qué significa «variable aleatoria» en estadística bayesiana??</strong></p>
+</div></blockquote>
+<p>Hasta ahora, posiblemente has visto que una variable aleatoria es algo que usamos para modelar resultados inciertos, como lanzar un dado, medir una altura, o contar cuántas veces sale cara una moneda.</p>
+<p>Pero en el mundo bayesiano, las cosas se vuelven más interesantes:</p>
+<blockquote>
+<div><p>También usamos variables aleatorias para representar lo que no sabemos sobre un parámetro.</p>
+</div></blockquote>
+<p>Por ejemplo, imagina que estás tratando de averiguar cuál es la probabilidad <span class="math notranslate nohighlight">\(\theta\)</span> de que una máquina falle en un día cualquiera.
+No tienes un número exacto, pero…</p>
+<blockquote>
+<div><p><em>Creo que la máquina es bastante confiable, así que probablemente <span class="math notranslate nohighlight">\(\theta\)</span> sea algo así como 0.1… pero no estoy segura»</em></p>
+</div></blockquote>
+<p>Aquí no estás hablando de un resultado aleatorio, como el lanzamiento de un dado. Estás hablando de tu <strong>incertidumbre sobre un valor desconocido.</strong></p>
+<p>Y eso, en bayes, se modela con una <em>variable aleatoria.</em></p>
+<blockquote>
+<div><p><strong>¿Y cómo describimos esa incertidumbre?</strong></p>
+</div></blockquote>
+<p>Usamos lo que se llama una <strong>distribución de probabilidad</strong>, que nos dice qué tan probable o creíble creemos que es cada posible valor de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Por ejemplo:</p>
+<ul class="simple">
+<li><p>Si pensamos que valores pequeños de <span class="math notranslate nohighlight">\(\theta\)</span> (como 0.05 o 0.1) son más probables, la distribución será más alta en esa zona.</p></li>
+<li><p>Si valores como 0.8 o 0.9 nos parecen muy poco probables, la distribución será muy baja allí.</p></li>
+</ul>
+<p>Esto se representa con una función como:</p>
+<div class="math notranslate nohighlight">
+\[
+p_X(x)
+\]</div>
+<p>significa que:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\((X)\)</span>: es la variable aleatoria que representa la probabilidad de un evento (como que salga cara).</p></li>
+<li><p><span class="math notranslate nohighlight">\((x)\)</span>: es un valor posible de esa probabilidad (por ejemplo, 0.7).</p></li>
+<li><p><span class="math notranslate nohighlight">\((p_X(x))\)</span>: es cuán creíble o probable consideramos ese valor, dada la información disponible.</p></li>
+</ul>
+<p><img alt="" src="../_images/sesion2-bayes_prob_de_probabilidad.png" /></p>
+<p><strong>Figura 4.</strong> Notación de la función de densidad de probabilidad: <span class="math notranslate nohighlight">\(p_X(x)\)</span> represeta cuán probable o creíble creemos que es cada posible valor del parámetro X.</p>
+<p>En lugar de afirmar “la probabilidad es 0.7”, el bayesiano dice: “0.7 es plausible, pero también lo son otros valores cercanos y esta es la distribución que los describe”.</p>
+<p><img alt="" src="../_images/bayes_prior_posterior.png" /></p>
+<p><strong>Figura 5.</strong> En el enfoque bayesiano, una creencia inicial (distribución prior, línea azul) se combina con la evidencia aportada por los datos (verosimilitud, línea roja) para producir una creencia actualizada (posterior, línea verde). Esto se realiza aplicando el Teorema de Bayes.</p>
+<div class="tip admonition">
+<p class="admonition-title">Resumen</p>
+<p>En estadística bayesiana:</p>
+<ul class="simple">
+<li><p>Los parámetros desconocidos se tratan como variables aleatorias.</p></li>
+<li><p>Modelamos nuestras creencias sobre esos valores con distribuciones de probabilidad.</p></li>
+<li><p>Cuando obtenemos nuevos datos, actualizamos esas creencias usando el Teorema de Bayes.</p></li>
+</ul>
+</div>
+<iframe width="650" height="315"
+    src="https://www.youtube.com/embed/XIbL0foEckA"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+</iframe><p><img alt="" src="../_images/interpretations-joke.png" /></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "patymunoz/modelos-graficos-probabilisticos",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./modulo1"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contenido
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#que-representa-una-probabilidad">1.1. ¿qué representa una probabilidad?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoque-frecuentista-medir-por-repeticion">1.2. Enfoque frecuentista: medir por repetición</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enfoque-bayesiano-probabilidades-como-creencias">1.3. Enfoque bayesiano: probabilidades como creencias</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Por MCD. Paty Munoz
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, Paty Munoz.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
