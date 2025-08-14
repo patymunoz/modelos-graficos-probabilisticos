@@ -8,9 +8,17 @@
 
 ## Medio de contacto del grupo
 
-[Pendiente]
+La comunicación se realizará a través de los **medios oficiales de la institución**:
+
+- _Teams:_ para resolver dudas mediante chat. Utiliza este medio si necesitas hacerme una pregunta rápida.
+
+- _Correo electrónico:_ mi dirección institucional está disponible en la guía de aprendizaje y aquí arriba.
+
+- _Canvas:_ para avisos, tareas y demás comunicaciones académicas.
 
 ## Acuerdos de la clase
+
+Puedes consultar los acuerdos completos en [este recurso.](https://iteso.instructure.com/courses/50611/files/10195616?module_item_id=2056959)
 
 - El inicio de clases será a las 18:40 y la profesora podrá tomar asistencia. Luego de esa hora, será considerado retardo.
 
@@ -18,15 +26,11 @@
 
 - Es obligación de la profesora retroalimentar a las y los alumnos después de haber realizado cualquier tipo de evaluación entregando el examen correspondiente a más tardar dos semanas después de haber efectuado el mismo.
 
-- Todas las entregas deben hacerse através de los espacios provistos en `canvas`, a menos que se especifique lo contrario.
-
-- No se recibirán entregas por ningún otro medio. A menos que se haya acordado con la profesora.
-
 ## Evaluación
 
 | **Criterio**     | **Porcentaje** |
 | ---------------- | -------------- |
-| Tareas           | 30%            |
-| Exámenes rápidos | 18%            |
-| Exámenes         | 52%            |
+| Tareas           | 35%            |
+| Exámenes rápidos | 25%            |
+| Exámenes         | 40%            |
 | **Total**        | **100%**       |
