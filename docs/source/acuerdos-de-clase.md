@@ -28,9 +28,9 @@ Puedes consultar los acuerdos completos en [este recurso.](https://iteso.instruc
 
 ## Evaluación
 
-| **Criterio**     | **Porcentaje** |
-| ---------------- | -------------- |
-| Tareas           | 35%            |
-| Exámenes rápidos | 25%            |
-| Exámenes         | 40%            |
-| **Total**        | **100%**       |
+| **Criterio**          | **Porcentaje** |
+| --------------------- | -------------- |
+| Tareas                | 35%            |
+| Exámenes rápidos      | 25%            |
+| Actividad integradora | 40%            |
+| **Total**             | **100%**       |

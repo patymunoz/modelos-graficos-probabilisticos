@@ -180,6 +180,11 @@
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion3-PT1.html">Sesión 3 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion3-PT2.html">Sesión 3 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion4.html">Sesión 4</a></li>
+
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion5.html">Sesión 5</a></li>
 </ul>
 </details></li>
@@ -498,7 +503,7 @@ document.write(`
 </section>
 <section id="elegir-como-seguir-el-curso">
 <h3>4. Elegir cómo seguir el curso<a class="headerlink" href="#elegir-como-seguir-el-curso" title="Link to this heading">#</a></h3>
-<p>Tienes dos opciones para trabajar con los <em>notebooks</em> y el código código:</p>
+<p>Tienes dos opciones para trabajar con los <em>notebooks</em>:</p>
 <section id="opcion-a-trabajar-en-local-requiere-git-anaconda-y-github">
 <h4>Opción A: Trabajar en local (requiere Git, Anaconda y GitHub)<a class="headerlink" href="#opcion-a-trabajar-en-local-requiere-git-anaconda-y-github" title="Link to this heading">#</a></h4>
 <p>Vamos a seguir el repositorio del curso para mantenernos sincronizados con el material oficial.</p>
@@ -547,16 +552,9 @@ upstream<span class="w">  </span>https://github.com/patymunoz/modelos-graficos-p
 <li><p>Crear y activar el entorno Conda</p></li>
 </ol>
 <p>Después de clonar el repositorio, crea el entorno con:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>mgp<span class="w"> </span>python
-conda<span class="w"> </span>activate<span class="w"> </span>mgp
-</pre></div>
-</div>
-<p>Luego instala las bibliotecas necesarias usando el archivo <code class="docutils literal notranslate"><span class="pre">ènvironment.yml</span></code> incluido en el repositorio:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>update<span class="w"> </span>--file<span class="w"> </span>environment.yml<span class="w"> </span>--prune
-</pre></div>
-</div>
-<p>también puedes instalar manualmente las bibliotecas con:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>mi_curso<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10
+conda<span class="w"> </span>activate<span class="w"> </span>mi_curso
+pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
 <ol class="arabic simple" start="7">
@@ -567,14 +565,13 @@ conda<span class="w"> </span>activate<span class="w"> </span>mgp
 <section id="opcion-b-usar-binder">
 <h4>Opción B: Usar Binder<a class="headerlink" href="#opcion-b-usar-binder" title="Link to this heading">#</a></h4>
 <ul class="simple">
-<li><p>Abre los notebooks directamente desde el navegador.</p></li>
-<li><p>No necesitas instalar ningún software adicional.</p></li>
-<li><p>Para que el código de la clase se guarde, necesitas guardar una copia en PDF.</p></li>
+<li><p>Necesitas abrir <a class="reference external" href="https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/main">este enlace.</a></p></li>
 </ul>
 </section>
 <section id="opcion-c-usar-google-colab">
 <h4>Opción C: Usar Google Colab<a class="headerlink" href="#opcion-c-usar-google-colab" title="Link to this heading">#</a></h4>
 <ul class="simple">
+<li><p>Descarga los notebooks directamente del <a class="reference external" href="https://github.com/patymunoz/modelos-graficos-probabilisticos">repositorio.</a></p></li>
 <li><p>Abre los notebooks directamente desde el navegador.</p></li>
 <li><p>No necesitas instalar ningún software adicional.</p></li>
 <li><p>Solo se requiere una cuenta de Google.</p></li>

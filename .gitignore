@@ -2,6 +2,29 @@ notebooks/cache/
 notebooks/author-00motivation.ipynb
 notebooks/author-01sesion.ipynb
 notebooks/author-M1-sesion3-PT1.ipynb
+notebooks/00-motivation.ipynb
+
+#-----
+# --- Sphinx build outputs (no versionar) ---
+docs/build/
+**/_build/
+**/.doctrees/
+**/_sources/
+*.pickle
+*.inv
+
+# Si llegaran a colarse subcarpetas típicas del build:
+docs/build/html/
+docs/build/html/_static/
+docs/build/html/_images/
+
+# --- Jupyter ---
+**/.ipynb_checkpoints/
+**/jupyter_execute/
+
+# Ignorar todos los notebooks de modulo1, excepto el que sí quieres
+docs/source/modulo1/*
+!docs/source/modulo1/M1-sesion1.ipynb
 
 **/jupyter_execute/
 soporte/

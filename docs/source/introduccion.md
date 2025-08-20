@@ -55,7 +55,9 @@ Citando a Michael I. Jordan (1998):
 
 ---
 
-## ¿Por qué necesitamos aprender _otro_ modelo además de los tradicionales en Machine Learning?
+## Entonces...
+
+**¿Por qué aprender un nuevo marco conceptual —y no solo otro modelo más— para el análisis en Machine Learning?**
 
 Es el momento de conectar con el curso 💙 y descubrir el valor profundo de dominar este marco conceptual.
 

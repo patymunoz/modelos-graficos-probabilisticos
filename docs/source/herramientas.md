@@ -68,7 +68,7 @@ git --version
 
 ### 4. Elegir cómo seguir el curso
 
-Tienes dos opciones para trabajar con los _notebooks_ y el código código:
+Tienes dos opciones para trabajar con los _notebooks_:
 
 #### Opción A: Trabajar en local (requiere Git, Anaconda y GitHub)
 
@@ -129,19 +129,8 @@ git push origin main
 Después de clonar el repositorio, crea el entorno con:
 
 ```bash
-conda env create --name mgp python
-conda activate mgp
-```
-
-Luego instala las bibliotecas necesarias usando el archivo `ènvironment.yml` incluido en el repositorio:
-
-```bash
-conda env update --file environment.yml --prune
-```
-
-también puedes instalar manualmente las bibliotecas con:
-
-```bash
+conda create -n mi_curso python=3.10
+conda activate mi_curso
 pip install -r requirements.txt
 ```
 
@@ -149,13 +138,11 @@ pip install -r requirements.txt
 
 #### Opción B: Usar Binder
 
-- Abre los notebooks directamente desde el navegador.
-
-- No necesitas instalar ningún software adicional.
-
-- Para que el código de la clase se guarde, necesitas guardar una copia en PDF.
+- Necesitas abrir [este enlace.](https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/main)
 
 #### Opción C: Usar Google Colab
+
+- Descarga los notebooks directamente del [repositorio.](https://github.com/patymunoz/modelos-graficos-probabilisticos)
 
 - Abre los notebooks directamente desde el navegador.
 

@@ -52,6 +52,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/M1-sesion4';</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Sesión 5" href="M1-sesion5.html" />
     <link rel="prev" title="Sesión 3 B" href="M1-sesion3-PT2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -186,6 +187,7 @@
 
 
 
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion5.html">Sesión 5</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
@@ -508,7 +510,7 @@ document.write(`
 \]</div>
 <p>Donde:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span> son las variables aleatorias (datos observados, y posiblemente también variables latentes).</p></li>
+<li><p><span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span> son las variables aleatorias (datos observados).</p></li>
 <li><p><span class="math notranslate nohighlight">\(\theta \in \Theta\)</span> es el vector de parámetros desconocidos.</p></li>
 </ul>
 </section>
@@ -657,7 +659,7 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 <p>Lo anterior, lo podemos leer como: «la probabilidad de obtener 55 caras dado que la probabilidad de cara en un tiro individual es <span class="math notranslate nohighlight">\(\theta\)</span>».</p>
 <section id="por-metodo-numerico">
 <h2><em>por método numérico</em><a class="headerlink" href="#por-metodo-numerico" title="Link to this heading">#</a></h2>
-<div class="cell tag_Thebe docutils container">
+<button title="Run code" class="thebelab-button thebe-launch-button" onclick="initThebe()">Run code</button><div class="cell tag_Thebe docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
@@ -809,7 +811,7 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\paty\AppData\Local\Temp\ipykernel_21884\3167649693.py:2: RuntimeWarning: divide by zero encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\paty\AppData\Local\Temp\ipykernel_20356\3167649693.py:2: RuntimeWarning: divide by zero encountered in log
   log_likelihood = np.log(float(math.comb(n, a))) + a * np.log(theta) + (n - a) * np.log(1 - theta)
 </pre></div>
 </div>
@@ -975,7 +977,7 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, np.float64(9.977870142761452))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, np.float64(10.000818675373639))
 </pre></div>
 </div>
 </div>
@@ -987,7 +989,7 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, np.float64(1.997959184026833))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, np.float64(2.0097445379184635))
 </pre></div>
 </div>
 </div>
@@ -1005,7 +1007,7 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parámetros estimados por MLE: mu = 9.977870142761452, sigma = 1.997959184026833
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parámetros estimados por MLE: mu = 10.000818675373639, sigma = 2.0097445379184635
 </pre></div>
 </div>
 </div>
@@ -1062,6 +1064,15 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
         <p class="prev-next-subtitle">anterior</p>
         <p class="prev-next-title">Sesión 3 B</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="M1-sesion5.html"
+       title="siguiente página">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">siguiente</p>
+        <p class="prev-next-title">Sesión 5</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
