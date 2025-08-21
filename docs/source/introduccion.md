@@ -175,6 +175,10 @@ Según _Daphne Koller_ y _Nir Friedman_, los MGP se basan en tres pilares fundam
 
 ---
 
+![](../source/images/sesion1-graphmodel.png)
+
+_Figura 3._ Ejemplo de un modelo gráfico probabilístico.
+
 Con lo visto hasta ahora, vamos a definir los objetivos del curso.
 
 ## Objetivo general
