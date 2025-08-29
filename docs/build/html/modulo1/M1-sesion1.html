@@ -187,7 +187,6 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="M1-sesion5.html">Sesión 5</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
@@ -515,6 +514,8 @@ document.write(`
 </div>
 </div>
 </div>
+<p><img alt="" src="../_images/sesion1_iris.png" /></p>
+<p><strong>Figura 1.</strong> Flores de Iris. Disponibles en: <a class="reference external" href="https://www.kaggle.com/code/sunaysawant/iris-eda">Kaggle</a></p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p><strong>Propiedad</strong></p></th>
@@ -548,14 +549,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Carga las variables en X </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asigna las variables en X </span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Carga y</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Asigna las variables en y</span>
 </pre></div>
 </div>
 </div>
@@ -643,10 +644,8 @@ plt.show()</p>
 <p><em>¿Cuáles modelos de clasificación podríamos usar para resolver este problema?</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.tree</span><span class="w"> </span><span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
-
-<span class="c1"># Divide en X_train, X_test, y_train, y_test</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#from sklearn.model_selection import train_test_split</span>
+<span class="c1">#from sklearn.tree import DecisionTreeClassifier</span>
 </pre></div>
 </div>
 </div>
@@ -654,6 +653,13 @@ plt.show()</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Genera un clasificador de árbol de decisión</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Predicciones</span>
 </pre></div>
 </div>
 </div>
@@ -681,14 +687,15 @@ plt.show()</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_pred == y_test</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y_pred == y_test (máscara booleana)</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">y_pred</span> <span class="o">==</span> <span class="n">y_test</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># promedio anterior</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># promedio de aciertos con y_test</span>
 </pre></div>
 </div>
 </div>
@@ -700,21 +707,21 @@ plt.show()</p>
 <p>Podemos adoptar un <strong>enfoque probabilístico</strong> para modelar la situación a partir de los datos disponibles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convierte en df los datos de train</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convierte en df los datos de test</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imprime los valores únicos de L, W y T</span>
 </pre></div>
 </div>
 </div>
@@ -731,7 +738,7 @@ plt.show()</p>
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># prob_train.groupby([&#39;L&#39;, &#39;W&#39;, &#39;T&#39;]).size()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generamos un conteo relativo (para construir la distribución empírica)</span>
 </pre></div>
 </div>
 </div>
@@ -833,21 +840,21 @@ plt.show()</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># empirical joint distribution</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generamos la distribución empírica conjunta (conteo/normalización)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># np.isclose(empirical_joint_distr.sum(), 1)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¿la distribución empírica conjunta suma 1?</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># empirical_joint_distr.sum()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ¿la distribución empírica conjunta suma 1?</span>
 </pre></div>
 </div>
 </div>
@@ -860,10 +867,7 @@ plt.show()</p>
 </div>
 </div>
 <p>Por ejemplo, a partir de la distribución conjunta podemos obtener la probabilidad de que una flor pertenezca a cierta clase <span class="math notranslate nohighlight">\((T)\)</span>, dado que observamos un par de medidas <span class="math notranslate nohighlight">\(((L, W))\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-P(T \mid L, W) = \frac{P(L, W, T)}{P(L, W)}
-\]</div>
+<p><img alt="" src="../_images/sesion1-prob-cond.png" /></p>
 <p>Con esta información, podemos construir un clasificador probabilístico de la siguiente manera:</p>
 <ol class="arabic simple">
 <li><p>La distribución condicional nos proporciona una probabilidad para cada posible valor <span class="math notranslate nohighlight">\((t)\)</span> que puede tomar la variable <span class="math notranslate nohighlight">\((T)\)</span> (por ejemplo, <span class="math notranslate nohighlight">\((t = 0, 1, 2 )\)</span>). Como nuestro objetivo es predecir la clase más probable, elegimos el valor de <span class="math notranslate nohighlight">\((t)\)</span> que maximiza esta probabilidad:</p></li>
@@ -900,7 +904,8 @@ P(T = t \mid L = \ell, W = w) = \frac{P(T = t, L = \ell, W = w)}{P(L = \ell, W =
 \]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pred = []</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generar por a partir de la distribución emírica el argmax</span>
+<span class="c1"># pred = []</span>
 </pre></div>
 </div>
 </div>
@@ -914,7 +919,7 @@ P(T = t \mid L = \ell, W = w) = \frac{P(T = t, L = \ell, W = w)}{P(L = \ell, W =
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># promedio de aciertos</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># promedio de aciertos con y_test</span>
 </pre></div>
 </div>
 </div>
@@ -930,25 +935,21 @@ P(T = t \mid L = \ell, W = w) = \frac{P(T = t, L = \ell, W = w)}{P(L = \ell, W =
 </section>
 <section id="conclusion">
 <h3>📌 Conclusión<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h3>
-<p><strong>¿Lo que hice corresponde a un modelo generativo?</strong></p>
-<p>Sí, el procedimiento que implementaste es completamente coherente con el enfoque de un <strong>modelo generativo</strong>.</p>
 <p><strong>Pasos que seguiste (en términos probabilísticos)</strong></p>
 <ol class="arabic">
 <li><p><strong>Estimación de la distribución conjunta</strong></p>
-<p>Calculaste la probabilidad conjunta <span class="math notranslate nohighlight">\((P(L = \ell, W = w, T = t))\)</span> a partir de los datos, contando la frecuencia de cada combinación y normalizando sobre el total.<br />
-→ Esto es exactamente lo que haría un modelo generativo: aprender la <strong>distribución conjunta</strong> <span class="math notranslate nohighlight">\((P(X, Y))\)</span>.</p>
+<p>Calculaste la probabilidad conjunta <span class="math notranslate nohighlight">\((P(L = \ell, W = w, T = t))\)</span> a partir de los datos, contando la frecuencia de cada combinación y normalizando sobre el total.</p>
 </li>
 <li><p><strong>Normalización</strong></p>
 <p>Dividiste los conteos conjuntos por el total de observaciones, obteniendo así una estimación empírica de las probabilidades.<br />
 → Esto convierte los conteos en una <strong>distribución de probabilidad válida</strong>.</p>
 </li>
 <li><p><strong>Cálculo de la probabilidad condicional</strong></p>
-<p>Usaste la regla de Bayes para obtener la distribución condicional:</p>
+<p>usaste la regla de Bayes para pasar de probabilidades conjuntas a probabilidades condicionales:</p>
 <div class="math notranslate nohighlight">
 \[
    P(T = t \mid L = \ell, W = w) = \frac{P(L = \ell, W = w, T = t)}{P(L = \ell, W = w)}
    \]</div>
-<p>→ Esto es una inferencia clásica dentro del enfoque generativo.</p>
 </li>
 <li><p><strong>Predicción con argumento máximo (MAP)</strong></p>
 <p>Elegiste la clase con mayor probabilidad condicional:</p>
@@ -956,7 +957,7 @@ P(T = t \mid L = \ell, W = w) = \frac{P(T = t, L = \ell, W = w)}{P(L = \ell, W =
 \[
    \hat{t} = \arg\max_t P(T = t \mid L = \ell, W = w)
    \]</div>
-<p>→ Esto implementa el <strong>clasificador MAP (Maximum A Posteriori)</strong>.</p>
+<p>→ Esto significa que, dadas las evidencias (los valores de <span class="math notranslate nohighlight">\(L\)</span> y <span class="math notranslate nohighlight">\(W\)</span>), escoges la clase más plausible según los datos observados.</p>
 </li>
 <li><p><strong>Clasificación final</strong></p>
 <p>Aplicaste este procedimiento a cada punto del conjunto de datos, generando predicciones basadas únicamente en la distribución conjunta estimada.</p>

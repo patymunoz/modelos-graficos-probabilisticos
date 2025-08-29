@@ -22,9 +22,18 @@ docs/build/html/_images/
 **/.ipynb_checkpoints/
 **/jupyter_execute/
 
-# Ignorar todos los notebooks de modulo1, excepto el que sí quieres
+# Ignorar todos los notebooks de modulo1
 docs/source/modulo1/*
 !docs/source/modulo1/M1-sesion1.ipynb
+!docs/source/modulo1/M1-sesion2.ipynb
+!docs/source/modulo1/1-fundamentos_probabilidad.ipynb
+!docs/source/modulo1/2-interpretaciones_probabilidad.ipynb
+!docs/source/modulo1/3-operaciones_probabilidad.ipynb
+!docs/source/modulo1/4-independencia.ipynb
 
 **/jupyter_execute/
 soporte/
+
+#--- JetBrains
+.idea/
+.venv/
