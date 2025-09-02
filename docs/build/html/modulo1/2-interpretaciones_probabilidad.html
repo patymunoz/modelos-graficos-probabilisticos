@@ -175,14 +175,18 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">🛠️ Herramientas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">Herramientas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Módulo 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion1.html">Sesión 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT1.html">Sesión 3 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT2.html">Sesión 3 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion4.html">Sesión 4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="M1-sesion5.html">Sesión 5</a></li>
+
+
+
+
+
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
@@ -513,17 +517,6 @@ document.write(`
 </ol>
 <p>Por tanto, el frecuentismo es una postura <strong>matemática y filosófica</strong>, no solo un método de cálculo.</p>
 </div>
-<blockquote>
-<div><p><strong>¿Qué significa «variable aleatoria» en estadística frecuentista?</strong></p>
-</div></blockquote>
-<p>Hasta ahora, posiblemente has visto que una <em>variable aleatoria</em> es algo que usamos para modelar resultados inciertos, como lanzar un dado, medir una altura, o contar cuántas veces sale cara una moneda.</p>
-<p>Y eso es, precisamente, lo que significa en el enfoque <strong>frecuentista</strong>.</p>
-<blockquote>
-<div><p>Una <em>variable aleatoria</em> representa el <strong>resultado numérico</strong> de un experimento aleatorio que se puede repetir muchas veces.</p>
-</div></blockquote>
-<p>Por ejemplo, si lanzas una moneda y defines <span class="math notranslate nohighlight">\((X = 1)\)</span> si sale cara y <span class="math notranslate nohighlight">\((X = 0)\)</span> si sale cruz, entonces <span class="math notranslate nohighlight">\((X)\)</span> es una <em>variable aleatoria</em>.</p>
-<p>Aquí, lo aleatorio es el <strong>resultado</strong> del experimento, <strong>no</strong> el parámetro que describe su comportamiento (como la probabilidad de que salga cara).</p>
-<p>Desde esta perspectiva, <em>los parámetros son constantes fijas, pero desconocidas</em> y no se modelan con variables aleatorias.</p>
 <div class="note admonition">
 <p class="admonition-title">Fundamento teórico</p>
 <p>El hecho de que la frecuencia relativa se estabilice a medida que aumenta el número de repeticiones está respaldado por un resultado matemático conocido como la <a class="reference external" href="https://es.wikipedia.org/wiki/Ley_de_los_grandes_n%C3%BAmeros"><strong>ley de los grandes números</strong></a>.</p>
@@ -560,9 +553,9 @@ document.write(`
 <p>La herramienta central para actualizar nuestras creencias es la <strong>probabilidad condicional</strong>:</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{P}(A \mid B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}
+\mathbb{P}(X \mid Y) = \frac{\mathbb{P}(X, Y)}{\mathbb{P}(Y)}
 \]</div>
-<p>Esta fórmula expresa la probabilidad de que ocurra un evento <span class="math notranslate nohighlight">\((A)\)</span>, dado que se ha observado otro evento <span class="math notranslate nohighlight">\((B)\)</span>. La <strong>probabilidad condicional</strong> es el primer paso hacia un modelo bayesiano completo, ya que introduce la noción de <strong>información que modifica creencias</strong>.</p>
+<p>Esta fórmula expresa la probabilidad de que ocurra un evento <span class="math notranslate nohighlight">\((X)\)</span>, dado que se ha observado otro evento <span class="math notranslate nohighlight">\((Y)\)</span>. La <strong>probabilidad condicional</strong> es el primer paso hacia un modelo bayesiano completo, ya que introduce la noción de <strong>información que modifica creencias</strong>.</p>
 <div class="tip admonition">
 <p class="admonition-title">Probabilidad condicional</p>
 <p>La probabilidad condicional nos dice cuál es la probabilidad de que ocurra un evento <span class="math notranslate nohighlight">\((A)\)</span>, dado que ya sabemos que ha ocurrido otro evento <span class="math notranslate nohighlight">\((B)\)</span>.</p>
@@ -570,7 +563,40 @@ document.write(`
 <p>Por ejemplo, la probabilidad de lluvia puede cambiar si sabemos que el cielo está despejado. Esta forma de actualizar creencias es esencial en el enfoque <strong>bayesiano</strong>.</p>
 </div>
 <p>Aquí es donde entra en escena el famoso <strong>Teorema de Bayes</strong>.</p>
-<div class="important admonition">
+<p>Dado que <em>la probabilidad conjunta es simétrica</em>, esto es <span class="math notranslate nohighlight">\(p(X, Y) = p(Y, X)\)</span>, de la definición de probabilidad condicional obtenemos que:</p>
+<div class="math notranslate nohighlight">
+\[
+p(Y|X) p(X) = p(X, Y) = p(Y, X) = p(X|Y) p(Y).
+\]</div>
+<p>De lo anterior, usando las igualdades de los extremos, obtenemos <strong>la regla de Bayes</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+p(Y | X) = \frac{p(X | Y) p(Y)}{p(X)}.
+\]</div>
+<ul>
+<li><p>La regla de Bayes nos dice cómo <em>invertir</em> probabilidades condicionales, es decir, nos permite encontrar <span class="math notranslate nohighlight">\(p(Y|X)\)</span> a partir de <span class="math notranslate nohighlight">\(p(X|Y)\)</span>.</p></li>
+<li><p>En la práctica, es común calcular <span class="math notranslate nohighlight">\(p(X)\)</span> usando la regla de la probabilidad total:</p>
+<div class="math notranslate nohighlight">
+\[
+  p(Y | X) = \frac{p(X | Y) p(Y)}{p(X)} = \frac{p(X | Y) p(Y)}{\sum_{Y} p(X|Y)p(Y)} .
+  \]</div>
+</li>
+</ul>
+<p><strong>Ejemplo.</strong> Se tira una moneda 5 veces. Queremos analizar los eventos</p>
+<ul class="simple">
+<li><p>F: el primer tiro es cara</p></li>
+<li><p>T: todos los 5 tiros son cara.</p></li>
+</ul>
+<details>
+  <summary>Descubrir</summary>
+<p>En particular <span class="math notranslate nohighlight">\(p(T | F)\)</span>.</p>
+<p>Es fácil observar que <span class="math notranslate nohighlight">\(p(F | T) = 1\)</span>. También, sabemos que <span class="math notranslate nohighlight">\(p(T) = \left(\frac{1}{2}\right)^5 = \frac{1}{32}\)</span>. Finalmente, <span class="math notranslate nohighlight">\(p(F) = \frac{1}{2}\)</span>.</p>
+<p>Finalmente, aplicando la regla de Bayes:</p>
+<div class="math notranslate nohighlight">
+\[
+p(T | F) = \frac{p(F | T) p(T)}{p(F)} = \frac{1 \cdot 1/32}{1/2} = \frac{1}{16}
+\]</div>
+</details><div class="important admonition">
 <p class="admonition-title">Teorema de Bayes: actualización de creencias</p>
 <p>El Teorema de Bayes permite <strong>actualizar una creencia previa</strong> cuando se incorpora nueva información. Se compone de tres elementos:</p>
 <ul class="simple">
@@ -581,62 +607,22 @@ document.write(`
 <p><img alt="" src="../_images/sesion2-probcondi2.png" /></p>
 <p>Este resultado es matemáticamente demostrable, y es la base de toda la estadística bayesiana.</p>
 </div>
-<blockquote>
-<div><p><strong>¿Qué significa «variable aleatoria» en estadística bayesiana??</strong></p>
-</div></blockquote>
-<p>Hasta ahora, posiblemente has visto que una variable aleatoria es algo que usamos para modelar resultados inciertos, como lanzar un dado, medir una altura, o contar cuántas veces sale cara una moneda.</p>
-<p>Pero en el mundo bayesiano, las cosas se vuelven más interesantes:</p>
-<blockquote>
-<div><p>También usamos variables aleatorias para representar lo que no sabemos sobre un parámetro.</p>
-</div></blockquote>
-<p>Por ejemplo, imagina que estás tratando de averiguar cuál es la probabilidad <span class="math notranslate nohighlight">\(\theta\)</span> de que una máquina falle en un día cualquiera.
-No tienes un número exacto, pero…</p>
-<blockquote>
-<div><p><em>Creo que la máquina es bastante confiable, así que probablemente <span class="math notranslate nohighlight">\(\theta\)</span> sea algo así como 0.1… pero no estoy segura»</em></p>
-</div></blockquote>
-<p>Aquí no estás hablando de un resultado aleatorio, como el lanzamiento de un dado. Estás hablando de tu <strong>incertidumbre sobre un valor desconocido.</strong></p>
-<p>Y eso, en bayes, se modela con una <em>variable aleatoria.</em></p>
-<blockquote>
-<div><p><strong>¿Y cómo describimos esa incertidumbre?</strong></p>
-</div></blockquote>
-<p>Usamos lo que se llama una <strong>distribución de probabilidad</strong>, que nos dice qué tan probable o creíble creemos que es cada posible valor de <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
-<p>Por ejemplo:</p>
-<ul class="simple">
-<li><p>Si pensamos que valores pequeños de <span class="math notranslate nohighlight">\(\theta\)</span> (como 0.05 o 0.1) son más probables, la distribución será más alta en esa zona.</p></li>
-<li><p>Si valores como 0.8 o 0.9 nos parecen muy poco probables, la distribución será muy baja allí.</p></li>
-</ul>
-<p>Esto se representa con una función como:</p>
-<div class="math notranslate nohighlight">
-\[
-p_X(x)
-\]</div>
-<p>significa que:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\((X)\)</span>: es la variable aleatoria que representa la probabilidad de un evento (como que salga cara).</p></li>
-<li><p><span class="math notranslate nohighlight">\((x)\)</span>: es un valor posible de esa probabilidad (por ejemplo, 0.7).</p></li>
-<li><p><span class="math notranslate nohighlight">\((p_X(x))\)</span>: es cuán creíble o probable consideramos ese valor, dada la información disponible.</p></li>
-</ul>
-<p><img alt="" src="../_images/sesion2-bayes_prob_de_probabilidad.png" /></p>
-<p><strong>Figura 4.</strong> Notación de la función de densidad de probabilidad: <span class="math notranslate nohighlight">\(p_X(x)\)</span> represeta cuán probable o creíble creemos que es cada posible valor del parámetro X.</p>
-<p>En lugar de afirmar “la probabilidad es 0.7”, el bayesiano dice: “0.7 es plausible, pero también lo son otros valores cercanos y esta es la distribución que los describe”.</p>
 <p><img alt="" src="../_images/bayes_prior_posterior.png" /></p>
-<p><strong>Figura 5.</strong> En el enfoque bayesiano, una creencia inicial (distribución prior, línea azul) se combina con la evidencia aportada por los datos (verosimilitud, línea roja) para producir una creencia actualizada (posterior, línea verde). Esto se realiza aplicando el Teorema de Bayes.</p>
-<div class="tip admonition">
-<p class="admonition-title">Resumen</p>
-<p>En estadística bayesiana:</p>
-<ul class="simple">
-<li><p>Los parámetros desconocidos se tratan como variables aleatorias.</p></li>
-<li><p>Modelamos nuestras creencias sobre esos valores con distribuciones de probabilidad.</p></li>
-<li><p>Cuando obtenemos nuevos datos, actualizamos esas creencias usando el Teorema de Bayes.</p></li>
-</ul>
-</div>
+<p><strong>Figura 4.</strong> En el enfoque bayesiano, una creencia inicial (distribución prior, línea azul) se combina con la evidencia aportada por los datos (verosimilitud, línea roja) para producir una creencia actualizada (posterior, línea verde). Esto se realiza aplicando el Teorema de Bayes.</p>
+<p>Si ver una explicación rápida solamente de la fórmula, explicada con conjuntos, aquí te comparto el siguiente video:</p>
 <iframe width="650" height="315"
     src="https://www.youtube.com/embed/XIbL0foEckA"
     title="YouTube video player"
     frameborder="0"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
     allowfullscreen>
-</iframe><p><img alt="" src="../_images/interpretations-joke.png" /></p>
+</iframe><p>Si quieres ver una explicación más profunda sobre la intuición de la fórmula de Bayes, el siguiente video puede ser útil:</p>
+<iframe width="650" height="315"
+src="https://www.youtube.com/embed/HZGCoVF3YvM?si=OJOq8AKImbboCCce" 
+title="YouTube video player" 
+frameborder="0" 
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><p><img alt="" src="../_images/interpretations-joke.png" /></p>
 </section>
 </section>
 

@@ -175,14 +175,18 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">🛠️ Herramientas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">Herramientas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Módulo 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion1.html">Sesión 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT1.html">Sesión 3 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT2.html">Sesión 3 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion4.html">Sesión 4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="M1-sesion5.html">Sesión 5</a></li>
+
+
+
+
+
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
@@ -448,8 +452,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.1. Independencia</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simetria">Simetría</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativa-para-variables">Alternativa para variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-de-variables-aleatorias">Independencia de variables aleatorias</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-independencia-en-una-baraja">Ejemplo: independencia en una baraja</a></li>
 </ul>
 </li>
 </ul>
@@ -474,78 +478,104 @@ document.write(`
 <blockquote>
 <div><p>La independencia <strong>no se asume</strong> ni se deduce por intuición: <strong>se verifica formalmente</strong>.</p>
 </div></blockquote>
+<section id="independencia-de-variables-aleatorias">
+<h3>Independencia de variables aleatorias<a class="headerlink" href="#independencia-de-variables-aleatorias" title="Link to this heading">#</a></h3>
 <div class="tip admonition">
-<p class="admonition-title">Definición formal</p>
-<p>Dos eventos <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son independientes si:</p>
+<p class="admonition-title">Definición de independencia</p>
+<p>Dos variables aleatorias <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> son independientes si la distribución conjunta factoriza como el producto de marginales:</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{P}(A \mid B) = \mathbb{P}(A)
-\quad \text{o equivalentemente} \quad
-\mathbb{P}(A \cap B) = \mathbb{P}(A) \cdot \mathbb{P}(B)
+p(X, Y) = p(X) p(Y).
 \]</div>
-<p>Esta última igualdad es más comúnmente usada, ya que no requiere el cálculo de probabilidades condicionales (evita divisiones por cero cuando <span class="math notranslate nohighlight">\(\mathbb{P}(B) = 0\)</span>).</p>
 </div>
-<section id="simetria">
-<h3>Simetría<a class="headerlink" href="#simetria" title="Link to this heading">#</a></h3>
-<p>Una propiedad importante de la independencia es que <strong>es simétrica</strong>:</p>
-<p>Si <span class="math notranslate nohighlight">\(A\)</span> es independiente de <span class="math notranslate nohighlight">\(B\)</span>, entonces <span class="math notranslate nohighlight">\(B\)</span> es independiente de <span class="math notranslate nohighlight">\(A\)</span>.</p>
-<section id="alternativa-para-variables">
-<h4>Alternativa para variables<a class="headerlink" href="#alternativa-para-variables" title="Link to this heading">#</a></h4>
-<p>Dos variables aleatorias <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span> son independientes si:</p>
+<p>A partir de la definición y de la regla de la probabilidad condicional y suponiendo que <span class="math notranslate nohighlight">\(p(X)&gt;0\)</span> y <span class="math notranslate nohighlight">\(p(Y)&gt;0\)</span>, podemos ver que de la definición de probabilidad condicional:</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{P}(X = x, Y = y) = \mathbb{P}(X = x) \cdot \mathbb{P}(Y = y)
-\quad \text{para todo } x, y
+p(X | Y) = \frac{p(X, Y)}{p(Y)} = \frac{p(X) p(Y)}{p(Y)} = p(X)
 \]</div>
 <blockquote>
-<div><p>📌 <em>Nota:</em> basta con que una sola combinación no cumpla la igualdad para que las variables no sean independientes.</p>
+<div><p><span class="math notranslate nohighlight">\(Y\)</span> no me da información sobre <span class="math notranslate nohighlight">\(X\)</span>.</p>
 </div></blockquote>
-<div class="tip admonition">
-<p class="admonition-title">Ejemplo</p>
-<p>Supón que lanzamos dos monedas. Sea <span class="math notranslate nohighlight">\(\alpha\)</span>: <em>“la primera moneda resulta en cara”</em>, y <span class="math notranslate nohighlight">\(\beta\)</span>: <em>“la segunda moneda resulta en cara”</em>. Estos eventos son independientes: saber que uno ocurrió no afecta la probabilidad del otro.</p>
-<p>También en procesos más abstractos, la independencia puede surgir de la estructura del experimento. Por ejemplo:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\alpha\)</span>: <em>«el resultado del dado es par»</em></p></li>
-<li><p><span class="math notranslate nohighlight">\(\beta\)</span>: <em>«el resultado es 1 o 2»</em></p></li>
-</ul>
-<p>Si el dado es justo, es fácil verificar que:</p>
+<p>y similarmente</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{P}(\alpha \cap \beta) = \mathbb{P}(\alpha) \cdot \mathbb{P}(\beta) = \frac{1}{2} \cdot \frac{1}{3} = \frac{1}{6}
+p(Y | X) = p(Y).
 \]</div>
-<p>Por lo tanto, <span class="math notranslate nohighlight">\(\alpha\)</span> y <span class="math notranslate nohighlight">\(\beta\)</span> son eventos independientes.</p>
-</div>
-</section>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(X\)</span> no me da información sobre <span class="math notranslate nohighlight">\(Y\)</span>.</p>
+</div></blockquote>
+<section id="ejemplo-independencia-en-una-baraja">
+<h4>Ejemplo: independencia en una baraja<a class="headerlink" href="#ejemplo-independencia-en-una-baraja" title="Link to this heading">#</a></h4>
+<p>Se selecciona una carta de una baraja de 52 cartas. Definimos los eventos:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(A\)</span>: la carta es un As.</p></li>
+<li><p><span class="math notranslate nohighlight">\(C\)</span>: la carta es de corazones.</p></li>
+<li><p><span class="math notranslate nohighlight">\(R\)</span>: la carta es roja.</p></li>
+</ul>
+<details>
+  <summary>Descubrir</summary>
+<ol class="arabic simple">
+<li><p>Sabemos que</p></li>
+</ol>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p(A)=\frac{4}{52}=\frac{1}{13}\)</span> (hay 4 A’s en una baraja),</p></li>
+<li><p><span class="math notranslate nohighlight">\(p(A|C)=\frac{1}{13}\)</span> (hay una A de los 13 corazones).</p></li>
+</ul>
+<p>Como <span class="math notranslate nohighlight">\(p(A)=p(A|C)\)</span>, entonces sacar una A es independiente de sacar un corazón.</p>
+<ol class="arabic simple" start="2">
+<li><p>Similarmente,</p></li>
+</ol>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p(A|R)=\frac{2}{26}=\frac{1}{13}\)</span> (hay dos A’s de las 26 cartas rojas).</p></li>
+</ul>
+<p>Como <span class="math notranslate nohighlight">\(p(A)=p(A|R)\)</span>, entonces sacar una A es independiente de sacar una carta roja.</p>
+<ol class="arabic simple" start="3">
+<li><p>¿Qué pasa con <span class="math notranslate nohighlight">\(C\)</span> y <span class="math notranslate nohighlight">\(R\)</span>? Tenemos que:</p></li>
+</ol>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p(C)=\frac{13}{52}=\frac{1}{4}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p(C|R)=\frac{13}{26}=\frac{1}{2}\)</span></p></li>
+</ul>
+<p>Por lo que sacar una carta roja no es independiente de sacar un corazón. Esto es intuitivo.</p>
+<p>Notar que el último caso, lo podríamos haber analizado en el otro sentido:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p(R)=\frac{26}{52}=\frac{1}{2}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p(R|C)=\frac{13}{13}=\frac{1}{1}\)</span>.</p></li>
+</ul>
+</details></section>
 </section>
 </section>
 <section id="independencia-condicional">
 <h2>1.2. Independencia condicional<a class="headerlink" href="#independencia-condicional" title="Link to this heading">#</a></h2>
 <p>La <strong>independencia</strong> es una propiedad útil, pero poco común en problemas reales:<br />
 en la práctica, es raro que dos variables o eventos sean verdaderamente independientes.</p>
-<p>Sin embargo, lo que sí ocurre con frecuencia es que <strong>dos variables sean independientes <em>condicionalmente</em></strong> a una tercera.<br />
-Es decir:</p>
-<blockquote>
-<div><p><strong>Dado que sabemos algo</strong>, esa información “explica” o “desvincula” a las otras dos variables.</p>
-</div></blockquote>
+<p>Sin embargo, lo que sí ocurre con frecuencia es que <strong>dos variables sean independientes <em>condicionalmente</em></strong> a una tercera.</p>
 <div class="tip admonition">
-<p class="admonition-title">Definición formal</p>
-<p>Decimos que <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son <strong>condicionalmente independientes dado <span class="math notranslate nohighlight">\(X\)</span></strong>, si se cumple:</p>
+<p class="admonition-title">Definición independencia condicional</p>
+<p>Decimos que <strong><span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> son independientes condicionalmente a <span class="math notranslate nohighlight">\(X\)</span></strong> si:</p>
 <div class="math notranslate nohighlight">
 \[
-\mathbb{P}(A, B \mid X) = \mathbb{P}(A \mid X) \cdot \mathbb{P}(B \mid X)
+p(A,B \mid X) = p(A \mid X)\, p(B \mid X).
 \]</div>
-<p>Lo cual también implica que:</p>
-<div class="math notranslate nohighlight">
-\[
-\mathbb{P}(A \mid B, X) = \mathbb{P}(A \mid X)
-\quad \text{y} \quad
-\mathbb{P}(B \mid A, X) = \mathbb{P}(B \mid X)
-\]</div>
+<p>Esto significa que <strong>una vez que conocemos <span class="math notranslate nohighlight">\(X\)</span></strong>, la información sobre <span class="math notranslate nohighlight">\(A\)</span> ya no aporta nada adicional sobre <span class="math notranslate nohighlight">\(B\)</span> (y viceversa).</p>
+<p>En otras palabras: <span class="math notranslate nohighlight">\(X\)</span> “rompe” la dependencia que pudieran tener <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>.</p>
 </div>
-<blockquote>
-<div><p>📌 <em>Nota:</em> La información de <span class="math notranslate nohighlight">\(X\)</span> “bloquea” la dependencia entre <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span>.<br />
-Es decir, <strong>una vez que sabemos <span class="math notranslate nohighlight">\(X\)</span></strong>, las otras dos variables &gt; <strong>no se influyen entre sí</strong>.</p>
-</div></blockquote>
+<p>A partir de la definición anterior, usando probabilidad condicional, se puede derivar:</p>
+<div class="math notranslate nohighlight">
+\[
+p(A \mid B, X) = \frac{p(A,B \mid X)}{p(B \mid X)}.
+\]</div>
+<p>Si sustituimos la definición de independencia condicional:</p>
+<div class="math notranslate nohighlight">
+\[
+p(A \mid B, X) = \frac{p(A \mid X)\, p(B \mid X)}{p(B \mid X)} = p(A \mid X).
+\]</div>
+<p>De manera simétrica:</p>
+<div class="math notranslate nohighlight">
+\[
+p(B \mid A, X) = p(B \mid X).
+\]</div>
+<p>Es decir, al condicionar en <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(A\)</span> y <span class="math notranslate nohighlight">\(B\)</span> se comportan como si fueran independientes.</p>
 <div class="tip admonition">
 <p class="admonition-title">Ejemplo</p>
 <p>Supón que queremos estimar la probabilidad de que una estudiante sea admitida a un posgrado en el ITAM o en el CINVESTAV.</p>
@@ -554,28 +584,13 @@ Es decir, <strong>una vez que sabemos <span class="math notranslate nohighlight"
 <li><p>Sea <span class="math notranslate nohighlight">\(C\)</span>: <em>«fue admitida al posgrado del CINVESTAV»</em></p></li>
 </ul>
 <p>Normalmente, <span class="math notranslate nohighlight">\(I\)</span> y <span class="math notranslate nohighlight">\(C\)</span> <strong>no son independientes</strong>: saber que fue admitida al ITAM probablemente aumenta nuestra creencia de que también será admitida al CINVESTAV, porque sugiere que es una estudiante sobresaliente.</p>
-<p>Ahora supongamos que sabemos que su promedio de licenciatura (<span class="math notranslate nohighlight">\(G\)</span>) es de 9.5, y que ambas instituciones <strong>basan su admisión únicamente en el promedio</strong>.</p>
+<p>Ahora supongamos que sabemos que su promedio de licenciatura (<span class="math notranslate nohighlight">\(G\)</span>) es de 9.5 y que ambas instituciones <strong>basan su admisión únicamente en el promedio</strong>.</p>
 <p>Entonces, <strong>dado <span class="math notranslate nohighlight">\(G = 9.5\)</span></strong>, los eventos <span class="math notranslate nohighlight">\(I\)</span> y <span class="math notranslate nohighlight">\(C\)</span> sí son independientes:</p>
 <div class="math notranslate nohighlight">
 \[
 \mathbb{P}(C \mid I, G) = \mathbb{P}(C \mid G)
 \]</div>
 <p>En este caso, decimos que <strong><span class="math notranslate nohighlight">\(C\)</span> es condicionalmente independiente de <span class="math notranslate nohighlight">\(I\)</span> dado <span class="math notranslate nohighlight">\(G\)</span></strong>.</p>
-</div>
-<div class="admonition-tip admonition">
-<p class="admonition-title">Tip</p>
-<p>Diremos que <span class="math notranslate nohighlight">\(A \perp B \mid C\)</span> si se cumple:</p>
-<div class="math notranslate nohighlight">
-\[
-\mathbb{P}(A \cap B \mid C) = \mathbb{P}(A \mid C) \cdot \mathbb{P}(B \mid C)
-\]</div>
-</div>
-<div class="admonition-notacion-comun admonition">
-<p class="admonition-title">Notación común</p>
-<p><span class="math notranslate nohighlight">\(A \perp B \mid C\)</span>:
-A es independiente de B dado C.</p>
-<p>También se puede escribir:
-<span class="math notranslate nohighlight">\(\mathbb{P}(A \mid B, C) = \mathbb{P}(A \mid C)\)</span></p>
 </div>
 </section>
 </section>
@@ -627,8 +642,8 @@ A es independiente de B dado C.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1.1. Independencia</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simetria">Simetría</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#alternativa-para-variables">Alternativa para variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independencia-de-variables-aleatorias">Independencia de variables aleatorias</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-independencia-en-una-baraja">Ejemplo: independencia en una baraja</a></li>
 </ul>
 </li>
 </ul>

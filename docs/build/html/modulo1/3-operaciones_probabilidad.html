@@ -175,14 +175,18 @@
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">🛠️ Herramientas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../herramientas.html">Herramientas</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="index.html">Módulo 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion1.html">Sesión 1</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT1.html">Sesión 3 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT2.html">Sesión 3 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion4.html">Sesión 4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="M1-sesion5.html">Sesión 5</a></li>
+
+
+
+
+
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
@@ -460,6 +464,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-la-probabilidad-total">📌 Regla de la probabilidad total</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-intuitivo-de-clase">Ejercicio intuitivo de clase</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Probabilidad conjunta</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Probabilidad marginal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Probabilidad condicional</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Regla de la cadena</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-probabilidad-total">Regla de probabilidad total</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -479,7 +491,7 @@ document.write(`
 <h2>1.1. Probabilidad conjunta, condicional y marginal<a class="headerlink" href="#probabilidad-conjunta-condicional-y-marginal" title="Link to this heading">#</a></h2>
 <p>Hasta ahora hemos aprendido a:</p>
 <ul class="simple">
-<li><p>Definir un <strong>espacio muestral</strong> <span class="math notranslate nohighlight">\((\Omega)\)</span>, que contiene todos los posibles resultados de un experimento.</p></li>
+<li><p>Definir un <strong>espacio muestral</strong> <span class="math notranslate nohighlight">\((\Omega)\)</span>, que contiene todos los <strong>posibles resultados</strong> de un experimento.</p></li>
 <li><p>Considerar subconjuntos de <span class="math notranslate nohighlight">\((\Omega)\)</span> como <strong>eventos</strong>, organizados en una estructura llamada <span class="math notranslate nohighlight">\((\sigma)\)</span>-álgebra.</p></li>
 <li><p>Asignar valores de <strong>probabilidad</strong> a esos eventos mediante funciones que cumplen ciertos principios (como los axiomas de Kolmogórov).</p></li>
 <li><p>Interpretar esos valores bajo los enfoques <strong>frecuentista</strong> y <strong>bayesiano</strong>.</p></li>
@@ -617,6 +629,155 @@ es decir, que <strong>sume 1</strong> al considerar todos los posibles valores d
 <p><strong>Figura 5.</strong> La definición de probabilidad condicional permite derivar tres reglas fundamentales: la <strong>regla de la cadena</strong>, la <strong>regla de marginalización</strong> y la <strong>regla de la probabilidad total</strong>. Estas relaciones son la base del razonamiento probabilístico en contextos donde intervienen múltiples eventos.</p>
 </section>
 </section>
+<section id="ejercicio-intuitivo-de-clase">
+<h2>Ejercicio intuitivo de clase<a class="headerlink" href="#ejercicio-intuitivo-de-clase" title="Link to this heading">#</a></h2>
+<p><img alt="Ejercicio intuitivo de clase" src="../_images/sesion2-ejemintuitivo.png" /></p>
+<p>Podemos preguntarnos:</p>
+<blockquote>
+<div><p><em>¿Cuál es la probabilidad de seleccionar una manzana?</em></p>
+</div></blockquote>
+<blockquote>
+<div><p><em>Dado que elegimos una naranja, ¿Cuál es la probabilidad que la caja haya sido la azul?</em></p>
+</div></blockquote>
+<p>Notemos que estas probabilidades no las conocemos de antemano. Incluso, notemos que son probabilidades que involucran más de una variable. Sin embargo, tenemos la información necesaria para <strong>inferir estas probabilidades</strong>, no sin antes conocer la regla de la suma (<strong>marginalización</strong>), y la regla del producto (<strong>regla de la cadena</strong>).</p>
+<p>Para obtener estas reglas en nuestro modo intuitivo de estudiar probabilidad, consideremos el caso más general en que tenemos dos variables aleatorias <span class="math notranslate nohighlight">\(X\)</span> y <span class="math notranslate nohighlight">\(Y\)</span>, las cuales pueden tomar los valores <span class="math notranslate nohighlight">\(x^i\)</span> para <span class="math notranslate nohighlight">\(i=0,\dots,s\)</span> y <span class="math notranslate nohighlight">\(y^j\)</span> para <span class="math notranslate nohighlight">\(j=0,\dots,t\)</span>.</p>
+<p>Supongamos que, de un total de <span class="math notranslate nohighlight">\(N\)</span> repeticiones,</p>
+<ul class="simple">
+<li><p>en <span class="math notranslate nohighlight">\(n_{ij}\)</span> ocasiones obtuvimos <span class="math notranslate nohighlight">\(X=x^i\)</span> y <span class="math notranslate nohighlight">\(Y=y^j\)</span>;</p></li>
+<li><p>en <span class="math notranslate nohighlight">\(c_{i}\)</span> ocasiones obtuvimos <span class="math notranslate nohighlight">\(X=x^i\)</span>, sin importar el valor de <span class="math notranslate nohighlight">\(Y\)</span>;</p></li>
+<li><p>en <span class="math notranslate nohighlight">\(r_{j}\)</span> ocasiones obtuvimos <span class="math notranslate nohighlight">\(Y=y^j\)</span>, sin importar el valor de <span class="math notranslate nohighlight">\(X\)</span>;</p></li>
+</ul>
+<p>De nuestra definición de probabilidad, tenemos que (suponiendo que <span class="math notranslate nohighlight">\(N \to \infty\)</span>):</p>
+<section id="id1">
+<h3>Probabilidad conjunta<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>La <em>probabilidad conjunta</em> de que <span class="math notranslate nohighlight">\(X=x^i\)</span> y <span class="math notranslate nohighlight">\(Y=y^j\)</span> es:</p>
+<div class="math notranslate nohighlight">
+\[
+   p(X=x^i, Y=y^j) = \frac{n_{ij}}{N}.
+   \]</div>
+</li>
+</ol>
+</section>
+<section id="id2">
+<h3>Probabilidad marginal<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ol class="arabic" start="2">
+<li><p>La <em>probabilidad marginal</em> de que <span class="math notranslate nohighlight">\(X=x^i\)</span> sin importar el valor de Y es;</p>
+<div class="math notranslate nohighlight">
+\[
+   p(X=x^i) = \frac{c_{i}}{N}.
+   \]</div>
+<p>Notemos que <span class="math notranslate nohighlight">\(c_i = \sum_j n_{ij}\)</span>, y en este sentido podemos establecer la regla de la suma (<em>marginalización</em>):</p>
+<div class="math notranslate nohighlight">
+\[
+   p(X=x^i) = \sum_{j=0}^{t} p(X=x^i, Y=y^j).
+   \]</div>
+<p>Similarmente, podemos definir la probabilidad marginal <span class="math notranslate nohighlight">\(p(Y=y^j)\)</span>.</p>
+</li>
+</ol>
+</section>
+<section id="id3">
+<h3>Probabilidad condicional<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<ol class="arabic" start="3">
+<li><p>Si en lugar de considerar todos los posibles repeticiones, consideramos solo aquellas para las que <span class="math notranslate nohighlight">\(X=x^i\)</span>, entonces la fracción de dichas repeticionesoara las cuales <span class="math notranslate nohighlight">\(Y=y^j\)</span>, la conocemos como <strong>probabilidad condicional</strong> de <span class="math notranslate nohighlight">\(Y=y^j\)</span> dado <span class="math notranslate nohighlight">\(X=x^i\)</span>, y la escribimos como:</p>
+<div class="math notranslate nohighlight">
+\[
+   p(Y=y^j | X=x^i) = \frac{n_{ij}}{c_i}.
+   \]</div>
+</li>
+</ol>
+<p><img alt="Ejercicio intuitivo de clase" src="../_images/sesion2-ejemintuitivoB.png" /></p>
+<p>Podemos observar que la probabilidad conjunta, la podemos escribir como:</p>
+<div class="math notranslate nohighlight">
+\[
+p(X=x^i, Y=y^j) = \frac{n_{ij}}{N} = \frac{n_{ij}}{c_i} \frac{c_{i}}{N} = p(Y=y^j | X=x^i) p(X=x^i),
+\]</div>
+<p>dando lugar a la regla del producto (<strong>regla de la cadena</strong>), y dando lugar a la definición de probabilidad condicional.</p>
+<p>La <strong>probabilidad condicional</strong> de una variable aleatoria <span class="math notranslate nohighlight">\(Y\)</span> condicionada a que conocemos la variable aleatoria <span class="math notranslate nohighlight">\(X\)</span> (la probabilidad de <span class="math notranslate nohighlight">\(Y\)</span> dado <span class="math notranslate nohighlight">\(X\)</span>), se define como:</p>
+<div class="math notranslate nohighlight">
+\[
+p(Y|X) = \frac{p(X, Y)}{p(X)},
+\]</div>
+<p>siempre que <span class="math notranslate nohighlight">\(p(X)&gt;0\)</span>. Si <span class="math notranslate nohighlight">\(p(X)=0\)</span>, entonces <span class="math notranslate nohighlight">\(p(Y|X)\)</span> no está definida.</p>
+<p>La probabilidad condicional es una distribución de probabilidad válida, en el sentido que:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0 \leq p(Y|X) \leq 1\)</span>, y</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sum_{Y} p(Y|X) = 1\)</span>.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Regla de la cadena<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>De la definición de probabilidad condicional, se desprende automáticamente lo que conocemos como <strong>la regla de la cadena</strong> en probabilidad:</p>
+<div class="math notranslate nohighlight">
+\[
+p(X, Y) = p(Y|X) p(X).
+\]</div>
+</section>
+<section id="regla-de-probabilidad-total">
+<h3>Regla de probabilidad total<a class="headerlink" href="#regla-de-probabilidad-total" title="Link to this heading">#</a></h3>
+<p>Teniendo a la mano la regla de la cadena, y la marginalización, podemos escribir <strong>la regla de probabilidad total</strong> como:</p>
+<div class="math notranslate nohighlight">
+\[
+p(X) = \sum_Y p(X | Y) p(Y),
+\]</div>
+<p>y se puede entender como una constante de normalización para asegurar que la probabilidad condicional sea <strong>una distribución de probabilidad válida</strong>.</p>
+<div class="tip admonition">
+<p class="admonition-title">Resumen</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(0 \leq p(X) \leq 1\)</span>: Definición de probabilidad (i)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sum_X p(X) = 1\)</span>: Definición de probabilidad (ii)</p></li>
+<li><p><span class="math notranslate nohighlight">\(p(X) = \sum_{Y} p(X, Y)\)</span>: Marginalización</p></li>
+<li><p><span class="math notranslate nohighlight">\(p(X, Y) = p(Y | X) p(X) = p(X | Y) p(Y)\)</span>: Regla de la cadena</p></li>
+<li><p><span class="math notranslate nohighlight">\(p(X) = \sum_Y p(X | Y) p(Y)\)</span>: Probabilidad total: marginalización + r. cadena</p></li>
+</ul>
+</div>
+<p>Las preguntas iniciales eran:</p>
+<blockquote>
+<div><p><em>¿Cuál es la probabilidad de seleccionar una manzana?</em></p>
+</div></blockquote>
+<p>Primero que nada, las probabilidades que tenemos son:</p>
+<details>
+  <summary>Descubrir</summary>
+<div class="math notranslate nohighlight">
+\[
+p(a) = 0.4 = \frac{2}{5}, \qquad p(r) = 0.6 = \frac{3}{5}, \qquad p(n | a) = \frac{1}{4}, \qquad p(m | a) = \frac{3}{4}, \qquad p(n | r) = \frac{3}{4}, \qquad p(m | r) = \frac{1}{4}.
+\]</div>
+<p>En este sentido, y usando la regla de la probabilidad total:</p>
+<div class="math notranslate nohighlight">
+\[
+p(m) = p(m | a) p(a) + p(m | r) p(r) = \frac{3}{4} \times \frac{2}{5} + \frac{1}{4} \times \frac{3}{5} = \frac{9}{20}.
+\]</div>
+</details><blockquote>
+<div><p><em>Dado que elegimos una naranja, ¿Cuál es la probabilidad que la caja haya sido la azul?</em></p>
+</div></blockquote>
+<details>
+  <summary>Descubrir</summary>
+<p>Ahora, podemos usar la regla de Bayes:</p>
+<div class="math notranslate nohighlight">
+\[
+p(a | n) = \frac{p(n | a) p(a)}{p(n)}
+\]</div>
+<p>de donde ya conocemos <span class="math notranslate nohighlight">\(p(n | a)\)</span> y la <strong>previa</strong> <span class="math notranslate nohighlight">\(p(a)\)</span>. Adicionalmente,</p>
+<div class="math notranslate nohighlight">
+\[
+p(n) = 1 - p(m) = \frac{11}{20}.
+\]</div>
+<p>Por lo cual:</p>
+<div class="math notranslate nohighlight">
+\[
+p(a | n) = \frac{1}{4} \times \frac{2}{5} \times \frac{20}{11} = \frac{2}{11}
+\]</div>
+</details><p>La respuesta a la segunda pregunta es bastante interesante, y demuestra el proceso fundamental de incorporar evidencia en un problema.</p>
+<ul class="simple">
+<li><p>Notemos que, antes de saber qué fruta elegimos, <strong>la probabilidad previa</strong> de elegir la caja azul es <span class="math notranslate nohighlight">\(p(a) = \frac{4}{10}\)</span>.</p></li>
+<li><p>Ahora, al incorporar la evidencia de que la fruta que elegimos fue una naranja, observamos que <strong>la probabilidad posterior</strong> de elegir la caja azul disminuyó considerablemente a <span class="math notranslate nohighlight">\(p(a | n) = \frac{2}{11}\)</span>.</p></li>
+<li><p>Lo anterior es intuitivo, dado que la proporción de naranjas es significativamente más alta en la caja roja (<span class="math notranslate nohighlight">\(p(n | r) = \frac{3}{4}\)</span>) que en la caja azul (<span class="math notranslate nohighlight">\(p(n | a) = \frac{1}{4}\)</span>).</p></li>
+</ul>
+<blockquote>
+<div><p>Por esta bondad de añadir información de evidencia a nuestras inferencias es por lo que <strong>la regla de Bayes es tan relevante.</strong></p>
+</div></blockquote>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -676,6 +837,14 @@ es decir, que <strong>sume 1</strong> al considerar todos los posibles valores d
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-marginalizacion">📌 Regla de marginalización</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-la-cadena">📌 Regla de la cadena</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-la-probabilidad-total">📌 Regla de la probabilidad total</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-intuitivo-de-clase">Ejercicio intuitivo de clase</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Probabilidad conjunta</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Probabilidad marginal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Probabilidad condicional</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Regla de la cadena</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#regla-de-probabilidad-total">Regla de probabilidad total</a></li>
 </ul>
 </li>
 </ul>
