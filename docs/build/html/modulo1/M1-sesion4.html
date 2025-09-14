@@ -52,7 +52,6 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/M1-sesion4';</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
-    <link rel="next" title="Sesión 5" href="M1-sesion5.html" />
     <link rel="prev" title="Sesión 3 B" href="M1-sesion3-PT2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
@@ -187,7 +186,8 @@
 
 
 
-<li class="toctree-l2"><a class="reference internal" href="M1-sesion5.html">Sesión 5</a></li>
+
+
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
@@ -455,26 +455,28 @@ document.write(`
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sesión 4</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#estimadores-de-maxima-verosimilitud">Estimadores de máxima verosimilitud</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-probabilisticos">Modelos probabilísticos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#familia-de-distribuciones">Familia de distribuciones</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#muestra-observada">Muestra observada</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supuesto-i-i-d">Supuesto <em>i.i.d.</em></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimador-de-maxima-verosimilitud">Estimador de máxima verosimilitud</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matematicas-detras-del-mle">Matemáticas detrás del MLE</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-estimacion-o-inferencia">Métodos de estimación o inferencia</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-la-estimacion-por-maxima-verosimilitud-maximum-likelihood-estimation">(a) La estimación por máxima verosimilitud <em>(Maximum likelihood estimation)</em></a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-maxima-verosimilitud-para-distribuciones-discretas">Ejercicio: Máxima verosimilitud para distribuciones discretas</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-metodo-numerico"><em>por método numérico</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-metodo-analitico"><em>por método analítico</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-i-d-y-log-verosimilitud"><em>i.i.d. y log verosimilitud</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#muestra-observada">Muestra observada</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supuesto-i-i-d">Supuesto <em>i.i.d.</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-verosimilitud">Log-verosimilitud</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-maxima-verosimilitud-para-distribuciones-continuas">Ejercicio: Máxima verosimilitud para distribuciones continuas</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-maxima-verosimilitud-con-mas-de-un-parametro">Ejercicio: Máxima verosimilitud con más de un parámetro</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#comentarios-finales">Comentarios finales</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extra">Extra</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refresh-de-matematicas-detras-del-mle">Refresh de matemáticas detrás del MLE</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -499,8 +501,14 @@ document.write(`
 <p><span class="caption-text">Conceptos clave de la sesión 4.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p><strong>¿Cómo pasamos de una idea teórica de cómo se generan los datos a una estimación concreta con evidencia empírica?</strong></p>
-<p>Todo empieza con una suposición sobre cómo se generan los datos. Hoy vamos a recorrer el camino que nos lleva desde esa suposición hasta una distribución concreta estimada a partir de una muestra.</p>
+<blockquote>
+<div><p><strong>Objetivos de la sesión:</strong></p>
+<ul class="simple">
+<li><p>Comprender el principio de máxima verosimilitud a través de ejemplos básicos.</p></li>
+<li><p>Estimar los parámetros de algunas distribuciones comunes usando el principio de máxima verosimilitud.</p></li>
+<li><p>Entender las limitaciones básicas de los estimadores de máxima verosimilitud.</p></li>
+</ul>
+</div></blockquote>
 <section id="modelos-probabilisticos">
 <h2>Modelos probabilísticos<a class="headerlink" href="#modelos-probabilisticos" title="Link to this heading">#</a></h2>
 <p>Un <em>modelo probabilístico</em> es una especificación de la <strong>distribución conjunta de las variables aleatorias</strong> involucradas en el problema, condicionada (o no) por un conjunto de <strong>párametros desconocidos.</strong></p>
@@ -513,134 +521,116 @@ document.write(`
 <li><p><span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span> son las variables aleatorias (datos observados).</p></li>
 <li><p><span class="math notranslate nohighlight">\(\theta \in \Theta\)</span> es el vector de parámetros desconocidos.</p></li>
 </ul>
-</section>
-<section id="familia-de-distribuciones">
-<h2>Familia de distribuciones<a class="headerlink" href="#familia-de-distribuciones" title="Link to this heading">#</a></h2>
-<p>Es el conjunto de todas las distribuciones que podría explicar los datos, dependienteo del valor del párametro desconocido.</p>
+<p>Muy comunmente mi modelo dependerá de <em>parámetros desconocidos</em>.</p>
+<hr class="docutils" />
+<p>Veamos brevemente la diferencia entre <em>parámetros</em> e <em>hiperparámetros</em>:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><strong>Parámetros</strong></p></th>
+<th class="head"><p><strong>Hiperparámetros</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Definición</strong></p></td>
+<td><p>Valores internos aprendidos automáticamente por el modelo durante el entrenamiento.</p></td>
+<td><p>Valores externos definidos antes del entrenamiento que controlan el proceso de aprendizaje.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Ejemplos</strong></p></td>
+<td><p>Pesos, sesgos, coeficientes de una red neuronal, vectores de embeddings.</p></td>
+<td><p>Tasa de aprendizaje, número de épocas, número de capas, tamaño del batch, regularización.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Características</strong></p></td>
+<td><p>Se ajustan iterativamente con el algoritmo de optimización (ej. descenso de gradiente).</p></td>
+<td><p>Se eligen manualmente o con técnicas de optimización de hiperparámetros (grid search u otros).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="docutils" />
+<p>Ahora que entendemos la diferencia entre parámetros y hiperparámetros, podemos volver al corazón del modelo probabilístico. En última instancia, lo que realmente lo define es la distribución de probabilidad: ella describe cómo se comportan los datos y nos lleva a introducir el concepto de familias de distribuciones parametrizadas.</p>
+<ol class="arabic simple">
+<li><p><em>Necesitamos una distribución de probabilidad</em></p></li>
+</ol>
+<ul class="simple">
+<li><p>Para describir cómo se comportan los datos.</p></li>
+<li><p>Esa distribución refleja nuestras <strong>hipótesis</strong> de comportamiento sobre el fenómeno (por ejemplo, normal, binomial, exponencial, etc.).</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><em>Elegir la forma de la distribución es un supuesto</em></p></li>
+</ol>
+<ul class="simple">
+<li><p>La persona quién construye el modelo decide qué distribución usar.</p></li>
+<li><p>Ejemplo: “Creo que la altura de las personas sigue una <em>Normal</em>” o “El número de llamadas en una hora sigue una <em>Poisson</em>”.</p></li>
+<li><p>Esto es una <strong>hipótesis de modelado</strong>, y puede ser correcta, aproximada o equivocada.</p></li>
+</ul>
 <figure class="align-default" id="id2">
-<a class="reference internal image-reference" href="../_images/familia_distribuciones_gamma.png"><img alt="representacion" src="../_images/familia_distribuciones_gamma.png" style="width: 600px;" />
-</a>
-<figcaption>
-<p><span class="caption-text">Familia de distribuciones Gamma.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>No confudir con que hay distintas distribuciones que podría explicar los datos…</p>
-<figure class="align-default" id="id3">
 <a class="reference internal image-reference" href="../_images/comparacion_distribuciones_ajustadas.png"><img alt="representacion" src="../_images/comparacion_distribuciones_ajustadas.png" style="width: 600px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Comparación de distribuciones ajustadas a los datos.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+<p><span class="caption-text">Comparación de distribuciones ajustadas a los datos.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-</section>
-<section id="muestra-observada">
-<h2>Muestra observada<a class="headerlink" href="#muestra-observada" title="Link to this heading">#</a></h2>
-<p>Se denota por <span class="math notranslate nohighlight">\(\mathcal{D} = \{x_1, x_2, \dots, x_n\}\)</span> o como <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>. Es el conjunto de datos observados.</p>
-<section id="supuesto-i-i-d">
-<h3>Supuesto <em>i.i.d.</em><a class="headerlink" href="#supuesto-i-i-d" title="Link to this heading">#</a></h3>
-<p>Cuando trabajamos con una muestra <span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span>, comúnmente asumimos que los datos son:</p>
-<ul class="simple">
-<li><p><strong>Independientes</strong>: El conocimiento de un valor no da información sobre otro.</p></li>
-<li><p><strong>Idénticamente distribuidos</strong>: Todos siguen la misma distribución <span class="math notranslate nohighlight">\(f(x; \theta)\)</span></p></li>
-</ul>
-<p>Esto se denota como:</p>
-<div class="math notranslate nohighlight">
-\[
-X_1, \dots, X_n \overset{\text{i.i.d.}}{\sim} f(x; \theta)
-\]</div>
-<p>Esta asunción es clave para <strong>derivar</strong> la función de verosimilitud, ya que permite factorizarla como:</p>
-<div class="math notranslate nohighlight">
-\[
-L(\theta) = \prod_{i=1}^{n} f(x_i; \theta)
-\]</div>
-<p>Donde:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(L(\theta)\)</span> es la <strong>función de verosimilitud</strong></p></li>
-<li><p><span class="math notranslate nohighlight">\(x_i\)</span> son las observaciones de la muestra</p></li>
-<li><p><span class="math notranslate nohighlight">\(\theta\)</span> es el parámetro del modelo</p></li>
-</ul>
-</section>
-</section>
-<section id="estimador-de-maxima-verosimilitud">
-<h2>Estimador de máxima verosimilitud<a class="headerlink" href="#estimador-de-maxima-verosimilitud" title="Link to this heading">#</a></h2>
-<p>A partir de la muestra, queremos encontrar <em>el mejor valor posible del parámetro</em> <span class="math notranslate nohighlight">\(\theta\)</span> que maximiza la probabilidad de observar los datos.</p>
-<p>Un estimador, como MLE <em>(Maximum Likelihood Estimator)</em>, es el mecanismo que nos permite hacerlo.</p>
-<section id="matematicas-detras-del-mle">
-<h3>Matemáticas detrás del MLE<a class="headerlink" href="#matematicas-detras-del-mle" title="Link to this heading">#</a></h3>
-<p>Aquí la clave, es la palabara «<strong>maximizar</strong>». Queremos encontrar el valor de <span class="math notranslate nohighlight">\(\theta\)</span> que maximiza la función de verosimilitud <span class="math notranslate nohighlight">\(L(\theta)\)</span>.</p>
-<p>Así que vamos a tener distintas partes importantes en el proceso para llegar a ese valor óptimo:</p>
-<ol class="arabic simple">
-<li><p>Ya sabemos que si asumimos que los datos son <em>i.i.d.</em>:</p></li>
+<ol class="arabic simple" start="3">
+<li><p><em>Distribuciones tienen parámetros</em></p></li>
 </ol>
-<div class="math notranslate nohighlight">
-\[
-X_1, X_2, \dots, X_n \overset{\text{i.i.d.}}{\sim} f(x; \theta)
-\]</div>
-<p>Entonces la <strong>función de verosimilitud</strong> es:</p>
-<div class="math notranslate nohighlight">
-\[
-L(\theta) = \prod_{i=1}^n f(x_i; \theta)
-\]</div>
-<ol class="arabic simple" start="2">
-<li><p>La <strong>log-verosimilitud</strong> es:</p></li>
-</ol>
-<p>Usualmente se trabaja con el <strong>logaritmo</strong> de la verosimilitud para facilitar el cálculo:</p>
-<div class="math notranslate nohighlight">
-\[
-\ell(\theta) = \log L(\theta) = \sum_{i=1}^n \log f(x_i; \theta)
-\]</div>
-<div class="tip admonition">
-<p class="admonition-title">¿Por qué usar la log-verosimilitud?</p>
 <ul class="simple">
-<li><p>Transforma productos en sumas, lo que <strong>simplifica el cálculo</strong>.</p></li>
-<li><p>Hace más manejable la derivación, especialmente con distribuciones exponenciales.</p></li>
-<li><p>Conserva la ubicación del máximo porque <span class="math notranslate nohighlight">\(\log(\cdot)\)</span> es monótona creciente.</p></li>
+<li><p>Cada familia de distribuciones está definida por <strong>parámetros desconocidos</strong>:</p>
+<ul>
+<li><p>Normal → media <span class="math notranslate nohighlight">\(\mu\)</span> y varianza <span class="math notranslate nohighlight">\(\sigma^2\)</span>.</p></li>
+<li><p>Poisson → tasa <span class="math notranslate nohighlight">\(\lambda\)</span>.</p></li>
+<li><p>Bernoulli → probabilidad de éxito <span class="math notranslate nohighlight">\(p\)</span>.</p></li>
 </ul>
-</div>
-<ol class="arabic" start="3">
-<li><p>Encontrar el <strong>máximo</strong>:</p>
-<p>a. Derivar la log-verosimilitud respecto del parámetro <span class="math notranslate nohighlight">\(\theta\)</span></p>
-<p>b. Igualar a cero</p>
-<p>c. Resolver para <span class="math notranslate nohighlight">\(\theta\)</span></p>
-<p>d. <span class="math notranslate nohighlight">\(\hat{\theta} = \arg\max_{\theta} \ell(\theta)\)</span></p>
 </li>
-</ol>
+<li><p>Al no conocerlos, tratamos de <em>estimarlos a partir de datos</em> (máxima verosimilitud, métodos bayesianos, etc.).</p></li>
+</ul>
 <div class="tip admonition">
-<p class="admonition-title">Recuerda</p>
+<p class="admonition-title">Parámetros conocidos</p>
+<p>Los parámetros son desconocidos en la mayoría de los casos, pero se pueden considerar conocidos cuando:</p>
 <ul class="simple">
-<li><p>Si el modelo tiene <em>un solo parámetro</em>, se usa <strong>cálculo diferencial</strong> convencional:</p></li>
+<li><p>Los fijamos en un modelo o simulación.</p></li>
+<li><p>La teoría/experimento nos da su valor exacto.</p></li>
+<li><p>Los tratamos como supuestos para simplificar.</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[
-\frac{d}{d\theta} \ell(\theta) = 0
-\]</div>
-<ul class="simple">
-<li><p>Si el modelo tiene <em>dos o más parámetros</em>:</p></li>
-</ul>
-<p>Se utilizan <strong>derivadas parciales</strong>, una por cada parámetro:</p>
-<div class="math notranslate nohighlight">
-\[
-\frac{\partial}{\partial \theta_1} \ell(\theta_1, \theta_2) = 0
-\qquad \text{y} \qquad
-\frac{\partial}{\partial \theta_2} \ell(\theta_1, \theta_2) = 0
-\]</div>
 </div>
-<ol class="arabic" start="4">
-<li><p>Verificar que es un máximo:</p>
-<p>a. Calcular la segunda derivada (o matriz Hessiana si hay varios parámetros).</p>
-<p>b. Dado que tenemos un problema en un dominio cerrado <span class="math notranslate nohighlight">\(0 \leq \theta \leq 1\)</span>, podemos evaluar en los extremos:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> - $p(55 | \theta=0) = p(55 | \theta=1) = 0$
-</pre></div>
-</div>
-<p>y en el punto crítico: <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>.</p>
-</li>
+<ol class="arabic simple" start="4">
+<li><p><em>Familia de distribuciones posibles</em></p></li>
 </ol>
+<ul class="simple">
+<li><p>Antes de ver los datos, no sabemos qué valores toman los parámetros.</p></li>
+<li><p>Así, realmente no hablamos de “una sola distribución”, sino de una <em>familia de distribuciones</em> parametrizadas.</p></li>
+<li><p>El trabajo de la estadística/inferencia es reducir la incertidumbre sobre los parámetros → elegir la distribución concreta que mejor describe los datos.</p></li>
+</ul>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/familia_distribuciones_gamma.png"><img alt="representacion" src="../_images/familia_distribuciones_gamma.png" style="width: 600px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Familia de distribuciones Gamma.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>En suma, tu modelo probabilístico empieza como una <em>familia de distribuciones parametrizadas</em>.</p>
+<ul class="simple">
+<li><p>La elección de la familia es un <em>supuesto tuyo</em>.</p></li>
+<li><p>Los parámetros son <em>desconocidos</em> y deben ser <em>estimados</em> o <em>aprendidos</em>.</p></li>
+</ul>
+<hr class="docutils" />
 </section>
+</section>
+<section id="metodos-de-estimacion-o-inferencia">
+<h1>Métodos de estimación o inferencia<a class="headerlink" href="#metodos-de-estimacion-o-inferencia" title="Link to this heading">#</a></h1>
+<section id="a-la-estimacion-por-maxima-verosimilitud-maximum-likelihood-estimation">
+<h2>(a) La estimación por máxima verosimilitud <em>(Maximum likelihood estimation)</em><a class="headerlink" href="#a-la-estimacion-por-maxima-verosimilitud-maximum-likelihood-estimation" title="Link to this heading">#</a></h2>
+<p>Estima los parámetros <span class="math notranslate nohighlight">\(\theta\)</span> de un modelo probabilístico.</p>
+<ul class="simple">
+<li><p>La idea básica es elegir los parámetros que <em>maximizan</em> la función de verosimilitud.</p></li>
+<li><p>Intuitivamente, esto corresponde a elegir los parámetros que <em>maximizan</em> la probabilidad de los datos obsevados.</p></li>
+</ul>
+<p>Inevitablemente comenzamos a hablar, entonces, de <strong>estadística</strong>: Cuando tenemos datos observados y sacamos conclusiones a partir de los datos.</p>
 </section>
 </section>
 <section id="ejercicio-maxima-verosimilitud-para-distribuciones-discretas">
 <h1>Ejercicio: Máxima verosimilitud para distribuciones discretas<a class="headerlink" href="#ejercicio-maxima-verosimilitud-para-distribuciones-discretas" title="Link to this heading">#</a></h1>
-<p>De clases pasadas, sabemos que el experimento de tirar la moneda <span class="math notranslate nohighlight">\(n\)</span> veces y contar el número de caras, sigue una distribución <span class="math notranslate nohighlight">\(\text{Binomial}(n,\theta)\)</span>, con pmf</p>
+<p>De clases pasadas, sabemos que el experimento de tirar la moneda <span class="math notranslate nohighlight">\(n\)</span> veces y contar el número de caras, sigue una distribución <span class="math notranslate nohighlight">\(\text{Binomial}(n,\theta)\)</span>, con <strong>PMF</strong>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 p(a) = \left(\begin{array}{c}n \\ a \end{array}\right) \theta^a (1 - \theta)^{n-a}
@@ -657,7 +647,35 @@ p(55) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1 - \theta
 p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1 - \theta)^{45}
 \end{split}\]</div>
 <p>Lo anterior, lo podemos leer como: «la probabilidad de obtener 55 caras dado que la probabilidad de cara en un tiro individual es <span class="math notranslate nohighlight">\(\theta\)</span>».</p>
-<section id="por-metodo-numerico">
+<p>Algunos términos estándar que usamos en estadística:</p>
+<ul class="simple">
+<li><p><strong>Experimento</strong>: Tirar la moneda 100 veces y contar el número de caras.</p></li>
+<li><p><strong>Datos</strong>: Los datos son el resultado del experimento. En este caso son las 55 caras.</p></li>
+<li><p><strong>Parámetros de interés</strong>: Estamos interesados en conocer el valor del parámetro <span class="math notranslate nohighlight">\(\theta\)</span>.</p></li>
+<li><p><strong>Función de verosimilitud</strong>: Es la función <span class="math notranslate nohighlight">\(p(datos | parámetros)\)</span>. Notemos que es una función tanto de los datos, como de los parámetros. En nuestro caso es
+$<span class="math notranslate nohighlight">\(
+p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1 - \theta)^{45}.
+\)</span>$</p></li>
+</ul>
+<details>
+<summary>Descubrir</summary>
+<p>Haciendo uso del cálculo, obtenemos lo siguiente:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{d}{d\theta} p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \left(55\theta^{54}(1 - \theta)^{45} - 45\theta^{55}(1 - \theta)^{44}\right)
+\end{split}\]</div>
+<p>Igualando a cero:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align} \nonumber
+55\theta^{54}(1 - \theta)^{45} = 45\theta^{55}(1 - \theta)^{44} \\ \nonumber
+55(1 - \theta) = 45\theta \\ \nonumber
+55 = 100 \theta
+\end{align}
+\end{split}\]</div>
+<p>Por lo que el MLE es <span class="math notranslate nohighlight">\(\hat{\theta} = \frac{55}{100}\)</span>.</p>
+<p>En los extremos (<span class="math notranslate nohighlight">\(\theta=0\)</span> o <span class="math notranslate nohighlight">\(\theta=1\)</span>), la verosimilitud es nula, por lo que <span class="math notranslate nohighlight">\(\hat{\theta}=0.55\)</span> es el único máximo en <span class="math notranslate nohighlight">\([0,1]\)</span>.</p>
+</details><section id="por-metodo-numerico">
 <h2><em>por método numérico</em><a class="headerlink" href="#por-metodo-numerico" title="Link to this heading">#</a></h2>
 <button title="Run code" class="thebelab-button thebe-launch-button" onclick="initThebe()">Run code</button><div class="cell tag_Thebe docutils container">
 <div class="cell_input docutils container">
@@ -670,8 +688,7 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculermos la función de verosimilitud con los datos del ejemplo</span>
-
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculemos la función de verosimilitud con los datos del ejemplo</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">55</span>
 <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)</span>
@@ -698,8 +715,33 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(550)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span><span class="p">[</span><span class="mi">55</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.055)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aproximar el valor máximo de la verosimilitud</span>
-<span class="n">theta</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">L</span><span class="p">)]</span>  <span class="c1"># 0.55</span>
+<span class="n">theta_mle1</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">L</span><span class="p">)]</span>
+<span class="n">theta_mle1</span>
 </pre></div>
 </div>
 </div>
@@ -712,17 +754,19 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafiquemos la función de verosimilitud</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Verosimilitud&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">theta</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">L</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\theta$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$L(\theta)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">theta</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Verosimilitud&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">theta_mle1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;MLE = </span><span class="si">{</span><span class="n">theta_mle1</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Función de verosimilitud (Binomial)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;θ (probabilidad de éxito)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;L(θ)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/76a4041af638575ff637c8d8350d174e9dd3a4730abf96b07e08281b2bdc72f4.png" src="../_images/76a4041af638575ff637c8d8350d174e9dd3a4730abf96b07e08281b2bdc72f4.png" />
+<img alt="../_images/6e29cfd0f7e8ea1c5f3e8e42e27735235410e3812d060a02e35fcbf9a16dd09f.png" src="../_images/6e29cfd0f7e8ea1c5f3e8e42e27735235410e3812d060a02e35fcbf9a16dd09f.png" />
 </div>
 </div>
 <blockquote>
@@ -743,7 +787,8 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aproximar el valor máximo de la verosimilitud</span>
-<span class="n">theta</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">L_</span><span class="p">)]</span>
+<span class="n">theta_mle2</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">L_</span><span class="p">)]</span>
+<span class="n">theta_mle2</span>
 </pre></div>
 </div>
 </div>
@@ -778,31 +823,89 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 <img alt="../_images/99873b1b25f6d0244bc49c0bcabcd323abc7705f1c823640077ed7a1389aa7b8.png" src="../_images/99873b1b25f6d0244bc49c0bcabcd323abc7705f1c823640077ed7a1389aa7b8.png" />
 </div>
 </div>
+<p>Aunque el MLE en ambos casos es el mismo, porque</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{550}{1000} = \frac{55}{100},
+\]</div>
+<p>observamos que la dispersión de la función de verosimilitud al rededor del máximo en el caso de más tiros es menor.</p>
 <blockquote>
 <div><p>¿En cuál de los dos valores estimados <span class="math notranslate nohighlight">\(\hat{\theta}\)</span> confías más?</p>
 </div></blockquote>
 </section>
-<section id="por-metodo-analitico">
-<h2><em>por método analítico</em><a class="headerlink" href="#por-metodo-analitico" title="Link to this heading">#</a></h2>
+<hr class="docutils" />
+<section id="muestra-observada">
+<h2>Muestra observada<a class="headerlink" href="#muestra-observada" title="Link to this heading">#</a></h2>
+<p>Se denota por <span class="math notranslate nohighlight">\(\mathcal{D} = \{x_1, x_2, \dots, x_n\}\)</span> o como <span class="math notranslate nohighlight">\(\mathcal{X}\)</span>. Es el conjunto de datos observados.</p>
+<section id="supuesto-i-i-d">
+<h3>Supuesto <em>i.i.d.</em><a class="headerlink" href="#supuesto-i-i-d" title="Link to this heading">#</a></h3>
+<p>Cuando trabajamos con una muestra <span class="math notranslate nohighlight">\(X_1, \dots, X_n\)</span>, comúnmente asumimos que los datos son:</p>
+<ul class="simple">
+<li><p><strong>Independientes</strong>: El conocimiento de un valor no da información sobre otro.</p></li>
+<li><p><strong>Idénticamente distribuidos</strong>: Todos siguen la misma distribución <span class="math notranslate nohighlight">\(f(x; \theta)\)</span></p></li>
+</ul>
+<p>Esto se denota como:</p>
+<div class="math notranslate nohighlight">
+\[
+X_1, \dots, X_n \overset{\text{i.i.d.}}{\sim} f(x; \theta)
+\]</div>
+<p>Estas suposiciones de <em>independencia</em> lo que hacen es que los resultados del experimento se puedan <strong>multiplicar</strong> y esto, entonces es válido en cualquier contexto donde supongamos <em>independencia</em> de los resultados del experimento. Esto permite factorizarla como:</p>
+<div class="math notranslate nohighlight">
+\[
+L(\theta) = \prod_{i=1}^{n} f(x_i; \theta)
+\]</div>
+<p>Donde:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(L(\theta)\)</span> es la <strong>función de verosimilitud</strong></p></li>
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> son las observaciones de la muestra</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> es el parámetro del modelo</p></li>
+</ul>
+<p>Con la suposición de que los datos son independientes e idénticamente distribuidos <em>(i.i.d.)</em>, trae como consecuencia que la función de verosimilitud sea un <strong>producto</strong> de las verosimilitudes individuales de los datos. Ahora, dado que estamos interesadas en maximizar la verosimilitud, hay que tener en cuenta que maximizar productos de funciones puede tornarse bastante complejo.</p>
+</section>
+</section>
+<section id="log-verosimilitud">
+<h2>Log-verosimilitud<a class="headerlink" href="#log-verosimilitud" title="Link to this heading">#</a></h2>
+<p>Es en este punto donde nos podemos dar cuenta que la función <span class="math notranslate nohighlight">\(\log\)</span> (logaritmo natural o logaritmo en base <span class="math notranslate nohighlight">\(e\)</span>) puede ser de gran ayuda, dado que convierte productos en sumas.</p>
+<p>Usualmente, después de establecer la <strong>multiplicatoria</strong> de la verosimilitud, se aplica el <strong>logaritmo natural</strong> para simplificar el cálculo.<br />
+Esto transforma productos en sumas y hace más manejable el trabajo analítico:</p>
+<div class="math notranslate nohighlight">
+\[
+\ell(\theta) = \log L(\theta) 
+= \log \Bigg( \prod_{i=1}^n f(x_i \mid \theta) \Bigg) 
+= \sum_{i=1}^n \log f(x_i \mid \theta).
+\]</div>
+<p>A esta función se le conoce como <strong>log-verosimilitud</strong>.</p>
+<p>Dado que <span class="math notranslate nohighlight">\(\log(x)\)</span> es una <strong>función estrictamente creciente</strong> en el dominio <span class="math notranslate nohighlight">\((0,\infty)\)</span>, se cumple que:</p>
+<div class="math notranslate nohighlight">
+\[
+x_1 &lt; x_2 \quad \Longrightarrow \quad \log(x_1) &lt; \log(x_2).
+\]</div>
+<p>Esto significa que el logaritmo <strong>preserva el orden</strong> de los valores:<br />
+si una probabilidad (o una verosimilitud) es mayor que otra, también lo será su logaritmo.</p>
+<p>En consecuencia, el valor de <span class="math notranslate nohighlight">\(\theta\)</span> que maximiza la verosimilitud <span class="math notranslate nohighlight">\(L(\theta)\)</span> es el mismo que maximiza la log-verosimilitud <span class="math notranslate nohighlight">\(\ell(\theta)\)</span>.</p>
+<p><strong>Ejemplo.</strong> Retomando el caso de la moneda, tenemos que la log-verosimilitud es:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\log p(55 | \theta) = \log \left(\left(\begin{array}{c}100 \\ 55\end{array}\right)\right) + 55 \log \theta + 45 \log (1 - \theta).
+\end{split}\]</div>
+<p>Ahora, para maximizar la log-verosimilitud:</p>
 <details>
 <summary>Descubrir</summary>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-\frac{d}{d\theta} p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \left(55\theta^{54}(1 - \theta)^{45} - 45\theta^{55}(1 - \theta)^{44}\right)
-\end{split}\]</div>
+\[
+\frac{d}{d\theta} \log p(55 | \theta) = \frac{55}{\theta} - \frac{45}{1 - \theta}
+\]</div>
 <p>Igualando a cero:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align} \nonumber
-55\theta^{54}(1 - \theta)^{45} = 45\theta^{55}(1 - \theta)^{44} \\ \nonumber
+\frac{55}{\theta} - \frac{45}{1 - \theta} \\ \nonumber
 55(1 - \theta) = 45\theta \\ \nonumber
 55 = 100 \theta
 \end{align}
 \end{split}\]</div>
 <p>Por lo que el MLE es <span class="math notranslate nohighlight">\(\hat{\theta} = \frac{55}{100}\)</span>.</p>
-</details></section>
-<section id="i-i-d-y-log-verosimilitud">
-<h2><em>i.i.d. y log verosimilitud</em><a class="headerlink" href="#i-i-d-y-log-verosimilitud" title="Link to this heading">#</a></h2>
+</details><p>Veamos como luce la función de log-verosimilitud en este caso y comparémosla con la función de verosimilitud:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Función de log-verosimilitud</span>
@@ -811,7 +914,7 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\paty\AppData\Local\Temp\ipykernel_20356\3167649693.py:2: RuntimeWarning: divide by zero encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\paty\AppData\Local\Temp\ipykernel_7548\3167649693.py:2: RuntimeWarning: divide by zero encountered in log
   log_likelihood = np.log(float(math.comb(n, a))) + a * np.log(theta) + (n - a) * np.log(1 - theta)
 </pre></div>
 </div>
@@ -855,6 +958,7 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 <img alt="../_images/bd70169e3be929a7f2c21ad0bec662c5899a9482f0e89536843843599167ca4e.png" src="../_images/bd70169e3be929a7f2c21ad0bec662c5899a9482f0e89536843843599167ca4e.png" />
 </div>
 </div>
+<hr class="docutils" />
 </section>
 </section>
 <section id="ejercicio-maxima-verosimilitud-para-distribuciones-continuas">
@@ -922,6 +1026,7 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
 </li>
 </ul>
 </div>
+<hr class="docutils" />
 </section>
 <section id="ejercicio-maxima-verosimilitud-con-mas-de-un-parametro">
 <h1>Ejercicio: Máxima verosimilitud con más de un parámetro<a class="headerlink" href="#ejercicio-maxima-verosimilitud-con-mas-de-un-parametro" title="Link to this heading">#</a></h1>
@@ -954,7 +1059,7 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generamos muestras</span>
-<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">100000</span>
 <span class="n">samples</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -977,7 +1082,7 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, np.float64(10.000818675373639))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, np.float64(9.998595645073088))
 </pre></div>
 </div>
 </div>
@@ -989,7 +1094,7 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, np.float64(2.0097445379184635))
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, np.float64(2.000930902035401))
 </pre></div>
 </div>
 </div>
@@ -1007,7 +1112,7 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parámetros estimados por MLE: mu = 10.000818675373639, sigma = 2.0097445379184635
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parámetros estimados por MLE: mu = 9.998595645073088, sigma = 2.000930902035401
 </pre></div>
 </div>
 </div>
@@ -1024,6 +1129,80 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
 <li><p><em>Suposición básica</em></p></li>
 </ul>
 <p>El principio de máxima verosimilitud es bastante intuitivo: estimar los parámetros de manera que se maximice la probabilidad de los datos. Esto trae consigo la suposición subyacente de que los parámetros <strong>son fijos</strong>, de manera que la incertidumbre proviene de los datos.</p>
+</section>
+<section id="extra">
+<h1>Extra<a class="headerlink" href="#extra" title="Link to this heading">#</a></h1>
+<section id="refresh-de-matematicas-detras-del-mle">
+<h2>Refresh de matemáticas detrás del MLE<a class="headerlink" href="#refresh-de-matematicas-detras-del-mle" title="Link to this heading">#</a></h2>
+<p>Aquí la clave, es la palabara «<strong>maximizar</strong>». Queremos encontrar el valor de <span class="math notranslate nohighlight">\(\theta\)</span> que maximiza la función de verosimilitud <span class="math notranslate nohighlight">\(L(\theta)\)</span>.</p>
+<p>Así que vamos a tener distintas partes importantes en el proceso para llegar a ese valor óptimo:</p>
+<ol class="arabic simple">
+<li><p>Ya sabemos que si asumimos que los datos son <em>i.i.d.</em>:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[
+X_1, X_2, \dots, X_n \overset{\text{i.i.d.}}{\sim} f(x; \theta)
+\]</div>
+<p>Entonces la <strong>función de verosimilitud</strong> es:</p>
+<div class="math notranslate nohighlight">
+\[
+L(\theta) = \prod_{i=1}^n f(x_i; \theta)
+\]</div>
+<ol class="arabic simple" start="2">
+<li><p>La <strong>log-verosimilitud</strong> es:</p></li>
+</ol>
+<p>Usualmente se trabaja con el <strong>logaritmo</strong> de la verosimilitud para facilitar el cálculo:</p>
+<div class="math notranslate nohighlight">
+\[
+\ell(\theta) = \log L(\theta) = \sum_{i=1}^n \log f(x_i; \theta)
+\]</div>
+<div class="tip admonition">
+<p class="admonition-title">¿Por qué usar la log-verosimilitud?</p>
+<ul class="simple">
+<li><p>Transformar productos <span class="math notranslate nohighlight">\(\prod\)</span> en sumas <span class="math notranslate nohighlight">\(\sum\)</span> <em>simplifica el cálculo</em>.</p></li>
+<li><p>Hace más manejable la derivación, especialmente con distribuciones exponenciales.</p></li>
+<li><p>Conserva la ubicación del máximo porque <span class="math notranslate nohighlight">\(\log(\cdot)\)</span> es monótona creciente.</p></li>
+</ul>
+</div>
+<ol class="arabic" start="3">
+<li><p>Encontrar el <strong>máximo</strong>:</p>
+<p>a. Derivar la log-verosimilitud respecto del parámetro <span class="math notranslate nohighlight">\(\theta\)</span></p>
+<p>b. Igualar a cero</p>
+<p>c. Resolver para <span class="math notranslate nohighlight">\(\theta\)</span></p>
+<p>d. <span class="math notranslate nohighlight">\(\hat{\theta} = \arg\max_{\theta} \ell(\theta)\)</span></p>
+</li>
+</ol>
+<div class="tip admonition">
+<p class="admonition-title">Recuerda</p>
+<ul class="simple">
+<li><p>Si el modelo tiene <em>un solo parámetro</em>, se usa <strong>cálculo diferencial</strong> convencional:</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{d\theta} \ell(\theta) = 0
+\]</div>
+<ul class="simple">
+<li><p>Si el modelo tiene <em>dos o más parámetros</em>:</p></li>
+</ul>
+<p>Se utilizan <strong>derivadas parciales</strong>, una por cada parámetro:</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{\partial}{\partial \theta_1} \ell(\theta_1, \theta_2) = 0
+\qquad \text{y} \qquad
+\frac{\partial}{\partial \theta_2} \ell(\theta_1, \theta_2) = 0
+\]</div>
+</div>
+<ol class="arabic" start="4">
+<li><p>Verificar que es un máximo:</p>
+<p>a. Calcular la segunda derivada (o matriz Hessiana si hay varios parámetros).</p>
+<p>b. Dado que tenemos un problema en un dominio cerrado <span class="math notranslate nohighlight">\(0 \leq \theta \leq 1\)</span>, podemos evaluar en los extremos:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> - $p(55 | \theta=0) = p(55 | \theta=1) = 0$
+</pre></div>
+</div>
+<p>y en el punto crítico: <span class="math notranslate nohighlight">\(\hat{\theta}\)</span>.</p>
+</li>
+</ol>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1065,15 +1244,6 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
         <p class="prev-next-title">Sesión 3 B</p>
       </div>
     </a>
-    <a class="right-next"
-       href="M1-sesion5.html"
-       title="siguiente página">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">siguiente</p>
-        <p class="prev-next-title">Sesión 5</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -1093,26 +1263,28 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Sesión 4</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#estimadores-de-maxima-verosimilitud">Estimadores de máxima verosimilitud</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelos-probabilisticos">Modelos probabilísticos</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#familia-de-distribuciones">Familia de distribuciones</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#muestra-observada">Muestra observada</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supuesto-i-i-d">Supuesto <em>i.i.d.</em></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estimador-de-maxima-verosimilitud">Estimador de máxima verosimilitud</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matematicas-detras-del-mle">Matemáticas detrás del MLE</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metodos-de-estimacion-o-inferencia">Métodos de estimación o inferencia</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-la-estimacion-por-maxima-verosimilitud-maximum-likelihood-estimation">(a) La estimación por máxima verosimilitud <em>(Maximum likelihood estimation)</em></a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-maxima-verosimilitud-para-distribuciones-discretas">Ejercicio: Máxima verosimilitud para distribuciones discretas</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-metodo-numerico"><em>por método numérico</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#por-metodo-analitico"><em>por método analítico</em></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#i-i-d-y-log-verosimilitud"><em>i.i.d. y log verosimilitud</em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#muestra-observada">Muestra observada</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supuesto-i-i-d">Supuesto <em>i.i.d.</em></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#log-verosimilitud">Log-verosimilitud</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-maxima-verosimilitud-para-distribuciones-continuas">Ejercicio: Máxima verosimilitud para distribuciones continuas</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#ejercicio-maxima-verosimilitud-con-mas-de-un-parametro">Ejercicio: Máxima verosimilitud con más de un parámetro</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#comentarios-finales">Comentarios finales</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extra">Extra</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#refresh-de-matematicas-detras-del-mle">Refresh de matemáticas detrás del MLE</a></li>
+</ul>
+</li>
 </ul>
 
   </nav></div>
