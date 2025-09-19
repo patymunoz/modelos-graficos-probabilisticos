@@ -460,6 +460,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-densidad-de-probabilidad-pdf">1.1.1. Función de <em>densidad</em> de probabilidad (PDF)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-p-x-puede-ser-mayor-que-1">¿Por qué <span class="math notranslate nohighlight">\(p(x)\)</span> puede ser mayor que 1?</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-distribucion-acumulativa-cdf">1.1.2. Función de distribución acumulativa (CDF)</a></li>
 </ul>
 </li>
@@ -501,6 +502,14 @@ document.write(`
 <li><p><strong>Variables aleatorias discretas</strong></p></li>
 <li><p>➡️ <strong>Variables aleatorias continuas</strong></p></li>
 </ul>
+<blockquote>
+<div><p><strong>Objetivos:</strong></p>
+<ul class="simple">
+<li><p>Repasar la definición de variables aleatorias continuas.</p></li>
+<li><p>Definir la función de densidad de probabilidad y la función de distribución acumulada.</p></li>
+<li><p>Definir el valor esperado y varianza de una variable aleatoria continua.</p></li>
+</ul>
+</div></blockquote>
 <section id="variables-aleatorias-continuas">
 <h4>Variables aleatorias continuas<a class="headerlink" href="#variables-aleatorias-continuas" title="Link to this heading">#</a></h4>
 <div class="note admonition">
@@ -515,25 +524,31 @@ X: \Omega \to \mathbb{R}
 </div>
 <section id="antes-de-empezar-que-es-densidad-y-que-es-integrar">
 <h5>Antes de empezar: <em>¿qué es densidad?, ¿y qué es integrar?</em><a class="headerlink" href="#antes-de-empezar-que-es-densidad-y-que-es-integrar" title="Link to this heading">#</a></h5>
-<p>En el mundo real, muchas cosas no se pueden contar: el tiempo que transcurre, la temperatura que cambia suavemente, la posición de un objeto en movimiento, o la probabilidad de que una variable tome un valor entre dos puntos reales.</p>
-<p>En estos casos, no hay elementos aislados, como canicas o dados. Solo hay continuidad, fluidez, cambio constante. Y entonces surge una pregunta profunda:</p>
+<p>En la vida real, muchos fenómenos no se pueden contar directamente.</p>
+<p>El tiempo fluye, la temperatura cambia poco a poco, un objeto se mueve sin saltos y una variable puede tomar infinitos valores entre dos puntos. En estos casos no podemos enumerar unidades como si fueran canicas o dados: estamos frente a lo <strong>continuo</strong>.</p>
+<p>Entonces surge una pregunta fundamental:</p>
 <blockquote>
 <div><p>¿Cómo medimos lo que no se puede contar?</p>
 </div></blockquote>
+<p>La respuesta está en dos herramientas matemáticas muy poderosas: <strong>densidad e integración.</strong></p>
 <div class="note admonition">
 <p class="admonition-title">Densidad e integración: comprender lo continuo</p>
-<p>🌀 La densidad: lo local, lo relativo</p>
+<p>🌀 La densidad: mirar lo local</p>
 <p><em>¿Dónde se concentra algo?</em></p>
 <p>Pero en lugar de contar unidades, miramos lo que pasa en una región infinitesimal.</p>
+<p>En probabilidad, esa idea se traduce en la <strong>función de densidad de probabilidad (PDF)</strong>, que muestra cómo se distribuyen las posibilidades de una variable continua.</p>
 </div>
 <div class="note admonition">
-<p class="admonition-title">Integración: lo acumulativo, lo global</p>
+<p class="admonition-title">Integración</p>
+<p>🌀 Integrar: reunir lo disperso</p>
 <p>Integrar es tomar fragmentos del mundo, imperceptibles por sí solos, y sumarlos para construir sentido.</p>
 <ul class="simple">
-<li><p>Reunir las contribuciones dispersos de lo continuo.</p></li>
+<li><p>Reunir las contribuciones dispersas de lo continuo.</p></li>
 </ul>
+<p>La integración responde:</p>
+<p><em>¿qué tan probable es que el valor esté entre A y B?</em></p>
 </div>
-<p>Una <em>variable aleatoria continua</em> vive en ese mismo mundo: no tiene «valores posibles» que puedas listar. Tiene un espectro infinito de posibilidades, una especie de <em>bruma de incertidumbre matemática</em>.</p>
+<p>Una <em>variable aleatoria continua</em> vive en ese mismo mundo: no tiene «valores posibles» que puedas listar. Tiene un espectro infinito de posibilidades.</p>
 <ul class="simple">
 <li><p>La <em>densidad</em> te dice cómo están distribuidas esas posibildes.</p></li>
 <li><p>La <em>integración</em> te permite calcular la probabilidad de que la variable se manifieste dentro de un rango.</p></li>
@@ -544,34 +559,61 @@ X: \Omega \to \mathbb{R}
 <section id="funcion-de-densidad-de-probabilidad-pdf">
 <h4>1.1.1. Función de <em>densidad</em> de probabilidad (PDF)<a class="headerlink" href="#funcion-de-densidad-de-probabilidad-pdf" title="Link to this heading">#</a></h4>
 <p>Una PDF es una <em>función matemática</em> que describe cómo se distribuye la probabilidad de una variable aleatoria continua a lo largo de los valores que puede tomar.</p>
-<p><img alt="" src="../_images/prob-vars-continuas.png" /></p>
-<div class="note admonition">
-<p class="admonition-title"><em>Probability Density Fuction</em></p>
-<p>Sea <span class="math notranslate nohighlight">\(X\)</span> una variable aleatoria continua.<br />
-Una función <span class="math notranslate nohighlight">\(f_X(x)\)</span> es una <strong>función de densidad de probabilidad</strong> (PDF) de <span class="math notranslate nohighlight">\(X\)</span> si cumple:</p>
-<ol class="arabic">
-<li><p><strong>No negatividad:</strong></p>
+<p>En el contexto de variables aleatorias continuas no hablamos de «función de probabilidad», sino de una <strong>función de densidad de probabilidad p.d.f.</strong> <span class="math notranslate nohighlight">\(p(x)\)</span> que debe cumplir:</p>
 <div class="math notranslate nohighlight">
 \[
-   f_X(x) \geq 0 \quad \text{para todo } x \in \mathbb{R}
-   \]</div>
-</li>
-<li><p><strong>Normalización:</strong></p>
+0 \leq p(x)
+\]</div>
+<p>esta condición asegura que no haya probabilidades negativas.</p>
+<p>Además:</p>
 <div class="math notranslate nohighlight">
 \[
-   \int_{-\infty}^{\infty} f_X(x)\,dx = 1
-   \]</div>
-<p><em>(Es decir, la <strong>probabilidad total</strong> sobre todo el dominio es 1).</em></p>
-</li>
-<li><p><strong>Probabilidad sobre un intervalo:</strong><br />
-Para cualquier <span class="math notranslate nohighlight">\(a &lt; b\)</span>, la probabilidad de que <span class="math notranslate nohighlight">\(X\)</span> caiga en el intervalo <span class="math notranslate nohighlight">\([a, b]\)</span> es:</p>
-<div class="math notranslate nohighlight">
-\[
-   \mathbb{P}(a \leq X \leq b) = \int_a^b f_X(x)\,dx
-   \]</div>
-</li>
-</ol>
+\int_{-\infty}^{\infty} p(x) \mathrm{d}x = 1.
+\]</div>
+<p>esta segunda condición asegura que la «masa total de probabilidad» esté normalizada a 1.</p>
+<p><strong>Notemos que en este caso la densidad puede ser mayor a <span class="math notranslate nohighlight">\(1\)</span>.</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variables aleatorias discretas</p></th>
+<th class="head"><p>Variables aleatorias continuas</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(P(a) = P(X = a)\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(p(x)\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(0 \leq P(a) \leq 1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(0 \leq p(x)\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\sum_a P(a) = 1\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\int_{-\infty}^{\infty} p(x)\,dx = 1\)</span></p></td>
+</tr>
+</tbody>
+</table>
 </div>
+</section>
+<section id="por-que-p-x-puede-ser-mayor-que-1">
+<h4>¿Por qué <span class="math notranslate nohighlight">\(p(x)\)</span> puede ser mayor que 1?<a class="headerlink" href="#por-que-p-x-puede-ser-mayor-que-1" title="Link to this heading">#</a></h4>
+<p>Es importante notar que <span class="math notranslate nohighlight">\(p(x)\)</span> no es una probabilidad en sí, sino una <strong>densidad</strong>.</p>
+<p>Para obtener una probabilidad real, siempre necesitas un intervalo <span class="math notranslate nohighlight">\([a,b]\)</span> y calcular el área:</p>
+<p><img alt="" src="../_images/prob-vars-continuas.png" /></p>
+<p>La probabilidad real se obtiene integrando la densidad:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(P(a \leq X \leq b)\)</span> significa el área bajo la curva de <span class="math notranslate nohighlight">\(p(x)\)</span> entre <span class="math notranslate nohighlight">\(a\)</span> y <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
+<li><p>Esa área sí es una probabilidad y siempre estará entre 0 y 1.</p></li>
+</ul>
+<p>Por esto, aunque <span class="math notranslate nohighlight">\(p(x)\)</span> pueda tomar valor mayores que 1, la integral en todo el espacio siempre será 1.</p>
+<p>Por ejemplo, la <strong>función de densidad de probabilidad (PDF)</strong> de la normal estándar <span class="math notranslate nohighlight">\(N(0,1)\)</span> es:</p>
+<div class="math notranslate nohighlight">
+\[
+p(x) = \frac{1}{\sqrt{2\pi}} e^{-x^2/2}
+\]</div>
+<p>La probabilidad de que <span class="math notranslate nohighlight">\(X\)</span> esté entre <span class="math notranslate nohighlight">\(-1\)</span> y <span class="math notranslate nohighlight">\(1\)</span> es:</p>
+<div class="math notranslate nohighlight">
+\[
+P(-1 \leq X \leq 1) = \int_{-1}^{1} \frac{1}{\sqrt{2\pi}} e^{-x^2/2}\, dx
+\]</div>
+<p><img alt="" src="../_images/sesion3-areabajocurva.png" /></p>
 </section>
 <section id="funcion-de-distribucion-acumulativa-cdf">
 <h4>1.1.2. Función de distribución acumulativa (CDF)<a class="headerlink" href="#funcion-de-distribucion-acumulativa-cdf" title="Link to this heading">#</a></h4>
@@ -642,13 +684,13 @@ F_X(x) =
 \end{split}\]</div>
 <div class="tip admonition">
 <p class="admonition-title">Ejercicio 1</p>
-<p>Se tiene una cinta de medir con resolución milimétrica. Si medimos la longitud de una varillas que fueron cortadas a 1 metro de longitud, el error de medición estará uniformemente distribuido entre -0.5 y 0.5 milímetros.</p>
+<p>Se tiene una cinta de medir con resolución milimétrica. Si medimos la longitud de unas varillas que fueron cortadas a 1 metro de longitud, el error de medición estará uniformemente distribuido entre -0.5 y 0.5 milímetros.</p>
 </div>
 <button title="Run code" class="thebelab-button thebe-launch-button" onclick="initThebe()">Run code</button><div class="cell tag_Thebe docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import numpy as np</span>
+<span class="c1">#from scipy import stats</span>
+<span class="c1">#from matplotlib import pyplot as plt</span>
 </pre></div>
 </div>
 </div>
@@ -667,6 +709,17 @@ X \sim \text{Uniforme}(a = \text{loc},\ b = \text{loc} + \text{scale})
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variable aleatorio uniforme</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">loc</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Variable aleatorio uniforme</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">X</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">loc</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;stats&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -731,7 +784,7 @@ F_X(x) =
 \end{split}\]</div>
 <div class="tip admonition">
 <p class="admonition-title">Ejercicio 2</p>
-<p>Si sales del ITESO para tomar un taxi, el tiempo que esperas hasta que llegue el siguiente taxi puede modelarse con una distribución exponencial.</p>
+<p>Si sales de tu casa para tomar un taxi, el tiempo que esperas hasta que llegue el siguiente taxi puede modelarse con una distribución exponencial.</p>
 <p>Una manera práctica de estimar el parámetro <span class="math notranslate nohighlight">\(\lambda\)</span> es usando la <strong>duración promedio de espera observada</strong>. Por ejemplo, si normalmente esperas unos 5 minutos, puedes estimar:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -801,7 +854,7 @@ X \sim \mathcal{N}(\mu, \sigma^2)
 <p><strong>Función de densidad (PDF):</strong></p>
 <div class="math notranslate nohighlight">
 \[
-f_X(x) = \frac{1}{\sigma \sqrt{2\pi}} \, \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+p(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \exp\left\{-\frac{(x - \mu)^2}{2 \sigma^2}\right\}.
 \]</div>
 <p><strong>Función de distribución acumulada (CDF):</strong></p>
 <p>No tiene una forma cerrada elemental, pero se define como:</p>
@@ -813,7 +866,6 @@ F_X(x) = \int_{-\infty}^{x} f_X(t) \, dt
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variable aleatoria normal</span>
-
 <span class="n">mu</span> <span class="o">=</span> <span class="mi">25</span>
 <span class="n">sigma</span> <span class="o">=</span> <span class="mf">.1</span>
 
@@ -902,23 +954,28 @@ La varianza de <span class="math notranslate nohighlight">\(X\)</span> correspon
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
-<span class="c1"># Definir la distribución normal con media=25 y desviación estándar=2</span>
+<span class="c1"># Distribución normal con media=25 y STD=2</span>
 <span class="n">distribucion</span> <span class="o">=</span> <span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="c1"># Valor esperado (media) de X</span>
+<span class="c1"># Valor esperado de X</span>
 <span class="n">media</span> <span class="o">=</span> <span class="n">distribucion</span><span class="o">.</span><span class="n">expect</span><span class="p">()</span>
 
-<span class="c1"># Esperanza del cuadrado: E[X^2]</span>
+<span class="c1"># E[X^2]</span>
 <span class="n">esperanza_cuadrado</span> <span class="o">=</span> <span class="n">distribucion</span><span class="o">.</span><span class="n">expect</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># Varianza: Var(X) = E[X^2] - (E[X])^2</span>
 <span class="n">varianza</span> <span class="o">=</span> <span class="n">esperanza_cuadrado</span> <span class="o">-</span> <span class="n">media</span><span class="o">**</span><span class="mi">2</span>
 
-<span class="c1"># Mostrar resultados</span>
+<span class="c1"># Desviación estándar</span>
+<span class="n">desviacion_estandar</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">varianza</span><span class="p">)</span>
+
+<span class="c1"># Hacemo print</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Media (E[X]):&quot;</span><span class="p">,</span> <span class="n">media</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Esperanza de X^2 (E[X^2]):&quot;</span><span class="p">,</span> <span class="n">esperanza_cuadrado</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Varianza:&quot;</span><span class="p">,</span> <span class="n">varianza</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Desviación estándar:&quot;</span><span class="p">,</span> <span class="n">desviacion_estandar</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -926,6 +983,7 @@ La varianza de <span class="math notranslate nohighlight">\(X\)</span> correspon
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Media (E[X]): 24.999999999999986
 Esperanza de X^2 (E[X^2]): 628.9999999999999
 Varianza: 4.000000000000568
+Desviación estándar: 2.000000000000142
 </pre></div>
 </div>
 </div>
@@ -1020,6 +1078,7 @@ Varianza: 4.000000000000568
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-densidad-de-probabilidad-pdf">1.1.1. Función de <em>densidad</em> de probabilidad (PDF)</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#por-que-p-x-puede-ser-mayor-que-1">¿Por qué <span class="math notranslate nohighlight">\(p(x)\)</span> puede ser mayor que 1?</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#funcion-de-distribucion-acumulativa-cdf">1.1.2. Función de distribución acumulativa (CDF)</a></li>
 </ul>
 </li>
