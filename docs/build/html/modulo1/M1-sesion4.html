@@ -689,11 +689,11 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 <p>En los extremos (<span class="math notranslate nohighlight">\(\theta=0\)</span> o <span class="math notranslate nohighlight">\(\theta=1\)</span>), la verosimilitud es nula, por lo que <span class="math notranslate nohighlight">\(\hat{\theta}=0.55\)</span> es el único máximo en <span class="math notranslate nohighlight">\([0,1]\)</span>.</p>
 </details><button title="Run code" class="thebelab-button thebe-launch-button" onclick="initThebe()">Run code</button><div class="cell tag_Thebe docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import numpy as np</span>
-<span class="c1">#from matplotlib import pyplot as plt</span>
-<span class="c1">#import math</span>
-<span class="c1">#import warnings</span>
-<span class="c1">#warnings.filterwarnings(&#39;ignore&#39;)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -710,25 +710,17 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">55</span>
-<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># Función de verosimilitud (evaluada)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">L</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">theta</span><span class="o">**</span><span class="n">a</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">theta</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">a</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;np&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># L --&gt; es un vector de verosimilitudes para cada posible valor de theta</span>
 <span class="n">L</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.00000000e+000, 5.87432611e-137, 2.02318316e-120, ...,
+       1.93660326e-093, 5.81584649e-107, 0.00000000e+000], shape=(1001,))
 </pre></div>
 </div>
 </div>
@@ -739,10 +731,20 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.int64(550)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span><span class="p">[</span><span class="mi">55</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">theta</span><span class="p">[</span><span class="mi">550</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.55)
 </pre></div>
 </div>
 </div>
@@ -752,6 +754,11 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Aproximar el valor máximo de la verosimilitud</span>
 <span class="n">theta_mle1</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">L</span><span class="p">)]</span>
 <span class="n">theta_mle1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.55)
 </pre></div>
 </div>
 </div>
@@ -773,6 +780,9 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/da14e1027046d2cbeb26d609ddde76d34604ff5a056e4b2fafff4582325e7681.png" src="../_images/da14e1027046d2cbeb26d609ddde76d34604ff5a056e4b2fafff4582325e7681.png" />
 </div>
 </div>
 <blockquote>
@@ -798,6 +808,11 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.55)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -819,6 +834,9 @@ p(55 | \theta) = \left(\begin{array}{c}100 \\ 55\end{array}\right) \theta^{55}(1
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/99873b1b25f6d0244bc49c0bcabcd323abc7705f1c823640077ed7a1389aa7b8.png" src="../_images/99873b1b25f6d0244bc49c0bcabcd323abc7705f1c823640077ed7a1389aa7b8.png" />
 </div>
 </div>
 <p>Aunque el MLE en ambos casos es el mismo, porque</p>
@@ -921,6 +939,11 @@ x_1 &lt; x_2 \;\;\Rightarrow\;\; \log(x_1) &lt; \log(x_2)
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(0.55)
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -944,6 +967,9 @@ x_1 &lt; x_2 \;\;\Rightarrow\;\; \log(x_1) &lt; \log(x_2)
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bd70169e3be929a7f2c21ad0bec662c5899a9482f0e89536843843599167ca4e.png" src="../_images/bd70169e3be929a7f2c21ad0bec662c5899a9482f0e89536843843599167ca4e.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -1035,6 +1061,19 @@ f(x; \hat{\lambda}) = \frac{5}{13} e^{-\frac{5}{13}x}
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#import sympy as sp</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">positive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">lmbda</span> <span class="o">=</span> <span class="mi">5</span><span class="o">/</span><span class="mi">13</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># PDF</span>
+
+<span class="ne">NameError</span>: name &#39;sp&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <ul class="simple">
 <li><p>Suposición: Los <em>tiempos de vida de los bombillos</em> siguen una <strong>Exponencial(<span class="math notranslate nohighlight">\(\lambda\)</span>)</strong>.</p></li>
@@ -1073,7 +1112,7 @@ P(X &lt; 2) = \int_0^2 0.3846 \, e^{-0.3846 x}\,dx \approx 0.537.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Númericamente:</span>
-<span class="c1">#from scipy import stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
 </pre></div>
 </div>
 </div>
@@ -1091,7 +1130,7 @@ P(X &lt; 2) = \int_0^2 0.3846 \, e^{-0.3846 x}\,dx \approx 0.537.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generamos muestras</span>
-<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="n">samples</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1113,10 +1152,20 @@ P(X &lt; 2) = \int_0^2 0.3846 \, e^{-0.3846 x}\,dx \approx 0.537.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(10, np.float64(10.000307316862495))
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigma_true</span><span class="p">,</span> <span class="n">sigma_mle</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2, np.float64(1.9918078027741557))
 </pre></div>
 </div>
 </div>

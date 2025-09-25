@@ -688,9 +688,9 @@ F_X(x) =
 </div>
 <button title="Run code" class="thebelab-button thebe-launch-button" onclick="initThebe()">Run code</button><div class="cell tag_Thebe docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import numpy as np</span>
-<span class="c1">#from scipy import stats</span>
-<span class="c1">#from matplotlib import pyplot as plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 </pre></div>
 </div>
 </div>
@@ -709,17 +709,6 @@ X \sim \text{Uniforme}(a = \text{loc},\ b = \text{loc} + \text{scale})
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variable aleatorio uniforme</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">loc</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Variable aleatorio uniforme</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">X</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">loc</span><span class="o">=-</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;stats&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -815,6 +804,13 @@ X \sim \text{Exponencial}(0.2)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>stats.expon<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gráfico de pdf y cdf</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">pdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -867,7 +863,7 @@ F_X(x) = \int_{-\infty}^{x} f_X(t) \, dt
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variable aleatoria normal</span>
 <span class="n">mu</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="n">sigma</span> <span class="o">=</span> <span class="mf">.1</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">mu</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">sigma</span><span class="p">)</span>
 </pre></div>
@@ -900,7 +896,7 @@ X \sim \mathcal{N}(\mu = \text{loc},\ \sigma^2 = \text{scale}^2)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/1ab6c571030b6bb35dd8287a1a20469361924e7365dd72477bbdb1cde1b44067.png" src="../_images/1ab6c571030b6bb35dd8287a1a20469361924e7365dd72477bbdb1cde1b44067.png" />
+<img alt="../_images/8bca48c3c8ffed98428c6d95e50060ab2e93df14ffa6c61d6ab5a50d006a6880.png" src="../_images/8bca48c3c8ffed98428c6d95e50060ab2e93df14ffa6c61d6ab5a50d006a6880.png" />
 </div>
 </div>
 <section id="propiedades-de-la-distribucion-normal">
