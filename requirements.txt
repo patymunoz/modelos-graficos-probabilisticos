@@ -12,3 +12,4 @@ scipy
 pymc>=5.25.1
 arviz>=0.15.0
 seaborn
+sympy
