@@ -1,7 +1,5 @@
 # Módulo 1
 
-En este módulo introduciremos los contenidos del curso y ...
-
 ```{toctree}
 :maxdepth: 1
 

@@ -18,7 +18,7 @@ acuerdos-de-clase
 herramientas
 
 modulo1/index
-<!-- modulo2/index -->
+modulo2/index
 <!-- modulo3/index -->
 
 recursos-bibliograficos
