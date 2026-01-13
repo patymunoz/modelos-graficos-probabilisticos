@@ -3,9 +3,9 @@ notebooks/author-00motivation.ipynb
 notebooks/author-01sesion.ipynb
 notebooks/author-M1-sesion3-PT1.ipynb
 notebooks/00-motivation.ipynb
-
+notebooks/02-sesion.ipynb
 #-----
-# --- Sphinx build outputs (no versionar) ---
+# --- Sphinx build outputs (no versionar) ---#
 docs/build/
 **/_build/
 **/.doctrees/
@@ -18,33 +18,30 @@ docs/build/html/
 docs/build/html/_static/
 docs/build/html/_images/
 
-# --- Jupyter ---
+# --- Jupyter ---#
 **/.ipynb_checkpoints/
 **/jupyter_execute/
 
-# Ignorar todos los notebooks de modulo1
+# Ignorar notebooks
+#--- Modulo 1 ---#
 docs/source/modulo1/*
 !docs/source/modulo1/M1-sesion1.ipynb
-!docs/source/modulo1/M1-sesion2.ipynb
-!docs/source/modulo1/1-fundamentos_probabilidad.ipynb
-!docs/source/modulo1/2-interpretaciones_probabilidad.ipynb
-!docs/source/modulo1/3-operaciones_probabilidad.ipynb
-!docs/source/modulo1/4-independencia.ipynb
-!docs/source/modulo1/M1-sesion3-PT1.ipynb
-!docs/source/modulo1/M1-sesion3-PT2.ipynb
-!docs/source/modulo1/M1-sesion4.ipynb
-!docs/source/modulo1/M1-sesion5-PT1.ipynb
-!docs/source/modulo1/M1-sesion5-PT2.ipynb
-!docs/source/modulo1/M1-sesion6-PT1.ipynb
-!docs/source/modulo1/M1-sesion6-PT2.ipynb
-!docs/source/modulo1/M1-sesion7.ipynb
-!docs/source/modulo1/M1-sesion8.ipynb
-!docs/source/modulo1/apendiceA.ipynb
-!docs/source/modulo1/apendiceB.ipynb
+!docs/source/modulo1/index.md
+!docs/source/modulo1/.gitkeep
+
+#--- Modulo 2 ---#
+docs/source/modulo2/*
+!docs/source/modulo2/.gitkeep
+#!docs/source/modulo2/index.md
+
+#--- Modulo 3 ---#
+docs/source/modulo3/*
+!docs/source/modulo3/.gitkeep
+#!docs/source/modulo3/index.md
 
 **/jupyter_execute/
 soporte/
 
-#--- JetBrains
+#--- JetBrains ---#
 .idea/
 .venv/

@@ -1,6 +1,6 @@
 # Sobre la clase
 
-**Horario:** Jueves 18:30 a 21:30 hrs.
+**Horario:** Lunes 18:30 a 21:30 hrs.
 
 **Profesora:** Paty Muñoz.
 

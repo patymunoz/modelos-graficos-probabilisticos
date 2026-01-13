@@ -1,6 +1,6 @@
 # Modelos gráficos probabilísticos
 
-¡Bienvenid@ al curso - Otoño 2025! 👋
+¡Bienvenid@ al curso - Primavera 2026! 👋
 
 Aprenderás a representar y razonar bajo incertidumbre utilizando **modelos gráficos probabilísticos**, una herramienta fundamental en inteligencia artificial, aprendizaje automático y estadística bayesiana.
 

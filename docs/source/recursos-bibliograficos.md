@@ -2,9 +2,9 @@
 
 [1] D. Koller and N. Friedman, _Probabilistic Graphical Models: Principles and Techniques_. Cambridge, MA: MIT Press, 2009.
 
-[2] K. P. Tran, Ed., _Machine Learning and Probabilistic Graphical Models for Decision Support Systems_, st ed. Boca Raton, FL, USA: CRC Press, 2022. Available: https://doi.org/10.1201/9781003189886
+[2] C. M. Bishop, _Pattern Recognition and Machine Learning_. Springer, 2006. [Online]. Available: https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning
 
-[3] C. M. Bishop, _Pattern Recognition and Machine Learning_. Springer, 2006. [Online]. Available: https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning
+[3] K. P. Tran, Ed., _Machine Learning and Probabilistic Graphical Models for Decision Support Systems_, st ed. Boca Raton, FL, USA: CRC Press, 2022. Available: https://doi.org/10.1201/9781003189886
 
 [4] D. Barber, _Bayesian Reasoning and Machine Learning_. Cambridge University Press, 2012.
 
