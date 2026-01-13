@@ -14,9 +14,9 @@ sys.path.insert(0, os.path.abspath('../..'))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'modelos-graficos-probabilisticos'
-copyright = '2025, Paty Munoz'
+copyright = '2026, Paty Munoz'
 author = 'MCD. Paty Munoz'
-release = '0.1.0'
+release = '0.2.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
@@ -55,7 +55,7 @@ html_theme_options = {
         "thebe": True
     },
     "path_to_docs": "docs",
-    "repository_branch": "main",
+    "repository_branch": "p2026",
     "repository_url": "https://github.com/patymunoz/modelos-graficos-probabilisticos",
     "use_repository_button": True,
     "use_issues_button": True,
@@ -78,7 +78,7 @@ thebe_config = {
     "binderOptions": {
         "binderUrl": "https://mybinder.org",
         "repo": "patymunoz/modelos-graficos-probabilisticos",
-        "branch": "main",
+        "branch": "p2026",
     },
     "always_load": True,
 }
