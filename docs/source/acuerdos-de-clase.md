@@ -18,9 +18,9 @@ La comunicación se realizará a través de los **medios oficiales de la institu
 
 ## Acuerdos de la clase
 
-Puedes consultar los acuerdos completos en [este recurso.](https://iteso.instructure.com/courses/50611/files/10195616?module_item_id=2056959)
+Puedes consultar los acuerdos completos en [este recurso.](https://iteso.instructure.com/courses/55620/files/11278488?module_item_id=2217237)
 
-- El inicio de clases será a las 18:40 y la profesora podrá tomar asistencia. Luego de esa hora, será considerado retardo.
+- El inicio de clases será a las 18:35 y la profesora podrá tomar asistencia. Luego de esa hora, será considerado retardo.
 
 - Las y los alumnos tendrán que esperar a la profesora hasta por 20 minutos (30 minutos después de la hora), después de ese tiempo se podrán ir sin falta. En la siguiente clase la profesora indicará la fecha de reposición de la clase o de los minutos por su retraso. En las clases de reposición no se toma asistencia.
 

@@ -82,12 +82,25 @@ Los pasos siguientes muestran cómo mantener actualizado tu repositorio local co
 
 2. Haz clic en **Fork** (esquina superior derecha) para crear una copia en tu cuenta de GitHub.
 
-3. Abre **Git Bash** y clona tu fork en tu equipo (reemplaza `tu-usuario` por tu nombre de usuario en GitHub):
+3. Abre **Git Bash** y clona tu fork en tu equipo:
 
 ```bash
-git clone https://github.com/tu-usuario/modelos-graficos-probabilisticos.git
+git clone https://github.com/patymunoz/modelos-graficos-probabilisticos.git
+```
+
+3.1. Navega al directorio del proyecto:
+
+```bash
 cd modelos-graficos-probabilisticos
 ```
+
+3.2. Verifica que estás en la rama actual `p2026`:
+
+```bash
+git branch
+```
+
+> Deberías ver un asterisco (\*) junto a `p2026`.
 
 4. Agrega el repositorio original como remoto adicional `upstream`, para mantenerte sincronizado con los cambios del curso:
 
@@ -104,7 +117,7 @@ git remote -v
 Deberías ver algo como:
 
 ```bash
-origin    https://github.com/tu-usuario/modelos-graficos-probabilisticos.git (fetch)
+origin    https://github.com/**tu-usuario**/modelos-graficos-probabilisticos.git (fetch)
 upstream  https://github.com/patymunoz/modelos-graficos-probabilisticos.git (fetch)
 ```
 
@@ -113,7 +126,8 @@ upstream  https://github.com/patymunoz/modelos-graficos-probabilisticos.git (fet
 Cuando el curso se actualice, puedes sincronizarte con:
 
 ```
-git pull upstream main
+git checkout p2026
+git pull upstream p2026
 ```
 
 Esto trae los cambios del curso original a tu copia local.
@@ -121,7 +135,7 @@ Esto trae los cambios del curso original a tu copia local.
 Luego, si quieres actualizar tu _fork_ en GitHub:
 
 ```
-git push origin main
+git push origin p2026
 ```
 
 6. Crear y activar el entorno Conda
@@ -129,7 +143,7 @@ git push origin main
 Después de clonar el repositorio, crea el entorno con:
 
 ```bash
-conda create -n mi_curso python=3.10
+conda create -n mi_curso python=3.13
 conda activate mi_curso
 pip install -r requirements.txt
 ```
@@ -150,4 +164,10 @@ pip install -r requirements.txt
 
 - Solo se requiere una cuenta de Google.
 
-- Ideal si prefieres no configurar el entorno localmente.
+- Ideal si prefieres **no configurar el entorno localmente.**
+
+#### Opción C: Usar con Spyder
+
+- Descarga los notebooks directamente del [repositorio.](https://github.com/patymunoz/modelos-graficos-probabilisticos)
+
+- Abre Spyder y carga los notebooks.
