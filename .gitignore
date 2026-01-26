@@ -26,6 +26,7 @@ docs/build/html/_images/
 #--- Modulo 1 ---#
 docs/source/modulo1/*
 !docs/source/modulo1/M1-sesion1.ipynb
+!docs/source/modulo1/M1-sesion2A.ipynb
 !docs/source/modulo1/index.md
 !docs/source/modulo1/.gitkeep
 
