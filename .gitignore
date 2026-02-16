@@ -31,6 +31,7 @@ docs/source/modulo1/*
 !docs/source/modulo1/.gitkeep
 !docs/source/modulo1/M1-sesion3-PT1.ipynb
 !docs/source/modulo1/M1-sesion3-PT2.ipynb
+!docs/source/modulo1/M1-sesion4.ipynb
 
 #--- Modulo 2 ---#
 docs/source/modulo2/*
