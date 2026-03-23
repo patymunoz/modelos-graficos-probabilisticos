@@ -56,3 +56,6 @@ soporte/
 #--- JetBrains ---#
 .idea/
 .venv/
+
+#-- Mac
+.DS_Store
