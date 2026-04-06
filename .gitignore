@@ -43,7 +43,10 @@ docs/source/modulo1/*
 #--- Modulo 2 ---#
 docs/source/modulo2/*
 !docs/source/modulo2/.gitkeep
-#!docs/source/modulo2/index.md
+!docs/source/modulo2/index.md
+!docs/source/modulo2/M2-sesion9A.ipynb
+!docs/source/modulo2/M2-sesion9Aact.ipynb
+!docs/source/modulo2/M2-sesion9B.ipynb
 
 #--- Modulo 3 ---#
 docs/source/modulo3/*
