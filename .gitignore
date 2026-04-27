@@ -1,9 +1,5 @@
 notebooks/cache/
-notebooks/author-00motivation.ipynb
-notebooks/author-01sesion.ipynb
-notebooks/author-M1-sesion3-PT1.ipynb
-notebooks/00-motivation.ipynb
-notebooks/02-sesion.ipynb
+notebooks/*
 #-----
 # --- Sphinx build outputs (no versionar) ---#
 docs/build/
@@ -50,6 +46,7 @@ docs/source/modulo2/*
 !docs/source/modulo2/M2-sesion10A.ipynb
 !docs/source/modulo2/M2-sesion10B.ipynb
 !docs/source/modulo2/M2-sesion11.ipynb
+!docs/source/modulo2/M2-sesion12.ipynb
 
 #--- Modulo 3 ---#
 docs/source/modulo3/*
