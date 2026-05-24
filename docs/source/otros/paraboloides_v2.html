@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dos paraboloides — k-means</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #fff; font-family: sans-serif; }
+.wrap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 500px;
+  overflow: hidden;
+}
+canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.controls {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  min-width: 210px;
+}
+.controls p { margin: 0 0 10px; font-size: 13px; font-weight: 600; color: #111; }
+.controls label {
+  font-size: 12px;
+  color: #222;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+.controls .section {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 10px;
+  margin-top: 4px;
+}
+.controls .hint {
+  margin: 10px 0 0;
+  font-size: 11px;
+  color: #999;
+}
+.legend {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(255,255,255,0.95);
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: #555;
+  line-height: 1.9;
+}
+</style>
+</head>
+<body>
+
+<div class="wrap" id="wrap">
+  <canvas id="c"></canvas>
+
+  <div class="controls">
+    <p>Vista</p>
+    <label><input type="radio" name="vista" value="3d" checked onchange="setVista(this.value)"> paraboloides en 3D</label>
+    <label><input type="radio" name="vista" value="top" onchange="setVista(this.value)"> vista desde arriba (2D)</label>
+
+    <div class="section">
+      <p style="margin-bottom:6px">Mostrar</p>
+      <label><input type="checkbox" id="chkA" checked onchange="toggleLayer('A',this.checked)"> paraboloide A (azul)</label>
+      <label><input type="checkbox" id="chkB" checked onchange="toggleLayer('B',this.checked)"> paraboloide B (coral)</label>
+      <label><input type="checkbox" id="chkFront" checked onchange="toggleLayer('F',this.checked)"> frontera (intersección)</label>
+      <label><input type="checkbox" id="chkIso" checked onchange="toggleLayer('I',this.checked)"> isolíneas en la base</label>
+    </div>
+    <p class="hint">Arrastra para rotar · scroll para zoom</p>
+  </div>
+
+  <div class="legend">
+    <span style="color:#378ADD;font-weight:600">●</span> μ_A = (−2, 0) &nbsp;
+    <span style="color:#D85A30;font-weight:600">●</span> μ_B = (2, 0)<br>
+    <span style="color:#EF9F27;font-weight:600">—</span> frontera donde ‖x−μ_A‖² = ‖x−μ_B‖²<br>
+    <span style="color:#888;font-weight:600">—</span> isolíneas = círculos de igual distancia
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+<script>
+var canvas  = document.getElementById('c');
+var wrap    = document.getElementById('wrap');
+var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setClearColor(0xffffff, 1);
+
+var scene  = new THREE.Scene();
+scene.background = new THREE.Color(0xffffff);
+var camera = new THREE.PerspectiveCamera(42, 1, 0.1, 200);
+
+var muA = new THREE.Vector2(-2, 0);
+var muB = new THREE.Vector2(2, 0);
+var theta = 0.6, phi = 1.1, radius = 18;
+var isTop = false;
+
+function updateCamera() {
+  if (isTop) {
+    camera.position.set(0, 22, 0.001);
+    camera.lookAt(0, 0, 0);
+  } else {
+    camera.position.set(
+      radius * Math.sin(phi) * Math.sin(theta),
+      radius * Math.cos(phi),
+      radius * Math.sin(phi) * Math.cos(theta)
+    );
+    camera.lookAt(0, 2, 0);
+  }
+  camera.updateProjectionMatrix();
+}
+updateCamera();
+
+scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+var dir = new THREE.DirectionalLight(0xffffff, 0.6);
+dir.position.set(4, 10, 6);
+scene.add(dir);
+
+var axMat = new THREE.LineBasicMaterial({ color: 0x888888, transparent: true, opacity: 0.3 });
+function mkAxis(a, b) {
+  return new THREE.Line(
+    new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(a[0],a[1],a[2]), new THREE.Vector3(b[0],b[1],b[2])]),
+    axMat
+  );
+}
+scene.add(mkAxis([-5,0,0],[5,0,0]));
+scene.add(mkAxis([0,0,0],[0,12,0]));
+scene.add(mkAxis([0,0,-5],[0,0,5]));
+
+var grid = new THREE.GridHelper(10, 20, 0x999999, 0xcccccc);
+grid.material.opacity = 0.3; grid.material.transparent = true;
+scene.add(grid);
+
+var N = 55, R = 4.5;
+function makeParaboloid(mx, mz, color, opacity) {
+  var pos = [], idx = [], col = [];
+  var maxH = 10;
+  for (var i = 0; i <= N; i++) {
+    for (var j = 0; j <= N; j++) {
+      var x = -R + 2*R*i/N;
+      var z = -R + 2*R*j/N;
+      var dx = x - mx, dz = z - mz;
+      var y = Math.min(dx*dx + dz*dz, maxH);
+      pos.push(x, y, z);
+      var t = y / maxH;
+      var c = new THREE.Color(color);
+      c.lerp(new THREE.Color(0xffffff), t * 0.5);
+      col.push(c.r, c.g, c.b);
+    }
+  }
+  for (var i = 0; i < N; i++) {
+    for (var j = 0; j < N; j++) {
+      var a = i*(N+1)+j, b = a+1, cc = a+N+1, d = cc+1;
+      idx.push(a,b,cc, b,d,cc);
+    }
+  }
+  var geo = new THREE.BufferGeometry();
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(pos, 3));
+  geo.setAttribute('color',    new THREE.Float32BufferAttribute(col, 3));
+  geo.setIndex(idx);
+  geo.computeVertexNormals();
+  var mat = new THREE.MeshPhongMaterial({ vertexColors: true, side: THREE.DoubleSide, transparent: true, opacity: opacity, shininess: 30 });
+  return new THREE.Mesh(geo, mat);
+}
+
+var meshA = makeParaboloid(muA.x, muA.y, 0x378ADD, 0.62);
+var meshB = makeParaboloid(muB.x, muB.y, 0xD85A30, 0.62);
+scene.add(meshA);
+scene.add(meshB);
+
+function mkDot(x, z, color) {
+  var m = new THREE.Mesh(
+    new THREE.SphereGeometry(0.18, 16, 16),
+    new THREE.MeshBasicMaterial({ color: color })
+  );
+  m.position.set(x, 0, z);
+  return m;
+}
+scene.add(mkDot(muA.x, muA.y, 0x378ADD));
+scene.add(mkDot(muB.x, muB.y, 0xD85A30));
+
+// Frontera
+var frontPts = [];
+for (var j = 0; j <= 80; j++) {
+  var z = -R + 2*R*j/80;
+  var y = 4 + z*z;
+  if (y <= 10) frontPts.push(new THREE.Vector3(0, Math.min(y,10), z));
+}
+var frontLine = new THREE.Line(
+  new THREE.BufferGeometry().setFromPoints(frontPts),
+  new THREE.LineBasicMaterial({ color: 0xEF9F27, linewidth: 3 })
+);
+scene.add(frontLine);
+
+var planeGeo = new THREE.PlaneGeometry(10, 12);
+var planeMat = new THREE.MeshBasicMaterial({ color: 0xEF9F27, transparent: true, opacity: 0.07, side: THREE.DoubleSide });
+var planeMesh = new THREE.Mesh(planeGeo, planeMat);
+planeMesh.rotation.y = Math.PI/2;
+planeMesh.position.set(0, 5, 0);
+scene.add(planeMesh);
+
+// Isolíneas
+var isoGroup = new THREE.Group();
+[1,2,3,4].forEach(function(r) {
+  var ptsA = [], ptsB = [];
+  for (var i = 0; i <= 128; i++) {
+    var a = 2*Math.PI*i/128;
+    ptsA.push(new THREE.Vector3(muA.x + r*Math.cos(a), 0.02, muA.y + r*Math.sin(a)));
+    ptsB.push(new THREE.Vector3(muB.x + r*Math.cos(a), 0.02, muB.y + r*Math.sin(a)));
+  }
+  isoGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(ptsA),
+    new THREE.LineBasicMaterial({ color: 0x378ADD, transparent: true, opacity: 0.4 })));
+  isoGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(ptsB),
+    new THREE.LineBasicMaterial({ color: 0xD85A30, transparent: true, opacity: 0.4 })));
+});
+var baseFrontPts = [];
+for (var j = 0; j <= 80; j++) {
+  baseFrontPts.push(new THREE.Vector3(0, 0.03, -R + 2*R*j/80));
+}
+isoGroup.add(new THREE.Line(
+  new THREE.BufferGeometry().setFromPoints(baseFrontPts),
+  new THREE.LineBasicMaterial({ color: 0xEF9F27, linewidth: 2 })
+));
+scene.add(isoGroup);
+
+// Regiones coloreadas
+var regPts = [], regColors = [];
+var M = 80;
+for (var i = 0; i <= M; i++) {
+  for (var j = 0; j <= M; j++) {
+    var x = -R + 2*R*i/M, z = -R + 2*R*j/M;
+    var dA = Math.pow(x-muA.x,2) + Math.pow(z-muA.y,2);
+    var dB = Math.pow(x-muB.x,2) + Math.pow(z-muB.y,2);
+    regPts.push(x, 0.01, z);
+    if (dA < dB) regColors.push(0.22, 0.54, 0.87);
+    else          regColors.push(0.85, 0.35, 0.19);
+  }
+}
+var regGeo = new THREE.BufferGeometry();
+regGeo.setAttribute('position', new THREE.Float32BufferAttribute(regPts, 3));
+regGeo.setAttribute('color',    new THREE.Float32BufferAttribute(regColors, 3));
+var regMesh = new THREE.Points(regGeo,
+  new THREE.PointsMaterial({ vertexColors: true, size: 0.115, transparent: true, opacity: 0.35 }));
+scene.add(regMesh);
+
+// Toggle capas
+var layers = { A: meshA, B: meshB, F: [frontLine, planeMesh], I: isoGroup };
+window.toggleLayer = function(k, v) {
+  var l = layers[k];
+  if (Array.isArray(l)) l.forEach(function(o) { o.visible = v; });
+  else l.visible = v;
+};
+
+window.setVista = function(v) {
+  isTop = v === 'top';
+  updateCamera();
+};
+
+// Resize
+function resize() {
+  var w = wrap.clientWidth, h = wrap.clientHeight;
+  renderer.setSize(w, h, false);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', resize);
+
+// Órbita mouse
+var drag = false, lx = 0, ly = 0;
+canvas.addEventListener('mousedown', function(e) { drag=true; lx=e.clientX; ly=e.clientY; });
+window.addEventListener('mouseup',   function()  { drag=false; });
+window.addEventListener('mousemove', function(e) {
+  if (!drag || isTop) return;
+  theta -= (e.clientX-lx)*0.012; lx=e.clientX;
+  phi = Math.max(0.08, Math.min(Math.PI-0.08, phi+(e.clientY-ly)*0.012)); ly=e.clientY;
+  updateCamera();
+});
+canvas.addEventListener('wheel', function(e) {
+  radius = Math.max(6, Math.min(28, radius+e.deltaY*0.025));
+  updateCamera();
+  e.preventDefault();
+}, { passive: false });
+
+// Touch
+canvas.addEventListener('touchstart', function(e) { lx=e.touches[0].clientX; ly=e.touches[0].clientY; });
+canvas.addEventListener('touchmove',  function(e) {
+  if (isTop) return;
+  theta -= (e.touches[0].clientX-lx)*0.012; lx=e.touches[0].clientX;
+  phi = Math.max(0.08,Math.min(Math.PI-0.08,phi+(e.touches[0].clientY-ly)*0.012)); ly=e.touches[0].clientY;
+  updateCamera();
+  e.preventDefault();
+}, { passive: false });
+
+// Arranque
+window.addEventListener('load', function() {
+  resize();
+  (function animate() { requestAnimationFrame(animate); renderer.render(scene, camera); })();
+});
+</script>
+</body>
+</html>

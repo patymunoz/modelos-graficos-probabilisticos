@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['\\(','\\)'],['$','$']], displayMath: [['\\[','\\]'],['$$','$$']] },
+  startup: { typeset: false }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+body { background: #fff; padding: 20px; max-width: 900px; margin: 0 auto; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.panel { background: #f7f7f7; border: 1px solid #e0e0e0; border-radius: 10px; padding: 16px; }
+.panel-title { font-size: 13px; font-weight: 600; color: #111; margin-bottom: 12px; }
+.preset-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.preset-btn { font-size: 11px; padding: 4px 10px; border-radius: 6px; border: 1px solid #ccc; background: #fff; color: #555; cursor: pointer; }
+.preset-btn.active { background: #111; color: #fff; border-color: #111; }
+.slider-row { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.slabel { font-size: 13px; color: #444; min-width: 44px; }
+.slider-row input[type=range] { flex: 1; accent-color: #1a6ab5; }
+.val { font-size: 13px; font-weight: 600; color: #111; min-width: 36px; text-align: right; }
+.matrix-box { text-align: center; padding: 14px 0 8px; font-size: 16px; min-height: 90px; }
+.interp { font-size: 12px; color: #555; line-height: 1.7; padding: 10px 12px; background: #fff; border: 1px solid #e0e0e0; border-radius: 6px; margin-top: 10px; }
+.interp strong { color: #111; }
+.canvas-wrap { width: 100%; }
+canvas { display: block; width: 100%; height: auto; border-radius: 6px; background: #fff; }
+</style>
+</head>
+<body>
+
+<div class="grid">
+  <!-- Columna izquierda -->
+  <div>
+    <div class="panel">
+      <p class="panel-title">Presets del notebook</p>
+      <div class="preset-row">
+        <button class="preset-btn active" onclick="applyPreset(1,0,0,1,this)">cov1 = I</button>
+        <button class="preset-btn" onclick="applyPreset(16,5,4,12,this)">cov2 notebook</button>
+        <button class="preset-btn" onclick="applyPreset(8,0,0,1,this)">alargada en x₁</button>
+        <button class="preset-btn" onclick="applyPreset(1,0,0,8,this)">alargada en x₂</button>
+        <button class="preset-btn" onclick="applyPreset(4,3,3,4,this)">correlación alta</button>
+      </div>
+
+      <p class="panel-title">Editar manualmente</p>
+      <div class="slider-row">
+        <span class="slabel">\(\sigma_{11}\)</span>
+        <input type="range" id="s11" min="0.5" max="20" step="0.5" value="1" oninput="sync()">
+        <span class="val" id="v11">1.0</span>
+      </div>
+      <div class="slider-row">
+        <span class="slabel">\(\sigma_{12}\)</span>
+        <input type="range" id="s12" min="-8" max="8" step="0.5" value="0" oninput="sync()">
+        <span class="val" id="v12">0.0</span>
+      </div>
+      <div class="slider-row">
+        <span class="slabel">\(\sigma_{21}\)</span>
+        <input type="range" id="s21" min="-8" max="8" step="0.5" value="0" oninput="sync()">
+        <span class="val" id="v21">0.0</span>
+      </div>
+      <div class="slider-row">
+        <span class="slabel">\(\sigma_{22}\)</span>
+        <input type="range" id="s22" min="0.5" max="20" step="0.5" value="1" oninput="sync()">
+        <span class="val" id="v22">1.0</span>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:14px">
+      <p class="panel-title">Matriz \(\Sigma\)</p>
+      <div class="matrix-box" id="mjax">
+        \[\Sigma = \begin{pmatrix} 1.0 & 0.0 \\ 0.0 & 1.0 \end{pmatrix}\]
+      </div>
+      <div class="interp" id="interp">
+        <strong>Esférica (\(\Sigma = I\)).</strong>
+        Varianza igual en \(x_1\) e \(x_2\), sin correlación.
+        Esta es la suposición implícita de k-means.
+      </div>
+    </div>
+  </div>
+
+  <!-- Columna derecha: canvas -->
+  <div class="panel">
+    <p class="panel-title">Isolíneas: \(\mathbf{x}^\top \Sigma^{-1} \mathbf{x} = r^2\)</p>
+    <div class="canvas-wrap">
+      <canvas id="cv"></canvas>
+    </div>
+  </div>
+</div>
+
+<script>
+var S = {a:1, b:0, c:0, d:1};
+var cv = document.getElementById('cv');
+var ctx = cv.getContext('2d');
+
+function resizeCanvas() {
+  var wrap = cv.parentElement;
+  var w = wrap.clientWidth;
+  var h = Math.round(w * 1.1);
+  cv.width = w;
+  cv.height = h;
+  draw();
+}
+
+function draw() {
+  var W = cv.width, H = cv.height;
+  if (W === 0 || H === 0) return;
+  ctx.clearRect(0, 0, W, H);
+  var cx = W/2, cy = H/2, sc = W / 14;
+
+  // Grid
+  ctx.strokeStyle = 'rgba(0,0,0,0.07)'; ctx.lineWidth = 0.5;
+  for (var i = -7; i <= 7; i++) {
+    ctx.beginPath(); ctx.moveTo(cx + i*sc, 0); ctx.lineTo(cx + i*sc, H); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0, cy + i*sc); ctx.lineTo(W, cy + i*sc); ctx.stroke();
+  }
+
+  // Ejes
+  ctx.strokeStyle = 'rgba(0,0,0,0.2)'; ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(W, cy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, H); ctx.stroke();
+
+  // Etiquetas ejes
+  ctx.fillStyle = 'rgba(0,0,0,0.35)';
+  ctx.font = Math.round(sc * 0.55) + 'px monospace';
+  ctx.fillText('x\u2081', W - sc*0.9, cy - sc*0.3);
+  ctx.fillText('x\u2082', cx + sc*0.25, sc*0.7);
+
+  // Inversa de Sigma
+  var det = S.a * S.d - S.b * S.c;
+  if (Math.abs(det) < 0.01) return;
+  var inv = { a: S.d/det, b: -S.b/det, c: -S.c/det, d: S.a/det };
+
+  // Isolíneas (5 niveles)
+  var alphas = [0.9, 0.65, 0.45, 0.3, 0.15];
+  var labels = ['r²=1','r²=2','r²=3','r²=4','r²=5'];
+  for (var ri = 0; ri < 5; ri++) {
+    var r2 = ri + 1;
+    ctx.beginPath();
+    var first = true;
+    for (var ang = 0; ang <= 2*Math.PI + 0.02; ang += 0.016) {
+      var u = Math.cos(ang), v = Math.sin(ang);
+      var denom = inv.a*u*u + (inv.b + inv.c)*u*v + inv.d*v*v;
+      if (denom <= 0) continue;
+      var r = Math.sqrt(r2 / denom);
+      var px = cx + r*u*sc, py = cy - r*v*sc;
+      first ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+      first = false;
+    }
+    ctx.closePath();
+    ctx.strokeStyle = '#1a6ab5';
+    ctx.globalAlpha = alphas[ri];
+    ctx.lineWidth = ri === 0 ? 2.5 : 1.5;
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+  }
+
+  // Eigenvectores (ejes principales del cluster)
+  var tr = (S.a + S.d) / 2;
+  var disc = Math.sqrt(Math.max(0, tr*tr - det));
+  [[tr + disc], [tr - disc]].forEach(function(arr) {
+    var lam = arr[0];
+    var ex, ey;
+    if (Math.abs(S.b) < 0.01 && Math.abs(S.c) < 0.01) {
+      if (Math.abs(lam - S.a) < Math.abs(lam - S.d)) { ex = 1; ey = 0; }
+      else { ex = 0; ey = 1; }
+    } else {
+      ex = lam - S.d; ey = S.b;
+      var nm = Math.sqrt(ex*ex + ey*ey);
+      if (nm < 0.001) return;
+      ex /= nm; ey /= nm;
+    }
+    var len = Math.sqrt(Math.abs(lam)) * sc * 1.1;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + ex*len, cy - ey*len);
+    ctx.strokeStyle = '#c0392b';
+    ctx.globalAlpha = 0.55;
+    ctx.lineWidth = 1.8;
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+  });
+
+  // Centroide
+  ctx.beginPath();
+  ctx.arc(cx, cy, sc*0.22, 0, 2*Math.PI);
+  ctx.fillStyle = '#1a6ab5';
+  ctx.fill();
+  ctx.strokeStyle = '#fff';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+
+  // Leyenda
+  ctx.fillStyle = 'rgba(0,0,0,0.4)';
+  ctx.font = '11px sans-serif';
+  ctx.fillText('\u25cf \u03bc (centroide)', cx + sc*0.35, cy - sc*0.25);
+  ctx.fillStyle = 'rgba(192,57,43,0.7)';
+  ctx.fillText('\u2014 ejes principales', cx + sc*0.35, cy - sc*0.55);
+}
+
+function updateMJ() {
+  var el = document.getElementById('mjax');
+  var a = S.a.toFixed(1), b = S.b.toFixed(1);
+  var c = S.c.toFixed(1), d = S.d.toFixed(1);
+  el.innerHTML = '\\[\\Sigma = \\begin{pmatrix}' + a + ' & ' + b + ' \\\\ ' + c + ' & ' + d + '\\end{pmatrix}\\]';
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([el]);
+}
+
+function updateInterp() {
+  var el = document.getElementById('interp');
+  var corr = (S.b + S.c) / 2;
+  var txt;
+  if (Math.abs(S.a-1)<0.1 && Math.abs(S.d-1)<0.1 && Math.abs(corr)<0.1) {
+    txt = '<strong>Esférica (\\(\\Sigma = I\\)).</strong> Varianza igual en \\(x_1\\) e \\(x_2\\), sin correlación. Esta es exactamente la suposición de k-means.';
+  } else if (Math.abs(corr) < 0.8) {
+    if (S.a > S.d * 1.5)
+      txt = '<strong>Alargada en \\(x_1\\).</strong> \\(\\sigma_{11}=' + S.a.toFixed(1) + '\\) &gt; \\(\\sigma_{22}=' + S.d.toFixed(1) + '\\): el cluster se extiende más horizontalmente.';
+    else if (S.d > S.a * 1.5)
+      txt = '<strong>Alargada en \\(x_2\\).</strong> \\(\\sigma_{22}=' + S.d.toFixed(1) + '\\) &gt; \\(\\sigma_{11}=' + S.a.toFixed(1) + '\\): el cluster se extiende más verticalmente.';
+    else
+      txt = '<strong>Casi esférica.</strong> Varianzas similares (\\(\\sigma_{11}=' + S.a.toFixed(1) + ',\\;\\sigma_{22}=' + S.d.toFixed(1) + '\\)), correlación baja.';
+  } else {
+    var dir = corr > 0 ? 'positiva' : 'negativa';
+    txt = '<strong>Elíptica con correlación ' + dir + '.</strong> \\(\\sigma_{12}=' + corr.toFixed(1) + '\\): \\(x_1\\) y \\(x_2\\) covarían. El cluster está rotado — k-means no puede capturar esto.';
+  }
+  el.innerHTML = txt;
+  if (window.MathJax && MathJax.typesetPromise) MathJax.typesetPromise([el]);
+}
+
+function sync() {
+  S.a = parseFloat(document.getElementById('s11').value);
+  S.b = parseFloat(document.getElementById('s12').value);
+  S.c = parseFloat(document.getElementById('s21').value);
+  S.d = parseFloat(document.getElementById('s22').value);
+  document.getElementById('v11').textContent = S.a.toFixed(1);
+  document.getElementById('v12').textContent = S.b.toFixed(1);
+  document.getElementById('v21').textContent = S.c.toFixed(1);
+  document.getElementById('v22').textContent = S.d.toFixed(1);
+  updateMJ();
+  updateInterp();
+  draw();
+}
+
+function applyPreset(a, b, c, d, btn) {
+  document.getElementById('s11').value = a;
+  document.getElementById('s12').value = b;
+  document.getElementById('s21').value = c;
+  document.getElementById('s22').value = d;
+  document.querySelectorAll('.preset-btn').forEach(function(x) { x.classList.remove('active'); });
+  btn.classList.add('active');
+  sync();
+}
+
+window.addEventListener('load', function() {
+  resizeCanvas();
+  if (window.MathJax && MathJax.startup) {
+    MathJax.startup.promise.then(function() {
+      MathJax.typesetPromise();
+    });
+  }
+});
+
+window.addEventListener('resize', resizeCanvas);
+</script>
+</body>
+</html>
