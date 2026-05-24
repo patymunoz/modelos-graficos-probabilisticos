@@ -1,12 +1,31 @@
 # Modelos gráficos probabilísticos
 
-¡Bienvenid@ al curso - Primavera 2026! 👋
+**Verano 2026** · Bienvenid@ 👋
 
-Aprenderás a representar y razonar bajo incertidumbre utilizando **modelos gráficos probabilísticos**, una herramienta fundamental en inteligencia artificial, aprendizaje automático y estadística bayesiana.
+---
 
-![](../source/images/integrada-r.png)
+Los **modelos gráficos probabilísticos** combinan teoría de grafos y probabilidad para representar y razonar bajo incertidumbre — una de las herramientas más poderosas en inteligencia artificial y estadística bayesiana.
 
-[1] Wikimedia Commons contributors, _"Examples of an Undirected Graph"_ y _"Example of a Directed Graph"_, imagen combinada, CC BY-SA 4.0. [Online]. Disponible en: [https://en.wikipedia.org/wiki/Graphical_model](https://en.wikipedia.org/wiki/Graphical_model)
+![](../source/images/mgp001.png)
+
+---
+
+::::{grid} 3
+:::{grid-item-card} Representación
+Construirás grafos que codifican dependencias entre variables de forma modular, transparente e independiente del algoritmo.
+:::
+:::{grid-item-card} Inferencia
+Usarás algoritmos para responder preguntas concretas sobre el modelo sin necesidad de calcular distribuciones conjuntas completas.
+:::
+:::{grid-item-card} Aprendizaje
+Estimarás parámetros y estructura directamente desde datos, combinando conocimiento experto con evidencia empírica.
+:::
+::::
+
+```{admonition} ¿A quién va dirigido?
+:class: tip
+A estudiantes de posgrado con bases en **probabilidad**, **estadística** y **programación en Python** que quieran profundizar en razonamiento bajo incertidumbre aplicado a ciencia de datos e IA.
+```
 
 ```{toctree}
 :hidden:

@@ -27,7 +27,8 @@ extensions = [
     #'nbsphinx',
     "sphinx_book_theme",
     'sphinx.ext.mathjax',
-    'sphinx_thebe'
+    'sphinx_thebe',
+    'sphinx_design'
 ]
 
 myst_enable_extensions = [
