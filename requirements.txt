@@ -1,5 +1,6 @@
 sphinx
 sphinx-book-theme
+sphinx-design
 myst-nb
 sphinx-thebe
 jupyter
