@@ -183,15 +183,26 @@ Con lo visto hasta ahora, vamos a definir los objetivos del curso.
 
 ## Objetivo general
 
-- Comprender los modelos gráficos probabilísticos y sus aplicaciones en el análisis de datos, la inferencia estadística y la toma de decisiones en entornos de incertidumbre mediante la construcción, análisis y aplicación de modelos como redes bayesianas y redes de Markov para modelar sistemas complejos y resolver problemas prácticos en diversas áreas.
+•	Construir, analizar e interpretar modelos gráficos probabilísticos, articulando los tres pilares de representación, inferencia y aprendizaje, para razonar bajo incertidumbre, responder preguntas de interés práctico y estimar modelos desde datos, con aplicaciones en la ciencia de datos e inteligencia artificial.
 
 ### Objetivos particulares
 
-- Modelar problemáticas/situaciones reales mediante grafos probabilísticos.
+1.	Fundamentos probabilísticos (Módulo 1)
+  
+  o	Aplicar los fundamentos de la teoría de probabilidad para actualizar creencias a partir de datos y construir la base matemática del razonamiento probabilístico, usando herramientas de programación probabilística como PyMC.
 
-- Responder preguntas de interés práctico acerca de las problemáticas/situaciones modeladas usando algoritmos de inferencia.
+2.	Representación (Módulo 2)
+  
+  o	Representar situaciones y sistemas complejos mediante redes bayesianas, especificando la estructura de dependencias condicionales entre variables y comprendiendo la separación entre el modelo y los algoritmos que se aplican sobre él.
 
-- Estimar los parámetros y/o estructura de los modelos usando técnicas de optimización.
+3.	Inferencia (Módulo 2)
+  
+  o	Responder consultas probabilísticas sobre modelos construidos, seleccionando y aplicando algoritmos de inferencia según las características del problema.  
+
+
+4.	Aprendizaje (Módulo 2 y 3)
+  
+  o	Estimar los parámetros de redes bayesianas desde datos usando MLE y MAP, aprender su estructura mediante puntuaciones y aplicar algoritmo Expectation-Maximization (EM) en modelos con variables latentes como Modelos de Mezcla Gaussiana.
 
 ### Prerrequisitos
 

@@ -16,44 +16,49 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="_static/documentation_options.js?v=47050f13"></script>
-    <script src="_static/doctools.js?v=9bcbadda"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/documentation_options.js?v=65c0628a"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
     <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'acuerdos-de-clase';</script>
     <link rel="index" title="Índice" href="genindex.html" />
     <link rel="search" title="Búsqueda" href="search.html" />
     <link rel="next" title="Herramientas" href="herramientas.html" />
-    <link rel="prev" title="Introducción" href="introduccion.html" />
+    <link rel="prev" title="Modelos gráficos probabilísticos" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -69,19 +74,8 @@
     <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -89,7 +83,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -97,8 +90,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
@@ -114,7 +107,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -143,22 +137,18 @@
       
     
     
-    <img src="_static/nodo.png" class="logo__image only-light" alt="Modelos gráficos probabilísticos - Home"/>
-    <script>document.write(`<img src="_static/nodo.png" class="logo__image only-dark" alt="Modelos gráficos probabilísticos - Home"/>`);</script>
+    <img src="_static/nodo001.png" class="logo__image only-light" alt="Modelos gráficos probabilísticos - Home"/>
+    <img src="_static/nodo001.png" class="logo__image only-dark pst-js-only" alt="Modelos gráficos probabilísticos - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Búsqueda</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -171,41 +161,28 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Módulos y recursos</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="introduccion.html">Introducción</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Sobre la clase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="herramientas.html">Herramientas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduccion.html">Introducción</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="modulo1/index.html">Módulo 1</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion1.html">Sesión 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion2.html">Sesión 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion2A.html">Sesion 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion3-PT1.html">Sesión 3 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion3-PT2.html">Sesión 3 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion4.html">Sesión 4</a></li>
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion5-PT1.html">Sesión 5 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion5-PT2.html">Sesión 5 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion6-PT1.html">Sesión 6 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion6-PT2.html">Sesión 6 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion7.html">Sesión 7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/M1-sesion8.html">Sesión 8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulo1/apendiceA.html">Apéndice A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="modulo1/apendiceB.html">Apéndice B</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="modulo2/index.html">Módulo 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="modulo2/M2-sesion9A.html">Sesión 9A</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulo2/M2-sesion10.html">Sesión 10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulo2/M2-sesion10-HO.html">Sesión 10-HO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulo2/M2-sesion11-PT1.html">Sesión 11 A</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulo2/M2-sesion11-PT2.html">Sesión 11 B</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulo2/M2-sesion12.html">Sesión 12</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulo2/M2-sesion13-PT1.html">Sesión 13 A</a></li>
-<li class="toctree-l2"><a class="reference internal" href="modulo2/M2-sesion13-PT2.html">Sesión 13 B</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="modulo2/index.html">Módulo 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="modulo3/index.html">Módulo 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="recursos-bibliograficos.html">Recursos biliográficos</a></li>
@@ -217,9 +194,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -280,7 +262,7 @@
       
       
       
-      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/acuerdos-de-clase.md" target="_blank"
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/v2026/docs/acuerdos-de-clase.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,7 +348,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Modo de pantalla completa"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -380,25 +362,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -437,9 +411,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="sobre-la-clase">
 <h1>Sobre la clase<a class="headerlink" href="#sobre-la-clase" title="Link to this heading">#</a></h1>
-<p><strong>Horario:</strong> Jueves 18:30 a 21:30 hrs.</p>
-<p><strong>Profesora:</strong> Paty Muñoz.</p>
-<p><strong>Correo electrónico:</strong> patricia.munoz&#64;iteso.mx</p>
+<p><strong>Horario:</strong> Lunes a jueves 18:30 a 21:30 hrs.</p>
+<p><strong>Profesores:</strong> Paty Muñoz y Jesús Sánchez.</p>
+<p><strong>Correo electrónico:</strong> patricia.munoz&#64;iteso.mx | jesanche&#64;iteso.mx</p>
 <section id="medio-de-contacto-del-grupo">
 <h2>Medio de contacto del grupo<a class="headerlink" href="#medio-de-contacto-del-grupo" title="Link to this heading">#</a></h2>
 <p>La comunicación se realizará a través de los <strong>medios oficiales de la institución</strong>:</p>
@@ -451,11 +425,11 @@ document.write(`
 </section>
 <section id="acuerdos-de-la-clase">
 <h2>Acuerdos de la clase<a class="headerlink" href="#acuerdos-de-la-clase" title="Link to this heading">#</a></h2>
-<p>Puedes consultar los acuerdos completos en <a class="reference external" href="https://iteso.instructure.com/courses/50611/files/10195616?module_item_id=2056959">este recurso.</a></p>
+<p>Puedes consultar los acuerdos completos en <a class="reference external" href="https://iteso.instructure.com/courses/55620/files/11278488?module_item_id=2217237">este recurso.</a></p>
 <ul class="simple">
-<li><p>El inicio de clases será a las 18:40 y la profesora podrá tomar asistencia. Luego de esa hora, será considerado retardo.</p></li>
-<li><p>Las y los alumnos tendrán que esperar a la profesora hasta por 20 minutos (30 minutos después de la hora), después de ese tiempo se podrán ir sin falta. En la siguiente clase la profesora indicará la fecha de reposición de la clase o de los minutos por su retraso. En las clases de reposición no se toma asistencia.</p></li>
-<li><p>Es obligación de la profesora retroalimentar a las y los alumnos después de haber realizado cualquier tipo de evaluación entregando el examen correspondiente a más tardar dos semanas después de haber efectuado el mismo.</p></li>
+<li><p>El inicio de clases será a las 18:35 y la o el profesor podrá tomar asistencia. Luego de esa hora, será considerado retardo.</p></li>
+<li><p>Las y los alumnos tendrán que esperar a los profesores hasta por 20 minutos (30 minutos después de la hora), después de ese tiempo se podrán ir sin falta. En la siguiente clase los profesores indicarán la fecha de reposición de la clase o de los minutos por su retraso. En las clases de reposición no se toma asistencia.</p></li>
+<li><p>Es obligación de los profesores retroalimentar a las y los alumnos después de haber realizado cualquier tipo de evaluación entregando el examen correspondiente.</p></li>
 </ul>
 </section>
 <section id="evaluacion">
@@ -467,16 +441,13 @@ document.write(`
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>Tareas</p></td>
+<tr class="row-even"><td><p>Exámenes rápidos</p></td>
 <td><p>35%</p></td>
 </tr>
-<tr class="row-odd"><td><p>Exámenes rápidos</p></td>
-<td><p>25%</p></td>
+<tr class="row-odd"><td><p>Actividad integradora</p></td>
+<td><p>65%</p></td>
 </tr>
-<tr class="row-even"><td><p>Actividad integradora</p></td>
-<td><p>40%</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Total</strong></p></td>
+<tr class="row-even"><td><p><strong>Total</strong></p></td>
 <td><p><strong>100%</strong></p></td>
 </tr>
 </tbody>
@@ -490,7 +461,7 @@ document.write(`
         requestKernel: true,
         binderOptions: {
             repo: "patymunoz/modelos-graficos-probabilisticos",
-            ref: "main",
+            ref: "v2026",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -516,12 +487,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="introduccion.html"
+       href="index.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Introducción</p>
+        <p class="prev-next-title">Modelos gráficos probabilísticos</p>
       </div>
     </a>
     <a class="right-next"
@@ -540,14 +511,16 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contenido
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#medio-de-contacto-del-grupo">Medio de contacto del grupo</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acuerdos-de-la-clase">Acuerdos de la clase</a></li>
@@ -576,7 +549,7 @@ Por MCD. Paty Munoz
 
   <p class="copyright">
     
-      © Copyright 2025, Paty Munoz.
+      © Copyright 2026, Paty Munoz.
       <br/>
     
   </p>
@@ -600,8 +573,8 @@ Por MCD. Paty Munoz
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

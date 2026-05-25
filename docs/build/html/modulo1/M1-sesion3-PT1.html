@@ -16,46 +16,51 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=47050f13"></script>
-    <script src="../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/documentation_options.js?v=65c0628a"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../_static/translations.js?v=f85f4cfb"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script async="async" src="https://unpkg.com/thebe@0.8.2/lib/index.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modulo1/M1-sesion3-PT1';</script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Búsqueda" href="../search.html" />
     <link rel="next" title="Sesión 3 B" href="M1-sesion3-PT2.html" />
-    <link rel="prev" title="Sesión 2" href="M1-sesion2.html" />
+    <link rel="prev" title="Sesion 2" href="M1-sesion2A.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="es"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -71,19 +76,8 @@
     <i class="fa-solid fa-arrow-up"></i>Volver arriba</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../search.html"
       method="get">
@@ -91,7 +85,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -99,8 +92,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Advertencia de versión"></aside>
@@ -116,7 +109,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -145,22 +139,18 @@
       
     
     
-    <img src="../_static/nodo.png" class="logo__image only-light" alt="Modelos gráficos probabilísticos - Home"/>
-    <script>document.write(`<img src="../_static/nodo.png" class="logo__image only-dark" alt="Modelos gráficos probabilísticos - Home"/>`);</script>
+    <img src="../_static/nodo001.png" class="logo__image only-light" alt="Modelos gráficos probabilísticos - Home"/>
+    <img src="../_static/nodo001.png" class="logo__image only-dark pst-js-only" alt="Modelos gráficos probabilísticos - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Búsqueda</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Búsqueda</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
@@ -173,41 +163,28 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Módulos y recursos</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../acuerdos-de-clase.html">Sobre la clase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../herramientas.html">Herramientas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduccion.html">Introducción</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Módulo 1</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion1.html">Sesión 1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="M1-sesion2.html">Sesión 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="M1-sesion2A.html">Sesion 2</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Sesión 3 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion3-PT2.html">Sesión 3 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion4.html">Sesión 4</a></li>
-
-
-
-
-
-
-
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion5-PT1.html">Sesión 5 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion5-PT2.html">Sesión 5 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion6-PT1.html">Sesión 6 A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion6-PT2.html">Sesión 6 B</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion7.html">Sesión 7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="M1-sesion8.html">Sesión 8</a></li>
-<li class="toctree-l2"><a class="reference internal" href="apendiceA.html">Apéndice A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="apendiceB.html">Apéndice B</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../modulo2/index.html">Módulo 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../modulo2/M2-sesion9A.html">Sesión 9A</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../modulo2/M2-sesion10.html">Sesión 10</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../modulo2/M2-sesion10-HO.html">Sesión 10-HO</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../modulo2/M2-sesion11-PT1.html">Sesión 11 A</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../modulo2/M2-sesion11-PT2.html">Sesión 11 B</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../modulo2/M2-sesion12.html">Sesión 12</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../modulo2/M2-sesion13-PT1.html">Sesión 13 A</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../modulo2/M2-sesion13-PT2.html">Sesión 13 B</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modulo2/index.html">Módulo 2</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../modulo3/index.html">Módulo 3</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../recursos-bibliograficos.html">Recursos biliográficos</a></li>
@@ -219,9 +196,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -265,7 +247,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/main?urlpath=tree/docs/modulo1/M1-sesion3-PT1.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/patymunoz/modelos-graficos-probabilisticos/v2026?urlpath=tree/docs/modulo1/M1-sesion3-PT1.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +313,7 @@
       
       
       
-      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/main/docs/modulo1/M1-sesion3-PT1.ipynb" target="_blank"
+      <li><a href="https://github.com/patymunoz/modelos-graficos-probabilisticos/edit/v2026/docs/modulo1/M1-sesion3-PT1.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -417,7 +399,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Modo de pantalla completa"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -431,25 +413,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="claro/oscuro" aria-label="claro/oscuro" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Tema" data-bs-title="Tema"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Claro"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Oscuro"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="Sistema"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Búsqueda" aria-label="Búsqueda" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -496,10 +470,7 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-y-varianza-discretas">1.3. Valor esperado y varianza (discretas)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza">1.3.1. Esperanza</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">1.3.2. Varianza</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli">1.3.3. Cálculo de esperanza y varianza de variable aleatoria Bernoulli</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#a-esperanza-de-x-2">A) Esperanza de <span class="math notranslate nohighlight">\(X^2\)</span></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#b-varianza-de-una-variable-bernoulli">B) Varianza de una variable Bernoulli</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">1.3.2. Varianza</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-numerico">Ejemplo numérico</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-en-lo-anterior-estamos-usando-datos-para-generar-el-calculo">💡 Pregunta: en lo anterior, <em>¿estamos usando datos para generar el cálculo?</em></a></li>
 </ul>
@@ -612,7 +583,7 @@ f(X) = \left\{\begin{array}{cc }0.3 &amp; X=1 \\ 0.3 &amp; X=5 \\ 0.4 &amp; X=6\
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># definir listas de valores de X y probabilidades</span>
 <span class="n">xk</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]</span>
-<span class="n">pk</span><span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>
+<span class="n">pk</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -643,7 +614,7 @@ f(X) = \left\{\begin{array}{cc }0.3 &amp; X=1 \\ 0.3 &amp; X=5 \\ 0.4 &amp; X=6\
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b3d16c476387f0dc2dc3f2f3b1b0dbb461101e105d5ac2ca4a176080f1cbb718.png" src="../_images/b3d16c476387f0dc2dc3f2f3b1b0dbb461101e105d5ac2ca4a176080f1cbb718.png" />
+<img alt="../_images/a3aca470b0514e1bbfeaaa884ba13d6e0abd42ddca67cc924873b23f45b6af5e.png" src="../_images/a3aca470b0514e1bbfeaaa884ba13d6e0abd42ddca67cc924873b23f45b6af5e.png" />
 </div>
 </div>
 </section>
@@ -703,20 +674,21 @@ F(X) = p(X \leq x).
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: CDF</span>
-<span class="n">x</span><span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
-<span class="n">y</span><span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CDF&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CDF&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;P(X≤x)&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Función de distribución acumulada (CDF)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Función de distribución acumulada (CDF) - Discreta&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/2e87b1a72c48e4b904214cee3b82f2c1061a08239e66e6fe9442d7b0ea7af40d.png" src="../_images/2e87b1a72c48e4b904214cee3b82f2c1061a08239e66e6fe9442d7b0ea7af40d.png" />
+<img alt="../_images/d6e6cd6a6afaf2e322e248e0d360e9bc2c6243dd6e5bc4f7f18a903f0501f8bb.png" src="../_images/d6e6cd6a6afaf2e322e248e0d360e9bc2c6243dd6e5bc4f7f18a903f0501f8bb.png" />
 </div>
 </div>
 <div class="warning admonition">
@@ -816,13 +788,13 @@ p(x) = \theta^x (1 - \theta)^{1-x}, \text{ para } x \in \{0, 1\}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/cca226a983bf026d2c29233717d122e3f4469ef74e4637bf7fdb411a043b6886.png" src="../_images/cca226a983bf026d2c29233717d122e3f4469ef74e4637bf7fdb411a043b6886.png" />
+<img alt="../_images/b7bc68ab4e17c60980be593c97b16a2046102e11933f689460214bed87239c7a.png" src="../_images/b7bc68ab4e17c60980be593c97b16a2046102e11933f689460214bed87239c7a.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: CDF</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CDF&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CDF&#39;</span><span class="p">)</span>
@@ -835,7 +807,7 @@ p(x) = \theta^x (1 - \theta)^{1-x}, \text{ para } x \in \{0, 1\}
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/5af826f63f23162c699a50f2354128c17a63d9b4a6f4db93982674c27ce45699.png" src="../_images/5af826f63f23162c699a50f2354128c17a63d9b4a6f4db93982674c27ce45699.png" />
+<img alt="../_images/535a2a393d2dbe53a5ae2cb2db93f88b85162e416ff83fa43f7c81404f3e41d5.png" src="../_images/535a2a393d2dbe53a5ae2cb2db93f88b85162e416ff83fa43f7c81404f3e41d5.png" />
 </div>
 </div>
 </section>
@@ -864,7 +836,7 @@ p(a) = \left(\begin{array}{c}n \\ a \end{array}\right) \theta^a (1 - \theta)^{n-
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variable aleatoria binomial</span>
-<span class="n">theta</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="mf">0.3</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binom</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">theta</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -873,7 +845,7 @@ p(a) = \left(\begin{array}{c}n \\ a \end{array}\right) \theta^a (1 - \theta)^{n-
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: PMF</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PMF&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
@@ -886,7 +858,7 @@ p(a) = \left(\begin{array}{c}n \\ a \end{array}\right) \theta^a (1 - \theta)^{n-
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/951f04a1cc661819e2fc900c636012490e1aeb1d36b7d117884dfc8ad6ef088a.png" src="../_images/951f04a1cc661819e2fc900c636012490e1aeb1d36b7d117884dfc8ad6ef088a.png" />
+<img alt="../_images/f373b0e43683f9c2cde8fb3516eaab9624c21d3cc59b98738c4a7c7623549eb3.png" src="../_images/f373b0e43683f9c2cde8fb3516eaab9624c21d3cc59b98738c4a7c7623549eb3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -905,7 +877,7 @@ p(a) = \left(\begin{array}{c}n \\ a \end{array}\right) \theta^a (1 - \theta)^{n-
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/e60c82cbd1856845859b98870e7a09fe4d34261ae03dbeacc335fbfb288b4531.png" src="../_images/e60c82cbd1856845859b98870e7a09fe4d34261ae03dbeacc335fbfb288b4531.png" />
+<img alt="../_images/ad755e7989d1c8d4bc022cac8a847aa8a8ad7a8b432c62003c1ea58fc2a9624f.png" src="../_images/ad755e7989d1c8d4bc022cac8a847aa8a8ad7a8b432c62003c1ea58fc2a9624f.png" />
 </div>
 </div>
 </section>
@@ -934,6 +906,7 @@ X \sim \text{Geometric}(\theta)
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Variables aleatorias Geométricas</span>
 <span class="n">theta1</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="c1">#cada una independiente</span>
 <span class="n">theta2</span> <span class="o">=</span> <span class="mf">0.7</span> <span class="c1">#cada una independiente</span>
+
 <span class="n">X1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">geom</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">theta1</span><span class="p">)</span>
 <span class="n">X2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">geom</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="n">theta2</span><span class="p">)</span>
 </pre></div>
@@ -944,42 +917,45 @@ X \sim \text{Geometric}(\theta)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: PMF</span>
 <span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+
 <span class="n">y1</span> <span class="o">=</span> <span class="n">X1</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">y2</span> <span class="o">=</span> <span class="n">X2</span><span class="o">.</span><span class="n">pmf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PMF, theta=0.3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PMF - Geom(0.3)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PMF, theta=0.7&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PMF - Geom(0.7)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de X&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Probabilidad&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;valores de x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;probabilidad&#39;</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1be847ba210&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x116acdd10&gt;
 </pre></div>
 </div>
-<img alt="../_images/c41bac00c5bf7c6ee7b37ad296fb5dd449c3f8a7a7acbd1f7e413b8972136272.png" src="../_images/c41bac00c5bf7c6ee7b37ad296fb5dd449c3f8a7a7acbd1f7e413b8972136272.png" />
+<img alt="../_images/f1560cb852920469953322d86e1b03fd96eef426c3355a29c7e9da52c99b49c2.png" src="../_images/f1560cb852920469953322d86e1b03fd96eef426c3355a29c7e9da52c99b49c2.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grafico: CDF</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="n">X1</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">y2</span> <span class="o">=</span> <span class="n">X2</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CDF, theta=0.3&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CDF, theta=0.7&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="s1">&#39;bo&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CDF - Geom(0.3)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Valores de X&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Función de distribución acumulada&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;CDF - Geom(0.7)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;valores de x&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;función de distribución acumulada&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
@@ -987,7 +963,7 @@ X \sim \text{Geometric}(\theta)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/9056a1d3a77c462a5a5aa0caa66d24414d73cf5c0db77e4b93dbf8d21f89fd91.png" src="../_images/9056a1d3a77c462a5a5aa0caa66d24414d73cf5c0db77e4b93dbf8d21f89fd91.png" />
+<img alt="../_images/4a1c8842d37f87cf542d36c4379befe04023289382f8c90708e947aa59ce0a83.png" src="../_images/4a1c8842d37f87cf542d36c4379befe04023289382f8c90708e947aa59ce0a83.png" />
 </div>
 </div>
 </section>
@@ -1030,38 +1006,6 @@ X \sim \text{Geometric}(\theta)
 <li><p>La esperanza del cuadrado de <span class="math notranslate nohighlight">\(f(x)\)</span></p></li>
 <li><p>El cuadrado de la esperanza de <span class="math notranslate nohighlight">\(f(x)\)</span></p></li>
 </ul>
-</section>
-<section id="calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli">
-<h4>1.3.3. Cálculo de esperanza y varianza de variable aleatoria Bernoulli<a class="headerlink" href="#calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli" title="Link to this heading">#</a></h4>
-<p>Sea <span class="math notranslate nohighlight">\(X\)</span> una variable aleatoria que toma valores en el conjunto <span class="math notranslate nohighlight">\(\{0, 1\}\)</span>. Se denota como:</p>
-<p><img alt="Distribución Bernoulli" src="../_images/bernulli-1.png" /></p>
-<ul class="simple">
-<li><p>En <strong>verde</strong>, se resalta la probabilidad <span class="math notranslate nohighlight">\(P(X = 1) = \theta\)</span>.</p></li>
-<li><p>En <strong>azul</strong>, se muestra que <span class="math notranslate nohighlight">\(P(X = 0) = 1 - \theta\)</span>.</p></li>
-</ul>
-<p>La <em>esperanza matemática</em> o <em>valor esperado</em> de <span class="math notranslate nohighlight">\(X\)</span> se define como:</p>
-<p><img alt="Esperanza de X" src="../_images/bernulli-2.png" /></p>
-<ul class="simple">
-<li><p>Los términos en <strong>azul</strong> y <strong>verde</strong> ayudan a identificar qué probabilidad corresponde a cada valor posible de <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
-<li><p>El resultado final, <span class="math notranslate nohighlight">\(\mathbb{E}[X] = \theta\)</span>, está <strong>enmarcado en morado</strong> para destacarlo.</p></li>
-</ul>
-<section id="a-esperanza-de-x-2">
-<h5>A) Esperanza de <span class="math notranslate nohighlight">\(X^2\)</span><a class="headerlink" href="#a-esperanza-de-x-2" title="Link to this heading">#</a></h5>
-<p>Dado que los únicos valores posibles de <span class="math notranslate nohighlight">\(X\)</span> son 0 y 1, se cumple que <span class="math notranslate nohighlight">\(X^2 = X\)</span>. Por lo tanto:</p>
-<p><img alt="Esperanza de X al cuadrado" src="../_images/bernulli-3.png" /></p>
-<ul class="simple">
-<li><p>Esta igualdad se debe a que <span class="math notranslate nohighlight">\(0^2 = 0\)</span> y <span class="math notranslate nohighlight">\(1^2 = 1\)</span>, así que no hay cambio al elevar al cuadrado.</p></li>
-</ul>
-</section>
-<section id="b-varianza-de-una-variable-bernoulli">
-<h5>B) Varianza de una variable Bernoulli<a class="headerlink" href="#b-varianza-de-una-variable-bernoulli" title="Link to this heading">#</a></h5>
-<p>La varianza se calcula con la fórmula:</p>
-<p><img alt="Varianza de X" src="../_images/bernulli-4.png" /></p>
-<ul class="simple">
-<li><p>Se utiliza el resultado anterior <span class="math notranslate nohighlight">\(\mathbb{E}[X] = \theta\)</span>.</p></li>
-<li><p>El desarrollo muestra cómo se simplifica la fórmula hasta obtener <span class="math notranslate nohighlight">\(\theta(1 - \theta)\)</span>, que aparece resaltado al final.</p></li>
-</ul>
-</section>
 <section id="ejemplo-numerico">
 <h5>Ejemplo numérico<a class="headerlink" href="#ejemplo-numerico" title="Link to this heading">#</a></h5>
 <p><strong>Ejemplo 1.</strong> Suponemos que tenemos un dado justo con cinco 3’s y un 6. ¿Cuál esperaría que fuera el promedio de 6000 tiros?</p>
@@ -1069,12 +1013,20 @@ X \sim \text{Geometric}(\theta)
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
 <span class="n">probs</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="o">/</span><span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">]</span>
-
-<span class="c1"># X1 (crear la variable aleatoria discreta)</span>
-<span class="n">X1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">rv_discrete</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">probs</span><span class="p">))</span>
-
-<span class="c1"># Calcular la esperanza (valor esperado)</span>
-<span class="n">E</span><span class="o">=</span> <span class="n">X1</span><span class="o">.</span><span class="n">expect</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X1</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">rv_discrete</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">probs</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">E</span> <span class="o">=</span> <span class="n">X1</span><span class="o">.</span><span class="n">expect</span><span class="p">()</span>
 <span class="n">E</span>
 </pre></div>
 </div>
@@ -1087,32 +1039,30 @@ X \sim \text{Geometric}(\theta)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X1</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Muestreamos la variable aleatoria</span>
+<span class="n">X1</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3, 6, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6, 3, 3, 3, 3, 3,
-       3, 3, 3, 6, 3, 6, 6, 3, 3, 3, 3, 3, 3, 3, 3, 6, 3, 6, 3, 6, 6, 6,
-       3, 3, 3, 3, 3, 3, 3, 6, 3, 6, 3, 6, 3, 6, 3, 3, 3, 3, 3, 3, 6, 3,
-       3, 3, 3, 3, 6, 3, 3, 3, 6, 3, 3, 3, 6, 6, 3, 3, 3, 3, 3, 3, 3, 6,
-       3, 3, 3, 3, 3, 3, 6, 3, 3, 3, 3, 3])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([6, 3, 3, 3, 3, 3, 6, 3, 3, 3, 3, 3, 6, 3, 3, 3, 3, 3, 6, 6, 3, 3,
+       3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 6, 6, 3, 3, 6, 6, 6, 3, 3, 3, 3, 3,
+       6, 3, 3, 6, 3, 3, 3, 3, 3, 3, 6, 6, 3, 6, 3, 3, 3, 3, 3, 3, 3, 3,
+       3, 3, 6, 3, 3, 3, 3, 3, 3, 3, 6, 3, 6, 3, 3, 3, 6, 6, 3, 3, 3, 3,
+       3, 3, 3, 3, 3, 6, 3, 6, 3, 3, 3, 3])
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Muestreamos la variable aleatoria</span>
-<span class="n">sample</span> <span class="o">=</span> <span class="n">X1</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample</span> <span class="o">=</span> <span class="n">X1</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 
-<span class="c1"># Obtenemos el promedio a medida que vamos obteniendo más muestras</span>
 <span class="n">cumulative_average</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1001</span><span class="p">)</span>
 
-<span class="c1"># Graficamos</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cumulative_average</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">E</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Esperanza&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Promedio acumulado de muestras&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">E</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Valor esperado&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Promedio acumulado de muestras de X1&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Número de muestras&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Promedio&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -1121,7 +1071,7 @@ X \sim \text{Geometric}(\theta)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/022d85c815fdc80fd224751725ebe7eb2b8110a6518b5be9dd8f67d85f5aab64.png" src="../_images/022d85c815fdc80fd224751725ebe7eb2b8110a6518b5be9dd8f67d85f5aab64.png" />
+<img alt="../_images/c2bcaff1978a337a88c39725f6ab95f3d0cb40bb8583b44ca7086b6b62887ba2.png" src="../_images/c2bcaff1978a337a88c39725f6ab95f3d0cb40bb8583b44ca7086b6b62887ba2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1141,10 +1091,7 @@ X \sim \text{Geometric}(\theta)
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># X2</span>
-
-<span class="n">X2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">rv_discrete</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;x2&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">35</span><span class="o">/</span><span class="mi">36</span><span class="p">)))</span>
-
-<span class="c1"># Valor esperado teórico</span>
+<span class="n">X2</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">rv_discrete</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">36</span><span class="p">,</span> <span class="mi">35</span><span class="o">/</span><span class="mi">36</span><span class="p">)))</span>
 <span class="n">E</span> <span class="o">=</span> <span class="n">X2</span><span class="o">.</span><span class="n">expect</span><span class="p">()</span>
 <span class="n">E</span>
 </pre></div>
@@ -1174,13 +1121,25 @@ X \sim \text{Geometric}(\theta)
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/3f6b0322b54219e0e2bb24f3f9a61784c02677d83d966e9caba8a9058363a69d.png" src="../_images/3f6b0322b54219e0e2bb24f3f9a61784c02677d83d966e9caba8a9058363a69d.png" />
+<img alt="../_images/2fbc5f966a1a2cfe00197c5eb83ce0ddc91f4ad86dc931bcc35ed56180bc7870.png" src="../_images/2fbc5f966a1a2cfe00197c5eb83ce0ddc91f4ad86dc931bcc35ed56180bc7870.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Varianza X2</span>
-<span class="n">X2</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+<span class="n">X1</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.25)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X2</span><span class="o">.</span><span class="n">var</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1227,20 +1186,20 @@ STD X2: 180.76910448359936
 <span class="k">def</span><span class="w"> </span><span class="nf">esperanza_varianza</span><span class="p">(</span><span class="n">soporte</span><span class="p">,</span> <span class="n">pmf_func</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calcula esperanza y varianza a partir de la definición.</span>
-<span class="sd">    </span>
+
 <span class="sd">    soporte: lista de valores posibles de X</span>
 <span class="sd">    pmf_func: función que recibe x y devuelve P(X=x)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
+
     <span class="c1"># Esperanza E[X]</span>
     <span class="n">E_X</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">pmf_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">soporte</span><span class="p">)</span>
-    
+
     <span class="c1"># Esperanza de X^2</span>
     <span class="n">E_X2</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">pmf_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">soporte</span><span class="p">)</span>
-    
+
     <span class="c1"># Varianza Var(X)</span>
     <span class="n">Var_X</span> <span class="o">=</span> <span class="n">E_X2</span> <span class="o">-</span> <span class="n">E_X</span><span class="o">**</span><span class="mi">2</span>
-    
+
     <span class="k">return</span> <span class="n">E_X</span><span class="p">,</span> <span class="n">Var_X</span>
 </pre></div>
 </div>
@@ -1255,12 +1214,12 @@ STD X2: 180.76910448359936
 <span class="n">pmf_bernoulli</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">theta</span> <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">theta</span><span class="p">)</span>
 
 <span class="n">E</span><span class="p">,</span> <span class="n">Var</span> <span class="o">=</span> <span class="n">esperanza_varianza</span><span class="p">(</span><span class="n">soporte</span><span class="p">,</span> <span class="n">pmf_bernoulli</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bernoulli → Esperanza:&quot;</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="s2">&quot;Varianza:&quot;</span><span class="p">,</span> <span class="n">Var</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bernoulli -&gt; Esperanza:&quot;</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="s2">&quot;Varianza:&quot;</span><span class="p">,</span> <span class="n">Var</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bernoulli → Esperanza: 0.3 Varianza: 0.21
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bernoulli -&gt; Esperanza: 0.3 Varianza: 0.21
 </pre></div>
 </div>
 </div>
@@ -1279,12 +1238,12 @@ STD X2: 180.76910448359936
     <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">comb</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">theta</span> <span class="o">**</span> <span class="n">k</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">theta</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="n">k</span><span class="p">))</span>
 
 <span class="n">E</span><span class="p">,</span> <span class="n">Var</span> <span class="o">=</span> <span class="n">esperanza_varianza</span><span class="p">(</span><span class="n">soporte</span><span class="p">,</span> <span class="n">pmf_binomial</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Binomial → Esperanza:&quot;</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="s2">&quot;Varianza:&quot;</span><span class="p">,</span> <span class="n">Var</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Binomial -&gt; Esperanza:&quot;</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="s2">&quot;Varianza:&quot;</span><span class="p">,</span> <span class="n">Var</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Binomial → Esperanza: 2.9999999999999987 Varianza: 2.1000000000000014
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Binomial -&gt; Esperanza: 2.9999999999999987 Varianza: 2.1000000000000014
 </pre></div>
 </div>
 </div>
@@ -1294,18 +1253,18 @@ STD X2: 180.76910448359936
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Geométrica</span>
 
 <span class="n">theta</span> <span class="o">=</span> <span class="mf">0.3</span>
-<span class="n">K</span> <span class="o">=</span> <span class="mi">100</span>  
+<span class="n">K</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">soporte</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">K</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="n">pmf_geometrica</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="p">((</span><span class="mi">1</span> <span class="o">-</span> <span class="n">theta</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">theta</span>
 
 <span class="n">E</span><span class="p">,</span> <span class="n">Var</span> <span class="o">=</span> <span class="n">esperanza_varianza</span><span class="p">(</span><span class="n">soporte</span><span class="p">,</span> <span class="n">pmf_geometrica</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Geométrica (aprox) → Esperanza:&quot;</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="s2">&quot;Varianza:&quot;</span><span class="p">,</span> <span class="n">Var</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Geométrica (aprox) -&gt; Esperanza:&quot;</span><span class="p">,</span> <span class="n">E</span><span class="p">,</span> <span class="s2">&quot;Varianza:&quot;</span><span class="p">,</span> <span class="n">Var</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Geométrica (aprox) → Esperanza: 3.333333333333299 Varianza: 7.77777777777454
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Geométrica (aprox) -&gt; Esperanza: 3.333333333333299 Varianza: 7.77777777777454
 </pre></div>
 </div>
 </div>
@@ -1324,7 +1283,7 @@ STD X2: 180.76910448359936
         requestKernel: true,
         binderOptions: {
             repo: "patymunoz/modelos-graficos-probabilisticos",
-            ref: "main",
+            ref: "v2026",
         },
         codeMirrorConfig: {
             theme: "abcdef",
@@ -1350,12 +1309,12 @@ STD X2: 180.76910448359936
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="M1-sesion2.html"
+       href="M1-sesion2A.html"
        title="página anterior">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">anterior</p>
-        <p class="prev-next-title">Sesión 2</p>
+        <p class="prev-next-title">Sesion 2</p>
       </div>
     </a>
     <a class="right-next"
@@ -1374,14 +1333,16 @@ STD X2: 180.76910448359936
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contenido
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repaso-de-probabilidad-parte-2a">1. Repaso de probabilidad (parte 2A)</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-aleatorias">1.1. Variables aleatorias</a><ul class="nav section-nav flex-column">
@@ -1407,10 +1368,7 @@ STD X2: 180.76910448359936
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#valor-esperado-y-varianza-discretas">1.3. Valor esperado y varianza (discretas)</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#esperanza">1.3.1. Esperanza</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">1.3.2. Varianza</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#calculo-de-esperanza-y-varianza-de-variable-aleatoria-bernoulli">1.3.3. Cálculo de esperanza y varianza de variable aleatoria Bernoulli</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#a-esperanza-de-x-2">A) Esperanza de <span class="math notranslate nohighlight">\(X^2\)</span></a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#b-varianza-de-una-variable-bernoulli">B) Varianza de una variable Bernoulli</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#varianza">1.3.2. Varianza</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#ejemplo-numerico">Ejemplo numérico</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#pregunta-en-lo-anterior-estamos-usando-datos-para-generar-el-calculo">💡 Pregunta: en lo anterior, <em>¿estamos usando datos para generar el cálculo?</em></a></li>
 </ul>
@@ -1443,7 +1401,7 @@ Por MCD. Paty Munoz
 
   <p class="copyright">
     
-      © Copyright 2025, Paty Munoz.
+      © Copyright 2026, Paty Munoz.
       <br/>
     
   </p>
@@ -1467,8 +1425,8 @@ Por MCD. Paty Munoz
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
