@@ -94,13 +94,13 @@ git clone https://github.com/patymunoz/modelos-graficos-probabilisticos.git
 cd modelos-graficos-probabilisticos
 ```
 
-3.2. Verifica que estás en la rama actual `p2026`:
+3.2. Verifica que estás en la rama actual `v2026`:
 
 ```bash
 git branch
 ```
 
-> Deberías ver un asterisco (\*) junto a `p2026`.
+> Deberías ver un asterisco (\*) junto a `v2026`.
 
 4. Agrega el repositorio original como remoto adicional `upstream`, para mantenerte sincronizado con los cambios del curso:
 
@@ -126,8 +126,8 @@ upstream  https://github.com/patymunoz/modelos-graficos-probabilisticos.git (fet
 Cuando el curso se actualice, puedes sincronizarte con:
 
 ```
-git checkout p2026
-git pull upstream p2026
+git checkout v2026
+git pull upstream v2026
 ```
 
 Esto trae los cambios del curso original a tu copia local.
@@ -135,7 +135,7 @@ Esto trae los cambios del curso original a tu copia local.
 Luego, si quieres actualizar tu _fork_ en GitHub:
 
 ```
-git push origin p2026
+git push origin v2026
 ```
 
 6. Crear y activar el entorno virtual con uv

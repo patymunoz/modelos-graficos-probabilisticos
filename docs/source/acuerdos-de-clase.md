@@ -1,10 +1,10 @@
 # Sobre la clase
 
-**Horario:** Lunes 18:30 a 21:30 hrs.
+**Horario:** Lunes a jueves 18:30 a 21:30 hrs.
 
-**Profesora:** Paty Muñoz.
+**Profesores:** Paty Muñoz y Jesús Sánchez.
 
-**Correo electrónico:** patricia.munoz@iteso.mx
+**Correo electrónico:** patricia.munoz@iteso.mx | jesanche@iteso.mx
 
 ## Medio de contacto del grupo
 
@@ -20,17 +20,16 @@ La comunicación se realizará a través de los **medios oficiales de la institu
 
 Puedes consultar los acuerdos completos en [este recurso.](https://iteso.instructure.com/courses/55620/files/11278488?module_item_id=2217237)
 
-- El inicio de clases será a las 18:35 y la profesora podrá tomar asistencia. Luego de esa hora, será considerado retardo.
+- El inicio de clases será a las 18:35 y la o el profesor podrá tomar asistencia. Luego de esa hora, será considerado retardo.
 
-- Las y los alumnos tendrán que esperar a la profesora hasta por 20 minutos (30 minutos después de la hora), después de ese tiempo se podrán ir sin falta. En la siguiente clase la profesora indicará la fecha de reposición de la clase o de los minutos por su retraso. En las clases de reposición no se toma asistencia.
+- Las y los alumnos tendrán que esperar a los profesores hasta por 20 minutos (30 minutos después de la hora), después de ese tiempo se podrán ir sin falta. En la siguiente clase los profesores indicarán la fecha de reposición de la clase o de los minutos por su retraso. En las clases de reposición no se toma asistencia.
 
-- Es obligación de la profesora retroalimentar a las y los alumnos después de haber realizado cualquier tipo de evaluación entregando el examen correspondiente a más tardar dos semanas después de haber efectuado el mismo.
+- Es obligación de los profesores retroalimentar a las y los alumnos después de haber realizado cualquier tipo de evaluación entregando el examen correspondiente.
 
 ## Evaluación
 
 | **Criterio**          | **Porcentaje** |
 | --------------------- | -------------- |
-| Tareas                | 35%            |
-| Exámenes rápidos      | 25%            |
-| Actividad integradora | 40%            |
+| Exámenes rápidos      | 35%            |
+| Actividad integradora | 65%            |
 | **Total**             | **100%**       |
