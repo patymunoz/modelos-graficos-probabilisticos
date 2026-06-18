@@ -55,6 +55,8 @@ docs/source/modulo2/*
 docs/source/modulo3/*
 !docs/source/modulo3/.gitkeep
 !docs/source/modulo3/index.md
+!docs/source/modulo3/M3-sesion14-PT1.ipynb
+!docs/source/modulo3/M3-sesion14-PT2.ipynb
 
 
 **/jupyter_execute/
