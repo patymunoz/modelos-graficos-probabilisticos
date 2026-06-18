@@ -30,6 +30,7 @@ Puedes consultar los acuerdos completos en [este recurso.](https://iteso.instruc
 
 | **Criterio**          | **Porcentaje** |
 | --------------------- | -------------- |
-| Exámenes rápidos      | 35%            |
+| Exámenes rápidos      | 20%            |
+| Participación         | 15%            |
 | Actividad integradora | 65%            |
 | **Total**             | **100%**       |
